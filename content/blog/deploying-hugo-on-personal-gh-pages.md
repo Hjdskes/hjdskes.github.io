@@ -3,6 +3,11 @@ date = "2016-08-16T22:07:21+02:00"
 title = "Deploying Hugo-generated websites on personal GitHub Pages"
 +++
 
+{{% message type="info" %}} The method described here is obsolete. The
+introduction still provides a nice overview of the problem, but please see my
+[updated post](/blog/update-deploying-hugo-on-personal-gh-pages) for the actual
+steps and scripts! {{% /message %}}
+
 *<q>"Hello, World!"</q>*
 
 As this is the first blog post on this website (and indeed, by myself), the
