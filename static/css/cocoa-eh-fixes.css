@@ -1,8 +1,10 @@
-a {
-  color: #228b22;
+a,
+section.main .content .markdown a code {
+  color: #228b22 !important;
 }
-a:hover {
-  color: #005900;
+a:hover,
+section.main .content .markdown a code:hover {
+  color: #005900 !important;
 }
 section.footer {
   margin-top: 0em;
