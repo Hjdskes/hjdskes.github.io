@@ -1,0 +1,19 @@
+# Site settings
+baseurl = "https://hjdskes.github.io/"
+theme = "cocoa-eh"
+languageCode = "en-us"
+author = "Jente Hidskes"
+title = "Jente Hidskes' personal website"
+
+[params]
+dateform = "Jan 2, 2006"
+dateformfull = "Mon Jan 2 2006 15:04:05 MST"
+description = "Jente Hidskes' personal website"
+copyright = "Copyright © 2016, 2017 Jente Hidskes"
+logofile = "img/avatar.png"
+extracssfiles = [ "css/message.css", "css/gallery.css", "css/cocoa-eh-fixes.css" ]
+highlightjs = true
+progressively = false
+latestpostcount = 5
+github = "Hjdskes"
+email = "hjdskes@gmail.com"

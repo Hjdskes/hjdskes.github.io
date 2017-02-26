@@ -1,0 +1,16 @@
+<nav class="main-nav">
+    {{ if not .IsHome }}
+        <a href='{{ .Site.BaseURL }}'><span class="arrow">←</span>{{ with .Site.Params.home }}{{ . }}{{ else }}Home{{ end }}</a>
+    {{ end }}
+
+    <a href='{{ .Site.BaseURL }}projects/'>{{ with.Site.Params.projects }}{{ . }}{{ else }}Projects{{ end }}</a>
+    <a href='{{ .Site.BaseURL }}about/'>{{ with .Site.Params.about }}{{ . }}{{ else }}About{{ end }}</a>
+
+    {{ if .Site.Params.enableRSS }}
+        <a class="cta" href="{{ .Site.RSSLink }}">{{ with .Site.Params.subscribe }}{{ . }}{{ else }}Subscribe{{ end }}</a>
+    {{ end }}
+
+    <a class="icon-hamburger" href="javascript:void(0);" onclick="toggleMenu()">
+        <i class="fa fa-bars fa-lg"></i>
+    </a>
+</nav>

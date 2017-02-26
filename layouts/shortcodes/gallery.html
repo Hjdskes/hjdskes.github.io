@@ -1,0 +1,15 @@
+<div class="gallery">
+  {{ range .Params }}
+    <img src="{{ . }}">
+  {{ end }}
+
+  <div class="gallery-thumbnails">
+    {{ $n := len .Params }}
+    {{ range $index, $img := .Params }}
+      <img style="margin-left: 0; width: {{ div 90 $n }}%" class="gallery-thumbnail" src="{{ $img }}"
+           onclick="showSlide({{$index}})">
+    {{ end }}
+  </div>
+</div>
+
+<script src="{{ .Site.BaseURL}}js/gallery.js"></script>
