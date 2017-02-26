@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Jente Hidskes&#39; personal website">
+
+
+<meta property="twitter:title" content="Update: deploying Hugo-generated websites on personal GitHub Pages">
+
+    <meta property="twitter:card" content="summary">
+
+<meta property="twitter:description" content="">
+
+<title>
+
+
+     Jente Hidskes&#39; personal website - Update: deploying Hugo-generated websites on personal GitHub Pages 
+
+</title>
+<link rel="canonical" href="https://hjdskes.github.io/blog/update-deploying-hugo-on-personal-gh-pages/">
+
+
+<link rel="stylesheet" href="https://hjdskes.github.io/css/main.css">
+<link rel="stylesheet" href="https://hjdskes.github.io/css/ionicons.min.css">
+
+
+  <link rel="stylesheet" href="https://hjdskes.github.io/css/highlight.min.css">
+
+
+
+
+
+  <link rel="stylesheet" href="https://hjdskes.github.io/css/message.css">
+
+  <link rel="stylesheet" href="https://hjdskes.github.io/css/gallery.css">
+
+  <link rel="stylesheet" href="https://hjdskes.github.io/css/cocoa-eh-fixes.css">
+
+
+
+<link rel="shortcut icon"
+
+    href="https://hjdskes.github.io/img/favicon.ico"
+
+>
+
+
+
+
+</head>
+
+
+<body>
+
+
+<section class="header">
+
+    <div class="container">
+        <a href="https://hjdskes.github.io/"><img class="logo" src="https://hjdskes.github.io/img/avatar.png" alt="logo" /></a>
+        <div class="content">
+            <a href="https://hjdskes.github.io/"><div class="name"><h1>Jente Hidskes&#39; personal website</h1></div></a>
+            <nav>
+                <ul>
+                    
+                        <a href="https://hjdskes.github.io/blog/"><li>Blog</li></a>
+                    
+                    
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                            <a href="https://hjdskes.github.io/contributions"><li>contributions</li></a>
+                            
+                        
+                    
+                        
+                            
+                            <a href="https://hjdskes.github.io/projects"><li>projects</li></a>
+                            
+                        
+                    
+                    
+                        
+                    
+                        
+                    
+                        
+                            <a href="https://hjdskes.github.io/about/"><li>About me</li></a>
+                        
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Update: deploying Hugo-generated websites on personal GitHub Pages
+
+</div>
+
+                </div>
+                <div class="meta">
+                    <div class="date" title="Sun Feb 26 2017 22:12:00 CET">Feb 26, 2017</div>
+                    <div class="reading-time"><div class="middot"></div>3 minutes read</div>
+                </div>
+            </div>
+            <div class="markdown">
+                
+                    <p>In my <a href="/blog/deploying-hugo-on-personal-gh-pages">previous post</a> I explained the
+workflow I use to update this website. It has never been particularly stable,
+and the process seemed far more complicated than it needed to be.</p>
+
+<p>This week I attempted to update the theme of this website (sidenote: thanks
+<a href="https://github.com/fuegowolf">Alexis Tacnet</a> for your awesome theme and
+cooperation!). To pull in the theme&rsquo;s files, I use <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">git
+submodules</a>. Apparently,
+this completely break git&rsquo;s subtrees. I had enough of trying to maintain
+this complicated setup, so I started looking around for better ways.</p>
+
+<p>Fortunately, Hugo&rsquo;s &ldquo;Hosting on GitHub&rdquo; tutorial has been updated to include
+instructions on <a href="https://gohugo.io/tutorials/github-pages-blog/#deployment-via-gh-pages-branch">deploying via a <code>gh-pages</code>
+branch</a>.
+The instructions are easily modified to work with the setup that personal pages
+require! If you want to know how it works, read that tutorial; what follows
+below are my updated <code>setup.sh</code> and <code>deploy.sh</code> scripts.</p>
+
+<p>You can find the updated structure and setup in use in <a href="https://github.com/Hjdskes/hjdskes.github.io">this website&rsquo;s
+repository</a>. If any of the above
+is unclear, feel free to send me an <a href="mailto:hjdskes@gmail.com">email</a> and I&rsquo;ll
+try my best to help you.</p>
+
+<p><code>setup.sh</code>:</p>
+
+<pre><code class="language-bash">#!/usr/bin/env bash
+
+# This script does the required work to set up your personal GitHub Pages
+# repository for deployment using Hugo. Run this script only once -- when the
+# setup has been done, run the `deploy.sh` script to deploy changes and update
+# your website. See
+# https://hjdskes.github.io/blog/update-deploying-hugo-on-personal-github-pages/
+# for more information.
+
+# Name of the branch containing the Hugo source files.
+SOURCE=hugo
+
+msg() {
+    printf &quot;\033[1;32m :: %s\n\033[0m&quot; &quot;$1&quot;
+}
+
+msg &quot;Adding the \`public\` folder to .gitignore&quot;
+echo &quot;public&quot; &gt;&gt; .gitignore
+
+msg &quot;Deleting the \`master\` branch&quot;
+git branch -D master
+git push origin --delete master
+
+msg &quot;Creating an empty, orphaned \`master\` branch&quot;
+git checkout --orphan master
+git reset --hard
+git commit --allow-empty -m &quot;Initial commit on master branch&quot;
+git push origin master
+git checkout $SOURCE
+
+msg &quot;Adding the master branch into the \`public\` folder&quot;
+rm -rf public
+git worktree -B master public origin/master
+</code></pre>
+
+<p><code>deploy.sh</code></p>
+
+<pre><code class="language-bash">#!/usr/bin/env bash
+
+# This script allows you to easily and quickly generate and deploy your website
+# using Hugo to your personal GitHub Pages repository. This script requires a
+# certain configuration, run the `setup.sh` script to configure this. See
+# https://hjdskes.github.io/blog/update-deploying-hugo-on-personal-github-pages/
+# for more information.
+
+# Set the English locale for the `date` command.
+export LC_TIME=en_US.UTF-8
+
+# The commit message.
+MESSAGE=&quot;Site rebuild $(date)&quot;
+
+msg() {
+    printf &quot;\033[1;32m :: %s\n\033[0m&quot; &quot;$1&quot;
+}
+
+if [[ $(git status -s) ]]; then
+    msg &quot;The working directory is dirty, please commit or stash any pending changes&quot;
+    exit 1;
+fi
+
+msg &quot;Removing the old website&quot;
+pushd public
+git rm -rf *
+popd
+
+msg &quot;Building the website&quot;
+hugo
+
+msg &quot;Pushing the updated \`public\` folder to the \`master\` branch&quot;
+pushd public
+git add *
+git commit -m &quot;$MESSAGE&quot;
+popd
+git push origin master
+</code></pre>
+
+                
+                <br>
+                <p><a href="blog">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="footer">
+    <div class="container">
+        <div class="copyright">
+
+        
+            <a href="https://hjdskes.github.io/license">Copyright © 2016, 2017 Jente Hidskes</a>
+        
+
+        </div>
+        <div class="icons">
+
+        
+            <a href="https://github.com/Hjdskes" target="_blank">
+                <i class="icon ion-social-github" title="github"></i>
+            </a>
+        
+
+        
+
+        
+
+        
+            <a href="mailto:hjdskes@gmail.com">
+                <i class="icon ion-ios-email larger" title="email"></i>
+            </a>
+        
+
+        
+            <a href="https://hjdskes.github.io/index.xml">
+                <i class="icon ion-social-rss larger" title="rss"></i>
+            </a>
+        
+
+        </div>
+    </div>
+</section>
+
+
+  <script src="https://hjdskes.github.io/js/highlight.min.js" defer></script>
+  
+
+
+
+
+<script>
+  window.onload = function() {
+    
+      hljs.initHighlighting();
+    
+    
+  };
+</script>
+
+</body>
+</html>
+

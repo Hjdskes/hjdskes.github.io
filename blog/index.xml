@@ -7,8 +7,117 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016, 2017 Jente Hidskes</copyright>
-    <lastBuildDate>Tue, 16 Aug 2016 22:07:21 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 26 Feb 2017 22:12:00 +0100</lastBuildDate>
     <atom:link href="https://hjdskes.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Update: deploying Hugo-generated websites on personal GitHub Pages</title>
+      <link>https://hjdskes.github.io/blog/update-deploying-hugo-on-personal-gh-pages/</link>
+      <pubDate>Sun, 26 Feb 2017 22:12:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/blog/update-deploying-hugo-on-personal-gh-pages/</guid>
+      <description>&lt;p&gt;In my &lt;a href=&#34;https://hjdskes.github.io/blog/deploying-hugo-on-personal-gh-pages&#34;&gt;previous post&lt;/a&gt; I explained the
+workflow I use to update this website. It has never been particularly stable,
+and the process seemed far more complicated than it needed to be.&lt;/p&gt;
+
+&lt;p&gt;This week I attempted to update the theme of this website (sidenote: thanks
+&lt;a href=&#34;https://github.com/fuegowolf&#34;&gt;Alexis Tacnet&lt;/a&gt; for your awesome theme and
+cooperation!). To pull in the theme&amp;rsquo;s files, I use &lt;a href=&#34;https://git-scm.com/book/en/v2/Git-Tools-Submodules&#34;&gt;git
+submodules&lt;/a&gt;. Apparently,
+this completely break git&amp;rsquo;s subtrees. I had enough of trying to maintain
+this complicated setup, so I started looking around for better ways.&lt;/p&gt;
+
+&lt;p&gt;Fortunately, Hugo&amp;rsquo;s &amp;ldquo;Hosting on GitHub&amp;rdquo; tutorial has been updated to include
+instructions on &lt;a href=&#34;https://gohugo.io/tutorials/github-pages-blog/#deployment-via-gh-pages-branch&#34;&gt;deploying via a &lt;code&gt;gh-pages&lt;/code&gt;
+branch&lt;/a&gt;.
+The instructions are easily modified to work with the setup that personal pages
+require! If you want to know how it works, read that tutorial; what follows
+below are my updated &lt;code&gt;setup.sh&lt;/code&gt; and &lt;code&gt;deploy.sh&lt;/code&gt; scripts.&lt;/p&gt;
+
+&lt;p&gt;You can find the updated structure and setup in use in &lt;a href=&#34;https://github.com/Hjdskes/hjdskes.github.io&#34;&gt;this website&amp;rsquo;s
+repository&lt;/a&gt;. If any of the above
+is unclear, feel free to send me an &lt;a href=&#34;mailto:hjdskes@gmail.com&#34;&gt;email&lt;/a&gt; and I&amp;rsquo;ll
+try my best to help you.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;setup.sh&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/usr/bin/env bash
+
+# This script does the required work to set up your personal GitHub Pages
+# repository for deployment using Hugo. Run this script only once -- when the
+# setup has been done, run the `deploy.sh` script to deploy changes and update
+# your website. See
+# https://hjdskes.github.io/blog/update-deploying-hugo-on-personal-github-pages/
+# for more information.
+
+# Name of the branch containing the Hugo source files.
+SOURCE=hugo
+
+msg() {
+    printf &amp;quot;\033[1;32m :: %s\n\033[0m&amp;quot; &amp;quot;$1&amp;quot;
+}
+
+msg &amp;quot;Adding the \`public\` folder to .gitignore&amp;quot;
+echo &amp;quot;public&amp;quot; &amp;gt;&amp;gt; .gitignore
+
+msg &amp;quot;Deleting the \`master\` branch&amp;quot;
+git branch -D master
+git push origin --delete master
+
+msg &amp;quot;Creating an empty, orphaned \`master\` branch&amp;quot;
+git checkout --orphan master
+git reset --hard
+git commit --allow-empty -m &amp;quot;Initial commit on master branch&amp;quot;
+git push origin master
+git checkout $SOURCE
+
+msg &amp;quot;Adding the master branch into the \`public\` folder&amp;quot;
+rm -rf public
+git worktree -B master public origin/master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;deploy.sh&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/usr/bin/env bash
+
+# This script allows you to easily and quickly generate and deploy your website
+# using Hugo to your personal GitHub Pages repository. This script requires a
+# certain configuration, run the `setup.sh` script to configure this. See
+# https://hjdskes.github.io/blog/update-deploying-hugo-on-personal-github-pages/
+# for more information.
+
+# Set the English locale for the `date` command.
+export LC_TIME=en_US.UTF-8
+
+# The commit message.
+MESSAGE=&amp;quot;Site rebuild $(date)&amp;quot;
+
+msg() {
+    printf &amp;quot;\033[1;32m :: %s\n\033[0m&amp;quot; &amp;quot;$1&amp;quot;
+}
+
+if [[ $(git status -s) ]]; then
+    msg &amp;quot;The working directory is dirty, please commit or stash any pending changes&amp;quot;
+    exit 1;
+fi
+
+msg &amp;quot;Removing the old website&amp;quot;
+pushd public
+git rm -rf *
+popd
+
+msg &amp;quot;Building the website&amp;quot;
+hugo
+
+msg &amp;quot;Pushing the updated \`public\` folder to the \`master\` branch&amp;quot;
+pushd public
+git add *
+git commit -m &amp;quot;$MESSAGE&amp;quot;
+popd
+git push origin master
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Deploying Hugo-generated websites on personal GitHub Pages</title>
@@ -17,6 +126,16 @@
       
       <guid>https://hjdskes.github.io/blog/deploying-hugo-on-personal-gh-pages/</guid>
       <description>
+
+&lt;div  class=&#34;info&#34; &gt;
+  &lt;p&gt;The method described here is obsolete. The
+introduction still provides a nice overview of the problem, but please see my
+&lt;a href=&#34;https://hjdskes.github.io/blog/update-deploying-hugo-on-personal-gh-pages&#34;&gt;updated post&lt;/a&gt; for the actual
+steps and scripts!&lt;/p&gt;
+
+&lt;/div&gt;
+
+
 
 &lt;p&gt;&lt;em&gt;&lt;q&gt;&amp;ldquo;Hello, World!&amp;rdquo;&lt;/q&gt;&lt;/em&gt;&lt;/p&gt;
 
