@@ -10,6 +10,9 @@ section.footer {
   margin-top: 0em;
   padding-bottom: 60px;
 }
+section.footer .container a {
+    color: #666666 !important;
+}
 @media (min-width: 600px) {
   section.main.post {
     padding-bottom: 0px;
