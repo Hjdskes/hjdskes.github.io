@@ -1,0 +1,8 @@
+<li class="post-item">
+    <span class="meta">{{ .Date.Format .Site.Params.dateform }}</span>
+    {{ if .Params.link }}
+      <a href="{{ .Params.link }}"><span>{{ .Title }}</span></a>
+    {{ else }}
+      <a href="{{ .Permalink }}"><span>{{ .Title }}</span></a>
+    {{ end }}
+</li>
