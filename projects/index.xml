@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Jente Hidskes&#39; personal website</title>
+    <link>https://hjdskes.github.io/projects/index.xml</link>
+    <description>Recent content in Projects on Jente Hidskes&#39; personal website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2016, 2017 Jente Hidskes</copyright>
+    <lastBuildDate>Mon, 08 Aug 2016 13:18:21 +0200</lastBuildDate>
+    <atom:link href="https://hjdskes.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Projects</title>
+      <link>https://hjdskes.github.io/projects/projects/</link>
+      <pubDate>Mon, 08 Aug 2016 13:18:21 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/projects/</guid>
+      <description>&lt;p&gt;I maintain several open-source applications of my own. I also do course projects
+for university. Below you will find a list of projects I think are worth
+mentioning. Please browse through my &lt;a href=&#34;https://github.com/Hjdskes/repositories&#34;&gt;GitHub repositories&lt;/a&gt;
+for an exhaustive list.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Spoofax Shell: my thesis project to create a REPL for Spoofax</title>
+      <link>https://hjdskes.github.io/projects/spoofax-shell/</link>
+      <pubDate>Wed, 29 Jun 2016 17:23:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/spoofax-shell/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/spoofax-shell&#34;&gt;Spoofax Shell&lt;/a&gt; is my thesis project to create
+a REPL for the &lt;a href=&#34;http://metaborg.org/en/latest/&#34;&gt;Spoofax Language Workbench&lt;/a&gt;.
+Read the accompanying report
+&lt;a href=&#34;http://repository.tudelft.nl/islandora/object/uuid:d8cd3d2f-9667-4b9e-9d25-f3e6e7d3a31f?collection=education&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>GTimeUtils: a stopwatch and a timer, bundled together as time utilities</title>
+      <link>https://hjdskes.github.io/projects/gtimeutils/</link>
+      <pubDate>Sat, 22 Aug 2015 16:52:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/gtimeutils/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DNAinator: visualizing and exploring DNA sequence graphs</title>
+      <link>https://hjdskes.github.io/projects/dnainator/</link>
+      <pubDate>Thu, 25 Jun 2015 00:47:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/dnainator/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Arek Window Manager: a Mutter-based tiling window manager</title>
+      <link>https://hjdskes.github.io/projects/arek/</link>
+      <pubDate>Sat, 21 Mar 2015 21:29:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/arek/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/Hjdskes/arek-wm&#34;&gt;Arek Window Manager&lt;/a&gt; is a plugin to
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Mutter_(software)&#34;&gt;Mutter&lt;/a&gt; in an (ambitious)
+attempt to create a tiling window manager with eye-candy. Due to several
+limitations on Mutter&amp;rsquo;s side, a moving Wayland target and a lack of time on my
+side, this project is not actively maintained at the moment.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Line Follower: an embedded software course project</title>
+      <link>https://hjdskes.github.io/projects/linefollower/</link>
+      <pubDate>Sun, 25 Jan 2015 21:27:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/linefollower/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/Hjdskes/TI2726-B&#34;&gt;Line Follower&lt;/a&gt; is an embedded software
+course project to make a robot follow a line. An Android app is used to send
+images from the camera to a laptop via the network, where the laptop detects the
+line and sends commands to the robot via Bluetooth.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2048: a software engineering course project</title>
+      <link>https://hjdskes.github.io/projects/2048/</link>
+      <pubDate>Fri, 14 Nov 2014 14:27:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/2048/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ray Tracer: a computer graphics course project</title>
+      <link>https://hjdskes.github.io/projects/raytracer/</link>
+      <pubDate>Thu, 26 Jun 2014 22:45:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/raytracer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ExcelPP: a freshmen OOP project to create a spreadsheet application</title>
+      <link>https://hjdskes.github.io/projects/excelpp/</link>
+      <pubDate>Mon, 27 Jan 2014 10:37:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/excelpp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Phosphorus: a wallpaper browser and setter in the spirit of Nitrogen</title>
+      <link>https://hjdskes.github.io/projects/phosphorus/</link>
+      <pubDate>Fri, 15 Nov 2013 21:40:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/phosphorus/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/Hjdskes/phosphorus&#34;&gt;Phosphorus&lt;/a&gt; is a wallpaper browser and
+setter in the spirit of &lt;a href=&#34;https://github.com/l3ib/nitrogen&#34;&gt;Nitrogen&lt;/a&gt;. It can be
+considered an unofficial port of Nitrogen to GTK+ 3. Phosphorus is different,
+however, in that it is plugin-based. This allows it be agnostic as to how the
+wallpaper is actually applied &amp;ndash; each Desktop Environment has its own plugin
+with this functionality.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Gcolor3: a color selection dialog written in GTK&#43; 3</title>
+      <link>https://hjdskes.github.io/projects/gcolor3/</link>
+      <pubDate>Sun, 24 Feb 2013 17:31:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/gcolor3/</guid>
+      <description>
+
+&lt;div class=&#34;gallery&#34;&gt;
+  
+    &lt;img src=&#34;https://hjdskes.github.io/img/projects/gcolor3/picker.png&#34;&gt;
+  
+    &lt;img src=&#34;https://hjdskes.github.io/img/projects/gcolor3/saved.png&#34;&gt;
+  
+
+  &lt;div class=&#34;gallery-thumbnails&#34;&gt;
+    
+    
+      &lt;img style=&#34;margin-left: 0; width: 45%&#34; class=&#34;gallery-thumbnail&#34; src=&#34;https://hjdskes.github.io/img/projects/gcolor3/picker.png&#34;
+           onclick=&#34;showSlide( 0 )&#34;&gt;
+    
+      &lt;img style=&#34;margin-left: 0; width: 45%&#34; class=&#34;gallery-thumbnail&#34; src=&#34;https://hjdskes.github.io/img/projects/gcolor3/saved.png&#34;
+           onclick=&#34;showSlide( 1 )&#34;&gt;
+    
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script src=&#34;https://hjdskes.github.io/js/gallery.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Ever wanted to know the value of that color on your screen? Gcolor3 enables you
+to pick the color from any pixel on your screen. It also offers a palette, so
+that you can easily mix and match a couple of colors together.&lt;/p&gt;
+
+&lt;p&gt;When you have found the perfect combination of colors, naturally you want to
+save them. Gcolor3 allows you to conveniently save and retrieve colors.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/Hjdskes/gcolor3&#34;&gt;Gcolor3&lt;/a&gt; is a color selection dialog written
+in &lt;a href=&#34;http://www.gtk.org/&#34;&gt;GTK+&lt;/a&gt; 3. It is much alike
+&lt;a href=&#34;http://gcolor2.sourceforge.net/&#34;&gt;Gcolor2&lt;/a&gt;, but uses the newer GTK+ version and
+other modernisations to better integrate into your modern desktop.&lt;/p&gt;
+
+&lt;div  class=&#34;warning&#34; &gt;
+  &lt;p&gt;Gcolor3 does not work on Wayland (see issue
+&lt;a href=&#34;https://github.com/Hjdskes/gcolor3/issues/38&#34;&gt;#38&lt;/a&gt;).&lt;/p&gt;
+
+&lt;/div&gt;
+
+
+
+&lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
+
+&lt;p&gt;There are two ways to install Gcolor3: you can either compile it &lt;a href=&#34;#compile-from-source&#34;&gt;from
+source&lt;/a&gt; or use a &lt;a href=&#34;#distribution-packages&#34;&gt;package&lt;/a&gt; created
+for your Linux distribution.&lt;/p&gt;
+
+&lt;p&gt;The most recent version of Gcolor3 requires GTK+ 3.16. If your Linux
+distribution uses an older version, please see the &lt;a href=&#34;https://github.com/Hjdskes/gcolor3/releases&#34;&gt;older
+releases&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id=&#34;distribution-packages&#34;&gt;Distribution packages&lt;/h4&gt;
+
+&lt;p&gt;Gcolor3 is packaged for some Linux distributions. This should be your preferred
+method of installation, if your Linux distribution is listed below:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Arch Linux:&lt;/strong&gt; There are AUR packages for the &lt;a href=&#34;https://aur.archlinux.org/packages/gcolor3/&#34;&gt;latest stable
+release&lt;/a&gt; and for the &lt;a href=&#34;https://aur.archlinux.org/packages/gcolor3-git/&#34;&gt;git
+version&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Fedora:&lt;/strong&gt; There is a &lt;a href=&#34;https://copr.fedorainfracloud.org/coprs/fnux/gcolor3/&#34;&gt;copr
+repository&lt;/a&gt; to install
+Gcolor3. Please see the instructions there.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;compile-from-source&#34;&gt;Compile from source&lt;/h4&gt;
+
+&lt;p&gt;To compile Gcolor3, you need the GTK+ 3 development packages and your
+Linux distribution&amp;rsquo;s package containing the tools to compile packages.&lt;/p&gt;
+
+&lt;p&gt;When the build- and runtime dependencies of Gcolor3 have been installed, run the
+following commands to build and install Gcolor3:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ ./autogen.sh
+$ make
+# make clean install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Optionally, the development packages can now be uninstalled.&lt;/p&gt;
+
+&lt;h3 id=&#34;translations&#34;&gt;Translations&lt;/h3&gt;
+
+&lt;p&gt;You can help translating Gcolor3 to your own language! Currently, Gcolor3 is
+available in Dutch, American and British English, French, Galician, German,
+Greek, Serbian, Swedish and Ukrainian.&lt;/p&gt;
+
+&lt;p&gt;New translations are always welcome! To do so, simply follow these steps:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ cd po
+$ intltool-update --pot
+$ mv Gcolor3.pot xx.po
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Where &lt;code&gt;xx&lt;/code&gt; is the code of your language (e.g. &lt;code&gt;nl&lt;/code&gt; for Dutch or &lt;code&gt;en_GB&lt;/code&gt; for
+British English). Edit the
+&lt;a href=&#34;https://github.com/Hjdskes/gcolor3/blob/master/po/LINGUAS&#34;&gt;LINGUAS&lt;/a&gt; file and add
+your language code. Please keep the list sorted alphabetically. Lastly, open
+the &lt;code&gt;.po&lt;/code&gt; file you just generated and translate all the strings. Don&amp;rsquo;t forget to
+fill in the information in the header!&lt;/p&gt;
+
+&lt;p&gt;When a translation needs updating, execute the following commands:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ cd po
+$ intltool-update --pot
+$ intltool-update --dist --gettext-package=Gcolor3 --output-file=xx.po xx
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;When you are done translating, either make a pull request on GitHub or send me
+the file via &lt;a href=&#34;mailto:hjdskes@gmail.com&#34;&gt;email&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;bugs&#34;&gt;Bugs&lt;/h3&gt;
+
+&lt;p&gt;For any bug or feature request, please &lt;a href=&#34;https://github.com/Hjdskes/gcolor3/issues/new&#34;&gt;create an
+issue&lt;/a&gt; on
+GitHub.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Powersave: aggressive power saving on a Linux system</title>
+      <link>https://hjdskes.github.io/projects/powersave/</link>
+      <pubDate>Sat, 30 Jun 2012 00:22:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/powersave/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/Hjdskes/powersave&#34;&gt;Powersave&lt;/a&gt; is a combination of scripts,
+udev rules, configuration files and systemd services to enable (aggressive)
+power saving on a Linux system. The configuration is tailered to my own laptop,
+but is easily adaptable to a new system.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

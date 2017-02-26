@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://hjdskes.github.io/contributions/contributions/</loc>
+    <lastmod>2017-02-23T20:59:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/contributions/vim/</loc>
+    <lastmod>2017-02-23T14:55:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/home/</loc>
+    <lastmod>2017-02-21T14:43:43+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/contributions/playerctl/</loc>
+    <lastmod>2016-09-11T00:34:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/blog/deploying-hugo-on-personal-gh-pages/</loc>
+    <lastmod>2016-08-16T22:07:21+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/license/</loc>
+    <lastmod>2016-08-11T19:43:09+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/projects/projects/</loc>
+    <lastmod>2016-08-08T13:18:21+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/about/</loc>
+    <lastmod>2016-08-08T12:36:09+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/projects/spoofax-shell/</loc>
+    <lastmod>2016-06-29T17:23:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/contributions/haskell-x11/</loc>
+    <lastmod>2016-02-22T16:51:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/contributions/arch-diff/</loc>
+    <lastmod>2016-02-10T22:25:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/contributions/gnome-screenshot/</loc>
+    <lastmod>2015-12-09T23:53:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/projects/gtimeutils/</loc>
+    <lastmod>2015-08-22T16:52:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/projects/dnainator/</loc>
+    <lastmod>2015-06-25T00:47:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/contributions/bgs/</loc>
+    <lastmod>2015-05-02T18:10:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/contributions/budgie/</loc>
+    <lastmod>2015-04-16T14:59:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/projects/arek/</loc>
+    <lastmod>2015-03-21T21:29:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/contributions/bunsen/</loc>
+    <lastmod>2015-02-16T14:58:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/contributions/eog/</loc>
+    <lastmod>2015-02-02T19:36:38+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/projects/linefollower/</loc>
+    <lastmod>2015-01-25T21:27:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/projects/2048/</loc>
+    <lastmod>2014-11-14T14:27:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/projects/raytracer/</loc>
+    <lastmod>2014-06-26T22:45:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/projects/excelpp/</loc>
+    <lastmod>2014-01-27T10:37:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/projects/phosphorus/</loc>
+    <lastmod>2013-11-15T21:40:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/contributions/sxiv/</loc>
+    <lastmod>2013-05-11T01:26:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/projects/gcolor3/</loc>
+    <lastmod>2013-02-24T17:31:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/projects/powersave/</loc>
+    <lastmod>2012-06-30T00:22:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/blog/</loc>
+    <lastmod>2016-08-16T22:07:21+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/contributions/</loc>
+    <lastmod>2017-02-23T20:59:42+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/</loc>
+    <lastmod>2017-02-23T20:59:42+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/projects/</loc>
+    <lastmod>2016-08-08T13:18:21+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

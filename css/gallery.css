@@ -1,0 +1,38 @@
+.gallery {
+	margin: auto;
+}
+.gallery > img {
+	display: none;
+	border: 2px solid #f1f1f1;
+}
+.gallery-thumbnails {
+	float: left;
+	margin-top: 16px;
+	margin-bottom: 16px;
+	text-align: center;
+}
+.gallery-thumbnails:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+.gallery-thumbnail {
+	margin-left: 6px;
+	margin-right: 6px;
+	border: 2px solid #f1f1f1;
+	opacity: 0.60;
+}
+.gallery-thumbnail:hover {
+	opacity: 1;
+	transition: .3s;
+}
+.gallery-thumbnail img:first-child {
+	margin-left: 0;
+}
+.gallery-thumbnail img:last-child {
+	margin-right: 0;
+}
+.gallery-thumbnail.selected {
+	opacity: 1;
+}
+

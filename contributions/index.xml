@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Contributions on Jente Hidskes&#39; personal website</title>
+    <link>https://hjdskes.github.io/contributions/index.xml</link>
+    <description>Recent content in Contributions on Jente Hidskes&#39; personal website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2016, 2017 Jente Hidskes</copyright>
+    <lastBuildDate>Thu, 23 Feb 2017 20:59:42 +0100</lastBuildDate>
+    <atom:link href="https://hjdskes.github.io/contributions/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Contributions</title>
+      <link>https://hjdskes.github.io/contributions/contributions/</link>
+      <pubDate>Thu, 23 Feb 2017 20:59:42 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/contributions/contributions/</guid>
+      <description>&lt;p&gt;Besides working on my own applications, I contribute to several existing open
+source projects. I find this to be an excellent way to learn from experienced
+developers. It is also very satisfactory knowing that your work will be used by
+more than a few people! Below you find a (probably incomplete, as I will likely
+forget some) list of contributions.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A small fix to vim</title>
+      <link>https://hjdskes.github.io/contributions/vim/</link>
+      <pubDate>Thu, 23 Feb 2017 14:55:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/contributions/vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Improve the maintainability, readability and robustness or Playerctl</title>
+      <link>https://hjdskes.github.io/contributions/playerctl/</link>
+      <pubDate>Sun, 11 Sep 2016 00:34:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/contributions/playerctl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Add missing keysyms to Haskell&#39;s X11 bindings</title>
+      <link>https://hjdskes.github.io/contributions/haskell-x11/</link>
+      <pubDate>Mon, 22 Feb 2016 16:51:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/contributions/haskell-x11/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Make arch-diff work with Pacman 5.0</title>
+      <link>https://hjdskes.github.io/contributions/arch-diff/</link>
+      <pubDate>Wed, 10 Feb 2016 22:25:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/contributions/arch-diff/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Some as of yet unmerged patches for GNOME Screenshot</title>
+      <link>https://hjdskes.github.io/contributions/gnome-screenshot/</link>
+      <pubDate>Wed, 09 Dec 2015 23:53:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/contributions/gnome-screenshot/</guid>
+      <description>&lt;p&gt;I wrote some as of yet unmerged patches and opened some outstanding bug reports
+to &lt;a href=&#34;https://en.wikipedia.org/wiki/GNOME_Screenshot&#34;&gt;GNOME Screenshot&lt;/a&gt;. You can
+review them &lt;a href=&#34;https://bugzilla.gnome.org/show_bug.cgi?id=748449&#34;&gt;here&lt;/a&gt; and
+&lt;a href=&#34;https://bugzilla.gnome.org/show_bug.cgi?id=759265&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Until the patches are merged (if ever), you can find them in my
+&lt;a href=&#34;https://github.com/Hjdskes/gnome-screenshot&#34;&gt;fork&lt;/a&gt; on GitHub.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A few commits to background setter (bgs)</title>
+      <link>https://hjdskes.github.io/contributions/bgs/</link>
+      <pubDate>Sat, 02 May 2015 18:10:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/contributions/bgs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Implement animated workspace switching and some fixes to Budgie</title>
+      <link>https://hjdskes.github.io/contributions/budgie/</link>
+      <pubDate>Thu, 16 Apr 2015 14:59:00 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/contributions/budgie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Several small contributions to the BunsenLabs Linux projects</title>
+      <link>https://hjdskes.github.io/contributions/bunsen/</link>
+      <pubDate>Mon, 16 Feb 2015 14:58:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/contributions/bunsen/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Implement a GtkHeaderBar in Eye of GNOME</title>
+      <link>https://hjdskes.github.io/contributions/eog/</link>
+      <pubDate>Mon, 02 Feb 2015 19:36:38 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/contributions/eog/</guid>
+      <description>&lt;p&gt;I implemented a
+&lt;a href=&#34;https://developer.gnome.org/gtk3/stable/GtkHeaderBar.html&#34;&gt;GtkHeaderBar&lt;/a&gt; in
+&lt;a href=&#34;https://wiki.gnome.org/Apps/EyeOfGnome&#34;&gt;Eye of GNOME&lt;/a&gt;. You can review all the
+patches &lt;a href=&#34;https://git.gnome.org/browse/eog/log/?qt=author&amp;amp;q=Jente+Hidskes&#34;&gt;here&lt;/a&gt;,
+or view the relevant bug reports
+&lt;a href=&#34;https://bugzilla.gnome.org/show_bug.cgi?id=740426&#34;&gt;here&lt;/a&gt; and
+&lt;a href=&#34;https://bugzilla.gnome.org/show_bug.cgi?id=741050&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Pango fonts in the sxiv image viewer</title>
+      <link>https://hjdskes.github.io/contributions/sxiv/</link>
+      <pubDate>Sat, 11 May 2013 01:26:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/contributions/sxiv/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
