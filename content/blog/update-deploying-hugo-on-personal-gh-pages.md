@@ -27,6 +27,11 @@ is unclear, feel free to send me an [email](mailto:hjdskes@gmail.com) and I'll
 try my best to help you.
 
 `setup.sh`:
+
+{{% message type="warning" %}} This script will delete an existing `master`
+branch and an existing `public/` directory. Make sure any files you want to keep
+are backed up! {{% /message %}}
+
 ```bash
 #!/usr/bin/env bash
 
