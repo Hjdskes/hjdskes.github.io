@@ -41,6 +41,15 @@ try my best to help you.&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;setup.sh&lt;/code&gt;:&lt;/p&gt;
 
+&lt;div  class=&#34;warning&#34; &gt;
+  &lt;p&gt;This script will delete an existing &lt;code&gt;master&lt;/code&gt;
+branch and an existing &lt;code&gt;public/&lt;/code&gt; directory. Make sure any files you want to keep
+are backed up!&lt;/p&gt;
+
+&lt;/div&gt;
+
+
+
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/usr/bin/env bash
 
 # This script does the required work to set up your personal GitHub Pages
