@@ -82,7 +82,7 @@ git checkout $SOURCE
 
 msg &amp;quot;Adding the master branch into the \`public\` folder&amp;quot;
 rm -rf public
-git worktree -B master public origin/master
+git worktree add -B master public origin/master
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;deploy.sh&lt;/code&gt;&lt;/p&gt;
