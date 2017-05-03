@@ -65,7 +65,7 @@ git checkout $SOURCE
 
 msg "Adding the master branch into the \`public\` folder"
 rm -rf public
-git worktree -B master public origin/master
+git worktree add -B master public origin/master
 ```
 
 `deploy.sh`
