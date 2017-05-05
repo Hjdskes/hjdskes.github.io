@@ -11,7 +11,7 @@
 <meta name="description" content="Jente Hidskes&#39; personal website">
 
 
-<meta property="twitter:title" content="Small fixes to Neovim">
+<meta property="twitter:title" content="Google Summer of Code proposal contributions">
 
     <meta property="twitter:card" content="summary">
 
@@ -20,10 +20,10 @@
 <title>
 
 
-     Jente Hidskes&#39; personal website - Small fixes to Neovim 
+     Jente Hidskes&#39; personal website - Google Summer of Code proposal contributions 
 
 </title>
-<link rel="canonical" href="https://hjdskes.github.io/contributions/neovim/">
+<link rel="canonical" href="https://hjdskes.github.io/contributions/gsoc-proposals/">
 
 
 <link rel="stylesheet" href="https://hjdskes.github.io/css/main.css">
@@ -109,13 +109,38 @@
         <div class="content">
             <div class="page-heading">
 
-    Small fixes to Neovim
+    Google Summer of Code proposal contributions
 
 </div>
 
             <div class="markdown">
                 
-                    
+                    <p>The application process of Google Summer of Code requires students to make a
+small contribution to the project(s) of their choice to demonstrate that they
+are capable of making a change following the upstream submission procedures. In
+my understanding, this is less about the actual code than it is about
+demonstrating these skills. This is (partly, the other reason being that as I was
+working on these proposals I was also finishing up several course projects) the
+reason that the contributions here are rather small:</p>
+
+<ul>
+<li>For <a href="https://git.gnome.org/browse/gnome-calendar/log/?qt=author&amp;q=jente">GNOME
+Calendar</a>
+I fixed the drag and drop mouse cursor when moving events around to show an
+arrow indicating a move as opposed to a plus;</li>
+<li>For <a href="https://git.gnome.org/browse/mutter/log/?qt=author&amp;q=jente">Mutter</a> I
+implemented a fallback to a texture cursor in case the hardware cursor isn&rsquo;t
+available;</li>
+<li>For <a href="https://github.com/libratbag/ratbagd/pull/13">ratbagd</a>&rsquo;s Python bindings
+I implemented exception catching for some DBus exceptions, which would
+otherwise <a href="https://github.com/libratbag/piper/issues/2">crash</a> Piper when
+ratbagd wasn&rsquo;t running.</li>
+</ul>
+
+<p>I&rsquo;m keeping a blog on my GSoC progress. You can read the introduction
+<a href="/blog/gsoc-part-1/">here</a>; I intend to write
+another part about the application process later.</p>
+
                 
             </div>
         </div>

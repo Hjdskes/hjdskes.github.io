@@ -2,13 +2,34 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jente Hidskes&#39; personal website</title>
-    <link>https://hjdskes.github.io/index.xml</link>
+    <link>https://hjdskes.github.io/</link>
     <description>Recent content on Jente Hidskes&#39; personal website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016, 2017 Jente Hidskes</copyright>
-    <lastBuildDate>Sun, 26 Feb 2017 22:12:00 +0100</lastBuildDate>
-    <atom:link href="https://hjdskes.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 May 2017 15:44:04 +0200</lastBuildDate>
+    
+	<atom:link href="https://hjdskes.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GSoC part 1: an introduction!</title>
+      <link>https://hjdskes.github.io/blog/gsoc-part-1/</link>
+      <pubDate>Fri, 05 May 2017 15:44:04 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/blog/gsoc-part-1/</guid>
+      <description>Yesterday, after waiting for what felt like a very long time, I finally got the results of my Google Summer of Code (GSoC) application! I can happily say that one of my proposals has been accepted: I will work with Peter Hutterer to redesign and rewrite Piper. The synopsis of my proposal is as follows:
+ Piper is an application frontend to libratbag and ratbagd, a library and system daemon to configure gaming mice respectively.</description>
+    </item>
+    
+    <item>
+      <title>Google Summer of Code proposal contributions</title>
+      <link>https://hjdskes.github.io/contributions/gsoc-proposals/</link>
+      <pubDate>Thu, 23 Mar 2017 01:55:50 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/contributions/gsoc-proposals/</guid>
+      <description>The application process of Google Summer of Code requires students to make a small contribution to the project(s) of their choice to demonstrate that they are capable of making a change following the upstream submission procedures. In my understanding, this is less about the actual code than it is about demonstrating these skills. This is (partly, the other reason being that as I was working on these proposals I was also finishing up several course projects) the reason that the contributions here are rather small:</description>
+    </item>
     
     <item>
       <title>Update: deploying Hugo-generated websites on personal GitHub Pages</title>
@@ -16,116 +37,8 @@
       <pubDate>Sun, 26 Feb 2017 22:12:00 +0100</pubDate>
       
       <guid>https://hjdskes.github.io/blog/update-deploying-hugo-on-personal-gh-pages/</guid>
-      <description>&lt;p&gt;In my &lt;a href=&#34;https://hjdskes.github.io/blog/deploying-hugo-on-personal-gh-pages&#34;&gt;previous post&lt;/a&gt; I explained the
-workflow I use to update this website. It has never been particularly stable,
-and the process seemed far more complicated than it needed to be.&lt;/p&gt;
-
-&lt;p&gt;This week I attempted to update the theme of this website (sidenote: thanks
-&lt;a href=&#34;https://github.com/fuegowolf&#34;&gt;Alexis Tacnet&lt;/a&gt; for your awesome theme and
-cooperation!). To pull in the theme&amp;rsquo;s files, I use &lt;a href=&#34;https://git-scm.com/book/en/v2/Git-Tools-Submodules&#34;&gt;git
-submodules&lt;/a&gt;. Apparently,
-this completely break git&amp;rsquo;s subtrees. I had enough of trying to maintain
-this complicated setup, so I started looking around for better ways.&lt;/p&gt;
-
-&lt;p&gt;Fortunately, Hugo&amp;rsquo;s &amp;ldquo;Hosting on GitHub&amp;rdquo; tutorial has been updated to include
-instructions on &lt;a href=&#34;https://gohugo.io/tutorials/github-pages-blog/#deployment-via-gh-pages-branch&#34;&gt;deploying via a &lt;code&gt;gh-pages&lt;/code&gt;
-branch&lt;/a&gt;.
-The instructions are easily modified to work with the setup that personal pages
-require! If you want to know how it works, read that tutorial; what follows
-below are my updated &lt;code&gt;setup.sh&lt;/code&gt; and &lt;code&gt;deploy.sh&lt;/code&gt; scripts.&lt;/p&gt;
-
-&lt;p&gt;You can find the updated structure and setup in use in &lt;a href=&#34;https://github.com/Hjdskes/hjdskes.github.io&#34;&gt;this website&amp;rsquo;s
-repository&lt;/a&gt;. If any of the above
-is unclear, feel free to send me an &lt;a href=&#34;mailto:hjdskes@gmail.com&#34;&gt;email&lt;/a&gt; and I&amp;rsquo;ll
-try my best to help you.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;setup.sh&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div  class=&#34;warning&#34; &gt;
-  &lt;p&gt;This script will delete an existing &lt;code&gt;master&lt;/code&gt;
-branch and an existing &lt;code&gt;public/&lt;/code&gt; directory. Make sure any files you want to keep
-are backed up!&lt;/p&gt;
-
-&lt;/div&gt;
-
-
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/usr/bin/env bash
-
-# This script does the required work to set up your personal GitHub Pages
-# repository for deployment using Hugo. Run this script only once -- when the
-# setup has been done, run the `deploy.sh` script to deploy changes and update
-# your website. See
-# https://hjdskes.github.io/blog/update-deploying-hugo-on-personal-github-pages/
-# for more information.
-
-# Name of the branch containing the Hugo source files.
-SOURCE=hugo
-
-msg() {
-    printf &amp;quot;\033[1;32m :: %s\n\033[0m&amp;quot; &amp;quot;$1&amp;quot;
-}
-
-msg &amp;quot;Adding the \`public\` folder to .gitignore&amp;quot;
-echo &amp;quot;public&amp;quot; &amp;gt;&amp;gt; .gitignore
-
-msg &amp;quot;Deleting the \`master\` branch&amp;quot;
-git branch -D master
-git push origin --delete master
-
-msg &amp;quot;Creating an empty, orphaned \`master\` branch&amp;quot;
-git checkout --orphan master
-git reset --hard
-git commit --allow-empty -m &amp;quot;Initial commit on master branch&amp;quot;
-git push origin master
-git checkout $SOURCE
-
-msg &amp;quot;Adding the master branch into the \`public\` folder&amp;quot;
-rm -rf public
-git worktree add -B master public origin/master
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;deploy.sh&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/usr/bin/env bash
-
-# This script allows you to easily and quickly generate and deploy your website
-# using Hugo to your personal GitHub Pages repository. This script requires a
-# certain configuration, run the `setup.sh` script to configure this. See
-# https://hjdskes.github.io/blog/update-deploying-hugo-on-personal-github-pages/
-# for more information.
-
-# Set the English locale for the `date` command.
-export LC_TIME=en_US.UTF-8
-
-# The commit message.
-MESSAGE=&amp;quot;Site rebuild $(date)&amp;quot;
-
-msg() {
-    printf &amp;quot;\033[1;32m :: %s\n\033[0m&amp;quot; &amp;quot;$1&amp;quot;
-}
-
-if [[ $(git status -s) ]]; then
-    msg &amp;quot;The working directory is dirty, please commit or stash any pending changes&amp;quot;
-    exit 1;
-fi
-
-msg &amp;quot;Removing the old website&amp;quot;
-pushd public
-git rm -rf *
-popd
-
-msg &amp;quot;Building the website&amp;quot;
-hugo
-
-msg &amp;quot;Pushing the updated \`public\` folder to the \`master\` branch&amp;quot;
-pushd public
-git add *
-git commit -m &amp;quot;$MESSAGE&amp;quot;
-popd
-git push origin master
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>In my previous post I explained the workflow I use to update this website. It has never been particularly stable, and the process seemed far more complicated than it needed to be.
+This week I attempted to update the theme of this website (sidenote: thanks Alexis Tacnet for your awesome theme and cooperation!). To pull in the theme&amp;rsquo;s files, I use git submodules. Apparently, this completely break git&amp;rsquo;s subtrees. I had enough of trying to maintain this complicated setup, so I started looking around for better ways.</description>
     </item>
     
     <item>
@@ -134,21 +47,7 @@ git push origin master
       <pubDate>Thu, 23 Feb 2017 20:59:42 +0100</pubDate>
       
       <guid>https://hjdskes.github.io/contributions/contributions/</guid>
-      <description>&lt;p&gt;Besides working on my own applications, I contribute to several existing open
-source projects. I find this to be an excellent way to learn from experienced
-developers. It is also very satisfactory knowing that your work will be used by
-more than a few people! Below you find a (probably incomplete, as I will likely
-forget some) list of contributions.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>A small fix to vim</title>
-      <link>https://hjdskes.github.io/contributions/vim/</link>
-      <pubDate>Thu, 23 Feb 2017 14:55:00 +0100</pubDate>
-      
-      <guid>https://hjdskes.github.io/contributions/vim/</guid>
-      <description></description>
+      <description>Besides working on my own applications, I contribute to several existing open source projects. I find this to be an excellent way to learn from experienced developers. It is also very satisfactory knowing that your work will be used by more than a few people! Below you find a (probably incomplete, as I will likely forget some) list of contributions.</description>
     </item>
     
     <item>
@@ -166,20 +65,18 @@ forget some) list of contributions.&lt;/p&gt;
       <pubDate>Tue, 21 Feb 2017 14:43:43 +0200</pubDate>
       
       <guid>https://hjdskes.github.io/home/</guid>
-      <description>&lt;p&gt;Welcome to my personal website. This site serves as a blog, a repository of my
-work and perhaps as some sort of resumé. You can learn more &lt;a href=&#34;https://hjdskes.github.io/about/&#34;&gt;about me&lt;/a&gt;,
-browse my own open-source &lt;a href=&#34;https://hjdskes.github.io/projects/&#34;&gt;projects&lt;/a&gt; or view my
-&lt;a href=&#34;https://hjdskes.github.io/contributions/&#34;&gt;contributions&lt;/a&gt; to other open-source projects.&lt;/p&gt;
-</description>
+      <description>Welcome to my personal website. This site serves as a blog, a repository of my work and perhaps as some sort of resumé. You can learn more about me, browse my own open-source projects or view my contributions to other open-source projects.</description>
     </item>
     
     <item>
-      <title>Small fixes to Neovim</title>
-      <link>https://hjdskes.github.io/contributions/neovim/</link>
+      <title>Small fixes to Neovim and Vim</title>
+      <link>https://hjdskes.github.io/contributions/neovim-vim/</link>
       <pubDate>Mon, 20 Feb 2017 23:18:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/contributions/neovim/</guid>
-      <description></description>
+      <guid>https://hjdskes.github.io/contributions/neovim-vim/</guid>
+      <description>For the course Software Architecture at the TU Delft we were required to analyse and contribute to an existing open source project. The group I was part of chose Neovim as our project. The result of this analysis is a chapter in the book Delft Students on Software Architecture: 2017.
+Our contributions resulted in several small fixes to both Neovim and Vim:
+ Neovim commits by myself and Sander; Vim commits by myself.</description>
     </item>
     
     <item>
@@ -197,198 +94,9 @@ browse my own open-source &lt;a href=&#34;https://hjdskes.github.io/projects/&#3
       <pubDate>Tue, 16 Aug 2016 22:07:21 +0200</pubDate>
       
       <guid>https://hjdskes.github.io/blog/deploying-hugo-on-personal-gh-pages/</guid>
-      <description>
-
-&lt;div  class=&#34;info&#34; &gt;
-  &lt;p&gt;The method described here is obsolete. The
-introduction still provides a nice overview of the problem, but please see my
-&lt;a href=&#34;https://hjdskes.github.io/blog/update-deploying-hugo-on-personal-gh-pages&#34;&gt;updated post&lt;/a&gt; for the actual
-steps and scripts!&lt;/p&gt;
-
-&lt;/div&gt;
-
-
-
-&lt;p&gt;&lt;em&gt;&lt;q&gt;&amp;ldquo;Hello, World!&amp;rdquo;&lt;/q&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;As this is the first blog post on this website (and indeed, by myself), the
-introduction had to be done. I&amp;rsquo;ll leave it at this, though. If you want to know
-more about me, you can do that &lt;a href=&#34;https://hjdskes.github.io/about/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;This website is created using the &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; static website
-generator. You define the layout of your pages using regular HTML (combined with
-Hugo&amp;rsquo;s &lt;a href=&#34;https://gohugo.io/templates/overview/&#34;&gt;templates&lt;/a&gt;), CSS and JavaScript
-and you write your pages&amp;rsquo; contents using Markdown. Hugo takes these source files
-and generates the HTML files for you. All you have to do afterwards is deploy
-these files on your server.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://pages.github.com&#34;&gt;GitHub Pages&lt;/a&gt; is a service by GitHub allowing you to
-create websites for yourself, your organization and your projects. These
-websites are hosted directly in a GitHub repository under your control; simply
-pushing changes to these repositories updates the website.&lt;/p&gt;
-
-&lt;p&gt;This blog post explains how I combined the two: the website&amp;rsquo;s contents are
-created using Hugo and are deployed through GitHub Pages.&lt;/p&gt;
-
-&lt;h3 id=&#34;deploying-your-hugo-generated-website-on-github-pages&#34;&gt;Deploying your Hugo-generated website on GitHub Pages&lt;/h3&gt;
-
-&lt;p&gt;There is a &lt;a href=&#34;https://gohugo.io/tutorials/github-pages-blog/&#34;&gt;good tutorial&lt;/a&gt; on
-deploying your Hugo-generated website on GitHub Pages on the Hugo website. The
-scenario described there, however, does not really fit my use-case.&lt;/p&gt;
-
-&lt;p&gt;The tutorial applies to a GitHub Pages website belonging to a project. This
-means that the website needs to be pushed into the &lt;code&gt;gh-pages&lt;/code&gt; branch under
-said project&amp;rsquo;s GitHub repository.&lt;/p&gt;
-
-&lt;p&gt;In my case, I&amp;rsquo;m using Hugo to generate a personal website. This means that I
-have a &lt;code&gt;$USERNAME.github.io&lt;/code&gt; repository, and consequently that my website&amp;rsquo;s
-contents need to be pushed into that repository&amp;rsquo;s &lt;code&gt;master&lt;/code&gt; branch.&lt;/p&gt;
-
-&lt;p&gt;The above mentioned tutorial does have a small section on hosting the website on
-personal GitHub Pages, but I find their solution to use two repositories (one
-for the sources and another for the generated website) to be sub-par. A Google
-search led me to
-&lt;a href=&#34;http://life.beyondrails.com/blog/2014/12/14/setting-up-and-automating-my-hugo-blog-deployment-to-github-pages/&#34;&gt;this&lt;/a&gt;
-blog post where the author struggled with the same issue. What follows
-is my solution, combining both tutorials.&lt;/p&gt;
-
-&lt;p&gt;As mentioned, I have a &lt;code&gt;$USERNAME.github.io&lt;/code&gt; repository. My website&amp;rsquo;s content
-should be deployed into the &lt;code&gt;master&lt;/code&gt; branch, starting with a valid &lt;code&gt;index.html&lt;/code&gt;
-in this branch&amp;rsquo;s root. Not wanting to mix source- and generated files, I
-intended to keep Hugo&amp;rsquo;s default setting to generate the website into a separate
-directory called &lt;code&gt;public/&lt;/code&gt;. As you can see, these two options are at odds.&lt;/p&gt;
-
-&lt;p&gt;I therefore adopted the &lt;code&gt;git subtree&lt;/code&gt; approach as initially suggested in the
-Hugo tutorial: have a &amp;ldquo;source&amp;rdquo; branch for the source files, which contains a
-&lt;code&gt;public/&lt;/code&gt; folder mirroring the root of the &lt;code&gt;master&lt;/code&gt; branch containing only the
-generated website. The workflow, then, would be something like this:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Make a change to the website;&lt;/li&gt;
-&lt;li&gt;Commit those changes;&lt;/li&gt;
-&lt;li&gt;Use Hugo to generate the new website;&lt;/li&gt;
-&lt;li&gt;Push the new &lt;code&gt;public/&lt;/code&gt; folder to the &amp;ldquo;source&amp;rdquo; branch;&lt;/li&gt;
-&lt;li&gt;Push the contents of the new  &lt;code&gt;public/&lt;/code&gt; folder to the &lt;code&gt;master&lt;/code&gt; branch using
-&lt;code&gt;git subtree&lt;/code&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;This would allow me to have one branch for my source files, and to use the
-&lt;code&gt;master&lt;/code&gt; branch for the generated website only, resolving my issue. Steps two
-to five can be automated, although personally I prefer to do step two myself.
-However, for steps three to five I have written a small script, &lt;code&gt;deploy.sh&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/usr/bin/env bash
-
-# This script allows you to easily and quickly generate and deploy your website
-# using Hugo to your personal GitHub Pages repository. This script requires a
-# certain configuration, run the `setup.sh` script to configure this. See
-# https://hjdskes.github.io/blog/deploying-hugo-on-personal-github-pages/index.html
-# for more information.
-
-# Set the English locale for the `date` command.
-export LC_TIME=en_US.UTF-8
-
-# GitHub username.
-USERNAME=hjdskes
-# Name of the branch containing the Hugo source files.
-SOURCE=hugo
-# The commit message.
-MESSAGE=&amp;quot;Site rebuild $(date)&amp;quot;
-
-msg() {
-    printf &amp;quot;\033[1;32m :: %s\n\033[0m&amp;quot; &amp;quot;$1&amp;quot;
-}
-
-msg &amp;quot;Pulling down the \`master\` branch into \`public\` to help avoid merge conflicts&amp;quot;
-git subtree pull --prefix=public \
-	git@github.com:$USERNAME/$USERNAME.github.io.git master -m &amp;quot;Merge master&amp;quot;
-
-msg &amp;quot;Building the website&amp;quot;
-hugo
-
-msg &amp;quot;Pushing the updated \`public\` folder to the \`$SOURCE\` branch&amp;quot;
-git add public
-git commit -m &amp;quot;$MESSAGE&amp;quot;
-git push origin &amp;quot;$SOURCE&amp;quot;
-
-msg &amp;quot;Pushing the updated \`public\` folder to the \`master\` branch&amp;quot;
-git subtree push --prefix=public \
-	git@github.com:$USERNAME/$USERNAME.github.io.git master
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I have written a second script to take care of the setup, in case I ever need
-to repeat the steps for another website. This script needs to be run only once;
-afterwards, &lt;code&gt;deploy.sh&lt;/code&gt; does all the work. The script will create an empty,
-orphaned &lt;code&gt;master&lt;/code&gt; branch, which from then on is not supposed to be touched
-manually. To start with a clean history, I have opted to delete the existing
-&lt;code&gt;master&lt;/code&gt; branch (both local and remote), if any. Note that GitHub does not allow
-you to delete the default branch, which, by default (pun intended) is the
-&lt;code&gt;master&lt;/code&gt; branch. Since I never touch the &lt;code&gt;master&lt;/code&gt; branch, I changed the default
-branch to the &amp;ldquo;source&amp;rdquo; branch, allowing me to delete the &lt;code&gt;master&lt;/code&gt; branch. To
-change the default branch, open your GitHub repository and go to Settings →
-Branches.&lt;/p&gt;
-
-&lt;div  class=&#34;warning&#34; &gt;
-  &lt;p&gt;This script will delete the &lt;code&gt;public/&lt;/code&gt; directory.
-Make sure any files you want to keep are backed up!&lt;/p&gt;
-
-&lt;/div&gt;
-
-
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/usr/bin/env bash
-
-# This script does the required work to set up your personal GitHub Pages
-# repository for deployment using Hugo. Run this script only once -- when the
-# setup has been done, run the `deploy.sh` script to deploy changes and update
-# your website. See
-# https://hjdskes.github.io/blog/deploying-hugo-on-personal-github-pages/index.html
-# for more information.
-
-# GitHub username
-USERNAME=hjdskes
-# Name of the branch containing the Hugo source files.
-SOURCE=hugo
-
-msg() {
-    printf &amp;quot;\033[1;32m :: %s\n\033[0m&amp;quot; &amp;quot;$1&amp;quot;
-}
-
-msg &amp;quot;Deleting the \`master\` branch&amp;quot;
-git branch -D master
-git push origin --delete master
-
-msg &amp;quot;Creating an empty, orphaned \`master\` branch&amp;quot;
-git checkout --orphan master
-git rm --cached $(git ls-files)
-
-msg &amp;quot;Grabbing one file from the \`$SOURCE\` branch so that a commit can be made&amp;quot;
-git checkout &amp;quot;$SOURCE&amp;quot; README.md
-git commit -m &amp;quot;Initial commit on master branch&amp;quot;
-git push origin master
-
-msg &amp;quot;Returning to the \`$SOURCE\` branch&amp;quot;
-git checkout -f &amp;quot;$SOURCE&amp;quot;
-
-msg &amp;quot;Removing the \`public\` folder to make room for the \`master\` subtree&amp;quot;
-rm -rf public
-git add -u
-git commit -m &amp;quot;Remove stale public folder&amp;quot;
-
-msg &amp;quot;Adding the new \`master\` branch as a subtree&amp;quot;
-git subtree add --prefix=public \
-	git@github.com:$USERNAME/$USERNAME.github.io.git master --squash
-
-msg &amp;quot;Pulling down the just committed file to help avoid merge conflicts&amp;quot;
-git subtree pull --prefix=public \
-	git@github.com:$USERNAME/$USERNAME.github.io.git master
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;You can find the structure and setup in use in &lt;a href=&#34;https://github.com/Hjdskes/hjdskes.github.io&#34;&gt;this website&amp;rsquo;s
-repository&lt;/a&gt;. If any of the above is
-unclear, feel free to send me an &lt;a href=&#34;mailto:hjdskes@gmail.com&#34;&gt;email&lt;/a&gt; and I&amp;rsquo;ll try
-my best to update this post.&lt;/p&gt;
-</description>
+      <description>The method described here is obsolete. The introduction still provides a nice overview of the problem, but please see my updated post for the actual steps and scripts!
+ &amp;ldquo;Hello, World!&amp;rdquo;
+As this is the first blog post on this website (and indeed, by myself), the introduction had to be done. I&amp;rsquo;ll leave it at this, though. If you want to know more about me, you can do that here.</description>
     </item>
     
     <item>
@@ -397,39 +105,10 @@ my best to update this post.&lt;/p&gt;
       <pubDate>Thu, 11 Aug 2016 19:43:09 +0200</pubDate>
       
       <guid>https://hjdskes.github.io/license/</guid>
-      <description>&lt;p&gt;All content on this website, unless otherwise noted, is copyright © 2016, 2017
-Jente Hidskes and licensed under a &lt;a href=&#34;https://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;Creative Commons
-Attribution-NonCommercial-ShareAlike 4.0 International
-License&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;All code on this website, unless otherwise noted, is copyright © 2016, 2017
-Jente Hidskes and licensed under the &lt;a href=&#34;https://opensource.org/licenses/MIT&#34;&gt;MIT
-license&lt;/a&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Copyright &amp;copy; 2016, 2017 Jente Hidskes&lt;/p&gt;
-
-&lt;p&gt;Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the &amp;ldquo;Software&amp;rdquo;), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:&lt;/p&gt;
-
-&lt;p&gt;The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.&lt;/p&gt;
-
-&lt;p&gt;THE SOFTWARE IS PROVIDED &amp;ldquo;AS IS&amp;rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;All registered trademarks mentioned on this website belong to their rightful
-owners.&lt;/p&gt;
-</description>
+      <description>All content on this website, unless otherwise noted, is copyright © 2016, 2017 Jente Hidskes and licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+All code on this website, unless otherwise noted, is copyright © 2016, 2017 Jente Hidskes and licensed under the MIT license:
+ Copyright &amp;copy; 2016, 2017 Jente Hidskes
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &amp;ldquo;Software&amp;rdquo;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</description>
     </item>
     
     <item>
@@ -438,11 +117,7 @@ owners.&lt;/p&gt;
       <pubDate>Mon, 08 Aug 2016 13:18:21 +0200</pubDate>
       
       <guid>https://hjdskes.github.io/projects/projects/</guid>
-      <description>&lt;p&gt;I maintain several open-source applications of my own. I also do course projects
-for university. Below you will find a list of projects I think are worth
-mentioning. Please browse through my &lt;a href=&#34;https://github.com/Hjdskes/repositories&#34;&gt;GitHub repositories&lt;/a&gt;
-for an exhaustive list.&lt;/p&gt;
-</description>
+      <description>I maintain several open-source applications of my own. I also do course projects for university. Below you will find a list of projects I think are worth mentioning. Please browse through my GitHub repositories for an exhaustive list.</description>
     </item>
     
     <item>
@@ -451,32 +126,8 @@ for an exhaustive list.&lt;/p&gt;
       <pubDate>Mon, 08 Aug 2016 12:36:09 +0200</pubDate>
       
       <guid>https://hjdskes.github.io/about/</guid>
-      <description>&lt;p&gt;I am a master student in Computer Science at the Delft University of Technology.
-I currently live in Rotterdam, The Netherlands. During the third year of my
-bachelor (Computer Science at the Delft University of Technology), I have
-studied in Stockholm, Sweden for six months at the KTH Royal Institute of
-Technology.&lt;/p&gt;
-
-&lt;p&gt;In the field of Computer Science, my interests are broad. Mainly, however, I am
-interested in operating systems, distributed systems and programming languages.&lt;/p&gt;
-
-&lt;p&gt;My greatest passion is open-source software, to which I strive to contribute in
-several different ways. I have been using Linux for over five years and
-participate in several Linux-related communities. This includes being a
-moderator at the &lt;a href=&#34;http://crunchbang.org/forums/index.php&#34;&gt;Crunchbang Linux
-forum&lt;/a&gt; and the &lt;a href=&#34;https://forums.bunsenlabs.org/index.php&#34;&gt;BunsenLabs Linux
-forum&lt;/a&gt;. When the Crunchbang Linux
-project &lt;a href=&#34;http://crunchbang.org/forums/viewtopic.php?id=38916&#34;&gt;ended&lt;/a&gt;, I played a
-role in &lt;a href=&#34;http://crunchbang.org/forums/viewtopic.php?id=39049&#34;&gt;forming&lt;/a&gt; the
-&lt;a href=&#34;https://www.bunsenlabs.org/&#34;&gt;BunsenLabs community continuation&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I also maintain several open-source applications &lt;a href=&#34;https://hjdskes.github.io/projects/&#34;&gt;myself&lt;/a&gt; and
-contribute patches to &lt;a href=&#34;https://hjdskes.github.io/contributions/&#34;&gt;other&lt;/a&gt; open-source projects. Also see my
-&lt;a href=&#34;https://resume.github.io/?Hjdskes&#34;&gt;GitHub resumé&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;If you wish to know more, please feel free to contact me via
-&lt;a href=&#34;mailto:hjdskes@gmail.com&#34;&gt;email&lt;/a&gt;.&lt;/p&gt;
-</description>
+      <description>I am a master student in Computer Science at the Delft University of Technology. I currently live in Rotterdam, The Netherlands. During the third year of my bachelor (Computer Science at the Delft University of Technology), I have studied in Stockholm, Sweden for six months at the KTH Royal Institute of Technology.
+In the field of Computer Science, my interests are broad. Mainly, however, I am interested in operating systems, distributed systems and programming languages.</description>
     </item>
     
     <item>
@@ -485,11 +136,7 @@ contribute patches to &lt;a href=&#34;https://hjdskes.github.io/contributions/&#
       <pubDate>Wed, 29 Jun 2016 17:23:00 +0100</pubDate>
       
       <guid>https://hjdskes.github.io/projects/spoofax-shell/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/spoofax-shell&#34;&gt;Spoofax Shell&lt;/a&gt; is my thesis project to create
-a REPL for the &lt;a href=&#34;http://metaborg.org/en/latest/&#34;&gt;Spoofax Language Workbench&lt;/a&gt;.
-Read the accompanying report
-&lt;a href=&#34;http://repository.tudelft.nl/islandora/object/uuid:d8cd3d2f-9667-4b9e-9d25-f3e6e7d3a31f?collection=education&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-</description>
+      <description>Spoofax Shell is my thesis project to create a REPL for the Spoofax Language Workbench. Read the accompanying report here.</description>
     </item>
     
     <item>
@@ -516,14 +163,144 @@ Read the accompanying report
       <pubDate>Wed, 09 Dec 2015 23:53:00 +0100</pubDate>
       
       <guid>https://hjdskes.github.io/contributions/gnome-screenshot/</guid>
-      <description>&lt;p&gt;I wrote some as of yet unmerged patches and opened some outstanding bug reports
-to &lt;a href=&#34;https://en.wikipedia.org/wiki/GNOME_Screenshot&#34;&gt;GNOME Screenshot&lt;/a&gt;. You can
-review them &lt;a href=&#34;https://bugzilla.gnome.org/show_bug.cgi?id=748449&#34;&gt;here&lt;/a&gt; and
-&lt;a href=&#34;https://bugzilla.gnome.org/show_bug.cgi?id=759265&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Until the patches are merged (if ever), you can find them in my
-&lt;a href=&#34;https://github.com/Hjdskes/gnome-screenshot&#34;&gt;fork&lt;/a&gt; on GitHub.&lt;/p&gt;
-</description>
+      <description>I wrote some as of yet unmerged patches and opened some outstanding bug reports to GNOME Screenshot. You can review them here and here.
+Until the patches are merged (if ever), you can find them in my fork on GitHub.</description>
+    </item>
+    
+    <item>
+      <title>GTimeUtils: a stopwatch and a timer, bundled together as time utilities</title>
+      <link>https://hjdskes.github.io/projects/gtimeutils/</link>
+      <pubDate>Sat, 22 Aug 2015 16:52:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/gtimeutils/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DNAinator: visualizing and exploring DNA sequence graphs</title>
+      <link>https://hjdskes.github.io/projects/dnainator/</link>
+      <pubDate>Thu, 25 Jun 2015 00:47:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/dnainator/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A few commits to background setter (bgs)</title>
+      <link>https://hjdskes.github.io/contributions/bgs/</link>
+      <pubDate>Sat, 02 May 2015 18:10:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/contributions/bgs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Implement animated workspace switching and some fixes to Budgie</title>
+      <link>https://hjdskes.github.io/contributions/budgie/</link>
+      <pubDate>Thu, 16 Apr 2015 14:59:00 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/contributions/budgie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Arek Window Manager: a Mutter-based tiling window manager</title>
+      <link>https://hjdskes.github.io/projects/arek/</link>
+      <pubDate>Sat, 21 Mar 2015 21:29:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/arek/</guid>
+      <description>Arek Window Manager is a plugin to Mutter in an (ambitious) attempt to create a tiling window manager with eye-candy. Due to several limitations on Mutter&amp;rsquo;s side, a moving Wayland target and a lack of time on my side, this project is not actively maintained at the moment.</description>
+    </item>
+    
+    <item>
+      <title>Several small contributions to the BunsenLabs Linux projects</title>
+      <link>https://hjdskes.github.io/contributions/bunsen/</link>
+      <pubDate>Mon, 16 Feb 2015 14:58:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/contributions/bunsen/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Implement a GtkHeaderBar in Eye of GNOME</title>
+      <link>https://hjdskes.github.io/contributions/eog/</link>
+      <pubDate>Mon, 02 Feb 2015 19:36:38 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/contributions/eog/</guid>
+      <description>I implemented a GtkHeaderBar in Eye of GNOME. You can review all the patches here, or view the relevant bug reports here and here.</description>
+    </item>
+    
+    <item>
+      <title>Line Follower: an embedded software course project</title>
+      <link>https://hjdskes.github.io/projects/linefollower/</link>
+      <pubDate>Sun, 25 Jan 2015 21:27:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/linefollower/</guid>
+      <description>Line Follower is an embedded software course project to make a robot follow a line. An Android app is used to send images from the camera to a laptop via the network, where the laptop detects the line and sends commands to the robot via Bluetooth.</description>
+    </item>
+    
+    <item>
+      <title>2048: a software engineering course project</title>
+      <link>https://hjdskes.github.io/projects/2048/</link>
+      <pubDate>Fri, 14 Nov 2014 14:27:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/2048/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ray Tracer: a computer graphics course project</title>
+      <link>https://hjdskes.github.io/projects/raytracer/</link>
+      <pubDate>Thu, 26 Jun 2014 22:45:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/raytracer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ExcelPP: a freshmen OOP project to create a spreadsheet application</title>
+      <link>https://hjdskes.github.io/projects/excelpp/</link>
+      <pubDate>Mon, 27 Jan 2014 10:37:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/excelpp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Phosphorus: a wallpaper browser and setter in the spirit of Nitrogen</title>
+      <link>https://hjdskes.github.io/projects/phosphorus/</link>
+      <pubDate>Fri, 15 Nov 2013 21:40:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/phosphorus/</guid>
+      <description>Phosphorus is a wallpaper browser and setter in the spirit of Nitrogen. It can be considered an unofficial port of Nitrogen to GTK+ 3. Phosphorus is different, however, in that it is plugin-based. This allows it be agnostic as to how the wallpaper is actually applied &amp;ndash; each Desktop Environment has its own plugin with this functionality.</description>
+    </item>
+    
+    <item>
+      <title>Pango fonts in the sxiv image viewer</title>
+      <link>https://hjdskes.github.io/contributions/sxiv/</link>
+      <pubDate>Sat, 11 May 2013 01:26:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/contributions/sxiv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gcolor3: a color selection dialog written in GTK&#43; 3</title>
+      <link>https://hjdskes.github.io/projects/gcolor3/</link>
+      <pubDate>Sun, 24 Feb 2013 17:31:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/gcolor3/</guid>
+      <description>Ever wanted to know the value of that color on your screen? Gcolor3 enables you to pick the color from any pixel on your screen. It also offers a palette, so that you can easily mix and match a couple of colors together.
+When you have found the perfect combination of colors, naturally you want to save them. Gcolor3 allows you to conveniently save and retrieve colors.</description>
+    </item>
+    
+    <item>
+      <title>Powersave: aggressive power saving on a Linux system</title>
+      <link>https://hjdskes.github.io/projects/powersave/</link>
+      <pubDate>Sat, 30 Jun 2012 00:22:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/powersave/</guid>
+      <description>Powersave is a combination of scripts, udev rules, configuration files and systemd services to enable (aggressive) power saving on a Linux system. The configuration is tailered to my own laptop, but is easily adaptable to a new system.</description>
     </item>
     
   </channel>

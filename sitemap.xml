@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hjdskes.github.io/blog/gsoc-part-1/</loc>
+    <lastmod>2017-05-05T15:44:04+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/contributions/gsoc-proposals/</loc>
+    <lastmod>2017-03-23T01:55:50+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.github.io/blog/update-deploying-hugo-on-personal-gh-pages/</loc>
     <lastmod>2017-02-26T22:12:00+01:00</lastmod>
   </url>
@@ -9,11 +19,6 @@
   <url>
     <loc>https://hjdskes.github.io/contributions/contributions/</loc>
     <lastmod>2017-02-23T20:59:42+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hjdskes.github.io/contributions/vim/</loc>
-    <lastmod>2017-02-23T14:55:00+01:00</lastmod>
   </url>
   
   <url>
@@ -27,7 +32,7 @@
   </url>
   
   <url>
-    <loc>https://hjdskes.github.io/contributions/neovim/</loc>
+    <loc>https://hjdskes.github.io/contributions/neovim-vim/</loc>
     <lastmod>2017-02-20T23:18:00+01:00</lastmod>
   </url>
   
@@ -153,25 +158,35 @@
   
   <url>
     <loc>https://hjdskes.github.io/blog/</loc>
-    <lastmod>2017-02-26T22:12:00+01:00</lastmod>
+    <lastmod>2017-05-05T15:44:04+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hjdskes.github.io/contributions/</loc>
-    <lastmod>2017-02-23T20:59:42+01:00</lastmod>
+    <lastmod>2017-03-23T01:55:50+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hjdskes.github.io/</loc>
-    <lastmod>2017-02-26T22:12:00+01:00</lastmod>
+    <lastmod>2017-05-05T15:44:04+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hjdskes.github.io/projects/</loc>
     <lastmod>2016-08-08T13:18:21+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/tags/</loc>
     <priority>0</priority>
   </url>
   
