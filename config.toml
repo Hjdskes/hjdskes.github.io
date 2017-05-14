@@ -20,5 +20,6 @@ extracssfiles = [ "css/message.css", "css/gallery.css", "css/cocoa-eh-fixes.css"
 highlightjs = true
 progressively = false
 latestpostcount = 5
+posts_navigation = true
 github = "Hjdskes"
 email = "hjdskes@gmail.com"
