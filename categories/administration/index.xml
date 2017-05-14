@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Administration on Jente Hidskes&#39; personal website</title>
+    <link>https://hjdskes.github.io/categories/administration/</link>
+    <description>Recent content in Administration on Jente Hidskes&#39; personal website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2016, 2017 Jente Hidskes</copyright>
+    <lastBuildDate>Sun, 26 Feb 2017 22:12:00 +0100</lastBuildDate>
+    
+	<atom:link href="https://hjdskes.github.io/categories/administration/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Update: deploying Hugo-generated websites on personal GitHub Pages</title>
+      <link>https://hjdskes.github.io/blog/update-deploying-hugo-on-personal-gh-pages/</link>
+      <pubDate>Sun, 26 Feb 2017 22:12:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/blog/update-deploying-hugo-on-personal-gh-pages/</guid>
+      <description>In my previous post I explained the workflow I use to update this website. It has never been particularly stable, and the process seemed far more complicated than it needed to be.
+This week I attempted to update the theme of this website (sidenote: thanks Alexis Tacnet for your awesome theme and cooperation!). To pull in the theme&amp;rsquo;s files, I use git submodules. Apparently, this completely break git&amp;rsquo;s subtrees. I had enough of trying to maintain this complicated setup, so I started looking around for better ways.</description>
+    </item>
+    
+    <item>
+      <title>Deploying Hugo-generated websites on personal GitHub Pages</title>
+      <link>https://hjdskes.github.io/blog/deploying-hugo-on-personal-gh-pages/</link>
+      <pubDate>Tue, 16 Aug 2016 22:07:21 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/blog/deploying-hugo-on-personal-gh-pages/</guid>
+      <description>The method described here is obsolete. The introduction still provides a nice overview of the problem, but please see my updated post for the actual steps and scripts!
+ &amp;ldquo;Hello, World!&amp;rdquo;
+As this is the first blog post on this website (and indeed, by myself), the introduction had to be done. I&amp;rsquo;ll leave it at this, though. If you want to know more about me, you can do that here.</description>
+    </item>
+    
+  </channel>
+</rss>

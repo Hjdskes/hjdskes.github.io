@@ -7,9 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016, 2017 Jente Hidskes</copyright>
+    <lastBuildDate>Sun, 26 Feb 2017 22:12:00 +0100</lastBuildDate>
     
 	<atom:link href="https://hjdskes.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Administration</title>
+      <link>https://hjdskes.github.io/categories/administration/</link>
+      <pubDate>Sun, 26 Feb 2017 22:12:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/categories/administration/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Development</title>
+      <link>https://hjdskes.github.io/categories/development/</link>
+      <pubDate>Fri, 05 May 2017 15:44:04 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/categories/development/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

@@ -157,6 +157,12 @@
   </url>
   
   <url>
+    <loc>https://hjdskes.github.io/categories/administration/</loc>
+    <lastmod>2017-02-26T22:12:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.github.io/blog/</loc>
     <lastmod>2017-05-05T15:44:04+02:00</lastmod>
     <priority>0</priority>
@@ -164,6 +170,7 @@
   
   <url>
     <loc>https://hjdskes.github.io/categories/</loc>
+    <lastmod>2017-02-26T22:12:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -174,7 +181,49 @@
   </url>
   
   <url>
+    <loc>https://hjdskes.github.io/tags/deploying/</loc>
+    <lastmod>2017-02-26T22:12:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/categories/development/</loc>
+    <lastmod>2017-05-05T15:44:04+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/tags/gaming-mice/</loc>
+    <lastmod>2017-05-05T15:44:04+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/tags/github-pages/</loc>
+    <lastmod>2017-02-26T22:12:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/tags/hugo/</loc>
+    <lastmod>2017-02-26T22:12:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.github.io/</loc>
+    <lastmod>2017-05-05T15:44:04+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/tags/libratbag/</loc>
+    <lastmod>2017-05-05T15:44:04+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/tags/piper/</loc>
     <lastmod>2017-05-05T15:44:04+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -186,7 +235,14 @@
   </url>
   
   <url>
+    <loc>https://hjdskes.github.io/tags/ratbagd/</loc>
+    <lastmod>2017-05-05T15:44:04+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.github.io/tags/</loc>
+    <lastmod>2017-02-26T22:12:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
