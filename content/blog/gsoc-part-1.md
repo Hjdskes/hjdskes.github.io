@@ -3,6 +3,7 @@ date = "2017-05-05T15:44:04+02:00"
 title = "GSoC part 1: an introduction!"
 tags = [ "Piper", "libratbag", "ratbagd", "gaming mice" ]
 categories = [ "Development" ]
+series = "GSoC"
 +++
 
 ![GSoC logo horizontal](/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg)
