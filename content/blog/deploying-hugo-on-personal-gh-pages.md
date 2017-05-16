@@ -2,7 +2,7 @@
 date = "2016-08-16T22:07:21+02:00"
 title = "Deploying Hugo-generated websites on personal GitHub Pages"
 tags = [ "Hugo", "GitHub Pages", "Deploying" ]
-categories = [ "Administration" ]
+categories = "Administration"
 +++
 
 {{% message type="info" %}} The method described here is obsolete. The

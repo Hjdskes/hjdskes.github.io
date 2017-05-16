@@ -2,7 +2,7 @@
 date = "2017-02-26T22:12:00+01:00"
 title = "Update: deploying Hugo-generated websites on personal GitHub Pages"
 tags = [ "Hugo", "GitHub Pages", "Deploying" ]
-categories = [ "Administration" ]
+categories = "Administration"
 +++
 
 In my [previous post](/blog/deploying-hugo-on-personal-gh-pages) I explained the
