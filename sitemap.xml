@@ -205,6 +205,12 @@
   </url>
   
   <url>
+    <loc>https://hjdskes.github.io/series/gsoc/</loc>
+    <lastmod>2017-05-05T15:44:04+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.github.io/tags/hugo/</loc>
     <lastmod>2017-02-26T22:12:00+01:00</lastmod>
     <priority>0</priority>
@@ -236,6 +242,12 @@
   
   <url>
     <loc>https://hjdskes.github.io/tags/ratbagd/</loc>
+    <lastmod>2017-05-05T15:44:04+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/series/</loc>
     <lastmod>2017-05-05T15:44:04+02:00</lastmod>
     <priority>0</priority>
   </url>
