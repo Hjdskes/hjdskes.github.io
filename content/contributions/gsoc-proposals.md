@@ -24,5 +24,5 @@ reason that the contributions here are rather small:
   ratbagd wasn't running.
 
 I'm keeping a blog on my GSoC progress. You can read the introduction
-[here](/blog/gsoc-part-1/); I intend to write
-another part about the application process later.
+[here](/blog/gsoc-part-1/); an overview of the complete series can be found
+[here](/series/gsoc/).
