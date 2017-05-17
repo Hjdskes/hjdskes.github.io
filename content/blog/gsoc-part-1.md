@@ -1,7 +1,7 @@
 +++
 date = "2017-05-05T15:44:04+02:00"
 title = "GSoC part 1: an introduction!"
-tags = [ "Piper", "libratbag", "ratbagd", "gaming mice" ]
+tags = [ "Piper", "libratbag", "ratbagd", "gaming mice", "fdo" ]
 categories = "Development"
 series = "GSoC"
 +++
