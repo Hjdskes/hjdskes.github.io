@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016, 2017 Jente Hidskes</copyright>
-    <lastBuildDate>Fri, 05 May 2017 15:44:04 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 14 May 2017 16:01:04 +0200</lastBuildDate>
     
 	<atom:link href="https://hjdskes.github.io/tags/fdo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GSoC part 2: community bonding</title>
+      <link>https://hjdskes.github.io/blog/gsoc-part-2/</link>
+      <pubDate>Sun, 14 May 2017 16:01:04 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/blog/gsoc-part-2/</guid>
+      <description>Two weeks have now passed since my introductory blog post, so as promised here is part two! The theme of this blog post is probably something along the lines of &amp;ldquo;preparation&amp;rdquo;, as that is what I&amp;rsquo;ve been doing mostly.
+The period between that of announcing the accepted student proposals and phase one is called the community bonding period. In this period students are supposed to get to know their mentors, their organizations, familiarize themselves with their projects (even more) and get everything ready to start off the coding period on May 30th.</description>
+    </item>
     
     <item>
       <title>GSoC part 1: an introduction!</title>

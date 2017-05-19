@@ -11,7 +11,7 @@
 <meta name="description" content="Jente Hidskes&#39; personal website">
 
 
-<meta property="twitter:title" content="Gsoc">
+<meta property="twitter:title" content="GSoC part 2: community bonding">
 
     <meta property="twitter:card" content="summary">
 
@@ -20,10 +20,10 @@
 <title>
 
 
-     Jente Hidskes&#39; personal website - Gsoc 
+     Jente Hidskes&#39; personal website - GSoC part 2: community bonding 
 
 </title>
-<link rel="canonical" href="https://hjdskes.github.io/series/gsoc/">
+<link rel="canonical" href="https://hjdskes.github.io/blog/gsoc-part-2/">
 
 
 <style media="screen">
@@ -899,8 +899,6 @@ margin-left: -4%;
 
 
 
-  <link href="https://hjdskes.github.io/series/gsoc/index.xml" rel="alternate" type="application/rss+xml" title="Jente Hidskes&#39; personal website" />
-
 
 </head>
 
@@ -908,7 +906,7 @@ margin-left: -4%;
 <body>
 
 
-<section class="header header-home">
+<section class="header">
 
     <div class="container">
         <a href="https://hjdskes.github.io/"><img class="logo" src="https://hjdskes.github.io/img/avatar.png" alt="logo" /></a>
@@ -953,34 +951,148 @@ margin-left: -4%;
     </div>
 </section>
 
-<section class="main">
+
+<section class="main post non-narrow zero-top-spacing">
     <div class="container">
         <div class="content">
-            <div class="posts">
-                <div class="page-heading">Posts from the Gsoc series</div>
-                <ul>
-                    
-                        <li class="post-item">
-    <span class="meta">May 14, 2017</span>
-    
-      <a href="https://hjdskes.github.io/blog/gsoc-part-2/"><span>GSoC part 2: community bonding</span></a>
-    
-</li>
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
 
-                    
-                        <li class="post-item">
-    <span class="meta">May 5, 2017</span>
-    
-      <a href="https://hjdskes.github.io/blog/gsoc-part-1/"><span>GSoC part 1: an introduction!</span></a>
-    
-</li>
+    GSoC part 2: community bonding
 
+</div>
+
+                </div>
+                <div class="meta">
+                    <div class="date" title="Sun May 14 2017 16:01:04 CEST">May 14, 2017</div>
                     
-                </ul>
+                        
+                    
+                    <div class="reading-time"><div class="middot"></div>3 minute read</div>
+                    <div class="tags">
+                        <ul>
+                          
+                            <div class="middot"></div>
+                            <li><a href="/tags/piper">Piper</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="/tags/libratbag">libratbag</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="/tags/ratbagd">ratbagd</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="/tags/fdo">fdo</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="/tags/flatpak">Flatpak</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="/tags/meson">Meson</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="/tags/udev">udev</a> </li>
+                          
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="markdown">
+                
+    
+
+<p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal" /></p>
+
+<p>Two weeks have now passed since my <a href="/blog/gsoc-part-1">introductory blog post</a>,
+so as promised here is part two! The theme of this blog post is probably
+something along the lines of <q>&ldquo;preparation&rdquo;</q>, as that is what I&rsquo;ve been
+doing mostly.</p>
+
+<p>The period between that of announcing the accepted student proposals and phase
+one is called the <a href="https://googlesummerofcode.blogspot.nl/2007/04/so-what-is-this-community-bonding-all.html)">community bonding period</a>. In this period students
+are supposed to get to know their mentors, their organizations, familiarize
+themselves with their projects (even more) and get everything ready to start
+off the coding period on May 30th.</p>
+
+<h3 id="community-bonding">Community bonding</h3>
+
+<p>My mentor gave me a list of IRC channels I could join and a list of mailing
+lists I may want to subscribe to. I am now subcribed to four mailing lists and I
+lurk/participate in five IRC channels. My blog has been added to <a href="https://planet.freedesktop.org/">Planet
+Freedesktop</a>. I have also joined a GSoC &lsquo;17 group on Telegram, where
+currently over 600 students participate. Finally, I started watching all the
+repositories under the <a href="https://github.com/libratbag">libratbag GitHub organisation</a> so that I stay
+up to date on any issues, pull requests and commits.</p>
+
+<h3 id="preparing-the-work-on-piper">Preparing the work on Piper</h3>
+
+<p>Probably the most important thing you can do during the community bonding period
+is preparing your project. This does not just mean getting your development
+environment setup; it also means that you should familiarize yourself with your
+project and its dependencies and resolve any open issues that your project
+depends on. In my case, there were a few such issues that I tackled.</p>
+
+<p>Both libratbag and ratbagd recently switched to Meson. For ratbagd, this meant
+that its DBus and systemd service files were not installed correctly
+(<a href="https://github.com/libratbag/ratbagd/issues/18">#18</a>). This was fixed in <a href="https://github.com/libratbag/ratbagd/pull/20">#20</a>. Ratbagd&rsquo;s README also had
+not been updated to reflect Meson&rsquo;s way of configuring the build. I fixed this
+in <a href="https://github.com/libratbag/ratbagd/pull/21">#21</a> together with some formatting. Finally, I implemented
+missing signals for both the <code>Profile</code> and <code>Resolution</code> DBus interfaces
+(<a href="https://github.com/libratbag/ratbagd/pull/22">#22</a>). One pull request is still open, which implements a missing
+method (including DBus signal) to set a default resolution (<a href="https://github.com/libratbag/ratbagd/pull/24">#24</a>).</p>
+
+<p>As for Piper itself, my mentor suggested I look into Flatpaks as an easy way of
+deploying Piper for testing. In short, this turned out to be impossible for now
+because Flatpaks cannot bundle udev. Here I paraphrase Alexander Larsson from
+<code>#flatpak</code> on Freenode:</p>
+
+<blockquote>
+<p>You can bundle udev for the API but you can&rsquo;t rely on it <em>working</em>, because
+a) it may not have access to every device, etc and b) it will not have access to
+the system udevd database and we can&rsquo;t grant it because that is not a stable
+on-disk format (I asked upstream about it).</p>
+</blockquote>
+
+<p>Since libratbag and ratbagd rely on udev, a Flatpak will have to wait until a
+solution to this issue has been found. Nonetheless, a Flatpak manifest remains
+available in my <a href="https://github.com/Hjdskes/piper/tree/wip/flatpak">WIP branch</a> &ndash; you just can&rsquo;t run it ;)</p>
+
+<p>Whilst working on Flatpak&rsquo;ing Piper, I got more and more convinced that Piper
+should switch to <a href="http://mesonbuild.com/">Meson</a> as opposed to <a href="https://packaging.python.org/installing/">setuptools</a>. Meson
+brings better integration with the GNOME stack through its GNOME module,
+allowing us to use <a href="https://developer.gnome.org/gio/stable/GSettings.html">GSettings</a>, <a href="https://developer.gnome.org/gio/stable/GResource.html">GResource</a> and other
+technologies without having to add support for this to setuptools ourselves. I
+have ported Piper and opened <a href="https://github.com/libratbag/piper/pull/6">#6</a> to get this implemented. This is the
+first activity in Piper&rsquo;s repository since April 6 last year, so I guess it
+officially starts GSoC for Piper!</p>
+
+<p>This blog post is part of a series. You can read the previous part
+<a href="/blog/gsoc-part-1">here</a>.</p>
+
+
+                <br>
+            </div>
+            
+                <div class="navigation">
+                    
+                    <div>
+                        <img class="icon" src="/img/back.svg" alt="back" />
+                        <a href="https://hjdskes.github.io/blog/gsoc-part-1/">GSoC part 1: an introduction!</a>
+                    </div>
+                    
+                    <div style="width: 100%;"></div>
+                    
+                </div>
+            
+            <br>
+            <div class="disqus">
+                
             </div>
         </div>
     </div>
 </section>
+
 <section class="footer">
     <div class="container">
         <div class="copyright">

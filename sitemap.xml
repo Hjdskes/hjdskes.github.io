@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hjdskes.github.io/blog/gsoc-part-2/</loc>
+    <lastmod>2017-05-14T16:01:04+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.github.io/blog/gsoc-part-1/</loc>
     <lastmod>2017-05-05T15:44:04+02:00</lastmod>
   </url>
@@ -164,7 +169,7 @@
   
   <url>
     <loc>https://hjdskes.github.io/blog/</loc>
-    <lastmod>2017-05-05T15:44:04+02:00</lastmod>
+    <lastmod>2017-05-14T16:01:04+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -188,13 +193,19 @@
   
   <url>
     <loc>https://hjdskes.github.io/categories/development/</loc>
-    <lastmod>2017-05-05T15:44:04+02:00</lastmod>
+    <lastmod>2017-05-14T16:01:04+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hjdskes.github.io/tags/fdo/</loc>
-    <lastmod>2017-05-05T15:44:04+02:00</lastmod>
+    <lastmod>2017-05-14T16:01:04+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/tags/flatpak/</loc>
+    <lastmod>2017-05-14T16:01:04+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -212,7 +223,7 @@
   
   <url>
     <loc>https://hjdskes.github.io/series/gsoc/</loc>
-    <lastmod>2017-05-05T15:44:04+02:00</lastmod>
+    <lastmod>2017-05-14T16:01:04+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -224,19 +235,25 @@
   
   <url>
     <loc>https://hjdskes.github.io/</loc>
-    <lastmod>2017-05-05T15:44:04+02:00</lastmod>
+    <lastmod>2017-05-14T16:01:04+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hjdskes.github.io/tags/libratbag/</loc>
-    <lastmod>2017-05-05T15:44:04+02:00</lastmod>
+    <lastmod>2017-05-14T16:01:04+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/tags/meson/</loc>
+    <lastmod>2017-05-14T16:01:04+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hjdskes.github.io/tags/piper/</loc>
-    <lastmod>2017-05-05T15:44:04+02:00</lastmod>
+    <lastmod>2017-05-14T16:01:04+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -248,19 +265,25 @@
   
   <url>
     <loc>https://hjdskes.github.io/tags/ratbagd/</loc>
-    <lastmod>2017-05-05T15:44:04+02:00</lastmod>
+    <lastmod>2017-05-14T16:01:04+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hjdskes.github.io/series/</loc>
-    <lastmod>2017-05-05T15:44:04+02:00</lastmod>
+    <lastmod>2017-05-14T16:01:04+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hjdskes.github.io/tags/</loc>
     <lastmod>2017-02-26T22:12:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/tags/udev/</loc>
+    <lastmod>2017-05-14T16:01:04+02:00</lastmod>
     <priority>0</priority>
   </url>
   
