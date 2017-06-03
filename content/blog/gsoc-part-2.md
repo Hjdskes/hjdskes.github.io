@@ -1,6 +1,7 @@
 +++
 date = "2017-05-19T16:01:04+02:00"
 title = "GSoC part 2: community bonding"
+description = "GSoC blog series on rewriting Piper"
 tags = [ "Piper", "libratbag", "ratbagd", "fdo", "Flatpak", "Meson", "udev" ]
 categories = "Development"
 series = "GSoC"
