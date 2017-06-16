@@ -969,7 +969,7 @@ margin-left: -4%;
                     
                         
                     
-                    <div class="reading-time"><div class="middot"></div>16 minute read</div>
+                    <div class="reading-time"><div class="middot"></div>17 minute read</div>
                     <div class="tags">
                         <ul>
                           
@@ -1176,10 +1176,17 @@ methods.</p>
 <p>The implementations are really quite straightforward:</p>
 
 <pre><code>    def do_add(self, widget):
-        &quot;&quot;&quot;Adds the given widget to the map.
+        &quot;&quot;&quot;Adds the given widget to the map. The widget must have a custom
+        property named `id` with value the identifier of the SVG element with
+        which it must be paired.
 
         @param widget The widget to add, as Gtk.Widget
         &quot;&quot;&quot;
+        try:
+            widget.id
+        except AttributeError:
+            print(&quot;Widget must have a custom `id` property, skipping.&quot;)
+            return
         if not widget is None:
             self._children.append(widget)
             widget.set_parent(self)
@@ -1409,46 +1416,59 @@ and height.</li>
 <p>The current implementation does not yet work with device SVGs that also have
 markings extend to the left.</p>
 
-<pre><code class="language-python">    def do_size_allocate(self, allocation):
-        &quot;&quot;&quot;Assigns a size and position to the child widgets. Children may adjust
-        the given allocation in the adjust_size_allocation virtual method.
+<pre><code class="language-python">def do_size_allocate(self, allocation):
+    &quot;&quot;&quot;Assigns a size and position to the child widgets. Children may adjust
+    the given allocation in the adjust_size_allocation virtual method.
 
-        This method uses a custom property on the children to position them
-        relative to their SVG counterparts. Children that you want to be
-        positioned should have an `id` property set on them, with value the SVG
-        identifier they should position themselves next to. Children without
-        this property are skipped.
+    This method uses a custom property on the children to position them
+    relative to their SVG counterparts. Children that you want to be
+    positioned should have an `id` property set on them, with value the SVG
+    identifier they should position themselves next to. Children without
+    this property are skipped.
 
-        @param The position and size allocated to this container, as Gdk.Rectangle
-        &quot;&quot;&quot;
-        # TODO: account for left-aligned children, if they exist
-        self.set_allocation(allocation)
-        child_allocation = Gdk.Rectangle()
-        for child in self._children:
-            try:
-                svg_id = child.id + &quot;-leader&quot;
-            except AttributeError:
-                print(&quot;Warning: child does not have `id` attribute, skipping&quot;, file=sys.stderr)
+    @param The position and size allocated to this container, as Gdk.Rectangle
+    &quot;&quot;&quot;
+    # TODO: account for left-aligned children, if they exist
+    self.set_allocation(allocation)
+    child_allocation = Gdk.Rectangle()
+    for child in self._children:
+        svg_id = child.id + &quot;-leader&quot;
+        if child.get_visible():
+            min_size, nat_size = child.get_preferred_size()
+            child_allocation.width = nat_size.width
+            child_allocation.height = nat_size.height
+
+            ok, svg_geom = self._get_svg_sub_geometry(svg_id)
+            if not ok:
                 continue
-            if child.get_visible():
-                min_size, nat_size = child.get_preferred_size()
-                child_allocation.width = nat_size.width
-                child_allocation.height = nat_size.height
+            child_allocation.x = svg_geom.x + svg_geom.width + self.spacing
+            child_allocation.y = svg_geom.y - 0.5 * child_allocation.height
+            if not child.get_has_window():
+                child_allocation.x += allocation.x
+                child_allocation.y += allocation.y
+            child.size_allocate(child_allocation
 
-                ok, svg_pos = self._handle.get_position_sub(svg_id)
-                if not ok:
-                    print(&quot;Warning: cannot retrieve element's position:&quot;, svg_id, file=sys.stderr)
-                    continue
-                ok, svg_dim = self._handle.get_dimensions_sub(svg_id)
-                if not ok:
-                    print(&quot;Warning: cannot retrieve element's dimensions:&quot;, svg_id, file=sys.stderr)
-                    continue
-                child_allocation.x = svg_pos.x + svg_dim.width + self.spacing
-                child_allocation.y = svg_pos.y - 0.5 * child_allocation.height
-                if not child.get_has_window():
-                    child_allocation.x += allocation.x
-                    child_allocation.y += allocation.y
-                child.size_allocate(child_allocation
+def _get_svg_sub_geometry(self, svg_id):
+    &quot;&quot;&quot;Helper method to get an SVG element's x- and y-coordinates, width and
+    height.
+
+    @param svg_id The identifier of the SVG element whose geometry to get.
+    @returns (bool, Gdk.Rectangle)
+    &quot;&quot;&quot;
+    ret = Gdk.Rectangle()
+    ok, svg_pos = self._handle.get_position_sub(svg_id)
+    if not ok:
+        print(&quot;Warning: cannot retrieve element's position:&quot;, svg_id, file=sys.stderr)
+        return ok, ret
+    ok, svg_dim = self._handle.get_dimensions_sub(svg_id)
+    if not ok:
+        print(&quot;Warning: cannot retrieve element's dimensions:&quot;, svg_id, file=sys.stderr)
+        return ok, ret
+    ret.x = svg_pos.x
+    ret.y = svg_pos.y
+    ret.width = svg_dim.width
+    ret.height = svg_dim.height
+    return ok, ret
 </code></pre>
 
 <h5 id="do-draw-cr"><code>do_draw(cr)</code></h5>
@@ -1487,45 +1507,80 @@ could use in GTK+.</p>
 
 <p>Remember that in <code>do_add(widget)</code> we connected to that widget&rsquo;s
 <code>enter-notify-event</code> and <code>leave-notify-event</code> signals? These signals are fired
-when the mouse cursor enters and leaves the widget&rsquo;s window. The code still
-needs polishing (for instance, it does not yet work in case the SVG isn&rsquo;t
-found nor any error checking), but here it is:</p>
+when the mouse cursor enters and leaves the widget&rsquo;s window. Here&rsquo;s how we do
+that:</p>
 
-<pre><code class="language-python">    def _on_enter(self, widget, event):
-        try:
-            svg_id = widget.id
-        except AttributeError:
-            return
-        svg_width = self._handle.props.width
-        svg_height = self._handle.props.height
-        ok, file_data = GLib.file_get_contents(self._device.svg_path)
-        if not ok:
-            return
+<pre><code class="language-python">def _on_enter(self, widget, event):
+    svg_width = self._handle.props.width
+    svg_height = self._handle.props.height
+    try:
+        _, file_data = GLib.file_get_contents(self._device.svg_path)
+    except GLib.Error as e:
+        print(&quot;Cannot get SVG file contents: {}, cannot highlight SVG\
+              elements&quot;.format(e.message), file=sys.stderr)
+        return
+    stream = Gio.MemoryInputStream.new_from_data(file_data, None)
+    escaped_file_data = GLib.markup_escape_text(file_data, -1)
 
-        stream = Gio.MemoryInputStream.new_from_data(file_data, None)
-        escaped_file_data = GLib.markup_escape_text(file_data, -1)
-        data = &quot;&quot;&quot;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
-&lt;svg version=&quot;1.1&quot;
-     xmlns=&quot;http://www.w3.org/2000/svg&quot;
-     xmlns:xi=&quot;http://www.w3.org/2001/XInclude&quot;
-     width=&quot;%s&quot;
-     height=&quot;%s&quot;&gt;
-  &lt;style type=&quot;text/css&quot;&gt;
-    %s {
-      stroke: #2a76c6 !important;
-      stroke-width: 2 !important;
-    }
-  &lt;/style&gt;
-  &lt;xi:include href=&quot;data:text/xml,%s&quot;/&gt;
-&lt;/svg&gt;&quot;&quot;&quot; % (svg_width, svg_height, svg_id, escaped_file_data)
-        stream = Gio.MemoryInputStream.new_from_data(svg_data.encode('UTF-8'), None)
-        self._handle = Rsvg.Handle.new_from_stream_sync(stream, None, Rsvg.HandleFlags.FLAGS_NONE, None)
-        # TODO: make this queue_draw_area(x, y, width, height) to only redraw the SVG
-        self.queue_draw()
+    data = &quot;&quot;&quot;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+              &lt;svg version=&quot;1.1&quot;
+                xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                xmlns:xi=&quot;http://www.w3.org/2001/XInclude&quot;
+                width=&quot;%s&quot;
+                height=&quot;%s&quot;&gt;
+            &lt;style type=&quot;text/css&quot;&gt;
+                %s {
+                  stroke: #2a76c6 !important;
+                  stroke-width: 2 !important;
+                }
+            &lt;/style&gt;
+            &lt;xi:include href=&quot;data:text/xml,%s&quot;/&gt;
+            &lt;/svg&gt;&quot;&quot;&quot; % (svg_width, svg_height, widget.id, escaped_file_data)
 
-    def _on_leave(self, widget, event):
-        self._handle = Rsvg.Handle.new_from_file(ratbag_device.svg_path)
-        self.queue_draw()
+    stream = Gio.MemoryInputStream.new_from_data(data.encode('UTF-8'), None)
+    try:
+        handle = Rsvg.Handle.new_from_stream_sync(stream, None,
+                                                  Rsvg.HandleFlags.FLAGS_NONE,
+                                                  None)
+    except GLib.Error as e:
+        print(&quot;Cannot create new SVG handle: {}&quot;.format(e.message),
+              file=sys.stderr)
+        return
+    self._handle = handle
+    self._redraw_svg_element(widget.id)
+
+def _on_leave(self, widget, event):
+    &quot;&quot;&quot;Restores the device SVG to its original state (i.e., simply reloads
+    the device's SVG).
+
+    @param widget The widget that fired this signal, as Gtk.Widget
+    @param event The Gdk.EventCrossing that triggered this signal.
+    &quot;&quot;&quot;
+    try:
+        handle = Rsvg.Handle.new_from_file(self._device.svg_path)
+    except GLib.Error as e:
+        print(&quot;Cannot load SVG: {}. Restoring not possible&quot;.format(e.message),
+              file=sys.stderr)
+        return
+    self._handle = handle
+    ok, svg_geom = self._get_svg_sub_geometry(widget.id)
+    self._redraw_svg_element(widget.id)
+
+def _redraw_svg_element(self, svg_id):
+   &quot;&quot;&quot;Helper method to redraw an element of the SVG image. Attempts to
+   redraw only the element plus an offset, but will fall back to redrawing
+   the complete SVG.
+
+   @param svg_id The identifier of the SVG element to redraw.
+   &quot;&quot;&quot;
+   ok, svg_geom = self._get_svg_sub_geometry(svg_id)
+   if not ok:
+       svg_width = self._handle.props.width
+       svg_height = self._handle.props.height
+       self.queue_draw_area(0, 0, svg_width, svg_height)
+   else:
+       self.queue_draw_area(svg_geom.x - 10, svg_geom.y - 10,
+                            svg_geom.width + 20, svg_geom.height + 20)
 </code></pre>
 
 <p>All that work has resulted in the following animation:</p>
