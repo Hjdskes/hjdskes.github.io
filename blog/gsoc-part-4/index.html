@@ -1127,30 +1127,30 @@ write-only or readwrite and finally, they can be watched for changes.</p>
 
 <p>In <code>__init__</code>, we initialize the MouseMap object:</p>
 
-<pre><code class="language-python">    def __init__(self, ratbag_device, spacing, layer):
-        &quot;&quot;&quot;Instantiates a new MouseMap.
+<pre><code class="language-python">def __init__(self, ratbag_device, spacing, layer):
+    &quot;&quot;&quot;Instantiates a new MouseMap.
 
-        @param ratbag_device The device that should be mapped, as ratbagd.RatbagdDevice
-        @param spacing The spacing between the SVG leaders and the children, as int
-        @param layer The SVG layer whose leaders to draw.
+    @param ratbag_device The device that should be mapped, as ratbagd.RatbagdDevice
+    @param spacing The spacing between the SVG leaders and the children, as int
+    @param layer The SVG layer whose leaders to draw.
 
-        @raises GLib.Error when the SVG cannot be loaded.
-        &quot;&quot;&quot;
-        Gtk.Container.__init__(self)
-        self.set_has_window(False)
-        self._children = []
-        self._device = ratbag_device
-        self.spacing = spacing
-        self._layer = layer
+    @raises GLib.Error when the SVG cannot be loaded.
+    &quot;&quot;&quot;
+    Gtk.Container.__init__(self)
+    self.set_has_window(False)
+    self._children = []
+    self._device = ratbag_device
+    self.spacing = spacing
+    self._layer = layer
 
-        if not os.path.isfile(ratbag_device.svg_path):
-            stream = Gio.Resource.open_stream(&quot;/org/freedesktop/Piper/404.svg&quot;,
-                                              Gio.ResourceLookupFlags.NONE)
-            self._handle = Rsvg.Handle.new_from_stream(stream, None,
-                                                       Rsvg.HandleFlags.FLAGS_NONE,
-                                                       None)
-        else:
-            self._handle = Rsvg.Handle.new_from_file(ratbag_device.svg_path
+    if not os.path.isfile(ratbag_device.svg_path):
+        stream = Gio.Resource.open_stream(&quot;/org/freedesktop/Piper/404.svg&quot;,
+                                          Gio.ResourceLookupFlags.NONE)
+        self._handle = Rsvg.Handle.new_from_stream(stream, None,
+                                                   Rsvg.HandleFlags.FLAGS_NONE,
+                                                   None)
+    else:
+        self._handle = Rsvg.Handle.new_from_file(ratbag_device.svg_path
 </code></pre>
 
 <p>A <code>Gtk.Container</code> subclass needs to implement <code>Gtk.Container</code>&rsquo;s interface
@@ -1175,35 +1175,35 @@ methods.</p>
 
 <p>The implementations are really quite straightforward:</p>
 
-<pre><code>    def do_add(self, widget):
-        &quot;&quot;&quot;Adds the given widget to the map. The widget must have a custom
-        property named `id` with value the identifier of the SVG element with
-        which it must be paired.
+<pre><code>def do_add(self, widget):
+    &quot;&quot;&quot;Adds the given widget to the map. The widget must have a custom
+    property named `id` with value the identifier of the SVG element with
+    which it must be paired.
 
-        @param widget The widget to add, as Gtk.Widget
-        &quot;&quot;&quot;
-        try:
-            widget.id
-        except AttributeError:
-            print(&quot;Widget must have a custom `id` property, skipping.&quot;)
-            return
-        if not widget is None:
-            self._children.append(widget)
-            widget.set_parent(self)
-            widget.connect(&quot;enter-notify-event&quot;, self._on_enter)
-            widget.connect(&quot;leave-notify-event&quot;, self._on_leave)
+    @param widget The widget to add, as Gtk.Widget
+    &quot;&quot;&quot;
+    try:
+        widget.id
+    except AttributeError:
+        print(&quot;Widget must have a custom `id` property, skipping.&quot;)
+        return
+    if not widget is None:
+        self._children.append(widget)
+        widget.set_parent(self)
+        widget.connect(&quot;enter-notify-event&quot;, self._on_enter)
+        widget.connect(&quot;leave-notify-event&quot;, self._on_leave)
 
-    def do_remove(self, widget):
-        &quot;&quot;&quot;Removes the given widget from the map.
+def do_remove(self, widget):
+    &quot;&quot;&quot;Removes the given widget from the map.
 
-        @param widget The widget to remove, as Gtk.Widget
-        &quot;&quot;&quot;
-        if not widget is None:
-            for child in self._children:
-                if child == widget:
-                    self._children.remove(child)
-                    child.unparent()
-                    break
+    @param widget The widget to remove, as Gtk.Widget
+    &quot;&quot;&quot;
+    if not widget is None:
+        for child in self._children:
+            if child == widget:
+                self._children.remove(child)
+                child.unparent()
+                break
 </code></pre>
 
 <p>We&rsquo;ll get to the <code>enter-notify-event</code> and <code>leave-notify-event</code> signals
@@ -1219,9 +1219,9 @@ its children. The default implementation in <code>Gtk.Container</code> is fine f
 <p>This method returns the type of the children that this container supports. The
 MouseMap widget accepts any GTK+ widget, so we simply state as such:</p>
 
-<pre><code class="language-python">    def do_child_type(self):
-        &quot;&quot;&quot;Indicates that this container accepts any GTK+ widget.&quot;&quot;&quot;
-        return Gtk.Widget.get_type()
+<pre><code class="language-python">def do_child_type(self):
+    &quot;&quot;&quot;Indicates that this container accepts any GTK+ widget.&quot;&quot;&quot;
+    return Gtk.Widget.get_type()
 </code></pre>
 
 <h5 id="do-forall-include-internals-callback-callback-data"><code>do_forall (include_internals, callback, callback_data)</code></h5>
@@ -1231,18 +1231,18 @@ children iff <code>include_internals</code> is <code>True</code>, with <code>cal
 Implementing this method is required for every container, because it is used for
 drawing and other internal GTK+ operations.</p>
 
-<pre><code class="language-python">    def do_forall(self, include_internals, callback, *parameters):
-        &quot;&quot;&quot;Invokes the given callback on each child, with the given parameters.
+<pre><code class="language-python">def do_forall(self, include_internals, callback, *parameters):
+    &quot;&quot;&quot;Invokes the given callback on each child, with the given parameters.
 
-        @param include_internals Whether to run on internal children as well, as
-                                 boolean. Ignored, as there are no internal
-                                 children.
-        @param callback The callback to call on each child, as Gtk.Callback
-        @param parameters The parameters to pass to the callback, as object or None
-        &quot;&quot;&quot;
-        if not callback is None:
-            for child in self._children:
-                callback(child, *parameters)
+    @param include_internals Whether to run on internal children as well, as
+                             boolean. Ignored, as there are no internal
+                             children.
+    @param callback The callback to call on each child, as Gtk.Callback
+    @param parameters The parameters to pass to the callback, as object or None
+    &quot;&quot;&quot;
+    if not callback is None:
+        for child in self._children:
+            callback(child, *parameters)
 </code></pre>
 
 <h5 id="do-set-child-property-child-property-id-value-pspec-and-do-get-child-property-child-property-id-value-pspec"><code>do_set_child_property (child, property_id, value, pspec)</code> and <code>do_get_child_property (child, property_id, value, pspec)</code></h5>
@@ -1307,11 +1307,11 @@ width-for-height layout.</p>
 with control over the amount and placement of child widgets, we simply return
 <code>Gtk.SizeRequestMode.CONSTANT_SIZE</code>:</p>
 
-<pre><code class="language-python">    def do_get_request_mode(self):
-        &quot;&quot;&quot;Gets whether the container prefers a height-for-width or a
-        width-for-height layout. We don't want to trade width for height or
-        height for width so we return CONSTANT_SIZE.&quot;&quot;&quot;
-        return Gtk.SizeRequestMode.CONSTANT_SIZE
+<pre><code class="language-python">def do_get_request_mode(self):
+    &quot;&quot;&quot;Gets whether the container prefers a height-for-width or a
+    width-for-height layout. We don't want to trade width for height or
+    height for width so we return CONSTANT_SIZE.&quot;&quot;&quot;
+    return Gtk.SizeRequestMode.CONSTANT_SIZE
 </code></pre>
 
 <h5 id="do-get-preferred-height-and-do-get-preferred-width"><code>do_get_preferred_height()</code> and <code>do_get_preferred_width()</code></h5>
@@ -1325,42 +1325,42 @@ bottom edges of the container. For the preferred minimum and natural width, we
 return the SVG&rsquo;s width plus the maximum minimum (savvy?) and natural width, the
 border width and the spacing property.</p>
 
-<pre><code class="language-python">    def do_get_preferred_height(self):
-        &quot;&quot;&quot;Calculates the container's initial minimum and natural height. While
-        this call is specific to width-for-height requests (that we requested
-        not to get) we cannot be certain that our wishes are granted and hence
-        we must implement this method as well. In any case, we just return the
-        maximum of the SVG's height or the children's summed (minimum and
-        natural) height, including the border width.&quot;&quot;&quot;
-        svg_height = self._handle.props.height
-        children_height_min = 0
-        children_height_nat = 0
-        for child in self._children:
-            child_min, child_nat = child.get_preferred_height()
-            children_height_min += child_min
-            children_height_nat += child_nat
-        height_min = max(svg_height, children_height_min) + 2 * self.props.border_width
-        height_nat = max(svg_height, children_height_nat) + 2 * self.props.border_width
-        return (height_min, height_nat)
+<pre><code class="language-python">def do_get_preferred_height(self):
+    &quot;&quot;&quot;Calculates the container's initial minimum and natural height. While
+    this call is specific to width-for-height requests (that we requested
+    not to get) we cannot be certain that our wishes are granted and hence
+    we must implement this method as well. In any case, we just return the
+    maximum of the SVG's height or the children's summed (minimum and
+    natural) height, including the border width.&quot;&quot;&quot;
+    svg_height = self._handle.props.height
+    children_height_min = 0
+    children_height_nat = 0
+    for child in self._children:
+        child_min, child_nat = child.get_preferred_height()
+        children_height_min += child_min
+        children_height_nat += child_nat
+    height_min = max(svg_height, children_height_min) + 2 * self.props.border_width
+    height_nat = max(svg_height, children_height_nat) + 2 * self.props.border_width
+    return (height_min, height_nat)
 
-    def do_get_preferred_width(self):
-        &quot;&quot;&quot;Calculates the container's initial minimum and natural width. While
-        this call is specific to height-for-width requests (that we requested
-        not to get) we cannot be certain that our wishes are granted and hence
-        we must implement this method as well. In any case, we just return the
-        SVG's width, including the maximum (minimum and natural) child width,
-        border width and spacing.&quot;&quot;&quot;
-        # TODO: account for left-aligned children, if they exist
-        svg_width = self._handle.props.width
-        children_width_min = 0
-        children_width_nat = 0
-        for child in self._children:
-            child_min, child_nat = child.get_preferred_width()
-            children_width_min = max(children_width_min, child_min)
-            children_width_nat = max(children_width_nat, child_nat)
-        width_min = svg_width + children_width_min + 2 * self.props.border_width + self.spacing
-        width_nat = svg_width + children_width_nat + 2 * self.props.border_width + self.spacing
-        return (width_min, width_nat)
+def do_get_preferred_width(self):
+    &quot;&quot;&quot;Calculates the container's initial minimum and natural width. While
+    this call is specific to height-for-width requests (that we requested
+    not to get) we cannot be certain that our wishes are granted and hence
+    we must implement this method as well. In any case, we just return the
+    SVG's width, including the maximum (minimum and natural) child width,
+    border width and spacing.&quot;&quot;&quot;
+    # TODO: account for left-aligned children, if they exist
+    svg_width = self._handle.props.width
+    children_width_min = 0
+    children_width_nat = 0
+    for child in self._children:
+        child_min, child_nat = child.get_preferred_width()
+        children_width_min = max(children_width_min, child_min)
+        children_width_nat = max(children_width_nat, child_nat)
+    width_min = svg_width + children_width_min + 2 * self.props.border_width + self.spacing
+    width_nat = svg_width + children_width_nat + 2 * self.props.border_width + self.spacing
+    return (width_min, width_nat)
 </code></pre>
 
 <h5 id="do-get-preferred-height-for-width-width-and-do-get-preferred-width-for-height-height"><code>do_get_preferred_height_for_width(width)</code> and <code>do_get_preferred_width_for_height(height)</code></h5>
@@ -1370,29 +1370,29 @@ height and width given the specified width and height. Again, as the MouseMap is
 static in regards to geometry we simply return <code>do_get_preferred_height</code> and
 <code>do_get_preferred_width</code>:</p>
 
-<pre><code class="language-python">    def do_get_preferred_height_for_width(self, width):
-        &quot;&quot;&quot;Returns this container's minimum and natural height if it would be
-        given the specified width. While this call is specific to
-        height-for-width requests (that we requested not to get) we cannot be
-        certain that our wishes are granted and hence we must implement this
-        method as well. Since we really want to be the same size always, we
-        simply return do_get_preferred_height.
+<pre><code class="language-python">def do_get_preferred_height_for_width(self, width):
+    &quot;&quot;&quot;Returns this container's minimum and natural height if it would be
+    given the specified width. While this call is specific to
+    height-for-width requests (that we requested not to get) we cannot be
+    certain that our wishes are granted and hence we must implement this
+    method as well. Since we really want to be the same size always, we
+    simply return do_get_preferred_height.
 
-        @param width The given width, as int. Ignored.
-        &quot;&quot;&quot;
-        return self.do_get_preferred_height()
+    @param width The given width, as int. Ignored.
+    &quot;&quot;&quot;
+    return self.do_get_preferred_height()
 
-    def do_get_preferred_width_for_height(self, height):
-        &quot;&quot;&quot;Returns this container's minimum and natural width if it would be
-        given the specified height. While this call is specific to
-        width-for-height requests (that we requested not to get) we cannot be
-        certain that our wishes are granted and hence we must implement this
-        method as well. Since we really want to be the same size always, we
-        simply return do_get_preferred_width.
+def do_get_preferred_width_for_height(self, height):
+    &quot;&quot;&quot;Returns this container's minimum and natural width if it would be
+    given the specified height. While this call is specific to
+    width-for-height requests (that we requested not to get) we cannot be
+    certain that our wishes are granted and hence we must implement this
+    method as well. Since we really want to be the same size always, we
+    simply return do_get_preferred_width.
 
-        @param height The given height, as int. Ignored.
-        &quot;&quot;&quot;
-        return self.do_get_preferred_width()
+    @param height The given height, as int. Ignored.
+    &quot;&quot;&quot;
+    return self.do_get_preferred_width()
 </code></pre>
 
 <h5 id="do-size-allocate-allocation"><code>do_size_allocate(allocation)</code></h5>
@@ -1478,23 +1478,23 @@ It&rsquo;s rather self explanatory: ask the SVG if it has the required layers an
 so, we draw only those. Otherwise, we draw the entire SVG. Finally, we propagate
 the draw signal to all children so they draw themselves on top of the SVG.</p>
 
-<pre><code class="language-python">    def do_draw(self, cr):
-        &quot;&quot;&quot;Draws the container to the given Cairo context. The top left corner
-        of the widget will be drawn to the currently set origin point of the
-        context. The container needs to propagate the draw signal to its
-        children.
+<pre><code class="language-python">def do_draw(self, cr):
+    &quot;&quot;&quot;Draws the container to the given Cairo context. The top left corner
+    of the widget will be drawn to the currently set origin point of the
+    context. The container needs to propagate the draw signal to its
+    children.
 
-        @param cr The Cairo context to draw into, as cairo.Context
-        &quot;&quot;&quot;
-        # TODO: account for left-aligned children, if they exist
-        if self._handle.has_sub(id=&quot;#Device&quot;) and self._handle.has_sub(id=self._layer):
-            self._handle.render_cairo_sub(cr, id=&quot;#Device&quot;)
-            self._handle.render_cairo_sub(cr, id=self._layer)
-        else:
-            self._handle.render_cairo(cr)
+    @param cr The Cairo context to draw into, as cairo.Context
+    &quot;&quot;&quot;
+    # TODO: account for left-aligned children, if they exist
+    if self._handle.has_sub(id=&quot;#Device&quot;) and self._handle.has_sub(id=self._layer):
+        self._handle.render_cairo_sub(cr, id=&quot;#Device&quot;)
+        self._handle.render_cairo_sub(cr, id=self._layer)
+    else:
+        self._handle.render_cairo(cr)
 
-        for child in self._children:
-            self.propagate_draw(child, cr)
+    for child in self._children:
+        self.propagate_draw(child, cr)
 </code></pre>
 
 <h4 id="interactive-highlighting-of-the-svg">Interactive highlighting of the SVG</h4>
@@ -1528,14 +1528,14 @@ that:</p>
                 xmlns:xi=&quot;http://www.w3.org/2001/XInclude&quot;
                 width=&quot;%s&quot;
                 height=&quot;%s&quot;&gt;
-            &lt;style type=&quot;text/css&quot;&gt;
-                %s {
-                  stroke: #2a76c6 !important;
-                  stroke-width: 2 !important;
-                }
-            &lt;/style&gt;
-            &lt;xi:include href=&quot;data:text/xml,%s&quot;/&gt;
-            &lt;/svg&gt;&quot;&quot;&quot; % (svg_width, svg_height, widget.id, escaped_file_data)
+                &lt;style type=&quot;text/css&quot;&gt;
+                  %s {
+                    stroke: #2a76c6 !important;
+                    stroke-width: 2 !important;
+                  }
+                &lt;/style&gt;
+                &lt;xi:include href=&quot;data:text/xml,%s&quot;/&gt;
+              &lt;/svg&gt;&quot;&quot;&quot; % (svg_width, svg_height, widget.id, escaped_file_data)
 
     stream = Gio.MemoryInputStream.new_from_data(data.encode('UTF-8'), None)
     try:
