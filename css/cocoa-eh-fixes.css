@@ -18,3 +18,30 @@ section.footer .container a {
     padding-bottom: 0px;
   }
 }
+q,
+blockquote {
+    quotes: "\201C" "\201D" "\2018" "\2019";
+}
+q:before,
+blockquote:before {
+    content: open-quote;
+}
+q:after,
+blockquote:after {
+    content: close-quote;
+}
+section.main .content .markdown h1 {
+  font-size: 26px !important;
+}
+section.main .content .markdown h2 {
+  font-size: 24px !important;
+}
+section.main .content .markdown h3 {
+  font-size: 22px !important;
+}
+section.main .content .markdown h4 {
+  font-size: 20px !important;
+}
+section.main .content .markdown h5 {
+  font-size: 18px !important;
+}

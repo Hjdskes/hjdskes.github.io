@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016, 2017 Jente Hidskes</copyright>
-    <lastBuildDate>Sat, 03 Jun 2017 17:53:27 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 16 Jun 2017 20:47:56 +0200</lastBuildDate>
     
 	<atom:link href="https://hjdskes.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GSoC part 4: the first sprint</title>
+      <link>https://hjdskes.github.io/blog/gsoc-part-4/</link>
+      <pubDate>Fri, 16 Jun 2017 20:47:56 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/blog/gsoc-part-4/</guid>
+      <description>This is going to be a long one, so grab a drink and a snack and buckle up! Incidentally, the X.Org foundation has asked us, the 2017 GSoC students, to blog weekly so from now on I will do so; which will also mean smaller blogs in the future.
+I made a schedule to go with my proposal in which I divided the coding period into two week sprints to plan out my project.</description>
+    </item>
     
     <item>
       <title>GSoC part 3: mockups, mockups, mockups!</title>
