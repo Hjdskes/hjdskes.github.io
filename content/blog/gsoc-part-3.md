@@ -44,6 +44,6 @@ together and stay ahead of schedule. Until next time!
 [gnome-design-team]: https://github.com/gnome-design-team/gnome-mockups/
 [piper-redesign]: https://github.com/libratbag/piper/wiki/Piper-Redesign
 
-This blog post is part of a series. You can read the previous part about the
+This blog post is part of a series. You can read the next part about the
+first sprint [here](/blog/gsoc-part-4) or the previous part about the
 community bonding period [here](/blog/gsoc-part-2).
-
