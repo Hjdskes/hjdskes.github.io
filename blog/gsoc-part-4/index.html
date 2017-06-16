@@ -1310,29 +1310,50 @@ with control over the amount and placement of child widgets, we simply return
 <h5 id="do-get-preferred-height-and-do-get-preferred-width"><code>do_get_preferred_height()</code> and <code>do_get_preferred_width()</code></h5>
 
 <p>These methods return the container&rsquo;s initial minimum and natural height and
-width. Since the MouseMap is static with regards to geometry, we simply return
-the height (or width) or the SVG, including the border width and any children
-that are drawn above or below (or left and right) of the SVG.</p>
+width. Since the MouseMap is static with regards to geometry, we don&rsquo;t have to
+do anything fancy here. For the preferred minimum and natural height, we simply
+return the maximum of the SVG&rsquo;s height and the summed minimum and natural height
+of the children, plus the border width which is also allocated on the top and
+bottom edges of the container. For the preferred minimum and natural width, we
+return the SVG&rsquo;s width plus the maximum minimum (savvy?) and natural width, the
+border width and the spacing property.</p>
 
 <pre><code class="language-python">    def do_get_preferred_height(self):
         &quot;&quot;&quot;Calculates the container's initial minimum and natural height. While
         this call is specific to width-for-height requests (that we requested
         not to get) we cannot be certain that our wishes are granted and hence
         we must implement this method as well. In any case, we just return the
-        SVG's height, including the border width.&quot;&quot;&quot;
-        # TODO: account for children and spacing
-        height = self._handle.props.height + 2 * self.props.border_width
-        return (height, height)
+        maximum of the SVG's height or the children's summed (minimum and
+        natural) height, including the border width.&quot;&quot;&quot;
+        svg_height = self._handle.props.height
+        children_height_min = 0
+        children_height_nat = 0
+        for child in self._children:
+            child_min, child_nat = child.get_preferred_height()
+            children_height_min += child_min
+            children_height_nat += child_nat
+        height_min = max(svg_height, children_height_min) + 2 * self.props.border_width
+        height_nat = max(svg_height, children_height_nat) + 2 * self.props.border_width
+        return (height_min, height_nat)
 
     def do_get_preferred_width(self):
         &quot;&quot;&quot;Calculates the container's initial minimum and natural width. While
         this call is specific to height-for-width requests (that we requested
         not to get) we cannot be certain that our wishes are granted and hence
         we must implement this method as well. In any case, we just return the
-        SVG's width, including the border width.&quot;&quot;&quot;
-        # TODO: account for children and spacing
-        width = self._handle.props.width + 2 * self.props.border_width
-        return (width, width)
+        SVG's width, including the maximum (minimum and natural) child width,
+        border width and spacing.&quot;&quot;&quot;
+        # TODO: account for left-aligned children, if they exist
+        svg_width = self._handle.props.width
+        children_width_min = 0
+        children_width_nat = 0
+        for child in self._children:
+            child_min, child_nat = child.get_preferred_width()
+            children_width_min = max(children_width_min, child_min)
+            children_width_nat = max(children_width_nat, child_nat)
+        width_min = svg_width + children_width_min + 2 * self.props.border_width + self.spacing
+        width_nat = svg_width + children_width_nat + 2 * self.props.border_width + self.spacing
+        return (width_min, width_nat)
 </code></pre>
 
 <h5 id="do-get-preferred-height-for-width-width-and-do-get-preferred-width-for-height-height"><code>do_get_preferred_height_for_width(width)</code> and <code>do_get_preferred_width_for_height(height)</code></h5>
@@ -1400,7 +1421,7 @@ markings extend to the left.</p>
 
         @param The position and size allocated to this container, as Gdk.Rectangle
         &quot;&quot;&quot;
-        # TODO: some SVGs also have leaders pointing to the left.
+        # TODO: account for left-aligned children, if they exist
         self.set_allocation(allocation)
         child_allocation = Gdk.Rectangle()
         for child in self._children:
@@ -1433,12 +1454,9 @@ markings extend to the left.</p>
 <h5 id="do-draw-cr"><code>do_draw(cr)</code></h5>
 
 <p>Finally, the method that draws the SVG into the container&rsquo;s drawing context.
-It&rsquo;s rather self explanatory: to draw the SVG in the center, we retrieve the
-center coordinates of the container and translate Cairo&rsquo;s drawing context to
-these coordinates minus half of the SVG&rsquo;s width and height. We then ask the SVG
-if it has the required layers and if so, we draw only those. Otherwise, we draw
-the entire SVG. Finally, we propagate the draw signal to all children so they
-draw themselves on top of the SVG.</p>
+It&rsquo;s rather self explanatory: ask the SVG if it has the required layers and if
+so, we draw only those. Otherwise, we draw the entire SVG. Finally, we propagate
+the draw signal to all children so they draw themselves on top of the SVG.</p>
 
 <pre><code class="language-python">    def do_draw(self, cr):
         &quot;&quot;&quot;Draws the container to the given Cairo context. The top left corner
@@ -1448,13 +1466,7 @@ draw themselves on top of the SVG.</p>
 
         @param cr The Cairo context to draw into, as cairo.Context
         &quot;&quot;&quot;
-        def _get_center_coordinates(self):
-            allocation = self.get_allocation()
-            x = allocation.width / 2 - 2 * self.props.border_width;
-            y = allocation.height / 2 - 2 * self.props.border_width;
-            return x, y
-        x, y = _get_center_coordinates(self)
-        cr.translate(x - self._handle.props.width / 2, y - self._handle.props.height / 2)
+        # TODO: account for left-aligned children, if they exist
         if self._handle.has_sub(id=&quot;#Device&quot;) and self._handle.has_sub(id=self._layer):
             self._handle.render_cairo_sub(cr, id=&quot;#Device&quot;)
             self._handle.render_cairo_sub(cr, id=self._layer)
