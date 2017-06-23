@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016, 2017 Jente Hidskes</copyright>
-    <lastBuildDate>Fri, 16 Jun 2017 20:47:56 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 23 Jun 2017 16:52:20 +0200</lastBuildDate>
     
 	<atom:link href="https://hjdskes.github.io/tags/fdo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GSoC part 5: exams</title>
+      <link>https://hjdskes.github.io/blog/gsoc-part-5/</link>
+      <pubDate>Fri, 23 Jun 2017 16:52:20 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/blog/gsoc-part-5/</guid>
+      <description>As mentioned in my previous blog, the X.Org Foundation now wants us to blog every week. Whilst that means shorter blogs (last week&amp;rsquo;s was a tad long), it also means that there isn&amp;rsquo;t much to blog about if I didn&amp;rsquo;t do much in a week.
+Such is the case for this week, sadly. It&amp;rsquo;s the last week of university, and so there are a few assignment deadlines that I needed to complete; I haven&amp;rsquo;t been able to invest as much time into my project as I would have wanted.</description>
+    </item>
     
     <item>
       <title>GSoC part 4: the first sprint</title>

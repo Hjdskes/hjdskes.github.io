@@ -11,19 +11,19 @@
 <meta name="description" content="Jente Hidskes&#39; personal website">
 
 
-<meta property="twitter:title" content="Tags">
+<meta property="twitter:title" content="GSoC part 5: exams">
 
     <meta property="twitter:card" content="summary">
 
-<meta property="twitter:description" content="">
+<meta property="twitter:description" content="GSoC blog series on rewriting Piper">
 
 <title>
 
 
-     Jente Hidskes&#39; personal website - Tags 
+     Jente Hidskes&#39; personal website - GSoC part 5: exams 
 
 </title>
-<link rel="canonical" href="https://hjdskes.github.io/tags/">
+<link rel="canonical" href="https://hjdskes.github.io/blog/gsoc-part-5/">
 
 
 <style media="screen">
@@ -899,8 +899,6 @@ margin-left: -4%;
 
 
 
-  <link href="https://hjdskes.github.io/tags/index.xml" rel="alternate" type="application/rss+xml" title="Jente Hidskes&#39; personal website" />
-
 
 </head>
 
@@ -908,7 +906,7 @@ margin-left: -4%;
 <body>
 
 
-<section class="header header-home">
+<section class="header">
 
     <div class="container">
         <a href="https://hjdskes.github.io/"><img class="logo" src="https://hjdskes.github.io/img/avatar.png" alt="logo" /></a>
@@ -953,146 +951,104 @@ margin-left: -4%;
     </div>
 </section>
 
-<section class="main">
+
+<section class="main post non-narrow zero-top-spacing">
     <div class="container">
         <div class="content">
-            <div class="posts">
-                <div class="page-heading">Tags</div>
-                <ul>
-                    
-                        <li class="post-item">
-    <span class="meta">Jun 16, 2017</span>
-    
-      <a href="https://hjdskes.github.io/tags/container/"><span>Container</span></a>
-    
-</li>
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
 
-                    
-                        <li class="post-item">
-    <span class="meta">Feb 26, 2017</span>
-    
-      <a href="https://hjdskes.github.io/tags/deploying/"><span>Deploying</span></a>
-    
-</li>
+    GSoC part 5: exams
 
-                    
-                        <li class="post-item">
-    <span class="meta">Jun 23, 2017</span>
-    
-      <a href="https://hjdskes.github.io/tags/fdo/"><span>Fdo</span></a>
-    
-</li>
+</div>
 
+                </div>
+                <div class="meta">
+                    <div class="date" title="Fri Jun 23 2017 16:52:20 CEST">Jun 23, 2017</div>
                     
-                        <li class="post-item">
-    <span class="meta">May 19, 2017</span>
-    
-      <a href="https://hjdskes.github.io/tags/flatpak/"><span>Flatpak</span></a>
-    
-</li>
+                        
+                    
+                    <div class="reading-time"><div class="middot"></div>2 minute read</div>
+                    <div class="tags">
+                        <ul>
+                          
+                            <div class="middot"></div>
+                            <li><a href="/tags/piper">Piper</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="/tags/fdo">fdo</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="/tags/mousemap">MouseMap</a> </li>
+                          
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="markdown">
+                
+    <p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal" /></p>
 
-                    
-                        <li class="post-item">
-    <span class="meta">May 5, 2017</span>
-    
-      <a href="https://hjdskes.github.io/tags/gaming-mice/"><span>Gaming Mice</span></a>
-    
-</li>
+<p>As mentioned in my <a href="/blog/gsoc-part-4">previous</a> blog, the X.Org Foundation now
+wants us to blog every week. Whilst that means shorter blogs (last week&rsquo;s was a
+tad long), it also means that there isn&rsquo;t much to blog about if I didn&rsquo;t do much
+in a week.</p>
 
-                    
-                        <li class="post-item">
-    <span class="meta">Feb 26, 2017</span>
-    
-      <a href="https://hjdskes.github.io/tags/github-pages/"><span>Github Pages</span></a>
-    
-</li>
+<p>Such is the case for this week, sadly. It&rsquo;s the last week of university, and so
+there are a few assignment deadlines that I needed to complete; I haven&rsquo;t been
+able to invest as much time into my project as I would have wanted. That&rsquo;s oke
+though, because as I said in the previous update I&rsquo;m ahead of schedule. I
+discussed this with Peter, my mentor, and we agreed that there is no problem.</p>
 
-                    
-                        <li class="post-item">
-    <span class="meta">Jun 16, 2017</span>
-    
-      <a href="https://hjdskes.github.io/tags/gtk/"><span>Gtk</span></a>
-    
-</li>
+<p>So, what has actually been done the last week? Three things; first, I&rsquo;m now
+working on adding support for left-aligned buttons in the MouseMap widget. I
+have something working, but I&rsquo;m not quite happy with it yet. Definitely
+something I hope to improve next week!</p>
 
-                    
-                        <li class="post-item">
-    <span class="meta">Feb 26, 2017</span>
-    
-      <a href="https://hjdskes.github.io/tags/hugo/"><span>Hugo</span></a>
-    
-</li>
+<p>Second, highlighting SVG elements is now significantly cleaner. With the old
+approach Piper would reload the SVG for every change, not that efficient. I came
+across a <a href="https://theawless.github.io/GSoC-Report-1/">blog update</a> of a GNOME
+GSoC student, who also had to highlight SVG elements. After asking the Cairo
+developers, he settled for drawing the button to a separate Cairo surface and
+using that one as a <a href="https://www.cairographics.org/tutorial/#L3mask">mask</a> to
+draw the original surface. A clean and elegant solution for sure, much better
+than my original approach!</p>
 
-                    
-                        <li class="post-item">
-    <span class="meta">Jun 3, 2017</span>
-    
-      <a href="https://hjdskes.github.io/tags/inkscape/"><span>Inkscape</span></a>
-    
-</li>
+<p>Finally, Peter has <a href="https://github.com/libratbag/libratbag/pull/183">added</a> an
+API to libratbag to query a resolution&rsquo;s minimum and maximum DPI. We are going
+to need this in Piper to correctly cap the possible values in the resolution
+stack page.</p>
 
-                    
-                        <li class="post-item">
-    <span class="meta">May 19, 2017</span>
-    
-      <a href="https://hjdskes.github.io/tags/libratbag/"><span>Libratbag</span></a>
-    
-</li>
+<p>That&rsquo;s all, folks! I hope to see you again next week when I&rsquo;ve made up for this
+lousy week!</p>
 
-                    
-                        <li class="post-item">
-    <span class="meta">May 19, 2017</span>
-    
-      <a href="https://hjdskes.github.io/tags/meson/"><span>Meson</span></a>
-    
-</li>
+<p>This blog post is part of a series. You can read the previous part about the
+first development sprint <a href="/blog/gsoc-part-4">here</a>.</p>
 
-                    
-                        <li class="post-item">
-    <span class="meta">Jun 3, 2017</span>
-    
-      <a href="https://hjdskes.github.io/tags/mockup/"><span>Mockup</span></a>
-    
-</li>
 
+                <br>
+            </div>
+            
+                <div class="navigation">
                     
-                        <li class="post-item">
-    <span class="meta">Jun 23, 2017</span>
-    
-      <a href="https://hjdskes.github.io/tags/mousemap/"><span>Mousemap</span></a>
-    
-</li>
-
+                    <div>
+                        <img class="icon" src="/img/back.svg" alt="back" />
+                        <a href="https://hjdskes.github.io/blog/gsoc-part-4/">GSoC part 4: the first sprint</a>
+                    </div>
                     
-                        <li class="post-item">
-    <span class="meta">Jun 23, 2017</span>
-    
-      <a href="https://hjdskes.github.io/tags/piper/"><span>Piper</span></a>
-    
-</li>
-
+                    <div style="width: 100%;"></div>
                     
-                        <li class="post-item">
-    <span class="meta">Jun 16, 2017</span>
-    
-      <a href="https://hjdskes.github.io/tags/ratbagd/"><span>Ratbagd</span></a>
-    
-</li>
-
-                    
-                        <li class="post-item">
-    <span class="meta">May 19, 2017</span>
-    
-      <a href="https://hjdskes.github.io/tags/udev/"><span>Udev</span></a>
-    
-</li>
-
-                    
-                </ul>
+                </div>
+            
+            <br>
+            <div class="disqus">
+                
             </div>
         </div>
     </div>
 </section>
+
 <section class="footer">
     <div class="container">
         <div class="copyright">
