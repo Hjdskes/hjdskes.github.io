@@ -632,7 +632,8 @@ is a realistic goal, because so much has changed from the current design.
 However, considering that the MouseMap is almost done, I can definitely get a
 long way before this sprint is over!
 
-This blog post is part of a series. You can read the previous part about
+This blog post is part of a series. You can read the next part
+[here](/blog/gsoc-part-5) or the previous part about
 designing and making the mockups [here][previous].
 
 [previous]: /blog/gsoc-part-3
