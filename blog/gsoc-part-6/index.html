@@ -11,19 +11,19 @@
 <meta name="description" content="Jente Hidskes&#39; personal website">
 
 
-<meta property="twitter:title" content="Blogs">
+<meta property="twitter:title" content="GSoC part 6: progress!">
 
     <meta property="twitter:card" content="summary">
 
-<meta property="twitter:description" content="">
+<meta property="twitter:description" content="GSoC blog series on rewriting Piper">
 
 <title>
 
 
-     Jente Hidskes&#39; personal website - Blogs 
+     Jente Hidskes&#39; personal website - GSoC part 6: progress! 
 
 </title>
-<link rel="canonical" href="https://hjdskes.github.io/blog/">
+<link rel="canonical" href="https://hjdskes.github.io/blog/gsoc-part-6/">
 
 
 <style media="screen">
@@ -899,8 +899,6 @@ margin-left: -4%;
 
 
 
-  <link href="https://hjdskes.github.io/blog/index.xml" rel="alternate" type="application/rss+xml" title="Jente Hidskes&#39; personal website" />
-
 
 </head>
 
@@ -908,7 +906,7 @@ margin-left: -4%;
 <body>
 
 
-<section class="header header-home">
+<section class="header">
 
     <div class="container">
         <a href="https://hjdskes.github.io/"><img class="logo" src="https://hjdskes.github.io/img/avatar.png" alt="logo" /></a>
@@ -953,94 +951,386 @@ margin-left: -4%;
     </div>
 </section>
 
-<section class="main">
+
+<section class="main post non-narrow zero-top-spacing">
     <div class="container">
         <div class="content">
-            <div class="posts">
-                <div class="page-heading">Blog</div>
-                <ul>
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    GSoC part 6: progress!
+
+</div>
+
+                </div>
+                <div class="meta">
+                    <div class="date" title="Fri Jun 30 2017 16:11:24 CEST">Jun 30, 2017</div>
                     
-                        <li class="groupby">Jun, 2017</li>
-                        
-                            <li class="post-item">
-    <span class="meta">Jun 30, 2017</span>
-    
-      <a href="https://hjdskes.github.io/blog/gsoc-part-6/"><span>GSoC part 6: progress!</span></a>
-    
-</li>
-
-                        
-                            <li class="post-item">
-    <span class="meta">Jun 23, 2017</span>
-    
-      <a href="https://hjdskes.github.io/blog/gsoc-part-5/"><span>GSoC part 5: exams</span></a>
-    
-</li>
-
-                        
-                            <li class="post-item">
-    <span class="meta">Jun 16, 2017</span>
-    
-      <a href="https://hjdskes.github.io/blog/gsoc-part-4/"><span>GSoC part 4: the first sprint</span></a>
-    
-</li>
-
-                        
-                            <li class="post-item">
-    <span class="meta">Jun 3, 2017</span>
-    
-      <a href="https://hjdskes.github.io/blog/gsoc-part-3/"><span>GSoC part 3: mockups, mockups, mockups!</span></a>
-    
-</li>
-
                         
                     
-                        <li class="groupby">May, 2017</li>
-                        
-                            <li class="post-item">
-    <span class="meta">May 19, 2017</span>
+                    <div class="reading-time"><div class="middot"></div>9 minute read</div>
+                    <div class="tags">
+                        <ul>
+                          
+                            <div class="middot"></div>
+                            <li><a href="/tags/piper">Piper</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="/tags/fdo">fdo</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="/tags/mousemap">MouseMap</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="/tags/xpath">XPath</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="/tags/xml">XML</a> </li>
+                          
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="markdown">
+                
     
-      <a href="https://hjdskes.github.io/blog/gsoc-part-2/"><span>GSoC part 2: community bonding</span></a>
-    
-</li>
 
-                        
-                            <li class="post-item">
-    <span class="meta">May 5, 2017</span>
-    
-      <a href="https://hjdskes.github.io/blog/gsoc-part-1/"><span>GSoC part 1: an introduction!</span></a>
-    
-</li>
+<p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal" /></p>
 
-                        
+<p>This week Piper saw some progress again! Today I opened the <a href="https://github.com/libratbag/piper/pull/20">pull request</a>
+for the MouseMap that I&rsquo;ve been working on for the past two and a half weeks
+now. I&rsquo;ll discuss the changes made since the last blog <a href="/blog/gsoc-part-6#mousemap">later</a>; first,
+I want to highlight the other work I did the past week.</p>
+
+<p>A major milestone this week is the <a href="https://github.com/libratbag/libratbag/pull/184">merging</a> of ratbagd and libratbag.
+While Piper shouldn&rsquo;t notice any of this (it talks to ratbagd over DBus), it&rsquo;s
+still a highlight I want to mention. I also passed for the first evaluation, so
+I can keep working &#9786;.</p>
+
+<h3 id="ratbagd-led-api">Ratbagd LED API</h3>
+
+<p>libratbag has supported configuring LEDs for a while now, but this hadn&rsquo;t been
+implemented in ratbagd yet. Piper will need the implementation in ratbagd in
+order to expose the settings to the user, so last week I sat down to add the
+missing code in ratbagd. You can see the resulting PR <a href="https://github.com/libratbag/ratbagd/pull/35">here</a>.</p>
+
+<p>Since Piper now manages its own ratbagd <q>bindings</q> (they really are just
+DBus wrappers), I added support for the newly exposed DBus interface straight
+away. This was merged <a href="https://github.com/libratbag/piper/pull/17">today</a>.</p>
+
+<h3 id="minimum-and-maximum-resolution-in-piper-s-ratbagd-bindings">Minimum and maximum resolution in Piper&rsquo;s ratbagd bindings</h3>
+
+<p>Last week, my mentor exposed a device&rsquo;s minimum and maximum resolution through
+libratbag and ratbagd. Today I quickly <a href="https://github.com/libratbag/piper/pull/21">implemented</a> this in Piper&rsquo;s
+ratbagd bindings, as well.</p>
+
+<h3 id="adhering-to-pep8-in-piper">Adhering to PEP8 in Piper</h3>
+
+<p>Adhering to a certain style is good. It makes your code consistent, which helps
+when reading it. Since code is read more often than it is written, this is a
+good thing.</p>
+
+<p>The most used convention in Python is <a href="https://www.python.org/dev/peps/pep-0008/#introduction">PEP8</a>. From this week forward,
+Piper <a href="https://github.com/libratbag/piper/pull/18">adheres</a> to PEP8. We&rsquo;re using <a href="http://flake8.pycqa.org/en/latest/">flake8</a> to check this.
+Personally I use flake8&rsquo;s <a href="http://flake8.pycqa.org/en/latest/user/using-hooks.html">Git hook</a>, but we now also have a
+<a href="https://github.com/libratbag/piper/pull/22">CircleCI build</a> running for every PR to run flake8. In the future,
+this will probably also be used to run unit tests.</p>
+
+<h3 id="adding-the-finishing-touches-to-the-mousemap">Adding the finishing touches to the MouseMap</h3>
+
+<p>The most obvious change is that the MouseMap now also works with left-aligned
+children:</p>
+
+<p><img src="/img/blog/gsoc-part-6/mousemap-left-aligned.png" alt="Left-aligned children" /></p>
+
+<p>Detecting where a widget should be aligned is rather straightforward, but it
+took a while to get to where we are now. At first, the leaders ended with a
+1&#215;1 pixel whose x-coordinate I queried. Coordinates with a value of zero
+would be left aligned, and others right aligned. My mentor rightfully thought
+that this wasn&rsquo;t a nice approach, because there is no meaning to this random
+value. He suggested I talk with bentiss (Benjamin), who also had to lay out
+buttons around an SVG for GNOME&rsquo;s settings daemon. Benjamin suggested that we
+add back labels into the SVG, who would be right-aligned on the left side and
+left-aligned on the right side (savvy? &#128521;). This worked, but 1) it
+required that the drawn widgets are large enough to completely cover the labels
+and 2) it messed up the calculation of the width, as there was no way to
+determine how much the widget would overlap on the SVG. The solution here was to
+remove the labels from the XML tree before opening a librsvg handle, but now
+there were no labels left whose coordinates to check&hellip; Of course, we could
+parse those ahead of time and remember all the coordinates, but we don&rsquo;t have
+the element identifiers until the widgets are added to the container and by this
+time the handle is already instantiated.</p>
+
+<p>So, after a quick discussion, we settled somewhere in the middle of both
+approaches. We again have all leaders end with a 1&#215;1 pixel, but we don&rsquo;t
+check these pixels&rsquo; x-coordinates. Instead, they have a style attribute that we
+query for (at the moment, this is the <code>text-align</code> attribute, but this may
+change in the future). The code now looks like this:</p>
+
+<pre><code class="language-python">def do_add(self, widget):
+    &quot;&quot;&quot;Not implemented, use `add(widget, svg_id)` instead.&quot;&quot;&quot;
+    pass
+
+def add(self, widget, svg_id):
+    &quot;&quot;&quot;Adds the given widget to the map, bound to the given SVG element
+    identifier. If the element identifier or its leader is not found in the
+    SVG, the widget is not added.
+
+    @param widget The widget to add, as Gtk.Widget
+    @param svg_id The identifier of the SVG element with which this widget
+                  is to be paired, as str
+    &quot;&quot;&quot;
+    svg_leader = svg_id + &quot;-leader&quot;
+    if widget is None or svg_id is None or not \
+        self._handle.has_sub(svg_id) or not \
+            self._handle.has_sub(svg_leader):
+        return
+
+    is_left = self._xpath_has_style(svg_leader[1:], &quot;text-align:end&quot;)
+    child = _MouseMapChild(widget, is_left, svg_id)
+    self._children.append(child)
+    widget.connect(&quot;enter-notify-event&quot;, self._on_enter, child)
+    widget.connect(&quot;leave-notify-event&quot;, self._on_leave)
+    widget.set_parent(self)
+</code></pre>
+
+<p>As you can see, we use <a href="https://www.w3schools.com/xml/xpath_intro.asp">XPath</a> to query the XML tree for style
+attributes. It&rsquo;s implemented like this:</p>
+
+<pre><code class="language-python">def _xpath_has_style(self, svg_id, style):
+    # Checks if the SVG element with the given identifier has the given
+    # style attribute set.
+    namespaces = {
+        'sodipodi': 'http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd',
+        'cc': 'http://web.resource.org/cc/',
+        'svg': 'http://www.w3.org/2000/svg',
+        'dc': 'http://purl.org/dc/elements/1.1/',
+        'xlink': 'http://www.w3.org/1999/xlink',
+        'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
+        'inkscape': 'http://www.inkscape.org/namespaces/inkscape'
+    }
+    query = &quot;//svg:rect[@id=\&quot;{}\&quot;][contains(@style, \&quot;{}\&quot;)]&quot;.\
+            format(svg_id, style)
+    element = self._svg_data.xpath(query, namespaces=namespaces)
+    return element is not None and len(element) == 1 and element[0] is not None
+</code></pre>
+
+<p>The attentive reader may have noticed the <code>_MouseMapChild</code> class. This is an
+implementation detail (hence it is private) to capture all data related to
+children:</p>
+
+<pre><code class="language-python">class _MouseMapChild:
+    # A helper class to manage children and their properties.
+
+    def __init__(self, widget, is_left, svg_id):
+        self._widget = widget
+        self._is_left = is_left
+        self._svg_id = svg_id
+        self._svg_leader = svg_id + &quot;-leader&quot;
+
+    @property
+    def widget(self):
+        # The widget belonging to this child.
+        return self._widget
+
+    @property
+    def svg_id(self):
+        # The identifier of the SVG element with which this child's widget is
+        # paired.
+        return self._svg_id
+
+    @property
+    def svg_leader(self):
+        # The identifier of the leader SVG element with which this child's
+        # widget is paired.
+        return self._svg_leader
+
+    @property
+    def is_left(self):
+        # True iff this child's widget is allocated to the left of the SVG.
+        return self._is_left
+</code></pre>
+
+<p>To calculate the preferred width with left and right aligned children, we simply
+iterate over the children and take for each side the maximum width:</p>
+
+<pre><code class="language-python">def do_get_preferred_width(self):
+    &quot;&quot;&quot;Calculates the container's initial minimum and natural width. While
+    this call is specific to height-for-width requests (that we requested
+    not to get) we cannot be certain that our wishes are granted and hence
+    we must implement this method as well. We return the sum of the SVG's
+    width, the natural child widths (left and right), spacing and border
+    width.
+    &quot;&quot;&quot;
+    width = 2 * self.props.border_width
+    width_svg = self._handle.props.width
+    width_left = max((child.widget.get_preferred_width()[1] for
+                      child in self._children if child.is_left), default=0)
+    width_right = max((child.widget.get_preferred_width()[1] for
+                      child in self._children if not child.is_left),
+                      default=0)
+    width += width_left + width_svg + width_right + self.spacing
+    if width_left &gt; 0:
+        width += self.spacing
+    return (width, width)
+</code></pre>
+
+<p>Because we cannot reliably calculate whether children are positioned above or
+below the SVG (the SVG elements may have arbitrary coordinates), we simply
+assume that the SVG is tall enough to fit all children (which works because we
+have control over the SVGs):</p>
+
+<pre><code class="language-python">def do_get_preferred_height(self):
+    &quot;&quot;&quot;Calculates the container's initial minimum and natural height. While
+    this call is specific to width-for-height requests (that we requested
+    not to get) we cannot be certain that our wishes are granted and hence
+    we must implement this method as well. We just return the SVG's height
+    plus the border widths.
+    &quot;&quot;&quot;
+    # TODO: account for children sticking out under or above the SVG, if
+    # they exist. At the moment we cannot reliably do so because the
+    # y-coordinates of the leaders can have any arbitrary value. For now,
+    # we assume that the SVG is high enough to fit all children and do not
+    # worry about setups beyond the default GNOME Adwaita.
+    height = self._handle.props.height + 2 * self.props.border_width
+    return (height, height)
+</code></pre>
+
+<p>Finally, the coordinate system is now centric to the SVG with its origin to the
+top left of the SVG such that the MouseMap will be drawn in the center of its
+allocated width (this also shows how the highlighting is now done using masks,
+as discussed in the previous blog entry):</p>
+
+<pre><code class="language-python">def do_size_allocate(self, allocation):
+    &quot;&quot;&quot;Assigns a size and position to the child widgets. Children may
+    adjust the given allocation in their adjust_size_allocation virtual
+    method implementation.
+
+    @param allocation The position and size allocated to this container, as
+                      Gdk.Rectangle
+    &quot;&quot;&quot;
+    self.set_allocation(allocation)
+    x, y = self._translate_to_origin()
+    child_allocation = Gdk.Rectangle()
+
+    for child in self._children:
+        if not child.widget.get_visible():
+            continue
+        svg_geom = self._get_svg_sub_geometry(child.svg_leader)[1]
+        nat_size = child.widget.get_preferred_size()[1]
+        if child.is_left:
+            child_allocation.x = x + svg_geom.x - self.spacing - nat_size.width
+        else:
+            child_allocation.x = x + svg_geom.x + self.spacing
+        child_allocation.y = y + svg_geom.y + 0.5 * svg_geom.height - 0.5 * nat_size.height
+        child_allocation.width = nat_size.width
+        child_allocation.height = nat_size.height
+        if not child.widget.get_has_window():
+            child_allocation.x += allocation.x
+            child_allocation.y += allocation.y
+        child.widget.size_allocate(child_allocation)
+
+def do_draw(self, cr):
+    &quot;&quot;&quot;Draws the container to the given Cairo context. The top left corner
+    of the widget will be drawn to the currently set origin point of the
+    context. The container needs to propagate the draw signal to its
+    children.
+
+    @param cr The Cairo context to draw into, as cairo.Context
+    &quot;&quot;&quot;
+    cr.save()
+    x, y = self._translate_to_origin()
+    cr.translate(x, y)
+    self._draw_device(cr)
+    cr.restore()
+    for child in self._children:
+        self.propagate_draw(child.widget, cr)
+
+def _translate_to_origin(self):
+    # Translates the coordinate system such that the SVG and its buttons
+    # will be drawn in the center of the allocated space. The returned x-
+    # and y-coordinates will be the top left corner of the centered SVG.
+    allocation = self.get_allocation()
+    width = self.get_preferred_width()[1]
+    height = self.get_preferred_height()[1]
+
+    width_left = max((child.widget.get_preferred_width()[1] for
+                      child in self._children if child.is_left), default=0)
+    if width_left &gt; 0:
+        width_left += self.spacing
+
+    x = (allocation.width - width) / 2 + self.props.border_width + width_left
+    y = (allocation.height - height) / 2 + self.props.border_width
+    return round(x), round(y)
+
+def _draw_device(self, cr):
+    # Draws the SVG into the Cairo context. If there is an element to be
+    # highlighted, it will do as such in a separate surface which will be
+    # used as a mask over the device surface.
+    color = self.get_style_context().get_color(Gtk.StateFlags.LINK)
+    cr.set_source_rgba(color.red, color.green, color.blue, 0.5)
+
+    self._handle.render_cairo_sub(cr, id=&quot;#Device&quot;)
+    if self._highlight_element is not None:
+        svg_surface = cr.get_target()
+        highlight_surface = svg_surface.create_similar(cairo.Content.COLOR_ALPHA,
+                                                       self._handle.props.width,
+                                                       self._handle.props.height)
+        highlight_context = cairo.Context(highlight_surface)
+        self._handle.render_cairo_sub(highlight_context,
+                                      self._highlight_element)
+        cr.mask_surface(highlight_surface, 0, 0)
+    self._handle.render_cairo_sub(cr, id=self._layer)
+</code></pre>
+
+<p>All this work leads to the below video. You can find the pull request
+<a href="https://github.com/libratbag/piper/pull/20">here</a>.</p>
+
+<video style="max-width: 110%; width: 110%;margin-left: -4%" controls>
+  <source src="/img/blog/gsoc-part-6/mousemap.webm" type="video/webm">
+Your browser does not support the video tag.
+</video>
+
+<h3 id="in-progress-reimplementing-piper-according-to-the-new-mockups">In progress: reimplementing Piper according to the new mockups</h3>
+
+<p>As you can see from the video, I have started with a rough implementation of the
+new window:</p>
+
+<video style="max-width: 110%; width: 110%;margin-left: -4%" controls>
+  <source src="/img/blog/gsoc-part-6/window.webm" type="video/webm">
+Your browser does not support the video tag.
+</video>
+
+<p>Next week I will attempt to implement the resolutions and begin with the
+buttons!</p>
+
+<p>This blog post is part of a series. You can read the previous part
+<a href="/blog/gsoc-part-5">here</a>.</p>
+
+
+                <br>
+            </div>
+            
+                <div class="navigation">
                     
-                        <li class="groupby">Feb, 2017</li>
-                        
-                            <li class="post-item">
-    <span class="meta">Feb 26, 2017</span>
-    
-      <a href="https://hjdskes.github.io/blog/update-deploying-hugo-on-personal-gh-pages/"><span>Update: deploying Hugo-generated websites on personal GitHub Pages</span></a>
-    
-</li>
-
-                        
+                    <div>
+                        <img class="icon" src="/img/back.svg" alt="back" />
+                        <a href="https://hjdskes.github.io/blog/gsoc-part-5/">GSoC part 5: exams</a>
+                    </div>
                     
-                        <li class="groupby">Aug, 2016</li>
-                        
-                            <li class="post-item">
-    <span class="meta">Aug 16, 2016</span>
-    
-      <a href="https://hjdskes.github.io/blog/deploying-hugo-on-personal-gh-pages/"><span>Deploying Hugo-generated websites on personal GitHub Pages</span></a>
-    
-</li>
-
-                        
+                    <div style="width: 100%;"></div>
                     
-                </ul>
+                </div>
+            
+            <br>
+            <div class="disqus">
+                
             </div>
         </div>
     </div>
 </section>
+
 <section class="footer">
     <div class="container">
         <div class="copyright">
