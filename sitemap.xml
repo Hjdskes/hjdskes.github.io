@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hjdskes.github.io/blog/gsoc-part-7/</loc>
+    <lastmod>2017-07-07T14:58:33+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.github.io/blog/gsoc-part-6/</loc>
     <lastmod>2017-06-30T16:11:24+02:00</lastmod>
   </url>
@@ -194,7 +199,7 @@
   
   <url>
     <loc>https://hjdskes.github.io/blog/</loc>
-    <lastmod>2017-06-30T16:11:24+02:00</lastmod>
+    <lastmod>2017-07-07T14:58:33+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -224,13 +229,13 @@
   
   <url>
     <loc>https://hjdskes.github.io/categories/development/</loc>
-    <lastmod>2017-06-30T16:11:24+02:00</lastmod>
+    <lastmod>2017-07-07T14:58:33+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hjdskes.github.io/tags/fdo/</loc>
-    <lastmod>2017-06-30T16:11:24+02:00</lastmod>
+    <lastmod>2017-07-07T14:58:33+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -254,7 +259,7 @@
   
   <url>
     <loc>https://hjdskes.github.io/series/gsoc/</loc>
-    <lastmod>2017-06-30T16:11:24+02:00</lastmod>
+    <lastmod>2017-07-07T14:58:33+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -278,7 +283,7 @@
   
   <url>
     <loc>https://hjdskes.github.io/</loc>
-    <lastmod>2017-06-30T16:11:24+02:00</lastmod>
+    <lastmod>2017-07-07T14:58:33+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -302,13 +307,13 @@
   
   <url>
     <loc>https://hjdskes.github.io/tags/mousemap/</loc>
-    <lastmod>2017-06-30T16:11:24+02:00</lastmod>
+    <lastmod>2017-07-07T14:58:33+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hjdskes.github.io/tags/piper/</loc>
-    <lastmod>2017-06-30T16:11:24+02:00</lastmod>
+    <lastmod>2017-07-07T14:58:33+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -326,7 +331,7 @@
   
   <url>
     <loc>https://hjdskes.github.io/series/</loc>
-    <lastmod>2017-06-30T16:11:24+02:00</lastmod>
+    <lastmod>2017-07-07T14:58:33+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -344,13 +349,13 @@
   
   <url>
     <loc>https://hjdskes.github.io/tags/xml/</loc>
-    <lastmod>2017-06-30T16:11:24+02:00</lastmod>
+    <lastmod>2017-07-07T14:58:33+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hjdskes.github.io/tags/xpath/</loc>
-    <lastmod>2017-06-30T16:11:24+02:00</lastmod>
+    <lastmod>2017-07-07T14:58:33+02:00</lastmod>
     <priority>0</priority>
   </url>
   

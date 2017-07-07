@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016, 2017 Jente Hidskes</copyright>
-    <lastBuildDate>Fri, 30 Jun 2017 16:11:24 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 07 Jul 2017 14:58:33 +0200</lastBuildDate>
     
 	<atom:link href="https://hjdskes.github.io/tags/piper/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GSoC part 7: the resolutions stack page</title>
+      <link>https://hjdskes.github.io/blog/gsoc-part-7/</link>
+      <pubDate>Fri, 07 Jul 2017 14:58:33 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/blog/gsoc-part-7/</guid>
+      <description>This week was a good week with loads of progress. I&amp;rsquo;ll just go through each item one by one, as usual.
+MouseMap merged Last Friday I opened the pull request to merge the MouseMap widget. After a bit of a discussion around preferences, my mentor and I decided to merge ongoing work in a rewrite branch. This keeps the master branch functional (while still receiving improvements, such as adding new functionality to the ratbagd bindings or a Gtk.</description>
+    </item>
     
     <item>
       <title>GSoC part 6: progress!</title>
