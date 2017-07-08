@@ -44,6 +44,8 @@ method of installation, if your Linux distribution is listed below:
   repository](https://copr.fedorainfracloud.org/coprs/fnux/gcolor3/) to install
   Gcolor3. Please see the instructions there.
 
+* **openSUSE:** There is an [openSUSE package](https://build.opensuse.org/package/show/home:sogal/gcolor3) available.
+
 #### Compile from source
 
 To compile Gcolor3, you need the GTK+ 3 development packages and your
