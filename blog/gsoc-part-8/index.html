@@ -1026,7 +1026,9 @@ multiple <a href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/ToggleButton.
 highlight the current mode. One thing that wasn&rsquo;t nice here is that to change a
 current mode (e.g. to change the solid mode&rsquo;s color), you&rsquo;d have to click an
 already active button. This isn&rsquo;t obvious and so we iterated for a bit to find a
-better approach, until we landed on what you see in the video.</p>
+better approach, until we landed on what you see in the video. Note: the <a href="https://github.com/libratbag/piper/issues/45">off
+page still needs an image</a> to indicate its empty state. If this is
+something you can help out with, please get in touch!</p>
 
 <p>The <a href="https://github.com/libratbag/piper/pull/35">pull request</a> notes the issues I stumbled upon while implementing
 the LED stack page and its dialog, and the iterative design bit.</p>
@@ -1253,6 +1255,10 @@ toggling of rows in the list: if toggling the same row twice and then toggling
 another row, both the first and the second row would be toggled. The
 <a href="https://github.com/libratbag/piper/pull/32">fix</a> was rather straightforward and required resetting
 <code>last_activated_row</code> to <code>None</code> in case the same row is toggled.</p>
+
+<p>A widget&rsquo;s purpose might not always be immediately clear. In such cases, a
+tooltip helps to understand what a widget does. As such, I <a href="https://github.com/libratbag/piper/pull/46">have
+added</a> a tooltip to each control widget currently found in Piper.</p>
 
 <p>Finally, we now have toned down device SVGs for the <a href="https://github.com/libratbag/libratbag/pull/214">Logitech G500 and
 G500s</a> and soon for the <a href="https://github.com/libratbag/libratbag/pull/228">Logitech G303</a>. Thanks!</p>
