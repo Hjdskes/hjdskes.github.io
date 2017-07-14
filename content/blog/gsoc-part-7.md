@@ -1,7 +1,7 @@
 +++
 date = "2017-07-07T14:58:33+02:00"
 description = "GSoC blog series on rewriting Piper"
-tags = [ "Piper", "fdo", "MouseMap", "XPath", "XML" ]
+tags = [ "Piper", "fdo", "MouseMap", "resolutions", "pygi", "template" ]
 title = "GSoC part 7: the resolutions stack page"
 categories = "Development"
 series = "GSoC"
@@ -244,7 +244,8 @@ That was it for this week! You can find the complete resolutions page PR
 [here][resolution-pr].  Hopefully it will be merged early next week, so that I
 can start on the next page.
 
-This blog post is part of a series. You can read the previous part
+This blog post is part of a series. You can read the next part about the LED
+stack page [here](/blog/gsoc-part-8) or the previous part
 [here](/blog/gsoc-part-6).
 
 [gtkapplication]: https://github.com/libratbag/piper/pull/24
