@@ -965,7 +965,7 @@ margin-left: -4%;
 
                 </div>
                 <div class="meta">
-                    <div class="date" title="Thu Jul 13 2017 16:03:55 CEST">Jul 13, 2017</div>
+                    <div class="date" title="Fri Jul 14 2017 10:03:55 CEST">Jul 14, 2017</div>
                     
                         
                     
@@ -1153,18 +1153,19 @@ def _on_default_resolution_changed(self, resolution, default_index):
         self.default_check.set_active(False)
 </code></pre>
 
-<p>All of this would work nice, if only the <code>DefaultResolutionChanged</code> signal would
-be received by the <code>RatbagdResolution</code> objects. As it turns out, this isn&rsquo;t
-happening because there is one such object for each resolution, with object
-paths <code>/org/freedesktop/ratbag1/resolution/event13/p0/r0</code> (where <code>p0</code> and <code>r0</code>
-encode the profile and resolution to encode for different profiles and
+<p>All of this would work nicely, if only the <code>DefaultResolutionChanged</code> signal
+would be received by the <code>RatbagdResolution</code> objects. As it turns out, this
+isn&rsquo;t happening because there is one such object for each resolution, with
+object paths <code>/org/freedesktop/ratbag1/resolution/event13/p0/r0</code> (where <code>p0</code> and
+<code>r0</code> encode the profile and resolution to encode for different profiles and
 resolutions, and <code>event13</code> is the mouse under configuration) with interface
 <code>org.freedesktop.ratbag1.Resolution</code>, while the <code>DefaultResolutionChanged</code>
 signal is emitted by ratbagd on <code>/org/freedesktop/ratbag1</code> with the same
 interface. <a href="https://lazka.github.io/pgi-docs/Gio-2.0/classes/DBusProxy.html"><code>Gio.DBusProxy</code></a> says the following for its <code>g-signal</code>
 signal: <em><q>Emitted when a signal from the remote object and interface that
-proxy is for, has been received</q></em>. So because the signal it receives isn&rsquo;t for
-its object path (<code>.../resolution/event13/p0/r0</code>) it doesn&rsquo;t emit its <code>g-signal</code>.</p>
+proxy is for, has been received</q></em>. So because the signal it receives isn&rsquo;t
+for its object path (<code>.../resolution/event13/p0/r0</code>) it doesn&rsquo;t emit its
+    <code>g-signal</code>.</p>
 
 <p>The fix initially appears simple: just emit the signal on the resolution
 object&rsquo;s path, so that it will receive it. That&rsquo;s exactly <a href="https://github.com/libratbag/libratbag/pull/226">what I
