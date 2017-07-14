@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Led on Jente Hidskes&#39; personal website</title>
+    <link>https://hjdskes.github.io/tags/led/</link>
+    <description>Recent content in Led on Jente Hidskes&#39; personal website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2016, 2017 Jente Hidskes</copyright>
+    <lastBuildDate>Thu, 13 Jul 2017 16:03:55 +0200</lastBuildDate>
+    
+	<atom:link href="https://hjdskes.github.io/tags/led/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GSoC part 8: the LED stack page</title>
+      <link>https://hjdskes.github.io/blog/gsoc-part-8/</link>
+      <pubDate>Thu, 13 Jul 2017 16:03:55 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/blog/gsoc-part-8/</guid>
+      <description>Originally the plan for this week was to start working on the button mappings, however together with my mentor I decided that it&amp;rsquo;s better to do the LEDs first. This is because I was sure I could finish this in a few days, and button mappings is definitely going to take much longer than that. So, this week I&amp;rsquo;ll run you through the implementation of the LED stack page, and the coming weeks I&amp;rsquo;ll be working on button mappings, profile support and a proper welcome screen, in that order.</description>
+    </item>
+    
+  </channel>
+</rss>

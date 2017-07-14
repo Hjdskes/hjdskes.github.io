@@ -22,6 +22,24 @@
     </item>
     
     <item>
+      <title>Dbus</title>
+      <link>https://hjdskes.github.io/tags/dbus/</link>
+      <pubDate>Thu, 13 Jul 2017 16:03:55 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/tags/dbus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Default</title>
+      <link>https://hjdskes.github.io/tags/default/</link>
+      <pubDate>Thu, 13 Jul 2017 16:03:55 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/tags/default/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Deploying</title>
       <link>https://hjdskes.github.io/tags/deploying/</link>
       <pubDate>Sun, 26 Feb 2017 22:12:00 +0100</pubDate>
@@ -33,7 +51,7 @@
     <item>
       <title>Fdo</title>
       <link>https://hjdskes.github.io/tags/fdo/</link>
-      <pubDate>Fri, 07 Jul 2017 14:58:33 +0200</pubDate>
+      <pubDate>Thu, 13 Jul 2017 16:03:55 +0200</pubDate>
       
       <guid>https://hjdskes.github.io/tags/fdo/</guid>
       <description></description>
@@ -94,6 +112,15 @@
     </item>
     
     <item>
+      <title>Led</title>
+      <link>https://hjdskes.github.io/tags/led/</link>
+      <pubDate>Thu, 13 Jul 2017 16:03:55 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/tags/led/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Libratbag</title>
       <link>https://hjdskes.github.io/tags/libratbag/</link>
       <pubDate>Fri, 19 May 2017 16:01:04 +0200</pubDate>
@@ -132,9 +159,27 @@
     <item>
       <title>Piper</title>
       <link>https://hjdskes.github.io/tags/piper/</link>
-      <pubDate>Fri, 07 Jul 2017 14:58:33 +0200</pubDate>
+      <pubDate>Thu, 13 Jul 2017 16:03:55 +0200</pubDate>
       
       <guid>https://hjdskes.github.io/tags/piper/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pygi</title>
+      <link>https://hjdskes.github.io/tags/pygi/</link>
+      <pubDate>Fri, 07 Jul 2017 14:58:33 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/tags/pygi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Race Condition</title>
+      <link>https://hjdskes.github.io/tags/race-condition/</link>
+      <pubDate>Thu, 13 Jul 2017 16:03:55 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/tags/race-condition/</guid>
       <description></description>
     </item>
     
@@ -144,6 +189,33 @@
       <pubDate>Fri, 16 Jun 2017 20:47:56 +0200</pubDate>
       
       <guid>https://hjdskes.github.io/tags/ratbagd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Resolution</title>
+      <link>https://hjdskes.github.io/tags/resolution/</link>
+      <pubDate>Thu, 13 Jul 2017 16:03:55 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/tags/resolution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Resolutions</title>
+      <link>https://hjdskes.github.io/tags/resolutions/</link>
+      <pubDate>Fri, 07 Jul 2017 14:58:33 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/tags/resolutions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Template</title>
+      <link>https://hjdskes.github.io/tags/template/</link>
+      <pubDate>Fri, 07 Jul 2017 14:58:33 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/tags/template/</guid>
       <description></description>
     </item>
     
@@ -159,7 +231,7 @@
     <item>
       <title>Xml</title>
       <link>https://hjdskes.github.io/tags/xml/</link>
-      <pubDate>Fri, 07 Jul 2017 14:58:33 +0200</pubDate>
+      <pubDate>Fri, 30 Jun 2017 16:11:24 +0200</pubDate>
       
       <guid>https://hjdskes.github.io/tags/xml/</guid>
       <description></description>
@@ -168,7 +240,7 @@
     <item>
       <title>Xpath</title>
       <link>https://hjdskes.github.io/tags/xpath/</link>
-      <pubDate>Fri, 07 Jul 2017 14:58:33 +0200</pubDate>
+      <pubDate>Fri, 30 Jun 2017 16:11:24 +0200</pubDate>
       
       <guid>https://hjdskes.github.io/tags/xpath/</guid>
       <description></description>

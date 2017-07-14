@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hjdskes.github.io/blog/gsoc-part-8/</loc>
+    <lastmod>2017-07-13T16:03:55+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.github.io/blog/gsoc-part-7/</loc>
     <lastmod>2017-07-07T14:58:33+02:00</lastmod>
   </url>
@@ -199,7 +204,7 @@
   
   <url>
     <loc>https://hjdskes.github.io/blog/</loc>
-    <lastmod>2017-07-07T14:58:33+02:00</lastmod>
+    <lastmod>2017-07-13T16:03:55+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -222,6 +227,18 @@
   </url>
   
   <url>
+    <loc>https://hjdskes.github.io/tags/dbus/</loc>
+    <lastmod>2017-07-13T16:03:55+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/tags/default/</loc>
+    <lastmod>2017-07-13T16:03:55+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.github.io/tags/deploying/</loc>
     <lastmod>2017-02-26T22:12:00+01:00</lastmod>
     <priority>0</priority>
@@ -229,13 +246,13 @@
   
   <url>
     <loc>https://hjdskes.github.io/categories/development/</loc>
-    <lastmod>2017-07-07T14:58:33+02:00</lastmod>
+    <lastmod>2017-07-13T16:03:55+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hjdskes.github.io/tags/fdo/</loc>
-    <lastmod>2017-07-07T14:58:33+02:00</lastmod>
+    <lastmod>2017-07-13T16:03:55+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -259,7 +276,7 @@
   
   <url>
     <loc>https://hjdskes.github.io/series/gsoc/</loc>
-    <lastmod>2017-07-07T14:58:33+02:00</lastmod>
+    <lastmod>2017-07-13T16:03:55+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -283,7 +300,13 @@
   
   <url>
     <loc>https://hjdskes.github.io/</loc>
-    <lastmod>2017-07-07T14:58:33+02:00</lastmod>
+    <lastmod>2017-07-13T16:03:55+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/tags/led/</loc>
+    <lastmod>2017-07-13T16:03:55+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -313,7 +336,7 @@
   
   <url>
     <loc>https://hjdskes.github.io/tags/piper/</loc>
-    <lastmod>2017-07-07T14:58:33+02:00</lastmod>
+    <lastmod>2017-07-13T16:03:55+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -324,20 +347,50 @@
   </url>
   
   <url>
+    <loc>https://hjdskes.github.io/tags/pygi/</loc>
+    <lastmod>2017-07-07T14:58:33+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/tags/race-condition/</loc>
+    <lastmod>2017-07-13T16:03:55+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.github.io/tags/ratbagd/</loc>
     <lastmod>2017-06-16T20:47:56+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://hjdskes.github.io/series/</loc>
+    <loc>https://hjdskes.github.io/tags/resolution/</loc>
+    <lastmod>2017-07-13T16:03:55+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/tags/resolutions/</loc>
     <lastmod>2017-07-07T14:58:33+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/series/</loc>
+    <lastmod>2017-07-13T16:03:55+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hjdskes.github.io/tags/</loc>
     <lastmod>2017-06-16T20:47:56+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/tags/template/</loc>
+    <lastmod>2017-07-07T14:58:33+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -349,13 +402,13 @@
   
   <url>
     <loc>https://hjdskes.github.io/tags/xml/</loc>
-    <lastmod>2017-07-07T14:58:33+02:00</lastmod>
+    <lastmod>2017-06-30T16:11:24+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hjdskes.github.io/tags/xpath/</loc>
-    <lastmod>2017-07-07T14:58:33+02:00</lastmod>
+    <lastmod>2017-06-30T16:11:24+02:00</lastmod>
     <priority>0</priority>
   </url>
   
