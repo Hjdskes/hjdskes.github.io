@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016, 2017 Jente Hidskes</copyright>
-    <lastBuildDate>Fri, 14 Jul 2017 10:03:55 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 21 Jul 2017 17:35:55 +0200</lastBuildDate>
     
 	<atom:link href="https://hjdskes.github.io/series/gsoc/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GSoC part 9: the button stack page</title>
+      <link>https://hjdskes.github.io/blog/gsoc-part-9/</link>
+      <pubDate>Fri, 21 Jul 2017 17:35:55 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/blog/gsoc-part-9/</guid>
+      <description>When I discussed this project with my mentor before GSoC, he told me that the button mappings were going to be the most complicated piece. This week I&amp;rsquo;ve been working on precisely that and, well, let&amp;rsquo;s just say he wasn&amp;rsquo;t wrong &amp;#128521;
+If you&amp;rsquo;ve been following along on GitHub, you&amp;rsquo;re probably thinking that it was a slow week. Indeed, there hasn&amp;rsquo;t been that much activity this week as in previous weeks.</description>
+    </item>
     
     <item>
       <title>GSoC part 8: the LED stack page</title>
