@@ -268,8 +268,9 @@ added][pr-tooltip] a tooltip to each control widget currently found in Piper.
 Finally, we now have toned down device SVGs for the [Logitech G500 and
 G500s][pr-svg] and soon for the [Logitech G303][pr-303]. Thanks!
 
-This blog post is part of a series. You can read the previous part about the
-resolutions stack page [here](/blog/gsoc-part-6).
+This blog post is part of a series. You can read the next part about the button
+stack page [here](/blog/gsoc-part-9) or the previous part about the
+resolutions stack page [here](/blog/gsoc-part-7).
 
 [led-mockup]: https://github.com/libratbag/piper/raw/wiki/redesign/leds.png
 [togglebutton]: https://lazka.github.io/pgi-docs/Gtk-3.0/classes/ToggleButton.html
