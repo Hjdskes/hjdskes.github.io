@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Button on Jente Hidskes&#39; personal website</title>
-    <link>https://hjdskes.github.io/tags/button/</link>
-    <description>Recent content in Button on Jente Hidskes&#39; personal website</description>
+    <title>Rewrite on Jente Hidskes&#39; personal website</title>
+    <link>https://hjdskes.github.io/tags/rewrite/</link>
+    <description>Recent content in Rewrite on Jente Hidskes&#39; personal website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016, 2017 Jente Hidskes</copyright>
     <lastBuildDate>Fri, 28 Jul 2017 15:10:26 +0200</lastBuildDate>
     
-	<atom:link href="https://hjdskes.github.io/tags/button/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://hjdskes.github.io/tags/rewrite/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,16 +20,6 @@
       <guid>https://hjdskes.github.io/blog/gsoc-part-10/</guid>
       <description>I can start this blog post by sharing the news that I have passed for my second evaluation! This means that I&amp;rsquo;m now on the last sprint towards the finish line, with ahead of me profile support and the welcome screen.
 Yes; you&amp;rsquo;ve read that correctly: I didn&amp;rsquo;t mention the button page. I managed to fix that this week and it&amp;rsquo;s now pending review and some final issues (more about that below).</description>
-    </item>
-    
-    <item>
-      <title>GSoC part 9: the button stack page</title>
-      <link>https://hjdskes.github.io/blog/gsoc-part-9/</link>
-      <pubDate>Fri, 21 Jul 2017 17:35:55 +0200</pubDate>
-      
-      <guid>https://hjdskes.github.io/blog/gsoc-part-9/</guid>
-      <description>When I discussed this project with my mentor before GSoC, he told me that the button mappings were going to be the most complicated piece. This week I&amp;rsquo;ve been working on precisely that and, well, let&amp;rsquo;s just say he wasn&amp;rsquo;t wrong &amp;#128521;
-If you&amp;rsquo;ve been following along on GitHub, you&amp;rsquo;re probably thinking that it was a slow week. Indeed, there hasn&amp;rsquo;t been that much activity this week as in previous weeks.</description>
     </item>
     
   </channel>

@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hjdskes.github.io/blog/gsoc-part-10/</loc>
+    <lastmod>2017-07-28T15:10:26+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.github.io/blog/gsoc-part-9/</loc>
     <lastmod>2017-07-21T17:35:55+02:00</lastmod>
   </url>
@@ -209,13 +214,13 @@
   
   <url>
     <loc>https://hjdskes.github.io/blog/</loc>
-    <lastmod>2017-07-21T17:35:55+02:00</lastmod>
+    <lastmod>2017-07-28T15:10:26+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hjdskes.github.io/tags/button/</loc>
-    <lastmod>2017-07-21T17:35:55+02:00</lastmod>
+    <lastmod>2017-07-28T15:10:26+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -263,13 +268,13 @@
   
   <url>
     <loc>https://hjdskes.github.io/categories/development/</loc>
-    <lastmod>2017-07-21T17:35:55+02:00</lastmod>
+    <lastmod>2017-07-28T15:10:26+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hjdskes.github.io/tags/fdo/</loc>
-    <lastmod>2017-07-21T17:35:55+02:00</lastmod>
+    <lastmod>2017-07-28T15:10:26+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -293,7 +298,7 @@
   
   <url>
     <loc>https://hjdskes.github.io/series/gsoc/</loc>
-    <lastmod>2017-07-21T17:35:55+02:00</lastmod>
+    <lastmod>2017-07-28T15:10:26+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -317,7 +322,7 @@
   
   <url>
     <loc>https://hjdskes.github.io/</loc>
-    <lastmod>2017-07-21T17:35:55+02:00</lastmod>
+    <lastmod>2017-07-28T15:10:26+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -330,6 +335,12 @@
   <url>
     <loc>https://hjdskes.github.io/tags/libratbag/</loc>
     <lastmod>2017-05-19T16:01:04+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/tags/merge/</loc>
+    <lastmod>2017-07-28T15:10:26+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -359,7 +370,7 @@
   
   <url>
     <loc>https://hjdskes.github.io/tags/piper/</loc>
-    <lastmod>2017-07-21T17:35:55+02:00</lastmod>
+    <lastmod>2017-07-28T15:10:26+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -400,14 +411,20 @@
   </url>
   
   <url>
+    <loc>https://hjdskes.github.io/tags/rewrite/</loc>
+    <lastmod>2017-07-28T15:10:26+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.github.io/series/</loc>
-    <lastmod>2017-07-21T17:35:55+02:00</lastmod>
+    <lastmod>2017-07-28T15:10:26+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hjdskes.github.io/tags/</loc>
-    <lastmod>2017-07-21T17:35:55+02:00</lastmod>
+    <lastmod>2017-07-28T15:10:26+02:00</lastmod>
     <priority>0</priority>
   </url>
   

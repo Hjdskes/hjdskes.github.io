@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016, 2017 Jente Hidskes</copyright>
-    <lastBuildDate>Fri, 21 Jul 2017 17:35:55 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 28 Jul 2017 15:10:26 +0200</lastBuildDate>
     
 	<atom:link href="https://hjdskes.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Button</title>
       <link>https://hjdskes.github.io/tags/button/</link>
-      <pubDate>Fri, 21 Jul 2017 17:35:55 +0200</pubDate>
+      <pubDate>Fri, 28 Jul 2017 15:10:26 +0200</pubDate>
       
       <guid>https://hjdskes.github.io/tags/button/</guid>
       <description></description>
@@ -69,7 +69,7 @@
     <item>
       <title>Fdo</title>
       <link>https://hjdskes.github.io/tags/fdo/</link>
-      <pubDate>Fri, 21 Jul 2017 17:35:55 +0200</pubDate>
+      <pubDate>Fri, 28 Jul 2017 15:10:26 +0200</pubDate>
       
       <guid>https://hjdskes.github.io/tags/fdo/</guid>
       <description></description>
@@ -148,6 +148,15 @@
     </item>
     
     <item>
+      <title>Merge</title>
+      <link>https://hjdskes.github.io/tags/merge/</link>
+      <pubDate>Fri, 28 Jul 2017 15:10:26 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/tags/merge/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Meson</title>
       <link>https://hjdskes.github.io/tags/meson/</link>
       <pubDate>Fri, 19 May 2017 16:01:04 +0200</pubDate>
@@ -186,7 +195,7 @@
     <item>
       <title>Piper</title>
       <link>https://hjdskes.github.io/tags/piper/</link>
-      <pubDate>Fri, 21 Jul 2017 17:35:55 +0200</pubDate>
+      <pubDate>Fri, 28 Jul 2017 15:10:26 +0200</pubDate>
       
       <guid>https://hjdskes.github.io/tags/piper/</guid>
       <description></description>
@@ -234,6 +243,15 @@
       <pubDate>Fri, 07 Jul 2017 14:58:33 +0200</pubDate>
       
       <guid>https://hjdskes.github.io/tags/resolutions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rewrite</title>
+      <link>https://hjdskes.github.io/tags/rewrite/</link>
+      <pubDate>Fri, 28 Jul 2017 15:10:26 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/tags/rewrite/</guid>
       <description></description>
     </item>
     
