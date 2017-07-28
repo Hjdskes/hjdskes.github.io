@@ -5,7 +5,6 @@ tags = [ "Piper", "fdo", "button", "capture", "modifier" ]
 title = "GSoC part 9: the button stack page"
 categories = "Development"
 series = "GSoC"
-
 +++
 
 ![GSoC logo horizontal](/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg)
@@ -209,7 +208,8 @@ In other news, support for enabling and disabling profiles is [just around the
 corner][pr-profile]. This is required for the next step, in which I'll be adding
 support for profiles to Piper.
 
-This blog post is part of a series. You can read the previous part about the LED
+This blog post is part of a series. You can read the next part about finishing
+the button page [here](/blog/gsoc-part-10) or the previous part about the LED
 stack page [here](/blog/gsoc-part-8).
 
 [button-mockup]: https://github.com/libratbag/piper/raw/wiki/redesign/buttons.png
