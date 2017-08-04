@@ -45,6 +45,11 @@ section.main .content .markdown h4 {
 section.main .content .markdown h5 {
   font-size: 18px !important;
 }
+section.main .content .markdown li > ol,
+section.main .content .markdown li > ul {
+  margin-top: 0rem !important;
+  margin-bottom: 0rem !important;
+}
 kbd {
   padding: 0.1em 0.6em;
   border: 1px solid #ccc;
