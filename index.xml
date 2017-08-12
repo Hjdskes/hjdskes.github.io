@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016, 2017 Jente Hidskes</copyright>
-    <lastBuildDate>Fri, 04 Aug 2017 15:06:40 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 11 Aug 2017 15:35:37 +0200</lastBuildDate>
     
 	<atom:link href="https://hjdskes.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GSoC part 12: the finishing touches</title>
+      <link>https://hjdskes.github.io/blog/gsoc-part-12/</link>
+      <pubDate>Fri, 11 Aug 2017 15:35:37 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/blog/gsoc-part-12/</guid>
+      <description>Last week I shared the news that all large features had been implemented; all that was left were issues raised by GNOME contributors when my mentor demoed my progress over GUADEC. This week I&amp;rsquo;ve just been chugging away on those issues; let me show you.
+Obvious save button is.. not obvious? Hadess noted that the save button wasn&amp;rsquo;t obvious when my mentor demoed Piper to him; I already mentioned this last week: the icon is a save to disk icon and it&amp;rsquo;s not obvious at first glance that you have to press it to write the changes you made to the device.</description>
+    </item>
     
     <item>
       <title>GSoC part 11: all large features are done!</title>
