@@ -135,5 +135,5 @@ that, while the code should then be relatively simpler. Let's see how I'll
 manage to thread this out through the existing codebase!
 
 This blog post is part of a series. You can read the next part about
-implementing profile support and the welcome screen [here](/blog/gsoc-part-11) or the previous part about the
-button page [here](/blog/gsoc-part-9).
+implementing profile support and the welcome screen [here](/blog/gsoc-part-11)
+or the previous part about the button page [here](/blog/gsoc-part-9).
