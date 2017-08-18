@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016, 2017 Jente Hidskes</copyright>
-    <lastBuildDate>Fri, 11 Aug 2017 15:35:37 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 18 Aug 2017 19:47:27 +0200</lastBuildDate>
     
 	<atom:link href="https://hjdskes.github.io/tags/piper/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GSoC part 13: I solved global warming!</title>
+      <link>https://hjdskes.github.io/blog/gsoc-part-13/</link>
+      <pubDate>Fri, 18 Aug 2017 19:47:27 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/blog/gsoc-part-13/</guid>
+      <description>This week I have been solving more issues to make sure that Piper offers a pleasent user experience, doesn&amp;rsquo;t crash and runs smoothly. My mentor and cvuchener from the libratbag project have been testing Piper the last week, and together with a handful of users attracted to Piper they have opened a bunch of issues for me to solve. Let&amp;rsquo;s run through the most visible ones!
+Solving global warming Probably the most fun issue to resolve this week was the one reported by my mentor: Piper contributes to global warming (you won&amp;rsquo;t believe what happened next!</description>
+    </item>
     
     <item>
       <title>GSoC part 12: the finishing touches</title>
