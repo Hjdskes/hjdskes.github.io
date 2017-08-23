@@ -1,7 +1,7 @@
 +++
 date = "2017-08-18T19:47:27+02:00"
 description = "GSoC blog series on rewriting Piper"
-tags = [ "Piper", "fdo" ]
+tags = [ "Piper", "fdo", "style context", "loop" ]
 title = "GSoC part 13: I solved global warming!"
 categories = "Development"
 series = "GSoC"
@@ -233,10 +233,11 @@ strings, and I intend to get this merged only after all the UI work is done so
 we are sure to catch all strings.
 
 Barring any newly discovered crashes, there are only three more issues to solve
-before my deadline: [a crash resulting from libratbag returnins its error code
+before my deadline: [a crash resulting from libratbag returning its error code
 1001](https://github.com/libratbag/piper/issues/140), [correctly restoring the
 macro preview label](https://github.com/libratbag/piper/issues/141) and [fixing
 the initial window size](https://github.com/libratbag/piper/issues/142).
 
-This blog post is part of a series. You can read the previous part about the
-finishing touches [here](/blog/gsoc-part-12).
+This blog post is part of a series. You can read the next part about the final
+changes [here](/blog/gsoc-part-14) or the previous part about the finishing
+touches [here](/blog/gsoc-part-12).
