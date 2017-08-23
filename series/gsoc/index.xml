@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016, 2017 Jente Hidskes</copyright>
-    <lastBuildDate>Fri, 18 Aug 2017 19:47:27 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 23 Aug 2017 13:01:32 +0200</lastBuildDate>
     
 	<atom:link href="https://hjdskes.github.io/series/gsoc/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GSoC part 14: final code changes</title>
+      <link>https://hjdskes.github.io/blog/gsoc-part-14/</link>
+      <pubDate>Wed, 23 Aug 2017 13:01:32 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/blog/gsoc-part-14/</guid>
+      <description>Well, this really is the last week of my Summer of Code! This will be a short update on the final changes made since my last update on Friday, which will be followed by a proper blog post for my final submission later this week.
+Last week I mentioned a few items that were work-in-progress. The search field for the button mapping dialog has been merged, including its revamp of the dialog&amp;rsquo;s UI.</description>
+    </item>
     
     <item>
       <title>GSoC part 13: I solved global warming!</title>

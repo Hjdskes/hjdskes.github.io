@@ -76,9 +76,18 @@
     </item>
     
     <item>
+      <title>Exception</title>
+      <link>https://hjdskes.github.io/tags/exception/</link>
+      <pubDate>Wed, 23 Aug 2017 13:01:32 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/tags/exception/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Fdo</title>
       <link>https://hjdskes.github.io/tags/fdo/</link>
-      <pubDate>Fri, 18 Aug 2017 19:47:27 +0200</pubDate>
+      <pubDate>Wed, 23 Aug 2017 13:01:32 +0200</pubDate>
       
       <guid>https://hjdskes.github.io/tags/fdo/</guid>
       <description></description>
@@ -166,6 +175,33 @@
     </item>
     
     <item>
+      <title>Localization</title>
+      <link>https://hjdskes.github.io/tags/localization/</link>
+      <pubDate>Wed, 23 Aug 2017 13:01:32 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/tags/localization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Loop</title>
+      <link>https://hjdskes.github.io/tags/loop/</link>
+      <pubDate>Fri, 18 Aug 2017 19:47:27 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/tags/loop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Macro</title>
+      <link>https://hjdskes.github.io/tags/macro/</link>
+      <pubDate>Wed, 23 Aug 2017 13:01:32 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/tags/macro/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Merge</title>
       <link>https://hjdskes.github.io/tags/merge/</link>
       <pubDate>Fri, 28 Jul 2017 15:10:26 +0200</pubDate>
@@ -213,7 +249,7 @@
     <item>
       <title>Piper</title>
       <link>https://hjdskes.github.io/tags/piper/</link>
-      <pubDate>Fri, 18 Aug 2017 19:47:27 +0200</pubDate>
+      <pubDate>Wed, 23 Aug 2017 13:01:32 +0200</pubDate>
       
       <guid>https://hjdskes.github.io/tags/piper/</guid>
       <description></description>
@@ -225,6 +261,15 @@
       <pubDate>Fri, 04 Aug 2017 15:06:40 +0200</pubDate>
       
       <guid>https://hjdskes.github.io/tags/profiles/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Property</title>
+      <link>https://hjdskes.github.io/tags/property/</link>
+      <pubDate>Wed, 23 Aug 2017 13:01:32 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/tags/property/</guid>
       <description></description>
     </item>
     
@@ -279,6 +324,15 @@
       <pubDate>Fri, 11 Aug 2017 15:35:37 +0200</pubDate>
       
       <guid>https://hjdskes.github.io/tags/rewrite/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Style Context</title>
+      <link>https://hjdskes.github.io/tags/style-context/</link>
+      <pubDate>Fri, 18 Aug 2017 19:47:27 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/tags/style-context/</guid>
       <description></description>
     </item>
     
