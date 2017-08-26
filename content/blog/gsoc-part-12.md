@@ -191,6 +191,6 @@ this isn't (yet?) properly supported by libratbag.
 That's it for this week! The coming week will be more of the same: adding spit
 'n polish where it is needed the most.
 
-This blog post is part of a series. You can read the next part about saving the
+This blog post is part of a [series](/series/gsoc/). You can read the next part about saving the
 planet [here](/blog/gsoc-part-13) or the previous part about the welcome screen
 [here](/blog/gsoc-part-11).

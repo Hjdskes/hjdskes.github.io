@@ -32,5 +32,5 @@ girlfriend). I hope that it will give you an incremental overview of my progress
 and perhaps I can inspire those of you that may want to take on a similar
 project but find it daunting to start somewhere.
 
-This blog post is part of a series. You can read the next part about the
-community bonding period [here](/blog/gsoc-part-2).
+This blog post is the start of a [series](/series/gsoc/). You can read the next
+part about the community bonding period [here](/blog/gsoc-part-2).

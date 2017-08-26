@@ -204,5 +204,6 @@ the next few days I'll publish a final blog post that will form my final
 submission, and with that I'll officially finish Google Summer of Code. Until
 then!
 
-This blog post is part of a series. You can read the previous part about saving
-the planet  [here](/blog/gsoc-part-13).
+This blog post is part of a [series](/series/gsoc/). You can read the last part about the code
+submission [here](/blog/gsoc-part-15) or the previous part about saving the
+planet [here](/blog/gsoc-part-13).

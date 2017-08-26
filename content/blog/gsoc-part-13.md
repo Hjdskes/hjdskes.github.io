@@ -238,6 +238,6 @@ before my deadline: [a crash resulting from libratbag returning its error code
 macro preview label](https://github.com/libratbag/piper/issues/141) and [fixing
 the initial window size](https://github.com/libratbag/piper/issues/142).
 
-This blog post is part of a series. You can read the next part about the final
+This blog post is part of a [series](/series/gsoc/). You can read the next part about the final
 changes [here](/blog/gsoc-part-14) or the previous part about the finishing
 touches [here](/blog/gsoc-part-12).

@@ -71,11 +71,14 @@ rebasing the buttons branch yet.
 My mentor lives on the other side of the globe (Down Under), so we normally have
 only a few hours overlap a day. This is enough to sync and get some work done
 together, so this isn't a problem. This week, however, he was travelling to
-visit [GUADEC](https://2017.guadec.org/) so I wasn't able to reach him for quite
-a bit longer. This was in the middle of the DBus changes and macro support, both
-of which I required to finish the buttons page. I did most of this work based on
-his WIP branch, but I couldn't finish it before that PR got merged. Instead of
-waiting around doing nothing, I started to work on the profile support:
+visit [GUADEC](https://2017.guadec.org/) (update: the recording of his talk with
+some background on libratbag is now
+[available](https://www.youtube.com/watch?v=Xv_VQJI7-UY)) so I wasn't able to
+reach him for quite a bit longer. This was in the middle of the DBus changes and
+macro support, both of which I required to finish the buttons page. I did most
+of this work based on his WIP branch, but I couldn't finish it before that PR
+got merged. Instead of waiting around doing nothing, I started to work on the
+profile support:
 
 <video style="max-width: 110%; width: 110%;margin-left: -4%" controls>
   <source src="/img/blog/gsoc-part-10/profiles.webm" type="video/webm">
@@ -134,6 +137,6 @@ profile support. I expect to spend more time than usual on architecture for
 that, while the code should then be relatively simpler. Let's see how I'll
 manage to thread this out through the existing codebase!
 
-This blog post is part of a series. You can read the next part about
+This blog post is part of a [series](/series/gsoc/). You can read the next part about
 implementing profile support and the welcome screen [here](/blog/gsoc-part-11)
 or the previous part about the button page [here](/blog/gsoc-part-9).

@@ -42,6 +42,6 @@ stack page.
 That's all, folks! I hope to see you again next week when I've made up for this
 lousy week!
 
-This blog post is part of a series. You can read the next part
+This blog post is part of a [series](/series/gsoc/). You can read the next part
 [here](/blog/gsoc-part-6) or the previous part about the first development
 sprint [here](/blog/gsoc-part-4).

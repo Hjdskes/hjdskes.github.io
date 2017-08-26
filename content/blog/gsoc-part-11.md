@@ -218,6 +218,6 @@ devices](https://github.com/libratbag/piper/issues/90).
 As you can see, there's plenty left to do the coming weeks! As my British
 classmate says, *onwards and upwards*!
 
-This blog post is part of a series. You can read the next part about the
+This blog post is part of a [series](/series/gsoc/). You can read the next part about the
 finishing touches [here](/blog/gsoc-part-12) or the previous part about
 finishing the button page [here](/blog/gsoc-part-10).

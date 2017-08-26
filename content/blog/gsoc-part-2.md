@@ -11,7 +11,7 @@ series = "GSoC"
 
 Two weeks have now passed since my [introductory blog post](/blog/gsoc-part-1),
 so as promised here is part two! The theme of this blog post is probably
-something along the lines of <q>"preparation"</q>, as that is what I've been
+something along the lines of <q>preparation</q>, as that is what I've been
 doing mostly.
 
 The period between that of announcing the accepted student proposals and phase
@@ -59,7 +59,7 @@ on-disk format (I asked upstream about it).
 
 Since libratbag and ratbagd rely on udev, a Flatpak will have to wait until a
 solution to this issue has been found. Nonetheless, a Flatpak manifest remains
-available in my [WIP branch][wip/flatpak] -- you just can't run it ;)
+available in my [WIP branch][wip/flatpak] -- you just can't run it &#128521;
 
 Whilst working on Flatpak'ing Piper, I got more and more convinced that Piper
 should switch to [Meson][meson] as opposed to [setuptools][setuptools]. Meson
@@ -70,7 +70,7 @@ have ported Piper and opened [#6][issue6] to get this implemented. This is the
 first activity in Piper's repository since April 6 last year, so I guess it
 officially starts GSoC for Piper!
 
-This blog post is part of a series. You can read the next part about the mockups
+This blog post is part of a [series](/series/gsoc/). You can read the next part about the mockups
 [here](/blog/gsoc-part-3) or the introductory, previous part [here](/blog/gsoc-part-1).
 
 [bonding]: https://googlesummerofcode.blogspot.nl/2007/04/so-what-is-this-community-bonding-all.html)

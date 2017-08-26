@@ -208,7 +208,7 @@ In other news, support for enabling and disabling profiles is [just around the
 corner][pr-profile]. This is required for the next step, in which I'll be adding
 support for profiles to Piper.
 
-This blog post is part of a series. You can read the next part about finishing
+This blog post is part of a [series](/series/gsoc/). You can read the next part about finishing
 the button page [here](/blog/gsoc-part-10) or the previous part about the LED
 stack page [here](/blog/gsoc-part-8).
 
