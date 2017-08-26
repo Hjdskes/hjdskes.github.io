@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016, 2017 Jente Hidskes</copyright>
-    <lastBuildDate>Wed, 23 Aug 2017 13:01:32 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 23 Aug 2017 16:19:04 +0200</lastBuildDate>
     
 	<atom:link href="https://hjdskes.github.io/series/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Gsoc</title>
       <link>https://hjdskes.github.io/series/gsoc/</link>
-      <pubDate>Wed, 23 Aug 2017 13:01:32 +0200</pubDate>
+      <pubDate>Wed, 23 Aug 2017 16:19:04 +0200</pubDate>
       
       <guid>https://hjdskes.github.io/series/gsoc/</guid>
       <description></description>

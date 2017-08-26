@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016, 2017 Jente Hidskes</copyright>
-    <lastBuildDate>Wed, 23 Aug 2017 13:01:32 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 23 Aug 2017 16:19:04 +0200</lastBuildDate>
     
 	<atom:link href="https://hjdskes.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GSoC part 15: submission</title>
+      <link>https://hjdskes.github.io/blog/gsoc-part-15/</link>
+      <pubDate>Wed, 23 Aug 2017 16:19:04 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/blog/gsoc-part-15/</guid>
+      <description>This is the last entry in the Google Summer of Code series that I have been writing weekly for the last three months. It is different from the usual updates in that I won&amp;rsquo;t be discussing development progress: rather, this will be the submission report for the project as a whole. I&amp;rsquo;ll be discussing the why? behind the project, the plan that my mentor and I came up with to execute the project, the work I have done over the summer including a video of the result, the things that are left to work on, what I&amp;rsquo;ve learned during the project and finally, the links to the code that I have written for the actual submission.</description>
+    </item>
     
     <item>
       <title>GSoC part 14: final code changes</title>
@@ -138,7 +147,7 @@ On the second week, I thought I would get a few days head start on my schedule b
       <pubDate>Fri, 19 May 2017 16:01:04 +0200</pubDate>
       
       <guid>https://hjdskes.github.io/blog/gsoc-part-2/</guid>
-      <description>Two weeks have now passed since my introductory blog post, so as promised here is part two! The theme of this blog post is probably something along the lines of &amp;ldquo;preparation&amp;rdquo;, as that is what I&amp;rsquo;ve been doing mostly.
+      <description>Two weeks have now passed since my introductory blog post, so as promised here is part two! The theme of this blog post is probably something along the lines of preparation, as that is what I&amp;rsquo;ve been doing mostly.
 The period between that of announcing the accepted student proposals and phase one is called the community bonding period. In this period students are supposed to get to know their mentors, their organizations, familiarize themselves with their projects (even more) and get everything ready to start off the coding period on May 30th.</description>
     </item>
     
