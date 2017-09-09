@@ -7,10 +7,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016, 2017 Jente Hidskes</copyright>
-    <lastBuildDate>Wed, 23 Aug 2017 16:19:04 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 09 Sep 2017 14:35:00 +0200</lastBuildDate>
     
 	<atom:link href="https://hjdskes.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Redesign and rewrite Piper for Google Summer of Code 2017</title>
+      <link>https://hjdskes.github.io/contributions/piper/</link>
+      <pubDate>Sat, 09 Sep 2017 14:35:00 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/contributions/piper/</guid>
+      <description>I redesigned and rewrote the Piper mouse configuration tool for the GNOME desktop environment under the guidance of Peter Hutterer from the X.Org Foundation. You can read the project page and browse the development series that I wrote during the project for more information.
+As a result of my Google Summer of Code, I am now the maintainer of Piper. I also regularly contribute to its dependencies, libratbag and ratbagd.</description>
+    </item>
+    
+    <item>
+      <title>About me</title>
+      <link>https://hjdskes.github.io/about/</link>
+      <pubDate>Sat, 09 Sep 2017 14:29:09 +0200</pubDate>
+      
+      <guid>https://hjdskes.github.io/about/</guid>
+      <description>I am a master student in Computer Science at the Delft University of Technology. I currently live in Rotterdam, The Netherlands. During the third year of my bachelor (Computer Science at the Delft University of Technology), I have studied in Stockholm, Sweden for six months at the KTH Royal Institute of Technology.
+In the field of Computer Science, my interests are broad. Mainly, however, I am interested in operating systems, distributed systems and programming languages.</description>
+    </item>
     
     <item>
       <title>GSoC part 15: submission</title>
@@ -195,7 +215,7 @@ This week I attempted to update the theme of this website (sidenote: thanks Alex
       <pubDate>Thu, 23 Feb 2017 20:59:42 +0100</pubDate>
       
       <guid>https://hjdskes.github.io/contributions/contributions/</guid>
-      <description>Besides working on my own applications, I contribute to several existing open source projects. I find this to be an excellent way to learn from experienced developers. It is also very satisfactory knowing that your work will be used by more than a few people! Below you find a (probably incomplete, as I will likely forget some) list of contributions.</description>
+      <description>Besides working on my own applications, I contribute to several existing open source projects. I find this to be a good way to learn from experienced developers, and it is very satisfactory knowing that your work will be used by more than a few people! Below you find a (probably incomplete, as I will likely forget some) list of contributions.</description>
     </item>
     
     <item>
@@ -266,16 +286,6 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
       
       <guid>https://hjdskes.github.io/projects/projects/</guid>
       <description>I maintain several open-source applications of my own. I also do course projects for university. Below you will find a list of projects I think are worth mentioning. Please browse through my GitHub repositories for an exhaustive list.</description>
-    </item>
-    
-    <item>
-      <title>About me</title>
-      <link>https://hjdskes.github.io/about/</link>
-      <pubDate>Mon, 08 Aug 2016 12:36:09 +0200</pubDate>
-      
-      <guid>https://hjdskes.github.io/about/</guid>
-      <description>I am a master student in Computer Science at the Delft University of Technology. I currently live in Rotterdam, The Netherlands. During the third year of my bachelor (Computer Science at the Delft University of Technology), I have studied in Stockholm, Sweden for six months at the KTH Royal Institute of Technology.
-In the field of Computer Science, my interests are broad. Mainly, however, I am interested in operating systems, distributed systems and programming languages.</description>
     </item>
     
     <item>

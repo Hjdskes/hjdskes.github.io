@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hjdskes.github.io/contributions/piper/</loc>
+    <lastmod>2017-09-09T14:35:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.github.io/about/</loc>
+    <lastmod>2017-09-09T14:29:09+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.github.io/blog/gsoc-part-15/</loc>
     <lastmod>2017-08-23T16:19:04+02:00</lastmod>
   </url>
@@ -129,11 +139,6 @@
   <url>
     <loc>https://hjdskes.github.io/projects/projects/</loc>
     <lastmod>2016-08-08T13:18:21+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hjdskes.github.io/about/</loc>
-    <lastmod>2016-08-08T12:36:09+02:00</lastmod>
   </url>
   
   <url>
@@ -275,7 +280,7 @@
   
   <url>
     <loc>https://hjdskes.github.io/contributions/</loc>
-    <lastmod>2017-05-23T17:34:00+01:00</lastmod>
+    <lastmod>2017-09-09T14:35:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -365,7 +370,7 @@
   
   <url>
     <loc>https://hjdskes.github.io/</loc>
-    <lastmod>2017-08-23T16:19:04+02:00</lastmod>
+    <lastmod>2017-09-09T14:35:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
