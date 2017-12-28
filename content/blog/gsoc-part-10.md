@@ -26,7 +26,7 @@ it's quite the cleanup. I also quickly added some code to print the proper
 labels in the button stack page so that you see at a quick glance which button
 does what. The end result, is this:
 
-<video style="max-width: 110%; width: 110%;margin-left: -4%" controls>
+<video controls>
   <source src="/img/blog/gsoc-part-10/buttons.webm" type="video/webm">
 Your browser does not support the video tag.
 </video>
@@ -80,7 +80,7 @@ of this work based on his WIP branch, but I couldn't finish it before that PR
 got merged. Instead of waiting around doing nothing, I started to work on the
 profile support:
 
-<video style="max-width: 110%; width: 110%;margin-left: -4%" controls>
+<video controls>
   <source src="/img/blog/gsoc-part-10/profiles.webm" type="video/webm">
 Your browser does not support the video tag.
 </video>

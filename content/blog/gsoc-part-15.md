@@ -276,7 +276,7 @@ already pressed button to change the current mode, for example when you want to
 change the solid mode's color. After a few iterations, I got it to what's there
 now:
 
-<video style="max-width: 110%; width: 110%;margin-left: -4%" controls>
+<video controls>
   <source src="/img/blog/gsoc-part-15/leds.webm" type="video/webm">
 Your browser does not support the video tag.
 </video>
@@ -327,7 +327,7 @@ mapping. Similarly, as explained, key mappings are just a subset of macros.
 Because of this, I have iterated away from separating these mappings and
 finalized on a single list with categories instead:
 
-<video style="max-width: 110%; width: 110%;margin-left: -4%" controls>
+<video controls>
   <source src="/img/blog/gsoc-part-15/buttons.webm" type="video/webm">
 Your browser does not support the video tag.
 </video>
@@ -432,7 +432,7 @@ proxy immediately in order to avoid race conditions.
 
 Here's a short summary of what Piper can currently do:
 
-<video style="max-width: 110%; width: 110%;margin-left: -4%" controls>
+<video controls>
   <source src="/img/blog/gsoc-part-15/overview.webm" type="video/webm">
 Your browser does not support the video tag.
 </video>

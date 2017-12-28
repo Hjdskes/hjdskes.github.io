@@ -21,7 +21,7 @@ in that order.
 
 A picture is worth more than a thousand words. A video, however, is priceless:
 
-<video style="max-width: 110%; width: 110%;margin-left: -4%" controls>
+<video controls>
   <source src="/img/blog/gsoc-part-8/leds.webm" type="video/webm">
 Your browser does not support the video tag.
 </video>

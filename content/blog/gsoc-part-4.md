@@ -598,8 +598,7 @@ def _redraw_svg_element(self, svg_id):
 
 All that work has resulted in the following animation:
 
-<!--![Interactive MouseMap widget](/img/blog/gsoc-part-4/mousemap-interactive.webm)-->
-<video style="max-width: 110%; width: 110%;margin-left: -4%" controls>
+<video controls>
   <source src="/img/blog/gsoc-part-4/mousemap-interactive.webm" type="video/webm">
 Your browser does not support the video tag.
 </video>

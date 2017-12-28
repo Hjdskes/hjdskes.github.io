@@ -23,7 +23,7 @@ and debugging away to get these pesky buttons into shape.
 As usual I'll discuss the various obstacles I've hit this past week. All of that
 work has resulted in the following work-in-progress:
 
-<video style="max-width: 110%; width: 110%;margin-left: -4%" controls>
+<video controls>
   <source src="/img/blog/gsoc-part-9/progress.webm" type="video/webm">
 Your browser does not support the video tag.
 </video>

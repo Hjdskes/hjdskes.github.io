@@ -21,7 +21,7 @@ UI. The resolutions stack page now highlights the active resolution within the
 list, and, most importantly, Piper can now be translated completely into your
 native language! Here's Piper fully translated in Dutch:
 
-<video style="max-width: 110%; width: 110%;margin-left: -4%" controls>
+<video controls>
   <source src="/img/blog/gsoc-part-14/dutch.webm" type="video/webm">
 Your browser does not support the video tag.
 </video>

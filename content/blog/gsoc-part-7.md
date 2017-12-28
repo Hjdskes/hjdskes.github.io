@@ -67,7 +67,7 @@ The UI elements are all defined in `.ui` files, keeping the code blissfully
 clean (trust me \*Star Wars wave\*). In fact, the complete Python code weighs in
 at just around 200 lines. So, what does it do? Well, this:
 
-<video style="max-width: 110%; width: 110%;margin-left: -4%" controls>
+<video controls>
   <source src="/img/blog/gsoc-part-7/resolutions.webm" type="video/webm">
 Your browser does not support the video tag.
 </video>

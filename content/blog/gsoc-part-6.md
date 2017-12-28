@@ -304,7 +304,7 @@ def _draw_device(self, cr):
 All this work leads to the below video. You can find the pull request
 [here][mousemap-pr].
 
-<video style="max-width: 110%; width: 110%;margin-left: -4%" controls>
+<video controls>
   <source src="/img/blog/gsoc-part-6/mousemap.webm" type="video/webm">
 Your browser does not support the video tag.
 </video>
@@ -314,7 +314,7 @@ Your browser does not support the video tag.
 As you can see from the video, I have started with a rough implementation of the
 new window:
 
-<video style="max-width: 110%; width: 110%;margin-left: -4%" controls>
+<video controls>
   <source src="/img/blog/gsoc-part-6/window.webm" type="video/webm">
 Your browser does not support the video tag.
 </video>

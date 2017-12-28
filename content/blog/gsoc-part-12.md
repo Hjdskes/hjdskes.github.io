@@ -27,7 +27,7 @@ pages) or after a certain interval of inactivity. Since that will require more
 work and is thus something for a later version, I went with the other options to
 at least solve the problem for now:
 
-<video style="max-width: 110%; width: 110%;margin-left: -4%" controls>
+<video controls>
   <source src="/img/blog/gsoc-part-12/commit.webm" type="video/webm">
 Your browser does not support the video tag.
 </video>
@@ -44,7 +44,7 @@ committed. You can view the pull request
 Related to the above (and unsurprisingly also suggested by hadess) is asking for
 confirmation when the user attempts to close Piper with unsaved changes:
 
-<video style="max-width: 110%; width: 110%;margin-left: -4%" controls>
+<video controls>
   <source src="/img/blog/gsoc-part-12/shutdown.webm" type="video/webm">
 Your browser does not support the video tag.
 </video>
@@ -129,7 +129,7 @@ this scenario I have given perspectives the option to declare whether they want
 a back button to be shown, which will take the user back to the welcome
 perspective to switch between devices:
 
-<video style="max-width: 110%; width: 110%;margin-left: -4%" controls>
+<video controls>
   <source src="/img/blog/gsoc-part-12/back.webm" type="video/webm">
 Your browser does not support the video tag.
 </video>

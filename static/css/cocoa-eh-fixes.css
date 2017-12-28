@@ -72,3 +72,6 @@ div.main .content .markdown pre,
 div.main .content .markdown pre code {
   background-color: #ffffff !important;
 }
+video {
+  width: 100%;
+}

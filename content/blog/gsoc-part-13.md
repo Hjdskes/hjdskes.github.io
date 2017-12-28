@@ -81,7 +81,7 @@ for now **only** allow to swap the left- and right mouse buttons; we'll hear it
 from the users when they want more options. After two design iterations, this is
 what I've settled on:
 
-<video style="max-width: 110%; width: 110%;margin-left: -4%" controls>
+<video controls>
   <source src="/img/blog/gsoc-part-13/swap.webm" type="video/webm">
 Your browser does not support the video tag.
 </video>
@@ -191,7 +191,7 @@ request](https://github.com/libratbag/piper/pull/143) that adds this and makes
 the dialog in general look just that bit nicer (compared with what I showed
 [part 10](/blog/gsoc-part-10)):
 
-<video style="max-width: 110%; width: 110%;margin-left: -4%" controls>
+<video controls>
   <source src="/img/blog/gsoc-part-13/search.webm" type="video/webm">
 Your browser does not support the video tag.
 </video>
@@ -203,7 +203,7 @@ change](https://github.com/libratbag/piper/pull/132), after having fixing
 ratbagd ([#284](https://github.com/libratbag/libratbag/pull/284)). Here you can
 see it in action:
 
-<video style="max-width: 110%; width: 110%;margin-left: -4%" controls>
+<video controls>
   <source src="/img/blog/gsoc-part-13/active-resolutions.webm" type="video/webm">
 Your browser does not support the video tag.
 </video>
@@ -219,7 +219,7 @@ Last, but definitely not least, is that Piper can now be
 [translated](https://github.com/libratbag/piper/pull/137) into your native (or
 not!) language! Here you can see Piper in Dutch:
 
-<video style="max-width: 110%; width: 110%;margin-left: -4%" controls>
+<video controls>
   <source src="/img/blog/gsoc-part-13/piper-dutch.webm" type="video/webm">
 Your browser does not support the video tag.
 </video>
