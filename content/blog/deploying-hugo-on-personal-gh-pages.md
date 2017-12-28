@@ -10,7 +10,7 @@ introduction still provides a nice overview of the problem, but please see my
 [updated post](/blog/update-deploying-hugo-on-personal-gh-pages) for the actual
 steps and scripts! {{% /message %}}
 
-*<q>"Hello, World!"</q>*
+*<q>Hello, World!</q>*
 
 As this is the first blog post on this website (and indeed, by myself), the
 introduction had to be done. I'll leave it at this, though. If you want to know

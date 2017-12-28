@@ -37,7 +37,6 @@ div.footer .container a {
 div.footer .container a:hover {
   color: #333333 !important;
 }
-/* TODO: in blockquote, get the "" on the same lines */
 q,
 blockquote {
   quotes: "\201C" "\201D" "\2018" "\2019";
@@ -49,4 +48,23 @@ blockquote:before {
 q:after,
 blockquote:after {
   content: close-quote;
+}
+blockquote {
+  position: relative;
+  padding: 0rem 1rem !important;
+  margin: 1rem 0 !important;
+  border: none !important;
+}
+blockquote:before,
+blockquote:after {
+  position: absolute;
+  font-size: 150%;
+}
+blockquote:before {
+  top: 0;
+  left: 0;
+}
+blockquote:after {
+  bottom: 0;
+  right: 0;
 }
