@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Jente Hidskes&#39; personal website</title>
+    <title>Jente Hidskes&#39; website</title>
     <link>https://hjdskes.github.io/</link>
-    <description>Recent content on Jente Hidskes&#39; personal website</description>
+    <description>Recent content on Jente Hidskes&#39; website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016, 2017 Jente Hidskes</copyright>
@@ -28,8 +28,7 @@ As a result of my Google Summer of Code, I am now the maintainer of Piper. I als
       <pubDate>Sat, 09 Sep 2017 14:29:09 +0200</pubDate>
       
       <guid>https://hjdskes.github.io/about/</guid>
-      <description>I am a master student in Computer Science at the Delft University of Technology. I currently live in Rotterdam, The Netherlands. During the third year of my bachelor (Computer Science at the Delft University of Technology), I have studied in Stockholm, Sweden for six months at the KTH Royal Institute of Technology.
-In the field of Computer Science, my interests are broad. Mainly, however, I am interested in operating systems, distributed systems and programming languages.</description>
+      <description>I am a master student in Computer Science at the Delft University of Technology. In the third year of my bachelor (Computer Science at the Delft University of Technology), I have studied in Stockholm, Sweden for six months at the KTH Royal Institute of Technology. In the field of Computer Science, my interests are broad. Mainly, however, I am interested in operating systems, distributed systems and programming languages. I am currently working on my MSc thesis at the Programming Languages group of the TU Delft under the supervision of Dr.</description>
     </item>
     
     <item>
@@ -263,7 +262,7 @@ Our contributions resulted in several small fixes to both Neovim and Vim:
       
       <guid>https://hjdskes.github.io/blog/deploying-hugo-on-personal-gh-pages/</guid>
       <description>The method described here is obsolete. The introduction still provides a nice overview of the problem, but please see my updated post for the actual steps and scripts!
- &amp;ldquo;Hello, World!&amp;rdquo;
+ Hello, World!
 As this is the first blog post on this website (and indeed, by myself), the introduction had to be done. I&amp;rsquo;ll leave it at this, though. If you want to know more about me, you can do that here.</description>
     </item>
     
@@ -273,10 +272,9 @@ As this is the first blog post on this website (and indeed, by myself), the intr
       <pubDate>Thu, 11 Aug 2016 19:43:09 +0200</pubDate>
       
       <guid>https://hjdskes.github.io/license/</guid>
-      <description>All content on this website, unless otherwise noted, is copyright © 2016, 2017 Jente Hidskes and licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
-All code on this website, unless otherwise noted, is copyright © 2016, 2017 Jente Hidskes and licensed under the MIT license:
- Copyright &amp;copy; 2016, 2017 Jente Hidskes
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &amp;ldquo;Software&amp;rdquo;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</description>
+      <description>All content on this website, unless otherwise noted, is copyright © 2016, 2017 Jente Hidskes and licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+All code on this website, unless otherwise noted, is copyright © 2016, 2017 Jente Hidskes and licensed under the MIT license.
+All registered trademarks mentioned on this website belong to their rightful owners.</description>
     </item>
     
     <item>

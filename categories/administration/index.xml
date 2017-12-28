@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Administration on Jente Hidskes&#39; personal website</title>
+    <title>Administration on Jente Hidskes&#39; website</title>
     <link>https://hjdskes.github.io/categories/administration/</link>
-    <description>Recent content in Administration on Jente Hidskes&#39; personal website</description>
+    <description>Recent content in Administration on Jente Hidskes&#39; website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016, 2017 Jente Hidskes</copyright>
@@ -29,7 +29,7 @@ This week I attempted to update the theme of this website (sidenote: thanks Alex
       
       <guid>https://hjdskes.github.io/blog/deploying-hugo-on-personal-gh-pages/</guid>
       <description>The method described here is obsolete. The introduction still provides a nice overview of the problem, but please see my updated post for the actual steps and scripts!
- &amp;ldquo;Hello, World!&amp;rdquo;
+ Hello, World!
 As this is the first blog post on this website (and indeed, by myself), the introduction had to be done. I&amp;rsquo;ll leave it at this, though. If you want to know more about me, you can do that here.</description>
     </item>
     
