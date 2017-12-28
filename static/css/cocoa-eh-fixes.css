@@ -68,3 +68,7 @@ blockquote:after {
   bottom: 0;
   right: 0;
 }
+div.main .content .markdown pre,
+div.main .content .markdown pre code {
+  background-color: #ffffff !important;
+}
