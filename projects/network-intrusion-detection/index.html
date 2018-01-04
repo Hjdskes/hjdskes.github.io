@@ -13,9 +13,9 @@
 <meta property="og:site_name" content="Jente Hidskes&#39; website" />
 <meta property="og:locale" content="nn_NO" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://hjdskes.github.io/projects/" />
-<meta property="og:title" content="Projects" />
-<meta property="twitter:title" content="Projects">
+<meta property="og:url" content="https://hjdskes.github.io/projects/network-intrusion-detection/" />
+<meta property="og:title" content="Network intrusion detection/prevention system: Advanced Network Security course project" />
+<meta property="twitter:title" content="Network intrusion detection/prevention system: Advanced Network Security course project">
 
     <meta property="twitter:card" content="summary">
 
@@ -25,10 +25,10 @@
 <title>
 
 
-     Jente Hidskes&#39; website - Projects 
+     Jente Hidskes&#39; website - Network intrusion detection/prevention system: Advanced Network Security course project 
 
 </title>
-<link rel="canonical" href="https://hjdskes.github.io/projects/">
+<link rel="canonical" href="https://hjdskes.github.io/projects/network-intrusion-detection/">
 
 
 <style media="screen">
@@ -956,8 +956,6 @@ margin-left: -4%;
 
 
 
-  <link href="https://hjdskes.github.io/projects/index.xml" rel="alternate" type="application/rss+xml" title="Jente Hidskes&#39; website" />
-
 
 </head>
 
@@ -965,7 +963,7 @@ margin-left: -4%;
 <body>
 
 
-<div class="header header-home column">
+<div class="header column">
 
     <div class="container">
         <a href="https://hjdskes.github.io/"><img class="logo" src="https://hjdskes.github.io/img/avatar.png" alt="logo" /></a>
@@ -1011,195 +1009,38 @@ margin-left: -4%;
 <div class="main column">
     <div class="container">
         <div class="content">
-            
+            <div class="page-heading">
+
+    Network intrusion detection/prevention system: Advanced Network Security course project
+
+</div>
+
             <div class="markdown">
                 
-                    
-                
-                    
-                
-                    
-                
-                    
-                        <p>I maintain several open-source applications of my own. I also do course projects
-for university. Below you will find a list of projects I think are worth
-mentioning. Please browse through my <a href="https://github.com/Hjdskes/repositories">GitHub repositories</a>
-for an exhaustive list.</p>
+    <p>For the course <a href="http://networksecuritycourse.nl">ET4307IN Advanced Network
+Security</a> I had to develop an intrusion
+detection/prevention system. This system does the following:</p>
 
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            </div>
-            <div class="posts">
-            
-                <div class="page-heading">Projects</div>
-                <ul>
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Dec 11, 2017</span>
-    
-      <a href="https://hjdskes.github.io/projects/quadrupel/"><span>Quadrupel: an embedded software project to stabilize a drone</span></a>
-    
-</li>
+<ul>
+<li>capture live data from the NIC and save data to / read data from a pcap file.</li>
+<li>capture and parse DNS packets according to RFC1035, with (as required) a
+custom parser. It gracefully ignores record types added in later versions of
+the DNS protocol.</li>
+<li>Log ARP packets (parsed with a custom parser, as required) that have generated
+an error or notice via a custom configuration.</li>
+<li>An 802.11 module that detects a potential disassociation or deauthentication
+attack on the wireless network.</li>
+<li>Detect ARP-request-replay attacks.</li>
+<li>A bloom filter implementation (custom, as required) to speed up firewall rule
+processing in comparison to a hash table based approach.</li>
+<li>Connection tracking and rate-limiting functionality (DDoS prevention) on OSI
+layers 3 and 4.</li>
+</ul>
 
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">May 28, 2017</span>
-    
-      <a href="https://hjdskes.github.io/projects/network-intrusion-detection/"><span>Network intrusion detection/prevention system: Advanced Network Security course project</span></a>
-    
-</li>
+<p>All of this is implemented in a modular design, using Go. The source code can be
+found on <a href="https://github.com/Hjdskes/ET4397in">GitHub</a>.</p>
 
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Feb 21, 2017</span>
-    
-      <a href="https://hjdskes.github.io/projects/license-locations/"><span>License locations: proof of concept code for a draft research paper</span></a>
-    
-</li>
 
-                        
-                    
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Jun 29, 2016</span>
-    
-      <a href="https://hjdskes.github.io/projects/spoofax-shell/"><span>Spoofax Shell: my thesis project to create a REPL for Spoofax</span></a>
-    
-</li>
-
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Aug 22, 2015</span>
-    
-      <a href="https://github.com/Hjdskes/gtimeutils"><span>GTimeUtils: a stopwatch and a timer, bundled together as time utilities</span></a>
-    
-</li>
-
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Jun 25, 2015</span>
-    
-      <a href="https://github.com/AbeelLab/dnainator"><span>DNAinator: visualizing and exploring DNA sequence graphs</span></a>
-    
-</li>
-
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Mar 21, 2015</span>
-    
-      <a href="https://hjdskes.github.io/projects/arek/"><span>Arek Window Manager: a Mutter-based tiling window manager</span></a>
-    
-</li>
-
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Jan 25, 2015</span>
-    
-      <a href="https://hjdskes.github.io/projects/linefollower/"><span>Line Follower: an embedded software course project</span></a>
-    
-</li>
-
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Nov 14, 2014</span>
-    
-      <a href="https://github.com/Hjdskes/2048"><span>2048: a software engineering course project</span></a>
-    
-</li>
-
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Jun 26, 2014</span>
-    
-      <a href="https://github.com/Balletie/TI1805-Project"><span>Ray Tracer: a computer graphics course project</span></a>
-    
-</li>
-
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Jan 27, 2014</span>
-    
-      <a href="https://github.com/Hjdskes/ExcelPP"><span>ExcelPP: a freshmen OOP project to create a spreadsheet application</span></a>
-    
-</li>
-
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Nov 15, 2013</span>
-    
-      <a href="https://hjdskes.github.io/projects/phosphorus/"><span>Phosphorus: a wallpaper browser and setter in the spirit of Nitrogen</span></a>
-    
-</li>
-
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Feb 24, 2013</span>
-    
-      <a href="https://hjdskes.github.io/projects/gcolor3/"><span>Gcolor3: a color selection dialog written in GTK&#43; 3</span></a>
-    
-</li>
-
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Jun 30, 2012</span>
-    
-      <a href="https://hjdskes.github.io/projects/powersave/"><span>Powersave: aggressive power saving on a Linux system</span></a>
-    
-</li>
-
-                        
-                    
-                </ul>
-            
             </div>
         </div>
     </div>

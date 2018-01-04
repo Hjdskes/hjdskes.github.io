@@ -7,10 +7,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016, 2017 Jente Hidskes</copyright>
-    <lastBuildDate>Mon, 08 Aug 2016 13:18:21 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 11 Dec 2017 00:47:00 +0100</lastBuildDate>
     
 	<atom:link href="https://hjdskes.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Quadrupel: an embedded software project to stabilize a drone</title>
+      <link>https://hjdskes.github.io/projects/quadrupel/</link>
+      <pubDate>Mon, 11 Dec 2017 00:47:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/quadrupel/</guid>
+      <description>For the course IN4073 Embedded Real-Time Systems my project group and I had to program the software of an embedded control unit of a drone (dubbed the Quadrupel), to provide stabilization such that it can hover and fly with limited user control.
+Our drone managed to take off, fly and land safely. Our response time was high enough for adequate stability, which we managed to do by:
+ using a simple, custom message format on top of the COBS protocol to communicate between the base station (a PC) and the drone, sticking to a small and simple code base implementing a finite state machine, thoroughly reviewing of each other&amp;rsquo;s pull requests.</description>
+    </item>
+    
+    <item>
+      <title>Network intrusion detection/prevention system: Advanced Network Security course project</title>
+      <link>https://hjdskes.github.io/projects/network-intrusion-detection/</link>
+      <pubDate>Sun, 28 May 2017 00:47:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/network-intrusion-detection/</guid>
+      <description>For the course ET4307IN Advanced Network Security I had to develop an intrusion detection/prevention system. This system does the following:
+ capture live data from the NIC and save data to / read data from a pcap file. capture and parse DNS packets according to RFC1035, with (as required) a custom parser. It gracefully ignores record types added in later versions of the DNS protocol. Log ARP packets (parsed with a custom parser, as required) that have generated an error or notice via a custom configuration.</description>
+    </item>
+    
+    <item>
+      <title>License locations: proof of concept code for a draft research paper</title>
+      <link>https://hjdskes.github.io/projects/license-locations/</link>
+      <pubDate>Tue, 21 Feb 2017 00:47:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.github.io/projects/license-locations/</guid>
+      <description>For the course IN4252 Web Science &amp;amp; Engineering I had to write a draft research paper, titled Open source software licenses: is there a correlation between developer location and software licenses?. In this paper I attempted to map the use of free and open source software licenses, in order to see whether a developer&amp;rsquo;s geographic location is a determinant of FOSS license choice. If you are interested in reading the draft (it was never required to go further, and never did), please reach out to me and I will send it to you.</description>
+    </item>
     
     <item>
       <title>Projects</title>

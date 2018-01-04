@@ -13,9 +13,9 @@
 <meta property="og:site_name" content="Jente Hidskes&#39; website" />
 <meta property="og:locale" content="nn_NO" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://hjdskes.github.io/projects/" />
-<meta property="og:title" content="Projects" />
-<meta property="twitter:title" content="Projects">
+<meta property="og:url" content="https://hjdskes.github.io/projects/license-locations/" />
+<meta property="og:title" content="License locations: proof of concept code for a draft research paper" />
+<meta property="twitter:title" content="License locations: proof of concept code for a draft research paper">
 
     <meta property="twitter:card" content="summary">
 
@@ -25,10 +25,10 @@
 <title>
 
 
-     Jente Hidskes&#39; website - Projects 
+     Jente Hidskes&#39; website - License locations: proof of concept code for a draft research paper 
 
 </title>
-<link rel="canonical" href="https://hjdskes.github.io/projects/">
+<link rel="canonical" href="https://hjdskes.github.io/projects/license-locations/">
 
 
 <style media="screen">
@@ -956,8 +956,6 @@ margin-left: -4%;
 
 
 
-  <link href="https://hjdskes.github.io/projects/index.xml" rel="alternate" type="application/rss+xml" title="Jente Hidskes&#39; website" />
-
 
 </head>
 
@@ -965,7 +963,7 @@ margin-left: -4%;
 <body>
 
 
-<div class="header header-home column">
+<div class="header column">
 
     <div class="container">
         <a href="https://hjdskes.github.io/"><img class="logo" src="https://hjdskes.github.io/img/avatar.png" alt="logo" /></a>
@@ -1011,195 +1009,37 @@ margin-left: -4%;
 <div class="main column">
     <div class="container">
         <div class="content">
-            
+            <div class="page-heading">
+
+    License locations: proof of concept code for a draft research paper
+
+</div>
+
             <div class="markdown">
                 
-                    
-                
-                    
-                
-                    
-                
-                    
-                        <p>I maintain several open-source applications of my own. I also do course projects
-for university. Below you will find a list of projects I think are worth
-mentioning. Please browse through my <a href="https://github.com/Hjdskes/repositories">GitHub repositories</a>
-for an exhaustive list.</p>
+    <p>For the course <a href="http://studiegids.tudelft.nl/a101_displayCourse.do?course_id=38331">IN4252 Web Science &amp;
+Engineering</a>
+I had to write a draft research paper, titled <em>Open source software licenses: is
+there a correlation between developer location and software licenses?</em>. In this
+paper I attempted to map the use of free and open source software licenses, in
+order to see whether a developer&rsquo;s geographic location is a determinant of FOSS
+license choice. If you are interested in reading the draft (it was never
+required to go further, and never did), please <a href="mailto:hjdskes@gmail.com">reach out to
+me</a> and I will send it to you.</p>
 
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            </div>
-            <div class="posts">
-            
-                <div class="page-heading">Projects</div>
-                <ul>
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Dec 11, 2017</span>
-    
-      <a href="https://hjdskes.github.io/projects/quadrupel/"><span>Quadrupel: an embedded software project to stabilize a drone</span></a>
-    
-</li>
+<p>The proof of concept code reads users&rsquo; locations from a datadump of GitHub
+acquired from the <a href="http://ghtorrent.org">GHTorrent</a> project. This project,
+however, did not store project licenses (though it may by now), so I wrote some
+code to augment the data with the project license. This is done by querying
+GitHub through its API for every project for every user. Note however that this
+is done for the first 5000 users only, as this is the rate limit set by GitHub
+and it was only a proof of concept anyway. To see how to set it all up, should
+you want to do the same, see the README in the project.</p>
 
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">May 28, 2017</span>
-    
-      <a href="https://hjdskes.github.io/projects/network-intrusion-detection/"><span>Network intrusion detection/prevention system: Advanced Network Security course project</span></a>
-    
-</li>
+<p>The code is written in Go. I did not pay attention to speed, robustness nor ease
+of use. Find the source code on <a href="https://github.com/Hjdskes/license-locations">GitHub</a>.</p>
 
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Feb 21, 2017</span>
-    
-      <a href="https://hjdskes.github.io/projects/license-locations/"><span>License locations: proof of concept code for a draft research paper</span></a>
-    
-</li>
 
-                        
-                    
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Jun 29, 2016</span>
-    
-      <a href="https://hjdskes.github.io/projects/spoofax-shell/"><span>Spoofax Shell: my thesis project to create a REPL for Spoofax</span></a>
-    
-</li>
-
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Aug 22, 2015</span>
-    
-      <a href="https://github.com/Hjdskes/gtimeutils"><span>GTimeUtils: a stopwatch and a timer, bundled together as time utilities</span></a>
-    
-</li>
-
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Jun 25, 2015</span>
-    
-      <a href="https://github.com/AbeelLab/dnainator"><span>DNAinator: visualizing and exploring DNA sequence graphs</span></a>
-    
-</li>
-
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Mar 21, 2015</span>
-    
-      <a href="https://hjdskes.github.io/projects/arek/"><span>Arek Window Manager: a Mutter-based tiling window manager</span></a>
-    
-</li>
-
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Jan 25, 2015</span>
-    
-      <a href="https://hjdskes.github.io/projects/linefollower/"><span>Line Follower: an embedded software course project</span></a>
-    
-</li>
-
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Nov 14, 2014</span>
-    
-      <a href="https://github.com/Hjdskes/2048"><span>2048: a software engineering course project</span></a>
-    
-</li>
-
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Jun 26, 2014</span>
-    
-      <a href="https://github.com/Balletie/TI1805-Project"><span>Ray Tracer: a computer graphics course project</span></a>
-    
-</li>
-
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Jan 27, 2014</span>
-    
-      <a href="https://github.com/Hjdskes/ExcelPP"><span>ExcelPP: a freshmen OOP project to create a spreadsheet application</span></a>
-    
-</li>
-
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Nov 15, 2013</span>
-    
-      <a href="https://hjdskes.github.io/projects/phosphorus/"><span>Phosphorus: a wallpaper browser and setter in the spirit of Nitrogen</span></a>
-    
-</li>
-
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Feb 24, 2013</span>
-    
-      <a href="https://hjdskes.github.io/projects/gcolor3/"><span>Gcolor3: a color selection dialog written in GTK&#43; 3</span></a>
-    
-</li>
-
-                        
-                    
-                        
-                            <li class="post-item">
-    <span class="meta">Jun 30, 2012</span>
-    
-      <a href="https://hjdskes.github.io/projects/powersave/"><span>Powersave: aggressive power saving on a Linux system</span></a>
-    
-</li>
-
-                        
-                    
-                </ul>
-            
             </div>
         </div>
     </div>
