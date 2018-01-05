@@ -16,11 +16,11 @@ enough for adequate stability, which we managed to do by:
    protocol to communicate between the base station (a PC) and the drone,
 2. sticking to a small and simple code base implementing a finite state
    machine,
-3. thoroughly reviewing of each other's pull requests.
+3. thoroughly reviewing each other's pull requests.
 
 We also managed to implement a nice TUI on the base station, height control on
 the drone and wireless flying. In fact, the drone was almost equally responsive
-wireless as it was tethered, surpassing even the implementation of the lab
+wirelessly as it was tethered, surpassing even the implementation of the lab
 assistants 😄
 
 The code is private, since future iterations of this course will be held.
