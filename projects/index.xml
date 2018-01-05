@@ -6,7 +6,7 @@
     <description>Recent content in Projects on Jente Hidskes&#39; website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Copyright © 2016, 2017 Jente Hidskes</copyright>
+    <copyright>Copyright © 2016-2018 Jente Hidskes</copyright>
     <lastBuildDate>Mon, 11 Dec 2017 00:47:00 +0100</lastBuildDate>
     
 	<atom:link href="https://hjdskes.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
@@ -20,7 +20,7 @@
       <guid>https://hjdskes.github.io/projects/quadrupel/</guid>
       <description>For the course IN4073 Embedded Real-Time Systems my project group and I had to program the software of an embedded control unit of a drone (dubbed the Quadrupel), to provide stabilization such that it can hover and fly with limited user control.
 Our drone managed to take off, fly and land safely. Our response time was high enough for adequate stability, which we managed to do by:
- using a simple, custom message format on top of the COBS protocol to communicate between the base station (a PC) and the drone, sticking to a small and simple code base implementing a finite state machine, thoroughly reviewing of each other&amp;rsquo;s pull requests.</description>
+ using a simple, custom message format on top of the COBS protocol to communicate between the base station (a PC) and the drone, sticking to a small and simple code base implementing a finite state machine, thoroughly reviewing each other&amp;rsquo;s pull requests.</description>
     </item>
     
     <item>
