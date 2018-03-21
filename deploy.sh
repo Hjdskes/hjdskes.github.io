@@ -29,6 +29,9 @@ popd
 msg "Building the website"
 hugo
 
+msg "Copying CNAME"
+cp CNAME public/
+
 msg "Pushing the updated \`public\` folder to the \`master\` branch"
 pushd public
 git add *
