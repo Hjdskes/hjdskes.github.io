@@ -1115,6 +1115,17 @@ rm -rf public
 git worktree add -B master public origin/master
 </code></pre>
 
+<div  class="info" >
+  <p>If you need to deploy a CNAME file as well, copy
+the file into the <code>public/</code> folder after the <code>hugo</code> line in the script below.
+You can see <a href="https://github.com/Hjdskes/hjdskes.github.io/blob/hugo/deploy.sh">the
+script</a> in
+this website&rsquo;s repository to see how.</p>
+
+</div>
+
+
+
 <p><code>deploy.sh</code></p>
 
 <pre><code class="language-bash">#!/usr/bin/env bash
