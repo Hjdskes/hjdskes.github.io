@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hjdskes.nl/blog/https/</loc>
+    <lastmod>2018-05-02T11:41:05+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.nl/projects/quadrupel/</loc>
     <lastmod>2017-12-11T00:47:00+01:00</lastmod>
   </url>
@@ -259,7 +264,7 @@
   
   <url>
     <loc>https://hjdskes.nl/blog/</loc>
-    <lastmod>2017-08-23T16:19:04+02:00</lastmod>
+    <lastmod>2018-05-02T11:41:05+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -296,6 +301,12 @@
   <url>
     <loc>https://hjdskes.nl/contributions/</loc>
     <lastmod>2017-09-09T14:35:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.nl/tags/custom-domain/</loc>
+    <lastmod>2018-05-02T11:41:05+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -349,7 +360,7 @@
   
   <url>
     <loc>https://hjdskes.nl/tags/github-pages/</loc>
-    <lastmod>2017-02-26T22:12:00+01:00</lastmod>
+    <lastmod>2018-05-02T11:41:05+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -372,6 +383,12 @@
   </url>
   
   <url>
+    <loc>https://hjdskes.nl/tags/https/</loc>
+    <lastmod>2018-05-02T11:41:05+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.nl/tags/hugo/</loc>
     <lastmod>2017-02-26T22:12:00+01:00</lastmod>
     <priority>0</priority>
@@ -385,7 +402,7 @@
   
   <url>
     <loc>https://hjdskes.nl/</loc>
-    <lastmod>2017-12-11T00:47:00+01:00</lastmod>
+    <lastmod>2018-05-02T11:41:05+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -542,6 +559,12 @@
   <url>
     <loc>https://hjdskes.nl/tags/udev/</loc>
     <lastmod>2017-05-19T16:01:04+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.nl/tags/website/</loc>
+    <lastmod>2018-05-02T11:41:05+02:00</lastmod>
     <priority>0</priority>
   </url>
   
