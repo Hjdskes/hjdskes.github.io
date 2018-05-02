@@ -19,7 +19,7 @@
       
       <guid>https://hjdskes.nl/blog/https/</guid>
       <description>From today, my website enforces HTTPS again! Github Pages have been supporting HTTPS since June 2016, so when my website was reachable only through hjdskes.github.io I got all of that for free. In fact, because HTTPS is the future&amp;trade;, I enabled Github Pages&amp;rsquo; enforce HTTPS feature in my website&amp;rsquo;s settings.
-Since March, my website is also reachable through (www.)hjdskes.nl. When I set this up, I knew I would the ability to enforce HTTPS because up until yesterday, Github Pages did not support HTTPS for custom domains.</description>
+Since March, my website is also reachable through (www.)hjdskes.nl. When I set this up, I knew I would lose the ability to enforce HTTPS because up until yesterday, Github Pages did not support HTTPS for custom domains.</description>
     </item>
     
   </channel>
