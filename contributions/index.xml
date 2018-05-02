@@ -2,68 +2,68 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Contributions on Jente Hidskes&#39; website</title>
-    <link>https://hjdskes.github.io/contributions/</link>
+    <link>https://hjdskes.nl/contributions/</link>
     <description>Recent content in Contributions on Jente Hidskes&#39; website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2018 Jente Hidskes</copyright>
     <lastBuildDate>Sat, 09 Sep 2017 14:35:00 +0200</lastBuildDate>
     
-	<atom:link href="https://hjdskes.github.io/contributions/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://hjdskes.nl/contributions/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Redesign and rewrite Piper for Google Summer of Code 2017</title>
-      <link>https://hjdskes.github.io/contributions/piper/</link>
+      <link>https://hjdskes.nl/contributions/piper/</link>
       <pubDate>Sat, 09 Sep 2017 14:35:00 +0200</pubDate>
       
-      <guid>https://hjdskes.github.io/contributions/piper/</guid>
+      <guid>https://hjdskes.nl/contributions/piper/</guid>
       <description>I redesigned and rewrote the Piper mouse configuration tool for the GNOME desktop environment under the guidance of Peter Hutterer from the X.Org Foundation. You can read the project page and browse the development series that I wrote during the project for more information.
 As a result of my Google Summer of Code, I am now the maintainer of Piper. I also regularly contribute to its dependencies, libratbag and ratbagd.</description>
     </item>
     
     <item>
       <title>A small fix to Google&#39;s gopacket</title>
-      <link>https://hjdskes.github.io/contributions/gopacket/</link>
+      <link>https://hjdskes.nl/contributions/gopacket/</link>
       <pubDate>Tue, 23 May 2017 17:34:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/contributions/gopacket/</guid>
+      <guid>https://hjdskes.nl/contributions/gopacket/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Google Summer of Code proposal contributions</title>
-      <link>https://hjdskes.github.io/contributions/gsoc-proposals/</link>
+      <link>https://hjdskes.nl/contributions/gsoc-proposals/</link>
       <pubDate>Thu, 23 Mar 2017 01:55:50 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/contributions/gsoc-proposals/</guid>
+      <guid>https://hjdskes.nl/contributions/gsoc-proposals/</guid>
       <description>The application process of Google Summer of Code requires students to make a small contribution to the project(s) of their choice to demonstrate that they are capable of making a change following the upstream submission procedures. In my understanding, this is less about the actual code than it is about demonstrating these skills. This is (partly, the other reason being that as I was working on these proposals I was also finishing up several course projects) the reason that the contributions here are rather small:</description>
     </item>
     
     <item>
       <title>Contributions</title>
-      <link>https://hjdskes.github.io/contributions/contributions/</link>
+      <link>https://hjdskes.nl/contributions/contributions/</link>
       <pubDate>Thu, 23 Feb 2017 20:59:42 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/contributions/contributions/</guid>
+      <guid>https://hjdskes.nl/contributions/contributions/</guid>
       <description>Besides working on my own applications, I contribute to several existing open source projects. I find this to be a good way to learn from experienced developers, and it is very satisfactory knowing that your work will be used by more than a few people! Below you find a (probably incomplete, as I will likely forget some) list of contributions.</description>
     </item>
     
     <item>
       <title>Fixes and added features to the Cocoa Enhanced theme</title>
-      <link>https://hjdskes.github.io/contributions/cocoa-eh/</link>
+      <link>https://hjdskes.nl/contributions/cocoa-eh/</link>
       <pubDate>Tue, 21 Feb 2017 19:53:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/contributions/cocoa-eh/</guid>
+      <guid>https://hjdskes.nl/contributions/cocoa-eh/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Small fixes to Neovim and Vim</title>
-      <link>https://hjdskes.github.io/contributions/neovim-vim/</link>
+      <link>https://hjdskes.nl/contributions/neovim-vim/</link>
       <pubDate>Mon, 20 Feb 2017 23:18:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/contributions/neovim-vim/</guid>
+      <guid>https://hjdskes.nl/contributions/neovim-vim/</guid>
       <description>For the course Software Architecture at the TU Delft we were required to analyse and contribute to an existing open source project. The group I was part of chose Neovim as our project. The result of this analysis is a chapter in the book Delft Students on Software Architecture: 2017.
 Our contributions resulted in several small fixes to both Neovim and Vim:
  Neovim commits by myself and Sander; Vim commits by myself.</description>
@@ -71,83 +71,83 @@ Our contributions resulted in several small fixes to both Neovim and Vim:
     
     <item>
       <title>Improve the maintainability, readability and robustness or Playerctl</title>
-      <link>https://hjdskes.github.io/contributions/playerctl/</link>
+      <link>https://hjdskes.nl/contributions/playerctl/</link>
       <pubDate>Sun, 11 Sep 2016 00:34:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/contributions/playerctl/</guid>
+      <guid>https://hjdskes.nl/contributions/playerctl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Add missing keysyms to Haskell&#39;s X11 bindings</title>
-      <link>https://hjdskes.github.io/contributions/haskell-x11/</link>
+      <link>https://hjdskes.nl/contributions/haskell-x11/</link>
       <pubDate>Mon, 22 Feb 2016 16:51:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/contributions/haskell-x11/</guid>
+      <guid>https://hjdskes.nl/contributions/haskell-x11/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Make arch-diff work with Pacman 5.0</title>
-      <link>https://hjdskes.github.io/contributions/arch-diff/</link>
+      <link>https://hjdskes.nl/contributions/arch-diff/</link>
       <pubDate>Wed, 10 Feb 2016 22:25:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/contributions/arch-diff/</guid>
+      <guid>https://hjdskes.nl/contributions/arch-diff/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Some as of yet unmerged patches for GNOME Screenshot</title>
-      <link>https://hjdskes.github.io/contributions/gnome-screenshot/</link>
+      <link>https://hjdskes.nl/contributions/gnome-screenshot/</link>
       <pubDate>Wed, 09 Dec 2015 23:53:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/contributions/gnome-screenshot/</guid>
+      <guid>https://hjdskes.nl/contributions/gnome-screenshot/</guid>
       <description>I wrote some as of yet unmerged patches and opened some outstanding bug reports to GNOME Screenshot. You can review them here and here.
 Until the patches are merged (if ever), you can find them in my fork on GitHub.</description>
     </item>
     
     <item>
       <title>A few commits to background setter (bgs)</title>
-      <link>https://hjdskes.github.io/contributions/bgs/</link>
+      <link>https://hjdskes.nl/contributions/bgs/</link>
       <pubDate>Sat, 02 May 2015 18:10:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/contributions/bgs/</guid>
+      <guid>https://hjdskes.nl/contributions/bgs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Implement animated workspace switching and some fixes to Budgie</title>
-      <link>https://hjdskes.github.io/contributions/budgie/</link>
+      <link>https://hjdskes.nl/contributions/budgie/</link>
       <pubDate>Thu, 16 Apr 2015 14:59:00 +0200</pubDate>
       
-      <guid>https://hjdskes.github.io/contributions/budgie/</guid>
+      <guid>https://hjdskes.nl/contributions/budgie/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Several small contributions to the BunsenLabs Linux projects</title>
-      <link>https://hjdskes.github.io/contributions/bunsen/</link>
+      <link>https://hjdskes.nl/contributions/bunsen/</link>
       <pubDate>Mon, 16 Feb 2015 14:58:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/contributions/bunsen/</guid>
+      <guid>https://hjdskes.nl/contributions/bunsen/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Implement a GtkHeaderBar in Eye of GNOME</title>
-      <link>https://hjdskes.github.io/contributions/eog/</link>
+      <link>https://hjdskes.nl/contributions/eog/</link>
       <pubDate>Mon, 02 Feb 2015 19:36:38 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/contributions/eog/</guid>
+      <guid>https://hjdskes.nl/contributions/eog/</guid>
       <description>I implemented a GtkHeaderBar in Eye of GNOME. You can review all the patches here, or view the relevant bug reports here and here.</description>
     </item>
     
     <item>
       <title>Pango fonts in the sxiv image viewer</title>
-      <link>https://hjdskes.github.io/contributions/sxiv/</link>
+      <link>https://hjdskes.nl/contributions/sxiv/</link>
       <pubDate>Sat, 11 May 2013 01:26:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/contributions/sxiv/</guid>
+      <guid>https://hjdskes.nl/contributions/sxiv/</guid>
       <description></description>
     </item>
     

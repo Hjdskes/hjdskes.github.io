@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Series on Jente Hidskes&#39; website</title>
-    <link>https://hjdskes.github.io/series/</link>
+    <link>https://hjdskes.nl/series/</link>
     <description>Recent content in Series on Jente Hidskes&#39; website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2018 Jente Hidskes</copyright>
     <lastBuildDate>Wed, 23 Aug 2017 16:19:04 +0200</lastBuildDate>
     
-	<atom:link href="https://hjdskes.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://hjdskes.nl/series/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Gsoc</title>
-      <link>https://hjdskes.github.io/series/gsoc/</link>
+      <link>https://hjdskes.nl/series/gsoc/</link>
       <pubDate>Wed, 23 Aug 2017 16:19:04 +0200</pubDate>
       
-      <guid>https://hjdskes.github.io/series/gsoc/</guid>
+      <guid>https://hjdskes.nl/series/gsoc/</guid>
       <description></description>
     </item>
     

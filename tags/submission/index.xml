@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Submission on Jente Hidskes&#39; website</title>
-    <link>https://hjdskes.github.io/tags/submission/</link>
+    <link>https://hjdskes.nl/tags/submission/</link>
     <description>Recent content in Submission on Jente Hidskes&#39; website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2018 Jente Hidskes</copyright>
     <lastBuildDate>Wed, 23 Aug 2017 16:19:04 +0200</lastBuildDate>
     
-	<atom:link href="https://hjdskes.github.io/tags/submission/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://hjdskes.nl/tags/submission/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>GSoC part 15: submission</title>
-      <link>https://hjdskes.github.io/blog/gsoc-part-15/</link>
+      <link>https://hjdskes.nl/blog/gsoc-part-15/</link>
       <pubDate>Wed, 23 Aug 2017 16:19:04 +0200</pubDate>
       
-      <guid>https://hjdskes.github.io/blog/gsoc-part-15/</guid>
+      <guid>https://hjdskes.nl/blog/gsoc-part-15/</guid>
       <description>This is the last entry in the Google Summer of Code series that I have been writing weekly for the last three months. It is different from the usual updates in that I won&amp;rsquo;t be discussing development progress: rather, this will be the submission report for the project as a whole. I&amp;rsquo;ll be discussing the why? behind the project, the plan that my mentor and I came up with to execute the project, the work I have done over the summer including a video of the result, the things that are left to work on, what I&amp;rsquo;ve learned during the project and finally, the links to the code that I have written for the actual submission.</description>
     </item>
     

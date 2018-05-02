@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Jente Hidskes&#39; website</title>
-    <link>https://hjdskes.github.io/projects/</link>
+    <link>https://hjdskes.nl/projects/</link>
     <description>Recent content in Projects on Jente Hidskes&#39; website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2018 Jente Hidskes</copyright>
     <lastBuildDate>Mon, 11 Dec 2017 00:47:00 +0100</lastBuildDate>
     
-	<atom:link href="https://hjdskes.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://hjdskes.nl/projects/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Quadrupel: an embedded software project to stabilize a drone</title>
-      <link>https://hjdskes.github.io/projects/quadrupel/</link>
+      <link>https://hjdskes.nl/projects/quadrupel/</link>
       <pubDate>Mon, 11 Dec 2017 00:47:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/projects/quadrupel/</guid>
+      <guid>https://hjdskes.nl/projects/quadrupel/</guid>
       <description>For the course IN4073 Embedded Real-Time Systems my project group and I had to program the software of an embedded control unit of a drone (dubbed the Quadrupel), to provide stabilization such that it can hover and fly with limited user control.
 Our drone managed to take off, fly and land safely. Our response time was high enough for adequate stability, which we managed to do by:
  using a simple, custom message format on top of the COBS protocol to communicate between the base station (a PC) and the drone, sticking to a small and simple code base implementing a finite state machine, thoroughly reviewing each other&amp;rsquo;s pull requests.</description>
@@ -25,129 +25,129 @@ Our drone managed to take off, fly and land safely. Our response time was high e
     
     <item>
       <title>Network intrusion detection/prevention system: Advanced Network Security course project</title>
-      <link>https://hjdskes.github.io/projects/network-intrusion-detection/</link>
+      <link>https://hjdskes.nl/projects/network-intrusion-detection/</link>
       <pubDate>Sun, 28 May 2017 00:47:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/projects/network-intrusion-detection/</guid>
+      <guid>https://hjdskes.nl/projects/network-intrusion-detection/</guid>
       <description>For the course ET4307IN Advanced Network Security I had to develop an intrusion detection/prevention system. This system does the following:
  capture live data from the NIC and save data to / read data from a pcap file. capture and parse DNS packets according to RFC1035, with (as required) a custom parser. It gracefully ignores record types added in later versions of the DNS protocol. Log ARP packets (parsed with a custom parser, as required) that have generated an error or notice via a custom configuration.</description>
     </item>
     
     <item>
       <title>License locations: proof of concept code for a draft research paper</title>
-      <link>https://hjdskes.github.io/projects/license-locations/</link>
+      <link>https://hjdskes.nl/projects/license-locations/</link>
       <pubDate>Tue, 21 Feb 2017 00:47:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/projects/license-locations/</guid>
+      <guid>https://hjdskes.nl/projects/license-locations/</guid>
       <description>For the course IN4252 Web Science &amp;amp; Engineering I had to write a draft research paper, titled Open source software licenses: is there a correlation between developer location and software licenses?. In this paper I attempted to map the use of free and open source software licenses, in order to see whether a developer&amp;rsquo;s geographic location is a determinant of FOSS license choice. If you are interested in reading the draft (it was never required to go further, and never did), please reach out to me and I will send it to you.</description>
     </item>
     
     <item>
       <title>Projects</title>
-      <link>https://hjdskes.github.io/projects/projects/</link>
+      <link>https://hjdskes.nl/projects/projects/</link>
       <pubDate>Mon, 08 Aug 2016 13:18:21 +0200</pubDate>
       
-      <guid>https://hjdskes.github.io/projects/projects/</guid>
+      <guid>https://hjdskes.nl/projects/projects/</guid>
       <description>I maintain several open-source applications of my own. I also do course projects for university. Below you will find a list of projects I think are worth mentioning. Please browse through my GitHub repositories for an exhaustive list.</description>
     </item>
     
     <item>
       <title>Spoofax Shell: my thesis project to create a REPL for Spoofax</title>
-      <link>https://hjdskes.github.io/projects/spoofax-shell/</link>
+      <link>https://hjdskes.nl/projects/spoofax-shell/</link>
       <pubDate>Wed, 29 Jun 2016 17:23:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/projects/spoofax-shell/</guid>
+      <guid>https://hjdskes.nl/projects/spoofax-shell/</guid>
       <description>Spoofax Shell is my thesis project to create a REPL for the Spoofax Language Workbench. Read the accompanying report here.</description>
     </item>
     
     <item>
       <title>GTimeUtils: a stopwatch and a timer, bundled together as time utilities</title>
-      <link>https://hjdskes.github.io/projects/gtimeutils/</link>
+      <link>https://hjdskes.nl/projects/gtimeutils/</link>
       <pubDate>Sat, 22 Aug 2015 16:52:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/projects/gtimeutils/</guid>
+      <guid>https://hjdskes.nl/projects/gtimeutils/</guid>
       <description></description>
     </item>
     
     <item>
       <title>DNAinator: visualizing and exploring DNA sequence graphs</title>
-      <link>https://hjdskes.github.io/projects/dnainator/</link>
+      <link>https://hjdskes.nl/projects/dnainator/</link>
       <pubDate>Thu, 25 Jun 2015 00:47:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/projects/dnainator/</guid>
+      <guid>https://hjdskes.nl/projects/dnainator/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Arek Window Manager: a Mutter-based tiling window manager</title>
-      <link>https://hjdskes.github.io/projects/arek/</link>
+      <link>https://hjdskes.nl/projects/arek/</link>
       <pubDate>Sat, 21 Mar 2015 21:29:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/projects/arek/</guid>
+      <guid>https://hjdskes.nl/projects/arek/</guid>
       <description>Arek Window Manager is a plugin to Mutter in an (ambitious) attempt to create a tiling window manager with eye-candy. Due to several limitations on Mutter&amp;rsquo;s side, a moving Wayland target and a lack of time on my side, this project is not actively maintained at the moment.</description>
     </item>
     
     <item>
       <title>Line Follower: an embedded software course project</title>
-      <link>https://hjdskes.github.io/projects/linefollower/</link>
+      <link>https://hjdskes.nl/projects/linefollower/</link>
       <pubDate>Sun, 25 Jan 2015 21:27:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/projects/linefollower/</guid>
+      <guid>https://hjdskes.nl/projects/linefollower/</guid>
       <description>Line Follower is an embedded software course project to make a robot follow a line. An Android app is used to send images from the camera to a laptop via the network, where the laptop detects the line and sends commands to the robot via Bluetooth.</description>
     </item>
     
     <item>
       <title>2048: a software engineering course project</title>
-      <link>https://hjdskes.github.io/projects/2048/</link>
+      <link>https://hjdskes.nl/projects/2048/</link>
       <pubDate>Fri, 14 Nov 2014 14:27:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/projects/2048/</guid>
+      <guid>https://hjdskes.nl/projects/2048/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ray Tracer: a computer graphics course project</title>
-      <link>https://hjdskes.github.io/projects/raytracer/</link>
+      <link>https://hjdskes.nl/projects/raytracer/</link>
       <pubDate>Thu, 26 Jun 2014 22:45:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/projects/raytracer/</guid>
+      <guid>https://hjdskes.nl/projects/raytracer/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ExcelPP: a freshmen OOP project to create a spreadsheet application</title>
-      <link>https://hjdskes.github.io/projects/excelpp/</link>
+      <link>https://hjdskes.nl/projects/excelpp/</link>
       <pubDate>Mon, 27 Jan 2014 10:37:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/projects/excelpp/</guid>
+      <guid>https://hjdskes.nl/projects/excelpp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Phosphorus: a wallpaper browser and setter in the spirit of Nitrogen</title>
-      <link>https://hjdskes.github.io/projects/phosphorus/</link>
+      <link>https://hjdskes.nl/projects/phosphorus/</link>
       <pubDate>Fri, 15 Nov 2013 21:40:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/projects/phosphorus/</guid>
+      <guid>https://hjdskes.nl/projects/phosphorus/</guid>
       <description>Phosphorus is a wallpaper browser and setter in the spirit of Nitrogen. It can be considered an unofficial port of Nitrogen to GTK+ 3. Phosphorus is different, however, in that it is plugin-based. This allows it be agnostic as to how the wallpaper is actually applied &amp;ndash; each Desktop Environment has its own plugin with this functionality.</description>
     </item>
     
     <item>
       <title>Gcolor3: a color selection dialog written in GTK&#43; 3</title>
-      <link>https://hjdskes.github.io/projects/gcolor3/</link>
+      <link>https://hjdskes.nl/projects/gcolor3/</link>
       <pubDate>Sun, 24 Feb 2013 17:31:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/projects/gcolor3/</guid>
+      <guid>https://hjdskes.nl/projects/gcolor3/</guid>
       <description>Ever wanted to know the value of that color on your screen? Gcolor3 enables you to pick the color from any pixel on your screen. It also offers a palette, so that you can easily mix and match a couple of colors together.
 When you have found the perfect combination of colors, naturally you want to save them. Gcolor3 allows you to conveniently save and retrieve colors.</description>
     </item>
     
     <item>
       <title>Powersave: aggressive power saving on a Linux system</title>
-      <link>https://hjdskes.github.io/projects/powersave/</link>
+      <link>https://hjdskes.nl/projects/powersave/</link>
       <pubDate>Sat, 30 Jun 2012 00:22:00 +0100</pubDate>
       
-      <guid>https://hjdskes.github.io/projects/powersave/</guid>
+      <guid>https://hjdskes.nl/projects/powersave/</guid>
       <description>Powersave is a combination of scripts, udev rules, configuration files and systemd services to enable (aggressive) power saving on a Linux system. The configuration is tailered to my own laptop, but is easily adaptable to a new system.</description>
     </item>
     
