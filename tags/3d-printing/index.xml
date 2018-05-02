@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>3d Printing on Jente Hidskes&#39; website</title>
+    <link>https://hjdskes.nl/tags/3d-printing/</link>
+    <description>Recent content in 3d Printing on Jente Hidskes&#39; website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2016-2018 Jente Hidskes</copyright>
+    <lastBuildDate>Tue, 01 May 2018 20:30:41 +0100</lastBuildDate>
+    
+	<atom:link href="https://hjdskes.nl/tags/3d-printing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A new case for my home made server</title>
+      <link>https://hjdskes.nl/blog/server/</link>
+      <pubDate>Tue, 01 May 2018 20:30:41 +0100</pubDate>
+      
+      <guid>https://hjdskes.nl/blog/server/</guid>
+      <description>A little less than a year ago I finished my home made server/NAS. I have been meaning to blog about the process since, but never got around to it. Since my MSc thesis is keeping my mind busy during the day, I wanted a project that was not programming to relax my mind after a long day. I decided to try my hand at something I had never done before and create my own 3D printed case.</description>
+    </item>
+    
+  </channel>
+</rss>

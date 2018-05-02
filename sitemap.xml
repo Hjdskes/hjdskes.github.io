@@ -7,6 +7,11 @@
   </url>
   
   <url>
+    <loc>https://hjdskes.nl/blog/server/</loc>
+    <lastmod>2018-05-01T20:30:41+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.nl/projects/quadrupel/</loc>
     <lastmod>2017-12-11T00:47:00+01:00</lastmod>
   </url>
@@ -257,6 +262,12 @@
   </url>
   
   <url>
+    <loc>https://hjdskes.nl/tags/3d-printing/</loc>
+    <lastmod>2018-05-01T20:30:41+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.nl/categories/administration/</loc>
     <lastmod>2017-02-26T22:12:00+01:00</lastmod>
     <priority>0</priority>
@@ -331,6 +342,12 @@
   <url>
     <loc>https://hjdskes.nl/categories/development/</loc>
     <lastmod>2017-08-23T16:19:04+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.nl/tags/diy/</loc>
+    <lastmod>2018-05-01T20:30:41+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -533,6 +550,18 @@
   </url>
   
   <url>
+    <loc>https://hjdskes.nl/tags/server/</loc>
+    <lastmod>2018-05-01T20:30:41+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.nl/categories/server/</loc>
+    <lastmod>2018-05-01T20:30:41+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.nl/tags/style-context/</loc>
     <lastmod>2017-08-18T19:47:27+02:00</lastmod>
     <priority>0</priority>
@@ -546,7 +575,7 @@
   
   <url>
     <loc>https://hjdskes.nl/tags/</loc>
-    <lastmod>2017-08-11T15:35:37+02:00</lastmod>
+    <lastmod>2018-05-01T20:30:41+01:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -13,22 +13,22 @@
 <meta property="og:site_name" content="Jente Hidskes&#39; website" />
 <meta property="og:locale" content="nn_NO" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://hjdskes.nl/blog/https/" />
-<meta property="og:title" content="This website is now HTTPS only again!" />
-<meta property="twitter:title" content="This website is now HTTPS only again!">
+<meta property="og:url" content="https://hjdskes.nl/blog/server/" />
+<meta property="og:title" content="A new case for my home made server" />
+<meta property="twitter:title" content="A new case for my home made server">
 
     <meta property="twitter:card" content="summary">
 
-<meta property="og:description" content="GitHub enabled HTTPS support for custom domains">
-<meta property="twitter:description" content="GitHub enabled HTTPS support for custom domains">
+<meta property="og:description" content="A build log of my home made server">
+<meta property="twitter:description" content="A build log of my home made server">
 
 <title>
 
 
-     Jente Hidskes&#39; website - This website is now HTTPS only again! 
+     Jente Hidskes&#39; website - A new case for my home made server 
 
 </title>
-<link rel="canonical" href="https://hjdskes.nl/blog/https/">
+<link rel="canonical" href="https://hjdskes.nl/blog/server/">
 
 
 <style media="screen">
@@ -1014,27 +1014,25 @@ margin-left: -4%;
                 <div class="title-container">
                     <div class="page-heading">
 
-    This website is now HTTPS only again!
+    A new case for my home made server
 
 </div>
 
                 </div>
                 <div class="meta">
-                    <div class="date" title="Wed May 2 2018 11:41:05 CEST">May 2, 2018</div>
+                    <div class="date" title="Tue May 1 2018 20:30:41 &#43;0100">May 1, 2018</div>
                     
                         
                     
-                    <div class="reading-time middot">1 minute read</div>
+                    <div class="reading-time middot">7 minute read</div>
                     <div class="tags">
                         <ul>
                           
-                            <li class="middot"><a href="/tags/website">website</a> </li>
+                            <li class="middot"><a href="/tags/diy">DIY</a> </li>
                           
-                            <li class="middot"><a href="/tags/https">https</a> </li>
+                            <li class="middot"><a href="/tags/server">server</a> </li>
                           
-                            <li class="middot"><a href="/tags/github-pages">github pages</a> </li>
-                          
-                            <li class="middot"><a href="/tags/custom-domain">custom domain</a> </li>
+                            <li class="middot"><a href="/tags/3d-printing">3d printing</a> </li>
                           
                         </ul>
                     </div>
@@ -1048,30 +1046,197 @@ margin-left: -4%;
             </div>
             <div class="markdown">
                 
-    <p>From today, my website enforces HTTPS again! Github Pages have been supporting
-HTTPS <a href="https://blog.github.com/2016-06-08-https-for-github-pages/">since June
-2016</a>, so when my
-website was reachable only through
-<a href="https://hjdskes.github.io">hjdskes.github.io</a> I got all of that for free. In
-fact, because HTTPS is the future&trade;, I enabled Github Pages&rsquo; <em>enforce HTTPS</em>
-feature in my website&rsquo;s settings.</p>
+    
 
-<p>Since March, my website is also reachable through
-<a href="https://hjdskes.nl">(www.)hjdskes.nl</a>.  When I set this up, I knew I would
-lose the ability to enforce HTTPS because up until yesterday, Github Pages did
-not support HTTPS for custom domains. I thought this wouldn&rsquo;t be a big issue
-for a low traffic (I assume; I am not using any analytics but let&rsquo;s be
-realistic) blog like mine with only static content. Plus, <a href="https://github.com/isaacs/github/issues/156">I
-knew</a> that HTTPS support for
-custom domains would eventually come, so I went ahead and set things up.</p>
+<p>A little less than a year ago I finished my home made server/NAS. I
+have been meaning to blog about the process since, but never got
+around to it. Since my MSc thesis is keeping my mind busy during the
+day, I wanted a project that was <strong><em>not</em></strong> programming to relax my
+mind after a long day. I decided to try my hand at something I had
+never done before and create my own 3D printed case.</p>
 
-<p>I forgot all about this until yesterday, when I saw a broadcast on GitHub
-informing the world about <a href="https://blog.github.com/2018-05-01-github-pages-custom-domains-https/">HTTPS support for custom
-domains</a>.
-<a href="https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider">An update to my DNS&rsquo; A records
-later</a>
-and here we are: HTTPS is again enforced for this website, and all I had to do
-for it was update some DNS settings. Thanks, GitHub!</p>
+<h1 id="the-server">The server</h1>
+
+<p>Before we dive into the old and new cases, I&rsquo;ll list the server
+components so you have a basic idea what I was dealing with. The
+server is a <a href="https://shop.udoo.org/eu/quad-dual/udoo-quad.html">UDOO
+Quad</a>, kindly sent
+to me for free by a very friendly Norwegian guy who had no more need
+for it himself. He insisted he paid for shipping too, and even
+included the power cable and a 64GB mini SD card. If you&rsquo;re reading
+this, Ole, thanks!</p>
+
+<p>The server is currently functioning as a NAS and an IRC bouncer
+through <a href="https://wiki.znc.in/ZNC">ZNC</a>. In the future, it will also
+serve as a local Git server and be the driver behind some home
+automation projects that I am currently working on and will be writing
+about later. For those interested, the OS is Arch Linux ARM, simply
+because Arch is what I know best and can tweak exactly into what I
+need: at the moment, there is only 70MB of RAM in use with a 0.00 load
+average.</p>
+
+<p>The hard drive is a Western Digital Red Pro 4TB 3.5&rdquo; drive. In
+hindsight, a 2.5&rdquo; drive would have been a better choice because they
+do not require a separate power source and because all available print
+models are made for a drive of this size. When I bought the drive,
+though, these 2.5&rdquo; drives did not have the same storage for the same
+price. And for a poor student, price matters! To power the drive down
+when it is not in use, I use
+<a href="http://hd-idle.sourceforge.net">hd-idle</a>. As a result, the drive is
+idle 99% of the time. I use <a href="https://www.smartmontools.org">smartd</a> to
+monitor the drive. I have it set up to notify me of any pending
+failures and when the temperature gets too high.</p>
+
+<p>I followed
+<a href="https://www.udoo.org/tutorial/diy-nas-with-openmediavault-and-udoo-pt-1-hardware/">this</a>
+tutorial to wire the drive up to the UDOO. I don&rsquo;t solder often, but
+even for me it was an easy process. As discussed below, the old case
+ran a little hot so I decided to add a fan later. At the time, the
+server was running from my bedroom and hence, I opted for a small and
+quiet 40x40x10 mm fan. The wiring diagram in the linked tutorial shows
+how to connect the fan, too.</p>
+
+<p>If there is anything you want to know about the software, such as any
+configuration, feel free to send me an <a href="mailto:hjdskes@gmail.com">email</a>.</p>
+
+<h1 id="the-old-case">The old case</h1>
+
+<p>This case is made from an old wooden box; see the photos at the bottom
+of this page. This was all I could get my hands on for free, and the
+only thing I could work with since I had only done wood working
+before. It wasn&rsquo;t bad and fulfilled its job well for a year, but I was
+never completely satisfied.</p>
+
+<p>Firstly, it had the power converter on the inside and there was little
+to no air flow. This made the server and the attached hard drive idle
+at 35 to 40 degrees Celcius. While this wasn&rsquo;t too high, it could
+certainly be lower. You&rsquo;re right when you think the fan is not
+well-placed, but cooling the drive had priority and lower wasn&rsquo;t an
+option.</p>
+
+<p>Secondly, I just never really liked the design.  Now you may ask
+yourself why this matters for a server that is hidden away in some
+dark corner, but the simple truth is that I am doing these things for
+fun and I&rsquo;ll be damned if I am not satisfied with it 😉.</p>
+
+<p>Finally, it was a pain to carve out ports, and every port I added was
+an increased chance of completely butchering the box. Hence, I only
+added what I really needed at the time, which obviously isn&rsquo;t good
+from a modifiability perspective.</p>
+
+<p>And yep, you guessed it: I never finished the box. It has been running
+half open like that gathering dust (surprisingly little, though) for a
+year.</p>
+
+<h1 id="the-new-case">The new case</h1>
+
+<p>So, I wanted something that fixes the above issues. All existing
+designs online are, however, made for a UDOO Quad without any drive at
+all, or only for 2.5&rdquo; drives (obviously, these are just a better
+fit!). A month ago, I was doing my usual search to see if any new
+design appeared. Nothing did, of course. I did find a new design for a
+UDOO x86, with a 2.5&rdquo; drive and a fan on the <a href="https://www.udoo.org/forum/threads/udoo-x86-case-with-sata-ssd-hdd-compartment-and-fan.11389/">UDOO
+forums</a>
+by a user named plasmac0r. As you can see, I asked plasmac0r if it
+would be possible to modify his design to fit my
+requirements. Understandably, he did not have time for that.</p>
+
+<p>But why not &ldquo;put on the naughty shoes&rdquo;, as we say in The Netherlands,
+and try it myself? plasmac0r was kind enough to share the
+<a href="https://www.freecadweb.org">FreeCAD</a> files with me, and before I knew
+it&hellip; I was completely lost.</p>
+
+<p>Yes, this was an entirely different endeavor and I was way outside my
+comfort zone. By trial and error and some pointers from plasmac0r, it
+took me a few evenings and weekends to come up with a case that suited
+my requirements:</p>
+
+<p><img src="/img/blog/server/new_model.png" alt="Case model" /></p>
+
+<p>As you can see, it has ports for each connector on the UDOO, except
+the microphone jack because I <strong><em>really</em></strong> do not see myself using
+that anytime soon. There is also no SD card slot, because 1) the slot
+on the UDOO does not align with any wall and 2) I won&rsquo;t be switching
+it anyway. Similarly for the power button: once it&rsquo;s on, it&rsquo;s
+on. There is also a proper air flow now, and the power convertor is
+now placed outside of the case.</p>
+
+<p>Since I do not own a 3D printer <span
+style="font-size:xx-small">(<em>something something poor
+student</em>)</span>, I had to find someone to print it for me. <a href="https://www.3dhubs.com">3D
+Hubs</a> is awesome for this, and much cheaper
+than the alternatives. One company even gave me a price of €275! Since
+quality wasn&rsquo;t that important, I opted (of course) for the
+cheapest. The printing took 20 hours for the case, and some more hours
+for the lid.</p>
+
+<p>There is one problem with my design, which is that the space between
+the columns in the back is just too narrow to fit the hard
+drive. Indeed, when you look at the model, they are a little fatter
+than the supports on the sides; I am not sure how I did not notice
+this. In any case, this is easily solved with a dremel, and it&rsquo;s on
+the inside anyway. I tried to fix this in my model after I noticed it
+in my case, but for some strange reason all but one columns disappear
+as soon as I change even one of them. If you know how to fix this,
+please do tell me so I can make a fixed version available.</p>
+
+<p>To attach the fan, I cut four M4 16 mm screws to 14 mm (which
+do not exist for sale?). The UDOO is held in place with two M3 4 mm
+screws, and the lid is screwed in with four M4 16 mm screws.</p>
+
+<p>All in all, this was a very challenging and fun project. It was
+awesome to design something and see it come to life through a 3D
+printer. The case is on display for a while, before I will hide it
+away again. I feel proud every time I see it 😊</p>
+
+<p>My design is available on
+<a href="https://www.thingiverse.com/thing:2886653">Thingiverse</a> and
+<a href="https://www.udoo.org/forum/threads/udoo-quad-case-with-3-5-hdd-compartment-and-fan.14005/">announced on the UDOO
+forums</a>.</p>
+
+<h1 id="gallery">Gallery</h1>
+
+<div class="gallery">
+  
+    <img src="/img/blog/server/old_outside.jpg">
+  
+    <img src="/img/blog/server/old_top.jpg">
+  
+    <img src="/img/blog/server/old_inside.jpg">
+  
+    <img src="/img/blog/server/new_outside.jpg">
+  
+    <img src="/img/blog/server/new_ports.jpg">
+  
+    <img src="/img/blog/server/new_inside.jpeg">
+  
+
+  <div class="gallery-thumbnails">
+    
+    
+      <img style="margin-left: 0; width: 15%" class="gallery-thumbnail" src="/img/blog/server/old_outside.jpg"
+           onclick="showSlide( 0 )">
+    
+      <img style="margin-left: 0; width: 15%" class="gallery-thumbnail" src="/img/blog/server/old_top.jpg"
+           onclick="showSlide( 1 )">
+    
+      <img style="margin-left: 0; width: 15%" class="gallery-thumbnail" src="/img/blog/server/old_inside.jpg"
+           onclick="showSlide( 2 )">
+    
+      <img style="margin-left: 0; width: 15%" class="gallery-thumbnail" src="/img/blog/server/new_outside.jpg"
+           onclick="showSlide( 3 )">
+    
+      <img style="margin-left: 0; width: 15%" class="gallery-thumbnail" src="/img/blog/server/new_ports.jpg"
+           onclick="showSlide( 4 )">
+    
+      <img style="margin-left: 0; width: 15%" class="gallery-thumbnail" src="/img/blog/server/new_inside.jpeg"
+           onclick="showSlide( 5 )">
+    
+  </div>
+</div>
+
+<script src="https://hjdskes.nl/js/gallery.js"></script>
+
 
 
                 <br>
@@ -1082,10 +1247,15 @@ for it was update some DNS settings. Thanks, GitHub!</p>
                     
                     <div>
                         <img class="icon" src="/img/back.svg" alt="back" />
-                        <a href="https://hjdskes.nl/blog/server/">A new case for my home made server</a>
+                        <a href="https://hjdskes.nl/blog/gsoc-part-15/">GSoC part 15: submission</a>
                     </div>
                     
                     <div style="width: 100%;"></div>
+                    
+                    <div>
+                        <a href="https://hjdskes.nl/blog/https/">This website is now HTTPS only again!</a>
+                        <img class="icon" src="/img/next.svg" alt="next" />
+                    </div>
                     
                 </div>
             

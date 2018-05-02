@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2018 Jente Hidskes</copyright>
-    <lastBuildDate>Fri, 11 Aug 2017 15:35:37 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 01 May 2018 20:30:41 +0100</lastBuildDate>
     
 	<atom:link href="https://hjdskes.nl/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>3d Printing</title>
+      <link>https://hjdskes.nl/tags/3d-printing/</link>
+      <pubDate>Tue, 01 May 2018 20:30:41 +0100</pubDate>
+      
+      <guid>https://hjdskes.nl/tags/3d-printing/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Button</title>
@@ -81,6 +90,15 @@
       <pubDate>Sun, 26 Feb 2017 22:12:00 +0100</pubDate>
       
       <guid>https://hjdskes.nl/tags/deploying/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Diy</title>
+      <link>https://hjdskes.nl/tags/diy/</link>
+      <pubDate>Tue, 01 May 2018 20:30:41 +0100</pubDate>
+      
+      <guid>https://hjdskes.nl/tags/diy/</guid>
       <description></description>
     </item>
     
@@ -342,6 +360,15 @@
       <pubDate>Fri, 11 Aug 2017 15:35:37 +0200</pubDate>
       
       <guid>https://hjdskes.nl/tags/rewrite/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Server</title>
+      <link>https://hjdskes.nl/tags/server/</link>
+      <pubDate>Tue, 01 May 2018 20:30:41 +0100</pubDate>
+      
+      <guid>https://hjdskes.nl/tags/server/</guid>
       <description></description>
     </item>
     

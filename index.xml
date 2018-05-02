@@ -23,6 +23,15 @@ Since March, my website is also reachable through (www.)hjdskes.nl. When I set t
     </item>
     
     <item>
+      <title>A new case for my home made server</title>
+      <link>https://hjdskes.nl/blog/server/</link>
+      <pubDate>Tue, 01 May 2018 20:30:41 +0100</pubDate>
+      
+      <guid>https://hjdskes.nl/blog/server/</guid>
+      <description>A little less than a year ago I finished my home made server/NAS. I have been meaning to blog about the process since, but never got around to it. Since my MSc thesis is keeping my mind busy during the day, I wanted a project that was not programming to relax my mind after a long day. I decided to try my hand at something I had never done before and create my own 3D printed case.</description>
+    </item>
+    
+    <item>
       <title>Quadrupel: an embedded software project to stabilize a drone</title>
       <link>https://hjdskes.nl/projects/quadrupel/</link>
       <pubDate>Mon, 11 Dec 2017 00:47:00 +0100</pubDate>
