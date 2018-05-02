@@ -1,5 +1,5 @@
 # Site settings
-baseurl = "https://hjdskes.github.io/"
+baseurl = "https://hjdskes.nl/"
 theme = "cocoa-eh"
 languageCode = "en-us"
 author = "Jente Hidskes"
