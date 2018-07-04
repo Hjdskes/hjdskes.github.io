@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Jente Hidskes&#39; website</title>
+    <link>https://hjdskes.nl/tags/git/</link>
+    <description>Recent content in Git on Jente Hidskes&#39; website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2016-2018 Jente Hidskes</copyright>
+    <lastBuildDate>Wed, 04 Jul 2018 20:47:00 +0200</lastBuildDate>
+    
+	<atom:link href="https://hjdskes.nl/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Managing my passwords with pass</title>
+      <link>https://hjdskes.nl/blog/pass/</link>
+      <pubDate>Wed, 04 Jul 2018 20:47:00 +0200</pubDate>
+      
+      <guid>https://hjdskes.nl/blog/pass/</guid>
+      <description>Last week, I received an email from Ticketmaster that my account details may have been leaked through an external supplier. Whilst I did not get notified through Troy Hunt&amp;rsquo;s excellent Have I Been Pwned?, now was a good a time as any to finally apply some proper password hygiene. A great time, even, as this has been on my to-do list for way too long. I have been preaching proper password hygiene to my family and friends whilst not yet practicing it myself!</description>
+    </item>
+    
+  </channel>
+</rss>
