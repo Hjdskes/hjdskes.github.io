@@ -1,5 +1,0 @@
----
-title: 
-description: 
-type: blog
----
