@@ -1,3 +1,6 @@
 [submodule "themes/cocoa-eh"]
 	path = themes/cocoa-eh
 	url = git@github.com:fuegowolf/cocoa-eh-hugo-theme.git
+[submodule "themes/diego"]
+	path = themes/diego
+	url = git@github.com:Hjdskes/diego-hugo-theme.git

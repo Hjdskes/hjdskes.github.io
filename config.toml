@@ -1,9 +1,11 @@
 # Site settings
 baseurl = "https://hjdskes.nl/"
-theme = "cocoa-eh"
+theme = "diego"
 languageCode = "en-us"
 author = "Jente Hidskes"
 title = "Jente Hidskes' website"
+pygmentsCodeFences = true
+pygmentsUseClasses = true
 
 [taxonomies]
 tag = "tags"
@@ -12,17 +14,9 @@ series = "series"
 
 [params]
 dateform = "Jan 2, 2006"
-dateformfull = "Mon Jan 2 2006 15:04:05 MST"
 description = "Jente Hidskes' website"
 copyright = "Copyright © 2016-2018 Jente Hidskes"
 logofile = "img/avatar.png"
-faviconfile = "img/favicon.ico"
-extracssfiles = [ "css/message.css", "css/gallery.css", "css/cocoa-eh-fixes.css" ]
-highlightjs = true
-progressively = false
 latestpostcount = 5
-posts_navigation = true
 github = "Hjdskes"
 email = "hjdskes@gmail.com"
-small_banner_logo = false
-disablefancyfonts = true

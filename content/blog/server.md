@@ -82,6 +82,10 @@ an increased chance of completely butchering the box. Hence, I only
 added what I really needed at the time, which obviously isn't good
 from a modifiability perspective.
 
+{{< gallery "/img/blog/server/old_outside.jpg"
+            "/img/blog/server/old_top.jpg"
+			"/img/blog/server/old_inside.jpg" >}}
+
 And yep, you guessed it: I never finished the box. It has been running
 half open like that gathering dust (surprisingly little, though) for a
 year.
@@ -109,7 +113,7 @@ comfort zone. By trial and error and some pointers from plasmac0r, it
 took me a few evenings and weekends to come up with a case that suited
 my requirements:
 
-![Case model](/img/blog/server/new_model.png)
+{{< gallery "/img/blog/server/new_model.png" >}}
 
 As you can see, it has ports for each connector on the UDOO, except
 the microphone jack because I ***really*** do not see myself using
@@ -147,16 +151,13 @@ awesome to design something and see it come to life through a 3D
 printer. The case is on display for a while, before I will hide it
 away again. I feel proud every time I see it 😊
 
+{{< gallery "/img/blog/server/new_outside.jpg"
+            "/img/blog/server/new_top.jpg"
+            "/img/blog/server/new_inside.jpeg"
+            "/img/blog/server/new_ports.jpg" >}}
+
 My design is available on
 [Thingiverse](https://www.thingiverse.com/thing:2886653) and
 [announced on the UDOO
 forums](https://www.udoo.org/forum/threads/udoo-quad-case-with-3-5-hdd-compartment-and-fan.14005/).
 
-# Gallery
-
-{{< gallery "/img/blog/server/old_outside.jpg"
-            "/img/blog/server/old_top.jpg"
-            "/img/blog/server/old_inside.jpg"
-            "/img/blog/server/new_outside.jpg"
-            "/img/blog/server/new_ports.jpg"
-            "/img/blog/server/new_inside.jpeg" >}}

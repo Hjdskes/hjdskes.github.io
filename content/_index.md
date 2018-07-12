@@ -1,6 +1,5 @@
 +++
 date = "2017-02-21T14:43:43+02:00"
-title = "Home"
 +++
 
 Welcome to my personal website. This site serves as a blog, a repository of my
