@@ -3,6 +3,7 @@ title = 'Managing my passwords with pass'
 date = 2018-07-04T20:47:00+02:00
 tags = ["pass","gpg","git"]
 description = "How I manage my passwords with pass on multiple devices"
+categories = ["Administration", "Server"]
 +++
 
 Last week, I received an email from Ticketmaster that [my account

@@ -4,7 +4,7 @@ title = "GSoC part 1: an introduction!"
 description = "GSoC blog series on rewriting Piper"
 tags = [ "Piper", "libratbag", "ratbagd", "gaming mice", "fdo" ]
 categories = "Development"
-series = "GSoC"
+series = "Google Summer of Code"
 +++
 
 ![GSoC logo horizontal](/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg)

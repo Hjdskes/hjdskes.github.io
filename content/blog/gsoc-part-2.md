@@ -4,7 +4,7 @@ title = "GSoC part 2: community bonding"
 description = "GSoC blog series on rewriting Piper"
 tags = [ "Piper", "libratbag", "ratbagd", "fdo", "Flatpak", "Meson", "udev" ]
 categories = "Development"
-series = "GSoC"
+series = "Google Summer of Code"
 +++
 
 ![GSoC logo horizontal](/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg)

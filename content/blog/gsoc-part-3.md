@@ -4,7 +4,7 @@ tags = [ "Piper", "fdo", "Inkscape", "mockup" ]
 title = "GSoC part 3: mockups, mockups, mockups!"
 description = "GSoC blog series on rewriting Piper"
 categories = "Development"
-series = "GSoC"
+series = "Google Summer of Code"
 +++
 
 ![GSoC logo horizontal](/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg)
