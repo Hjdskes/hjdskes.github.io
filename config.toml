@@ -3,6 +3,7 @@ baseurl = "https://hjdskes.nl/"
 theme = "diego"
 languageCode = "en-us"
 title = "Jente Hidskes' website"
+copyright = "Copyright © 2016-2018 Jente Hidskes"
 pygmentsCodeFences = true
 pygmentsUseClasses = true
 
@@ -17,7 +18,6 @@ series = "series"
 [params]
 dateform = "Jan 2, 2006"
 description = "Jente Hidskes' website"
-copyright = "Copyright © 2016-2018 Jente Hidskes"
 logofile = "img/avatar.png"
 latestpostcount = 5
 github = "Hjdskes"
