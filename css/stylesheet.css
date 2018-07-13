@@ -151,7 +151,11 @@ pre,
 code {
     font-family: 'Roboto Mono', sans-serif;
 }
-
+article {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: baseline;
+}
 .banner {
     font-family: 'Quicksand', sans-serif;
     font-weight: 700;
@@ -178,17 +182,18 @@ code {
     display: flex;
     padding-bottom: 1.4rem;
 }
-.post-item {
-    display: flex;
-    align-items: center;
+.posts {
     list-style: none;
+}
+.post-item {
     padding-left: 1em;
 }
 .post-item .meta {
-    min-width: 100px;
+    flex-basis: 7em;
+    flex-shrink: 0;
+    font-size: .75em;
     padding-bottom: 0;
 }
-
 .page-heading h1 {
     margin-bottom: 0.1em;
 }
@@ -288,8 +293,8 @@ footer {
 footer ul {
     display: flex;
     justify-content: center;
-    align-items:center;
-    height:2em;
+    align-items: center;
+    height: 2em;
     margin: 0;
     padding: 0;
 }
