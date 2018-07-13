@@ -3,15 +3,17 @@ date = "2017-09-09T14:29:09+02:00"
 title = "About me"
 +++
 
-I am a master student in Computer Science at the Delft University of Technology.
-In the third year of my bachelor (Computer Science at the Delft University of
-Technology), I have studied in Stockholm, Sweden for six months at the KTH Royal
-Institute of Technology. In the field of Computer Science, my interests are
-broad. Mainly, however, I am interested in operating systems, distributed
-systems and programming languages.  I am currently working on my MSc thesis at
-the Programming Languages group of the TU Delft under the supervision of [Dr.
-S.T. Erdweg](www.erdweg.org) and [Sven Keidel](https://svenkeidel.de). I live in
-Rotterdam, The Netherlands.
+I am a master student in Computer Science at the Delft University of
+Technology.  In the third year of my bachelor (Computer Science at the
+Delft University of Technology), I have studied in Stockholm, Sweden
+for six months at the KTH Royal Institute of Technology. In the field
+of Computer Science, my interests are broad. Mainly, however, I am
+interested in operating systems, distributed systems and programming
+languages.  I am currently working on my MSc thesis at the
+[Programming Languages group of the TU
+Delft](https://www.tudelft.nl/en/eemcs/the-faculty/departments/software-technology/programming-languages/)
+under the supervision of [Dr.  S.T. Erdweg](www.erdweg.org) and [Sven
+Keidel](https://svenkeidel.de). I live in Rotterdam, The Netherlands.
 
 A great passion of mine is free and open-source software, to which I contribute
 in several ways. I have been using Linux for over ten years and participate in
