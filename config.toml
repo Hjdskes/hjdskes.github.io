@@ -2,10 +2,12 @@
 baseurl = "https://hjdskes.nl/"
 theme = "diego"
 languageCode = "en-us"
-author = "Jente Hidskes"
 title = "Jente Hidskes' website"
 pygmentsCodeFences = true
 pygmentsUseClasses = true
+
+[author]
+  name = "Jente Hidskes"
 
 [taxonomies]
 tag = "tags"
