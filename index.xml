@@ -6,8 +6,7 @@
     <description>Recent content on Jente Hidskes&#39; website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Copyright © 2016-2018 Jente Hidskes</copyright>
-    <lastBuildDate>Wed, 04 Jul 2018 20:47:00 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 21 Feb 2017 14:43:43 +0200</lastBuildDate>
     
 	<atom:link href="https://hjdskes.nl/index.xml" rel="self" type="application/rss+xml" />
     
@@ -258,30 +257,12 @@ This week I attempted to update the theme of this website (sidenote: thanks Alex
     </item>
     
     <item>
-      <title>Contributions</title>
-      <link>https://hjdskes.nl/contributions/contributions/</link>
-      <pubDate>Thu, 23 Feb 2017 20:59:42 +0100</pubDate>
-      
-      <guid>https://hjdskes.nl/contributions/contributions/</guid>
-      <description>Besides working on my own applications, I contribute to several existing open source projects. I find this to be a good way to learn from experienced developers, and it is very satisfactory knowing that your work will be used by more than a few people! Below you find a (probably incomplete, as I will likely forget some) list of contributions.</description>
-    </item>
-    
-    <item>
       <title>Fixes and added features to the Cocoa Enhanced theme</title>
       <link>https://hjdskes.nl/contributions/cocoa-eh/</link>
       <pubDate>Tue, 21 Feb 2017 19:53:00 +0100</pubDate>
       
       <guid>https://hjdskes.nl/contributions/cocoa-eh/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Home</title>
-      <link>https://hjdskes.nl/home/</link>
-      <pubDate>Tue, 21 Feb 2017 14:43:43 +0200</pubDate>
-      
-      <guid>https://hjdskes.nl/home/</guid>
-      <description>Welcome to my personal website. This site serves as a blog, a repository of my work and perhaps as some sort of resumé. You can learn more about me, browse my own open-source projects or view my contributions to other open-source projects.</description>
     </item>
     
     <item>
@@ -333,15 +314,6 @@ As this is the first blog post on this website (and indeed, by myself), the intr
       <description>All content on this website, unless otherwise noted, is copyright © 2016-2018 Jente Hidskes and licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
 All code on this website, unless otherwise noted, is copyright © 2016-2018 Jente Hidskes and licensed under the MIT license.
 All registered trademarks mentioned on this website belong to their rightful owners.</description>
-    </item>
-    
-    <item>
-      <title>Projects</title>
-      <link>https://hjdskes.nl/projects/projects/</link>
-      <pubDate>Mon, 08 Aug 2016 13:18:21 +0200</pubDate>
-      
-      <guid>https://hjdskes.nl/projects/projects/</guid>
-      <description>I maintain several open-source applications of my own. I also do course projects for university. Below you will find a list of projects I think are worth mentioning. Please browse through my GitHub repositories for an exhaustive list.</description>
     </item>
     
     <item>
@@ -505,7 +477,8 @@ Until the patches are merged (if ever), you can find them in my fork on GitHub.<
       
       <guid>https://hjdskes.nl/projects/gcolor3/</guid>
       <description>Ever wanted to know the value of that color on your screen? Gcolor3 enables you to pick the color from any pixel on your screen. It also offers a palette, so that you can easily mix and match a couple of colors together.
-When you have found the perfect combination of colors, naturally you want to save them. Gcolor3 allows you to conveniently save and retrieve colors.</description>
+When you have found the perfect combination of colors, naturally you want to save them. Gcolor3 allows you to conveniently save and retrieve colors.
+Gcolor3 is a color selection dialog written in GTK+ 3.</description>
     </item>
     
     <item>

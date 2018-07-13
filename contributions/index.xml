@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Contributions on Jente Hidskes&#39; website</title>
+    <title>Jente Hidskes&#39; website</title>
     <link>https://hjdskes.nl/contributions/</link>
-    <description>Recent content in Contributions on Jente Hidskes&#39; website</description>
+    <description>Recent content on Jente Hidskes&#39; website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Copyright © 2016-2018 Jente Hidskes</copyright>
-    <lastBuildDate>Sat, 09 Sep 2017 14:35:00 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 23 Feb 2017 20:59:42 +0100</lastBuildDate>
     
 	<atom:link href="https://hjdskes.nl/contributions/index.xml" rel="self" type="application/rss+xml" />
     
@@ -38,15 +37,6 @@ As a result of my Google Summer of Code, I am now the maintainer of Piper. I als
       
       <guid>https://hjdskes.nl/contributions/gsoc-proposals/</guid>
       <description>The application process of Google Summer of Code requires students to make a small contribution to the project(s) of their choice to demonstrate that they are capable of making a change following the upstream submission procedures. In my understanding, this is less about the actual code than it is about demonstrating these skills. This is (partly, the other reason being that as I was working on these proposals I was also finishing up several course projects) the reason that the contributions here are rather small:</description>
-    </item>
-    
-    <item>
-      <title>Contributions</title>
-      <link>https://hjdskes.nl/contributions/contributions/</link>
-      <pubDate>Thu, 23 Feb 2017 20:59:42 +0100</pubDate>
-      
-      <guid>https://hjdskes.nl/contributions/contributions/</guid>
-      <description>Besides working on my own applications, I contribute to several existing open source projects. I find this to be a good way to learn from experienced developers, and it is very satisfactory knowing that your work will be used by more than a few people! Below you find a (probably incomplete, as I will likely forget some) list of contributions.</description>
     </item>
     
     <item>

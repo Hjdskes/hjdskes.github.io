@@ -1,1056 +1,106 @@
 <!DOCTYPE html>
-<html lang="en-us">
-
 <head>
-<meta charset="utf-8">
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="referrer" content="no-referrer">
-<meta name="description" content="Jente Hidskes&#39; website">
-
-
-<meta property="og:site_name" content="Jente Hidskes&#39; website" />
-<meta property="og:locale" content="nn_NO" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://hjdskes.nl/blog/gsoc-part-6/" />
-<meta property="og:title" content="GSoC part 6: progress!" />
-<meta property="twitter:title" content="GSoC part 6: progress!">
-
-    <meta property="twitter:card" content="summary">
-
-<meta property="og:description" content="GSoC blog series on rewriting Piper">
-<meta property="twitter:description" content="GSoC blog series on rewriting Piper">
-
-<title>
-
-
-     Jente Hidskes&#39; website - GSoC part 6: progress! 
-
-</title>
-<link rel="canonical" href="https://hjdskes.nl/blog/gsoc-part-6/">
-
-
-<style media="screen">
-  @font-face {
-  font-family: 'Nexa Bold';
-  src: url('https://hjdskes.nl/fonts/Nexa Bold.otf');
-}
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section, div.column {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol, ul {
-  list-style: none;
-}
-blockquote, q {
-  quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-a,
-a:visited,
-a:focus,
-a:active {
-  text-decoration: none;
-}
-html {
-  height: 100%;
-  font-size: 16px;
-}
-body {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  -webkit-justify-content: flex-start;
-  -moz-justify-content: flex-start;
-  -ms-justify-content: flex-start;
-  justify-content: flex-start;
-  width: 100%;
-  min-height: 100%;
-  font-weight: 400;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
-  color: #111111;
-  line-height: 1.6;
-  text-rendering: optimizeLegibility !important;
-}
-.icon {
-  text-rendering: geometricPrecision !important;
-}
-section {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  width: 100%;
-}
-div.column {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  width: 100%;
-}
-.container {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  width: 100%;
-}
-div.header .container {
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-}
-div.header .content {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-}
-div.header .container .logo {
-  max-width: 100px;
-  margin-left: -2em;
-}
-div.header .name {
-  padding-top: 20px;
-  font-size: 28px;
-  font-family: 'Nexa Bold', 'Helvetica Neue', 'Arial', sans-serif;
-  letter-spacing: -0.005rem;
-  text-transform: uppercase;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  color: #333333;
-  color: #555555;
-}
-div.header nav {
-  margin-bottom: 16px;
-}
-div.header nav ul {
-  list-style: none;
-  text-align: center;
-  display: -webkit-inline-flex;
-  display: -moz-inline-flex;
-  display: -ms-inline-flexbox;
-  display: -ms-inline-flex;
-  display: inline-flex;
-}
-div.header nav ul li {
-  margin-left: 6px;
-  margin-right: 6px;
-}
-div.header nav ul li:first-child {
-  margin-left: 0;
-}
-div.header nav ul li:last-child {
-  margin-right: 0;
-}
-div.header nav ul a {
-  color: #555555;
-  font-weight: 400;
-  font-size: 14px;
-  text-transform: uppercase;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
-  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-}
-div.header nav ul a:hover {
-  color: #111111;
-}
-div.footer .container {
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-  flex-direction: column-reverse;
-  width: 100%;
-  text-align: center;
-}
-div.footer .container a {
-  font-size: 14px;
-  margin-left: 6px;
-  margin-right: 6px;
-  opacity: 0.6;
-  -webkit-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -moz-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-}
-div.footer .container a:first-child {
-  margin-left: 0;
-}
-div.footer .container a:last-child {
-  margin-right: 0;
-}
-div.footer .container a:hover {
-  opacity: 0.8;
-}
-div.footer .container a .icon {
-  width: 16px;
-  height: 16px;
-}
-div.footer .container .copyright {
-  flex-grow: 0.5;
-  text-align: start;
-}
-div.footer .container .icons {
-  flex-grow: 0.5;
-  text-align: end;
-}
-div.main .container {
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  -webkit-justify-content: flex-start;
-  -moz-justify-content: flex-start;
-  -ms-justify-content: flex-start;
-  justify-content: flex-start;
-}
-div.main .content {
-  color: #111111;
-  font-size: 16px;
-}
-div.main .content .title-container {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-justify-content: space-between;
-  -moz-justify-content: space-between;
-  -ms-justify-content: space-between;
-  justify-content: space-between;
-}
-div.main .content .posts {
-  margin-bottom: 4em;
-}
-div.main .content .page-heading {
-  font-size: 20px;
-  font-weight: 700;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
-  letter-spacing: -0.005rem;
-  text-transform: uppercase;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  color: #333333;
-  margin-bottom: 16px;
-}
-div.main .content .front-matter .page-heading {
-  margin-bottom: 0;
-}
-div.main .content .front-matter .meta {
-  font-size: 14px;
-  color: #666666;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  margin-bottom: 32px;
-}
-div.main .content .front-matter .date,
-div.main .content .front-matter .author,
-div.main .content .front-matter .tags,
-div.main .content .front-matter .word-count,
-div.main .content .front-matter .middot:before {
-  display: none;
-}
-div.main .content .front-matter .middot:before {
-  font-size: 6px;
-  margin: 0 6px;
-  vertical-align: middle;
-  content: "•";
-}
-div.main .content .front-matter .tags ul {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  -moz-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-}
-div.main .content .front-matter .tags ul li {
-  -webkit-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -moz-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-}
-div.main .content .front-matter .tags ul li:hover {
-  opacity: 0.7;
-}
-div.main .content .front-matter .tags ul li a {
-  color: #666666;
-}
-div.main .container.f04 {
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-}
-div.main .container.f04 .content {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-}
-div.main .container.f04 .content .num {
-  margin: 30px 0px 30px 0;
-  font-weight: 400;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
-  font-size: 50px;
-}
-div.main .container.f04 .content .detail {
-  margin-bottom: 40px;
-}
-div.main .container .content .groupby {
-  margin-top: 1em;
-  padding-left: 0.5em;
-}
-div.main .container .content .post-item {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  display: list-item;
-  list-style: disc inside;
-}
-div.main .container .content .post-item .meta {
-  font-size: 14px;
-  color: #666666;
-  display: none;
-  min-width: 100px;
-}
-div.main .container .content .see-more {
-  font-style: italic;
-  float: right;
-  font-size: 0.9em;
-  margin-top: 2em;
-  color: #313537;
-}
-div.main .container .content .see-more:hover {
-  color: #666;
-}
-section {
-  padding: 0 16px;
-}
-div.column {
-  padding: 0 16px;
-}
-div.header {
-  padding-top: 10px;
-}
-div.header-home {
-  padding-top: 36px;
-}
-div.main {
-  padding-top: 32px;
-}
-div.main .container .content .post-item .meta {
-    display: block;
-}
-div.main .container .content .post-item {
-    display: flex;
-    list-style: none;
-}
-a {
-  color: #428bca;
-  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-}
-a:hover {
-  color: #2a6496;
-}
-img {
-  max-width: 100%;
-}
-div.main .content {
-    width: 100%;
-}
-div.main .content .markdown {
-  font-size: 1.1em;
-  line-height: 1.75em;
-  color: #313537;
-  font-family: serif;
-  font-weight: 300;
-}
-div.main .content .markdown h1,
-div.main .content .markdown h2,
-div.main .content .markdown h3,
-div.main .content .markdown h4,
-div.main .content .markdown h5,
-div.main .content .markdown h6 {
-  font-size: 22px;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
-  letter-spacing: -0.005rem;
-  font-weight: 700;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  color: #333333;
-  text-transform: none;
-  margin-top: 1.75rem;
-}
-div.main .content .markdown h1 {
-  font-size: 1.75rem;
-  margin-bottom: 2rem;
-}
-div.main .content .markdown h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-div.main .content .markdown h3 {
-  font-size: 1em;
-  margin-bottom: 1rem;
-}
-div.main .content .markdown h4,
-div.main .content .markdown h5,
-div.main .content .markdown h6 {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  letter-spacing: none;
-}
-div.main .content .markdown code,
-div.main .content .markdown pre {
-  font-family: 'Menlo', monospace;
-  font-size: 0.98rem;
-  background-color: #f7f7f7;
-}
-div.main .content .markdown code {
-  /* enclosed by single backtick (`) */
-  padding: .15em .5em;
-  border-radius: 2px;
-}
-div.main .content .markdown pre {
-  /* Hugo specific: consider using the 'highlight' shortcode */
-  display: block;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  padding: 1rem;
-  line-height: 1.5em;
-  white-space: pre;
-  word-break: break-all;
-  word-wrap: break-word;
-}
-div.main .content .markdown pre code {
-  /* enclosed by 4 backticks (````) */
-  padding: 0;
-  font-size: 0.9rem;
-}
-div.main .content .markdown a code {
-  color: #428bca !important;
-}
-div.main .content .markdown a code:hover {
-  text-decoration: underline;
-}
-div.main .content .markdown p {
+  <meta charset="utf-8"/>
   
-  text-align: justify;
+  <meta name="author" content=""/>
+  <meta name="description" content="GSoC blog series on rewriting Piper"/>
+  <meta name="generator" content="Hugo 0.42.2" />
+  <meta name="referrer" content="no-referrer"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta property="og:description" content="GSoC blog series on rewriting Piper"/>
+  <meta property="og:locale" content="nn_NO"/>
+  <meta property="og:site_name" content="Jente Hidskes&#39; website"/>
+  <meta property="og:title" content="GSoC part 6: progress!"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://hjdskes.nl/blog/gsoc-part-6/"/>
+  <meta property="og:image" content="https://hjdskes.nl/img/avatar.png"/>
+
+  <title>
+    
+    
+       Jente Hidskes&#39; website - GSoC part 6: progress! 
+    
+  </title>
+
+  <link rel="canonical" href="https://hjdskes.nl/blog/gsoc-part-6/"/>
+  <link rel="stylesheet" type="text/css" href="/css/stylesheet.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/syntax.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/zoom.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/fontawesome-all.min.css"/>
   
-  margin-top: 0;
-  margin-bottom: 1em;
-}
-div.main .content .markdown ul,
-div.main .content .markdown ol,
-div.main .content .markdown dl {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-}
-div.main .content .markdown dt {
-  font-weight: bold;
-}
-div.main .content .markdown dd {
-  margin-bottom: .5rem;
-}
-div.main .content .markdown ul {
-  list-style-type: disc;
-  list-style-position: outside;
-  margin-bottom: 1.25rem;
-}
-div.main .content .markdown ol {
-  list-style-type: decimal;
-  margin-bottom: 1.25rem;
-}
-div.main .content .markdown li {
-  margin-left: 2em;
-}
-div.main .content .markdown em {
-  font-style: italic;
-}
-div.main .content .markdown strong {
-  font-weight: 700;
-}
-div.main .content .markdown hr {
-  position: relative;
-  margin: 1.75rem 0;
-  border: 0;
-  border-top: 1px solid #808080;
-  border-top: 1px solid #999999;
-}
-div.main .content .markdown abbr {
-  font-size: 0.85rem;
-  font-weight: bold;
-  color: #666666;
-  text-transform: uppercase;
-}
-div.main .content .markdown abbr[title] {
-  cursor: help;
-  border-bottom: 1px dotted #808080;
-}
-div.main .content .markdown blockquote {
-  padding: .5rem 1rem;
-  margin: .8rem 0;
-  color: #7a7a7a;
-  border-left: .25rem solid #e5e5e5;
-}
-div.main .content .markdown blockquote p:last-child {
-  margin-bottom: 0;
-}
-div.main .content .markdown figure {
-  width: 100%;
-  background: #fff;
-  margin-bottom: 1em;
-}
-div.main .content .markdown figure img {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  display: block;
-  position: static;
-  margin: auto;
-}
-div.main .content .markdown table {
-  margin-bottom: 1rem;
-  width: 100%;
-  border: 1px solid #e5e5e5;
-  border-collapse: collapse;
-}
-div.main .content .markdown td,
-div.main .content .markdown th {
-  padding: .25rem .5rem;
-  border: 1px solid #e5e5e5;
-}
-div.main .content .markdown tbody tr:nth-child(odd) td,
-div.main .content .markdown tbody tr:nth-child(odd) th {
-  background-color: #f7f7f7;
-}
-div.main .content .markdown .footnotes ol {
-  list-style-type: decimal;
-  margin-left: 16px;
-}
-div.main .content .markdown .footnotes li {
-  list-style-type: unset;
-}
-div.main .content .markdown .footnote-ref {
-  font-size: 0.7em;
-}
-div.main .content .navigation {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  padding: 2em;
-}
-div.main .content .navigation div {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  -moz-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  margin-top: 1em;
-}
-div.main .content .navigation .icon {
-  width: 16px;
-  height: 16px;
-}
-div.main .content .navigation a {
-  width: 250px;
-  margin: 0 1em;
-  text-align: center;
-  font-style: italic;
-  color: #313537;
-}
-div.main .content .share, div.main .content .share div {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  -moz-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  justify-content: center;
-}
-div.main .content .share {
-  background-color: rgba(152, 152, 152, 0.07);
-  padding: 1em 0;
-}
-div.main .content .share a {
-  margin: 0 6px;
-}
-kbd {
-  padding: 0.1em 0.6em;
-  border: 1px solid #ccc;
-  font-size: 11px;
-  font-family: Arial,Helvetica,sans-serif;
-  background-color: #f7f7f7;
-  color: #333;
-  -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
-  -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
-  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  display: inline-block;
-  margin: 0 0.1em;
-  text-shadow: 0 1px 0 #fff;
-  line-height: 1.4;
-  white-space: nowrap;
-}
+  <link rel="shortcut icon" href="https://hjdskes.nl/img/favicon.ico"/>
 
-/* Fonts */
-
-
-
-</style>
-<style media="(min-width: 600px)">
-  body {
--webkit-justify-content: center;
--moz-justify-content: center;
--ms-justify-content: center;
-justify-content: center;
-}
-.non-narrow.zero-top-spacing {
-padding-top: 0 !important;
-}
-section {
-padding: 0 16px;
-margin-left: 100px;
-margin-right: 100px;
-max-width: 750px;
-}
-div.column {
-padding: 0 16px;
-margin-left: 100px;
-margin-right: 100px;
-max-width: 750px;
-}
-div.header {
-background-color: transparent;
-}
-div.header .container {
--webkit-justify-content: flex-start;
--moz-justify-content: flex-start;
--ms-justify-content: flex-start;
-justify-content: flex-start;
-}
-div.header .container .logo {
-margin: 0;
-}
-div.header-home .container .logo {
-max-width: 180px;
-margin-left: 20px;
-}
-div.header-home .name-home {
-padding-top: 30px;
-font-size: 40px;
-}
-div.header-home nav ul a {
-font-size: 18px;
-}
-div.header .content {
--webkit-align-items: flex-start;
--moz-align-items: flex-start;
--ms-align-items: flex-start;
-align-items: flex-start;
-}
-div.header .name {
-color: #333333;
-}
-div.header nav {
-font-size: 14px;
-margin-bottom: 0;
-}
-div.header nav ul {
-text-align: left;
-}
-div.header nav ul a {
-color: #666666;
-}
-div.header nav ul a:hover {
-color: #333333;
-}
-div.footer {
-background-color: transparent;
-}
-div.footer .container {
-flex-direction: row;
-}
-div.footer .container a {
-margin-left: 3px;
-margin-right: 3px;
-color: #666666;
-}
-div.footer .container a:hover {
-color: #333333;
-}
-div.footer .container a .icon {
-font-size: 18px;
-}
-div.footer .container a .icon.larger {
-font-size: 20px;
-}
-div.main .content .front-matter .date,
-div.main .content .front-matter .author,
-div.main .content .front-matter .tags,
-div.main .content .front-matter .word-count,
-div.main .content .front-matter .middot:before {
-display: initial;
-}
-div.main .container.f04 {
--webkit-justify-content: flex-start;
--moz-justify-content: flex-start;
--ms-justify-content: flex-start;
-justify-content: flex-start;
-}
-div.main .container.f04 .content {
--webkit-align-items: flex-start;
--moz-align-items: flex-start;
--ms-align-items: flex-start;
-align-items: flex-start;
-}
-div.main .container.f04 .content .num {
-margin: 0 0 10px 0;
-font-size: 32px;
-}
-div.main .container.f04 .content .detail {
-margin-bottom: 30px;
-}
-.container {
-padding: 0 30px;
-}
-div.header {
-padding-top: 60px;
-padding-bottom: 60px;
-}
-div.footer {
-padding-top: 30px;
-padding-bottom: 60px;
-}
-div.main {
-padding-top: 0;
-}
-div.main .container .content .post-item {
-display: flex;
-list-style: none;
-padding-left: 1.5em;
-}
-div.main .container .content .post-item .meta {
-display: block;
-}
-div.main.post {
-padding-top: 60px;
-padding-bottom: 60px;
-}
-div.main .content .markdown blockquote {
-padding-right: 5rem;
-padding-left: 1.25rem;
-}
-div.main .content .navigation {
--webkit-flex-direction: row;
--moz-flex-direction: row;
--ms-flex-direction: row;
-flex-direction: row;
-}
-div.main .content .navigation div {
-margin-top: 0em;
-}
-
-</style>
-<style media="(min-width: 769px)">
-  div.main .content .markdown figure {
-width: 110%;
-margin-left: -4%;
-}
-div.main .content .markdown img {
-max-width: 110%;
-width: 110%;
-margin-left: -4%;
-}
-div.main .content .markdown pre {
-width: 110%;
-margin-left: -4%;
-}
-
-</style>
-
-<noscript>
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,700,700i" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet">
-</noscript>
-
-
-  <style type="text/css" media="screen">
-    .hljs-comment,.hljs-quote{color:#8e908c}.hljs-variable,.hljs-template-variable,.hljs-tag,.hljs-name,.hljs-selector-id,.hljs-selector-class,.hljs-regexp,.hljs-deletion{color:#c82829}.hljs-number,.hljs-built_in,.hljs-builtin-name,.hljs-literal,.hljs-type,.hljs-params,.hljs-meta,.hljs-link{color:#f5871f}.hljs-attribute{color:#eab700}.hljs-string,.hljs-symbol,.hljs-bullet,.hljs-addition{color:#718c00}.hljs-title,.hljs-section{color:#4271ae}.hljs-keyword,.hljs-selector-tag{color:#8959a8}.hljs{display:block;overflow-x:auto;background:white;color:#4d4d4c;padding:0.5em}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:bold}
-  </style>
-
-
-
-
-
-
-
-
-
-  <link rel="stylesheet" href="https://hjdskes.nl/css/message.css">
-
-  <link rel="stylesheet" href="https://hjdskes.nl/css/gallery.css">
-
-  <link rel="stylesheet" href="https://hjdskes.nl/css/cocoa-eh-fixes.css">
-
-
-
-
-
-<link rel="shortcut icon"
-
-    href="https://hjdskes.nl/img/favicon.ico"
-
->
-
-
-
-
+  <script src="/js/zoom-vanilla.js"></script>
 </head>
 
-
 <body>
-
-
-<div class="header column">
-
-    <div class="container">
-        <a href="https://hjdskes.nl/"><img class="logo" src="https://hjdskes.nl/img/avatar.png" alt="logo" /></a>
-        <div class="content">
-            <a href="https://hjdskes.nl/"><div class="name"><h1>Jente Hidskes&#39; website</h1></div></a>
-            <nav>
-                <ul>
-                    
-                        <li><a href="https://hjdskes.nl/blog/">Blog</a></li>
-                    
-                    
-                        
-                            
-                        
-                    
-                        
-                            
-                            <li><a href="https://hjdskes.nl/contributions">contributions</a></li>
-                            
-                        
-                    
-                        
-                            
-                            <li><a href="https://hjdskes.nl/projects">projects</a></li>
-                            
-                        
-                    
-                    
-                        
-                            <li><a href="https://hjdskes.nl/about/">About me</a></li>
-                        
-                    
-                        
-                    
-                        
-                    
-                </ul>
-            </nav>
-        </div>
+  <div class="banner">
+    <a href="https://hjdskes.nl/"><img class="logo" src="https://hjdskes.nl/img/avatar.png" alt="logo" /></a>
+    <div>
+      <a id="name" href="https://hjdskes.nl/"><h1>Jente Hidskes&#39; website</h1></a>
+      <nav>
+        <ul>
+	  
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+          
+            
+              
+            
+          
+            
+              
+                <li><a href="https://hjdskes.nl/contributions">contributions</a></li>
+              
+            
+          
+            
+              
+                <li><a href="https://hjdskes.nl/projects">projects</a></li>
+              
+            
+          
+          
+            
+              <li><a href="https://hjdskes.nl/about/">About me</a></li>
+            
+          
+            
+          
+        </ul>
+      </nav>
     </div>
+  </div>
+
+
+<div class="page-heading">
+  <h1>GSoC part 6: progress!</h1>
 </div>
 
-
-<div class="main post non-narrow zero-top-spacing column">
-    <div class="container">
-        <div class="content">
-            <div class="front-matter">
-                <div class="title-container">
-                    <div class="page-heading">
-
-    GSoC part 6: progress!
-
+<div class="meta">
+  Jun 30, 2017
+  <div class="middot">9 minute read</div>
+  <div class="tags">
+    <ul>
+      
+        <li class="middot"><a href="/tags/piper">Piper</a></li>
+      
+        <li class="middot"><a href="/tags/fdo">fdo</a></li>
+      
+        <li class="middot"><a href="/tags/mousemap">MouseMap</a></li>
+      
+        <li class="middot"><a href="/tags/xpath">XPath</a></li>
+      
+        <li class="middot"><a href="/tags/xml">XML</a></li>
+      
+    </ul>
+  </div>
 </div>
 
-                </div>
-                <div class="meta">
-                    <div class="date" title="Fri Jun 30 2017 16:11:24 CEST">Jun 30, 2017</div>
-                    
-                        
-                    
-                    <div class="reading-time middot">9 minute read</div>
-                    <div class="tags">
-                        <ul>
-                          
-                            <li class="middot"><a href="/tags/piper">Piper</a> </li>
-                          
-                            <li class="middot"><a href="/tags/fdo">fdo</a> </li>
-                          
-                            <li class="middot"><a href="/tags/mousemap">MouseMap</a> </li>
-                          
-                            <li class="middot"><a href="/tags/xpath">XPath</a> </li>
-                          
-                            <li class="middot"><a href="/tags/xml">XML</a> </li>
-                          
-                        </ul>
-                    </div>
-                    <div class="tags">
-                        <ul>
-                          
-                          
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="markdown">
-                
-    
+<div class="content">
+  
 
 <p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal" /></p>
 
@@ -1123,223 +173,205 @@ approaches. We again have all leaders end with a 1&#215;1 pixel, but we don&rsqu
 check these pixels&rsquo; x-coordinates. Instead, they have a style attribute that we
 query for (at the moment, this is the <code>text-align</code> attribute, but this may
 change in the future). The code now looks like this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Not implemented, use `add(widget, svg_id)` instead.&#34;&#34;&#34;</span>
+    <span class="k">pass</span>
 
-<pre><code class="language-python">def do_add(self, widget):
-    &quot;&quot;&quot;Not implemented, use `add(widget, svg_id)` instead.&quot;&quot;&quot;
-    pass
+<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Adds the given widget to the map, bound to the given SVG element
+</span><span class="s2">    identifier. If the element identifier or its leader is not found in the
+</span><span class="s2">    SVG, the widget is not added.
+</span><span class="s2">
+</span><span class="s2">    @param widget The widget to add, as Gtk.Widget
+</span><span class="s2">    @param svg_id The identifier of the SVG element with which this widget
+</span><span class="s2">                  is to be paired, as str
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="n">svg_leader</span> <span class="o">=</span> <span class="n">svg_id</span> <span class="o">+</span> <span class="s2">&#34;-leader&#34;</span>
+    <span class="k">if</span> <span class="n">widget</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">svg_id</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="ow">not</span> \
+        <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">has_sub</span><span class="p">(</span><span class="n">svg_id</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> \
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">has_sub</span><span class="p">(</span><span class="n">svg_leader</span><span class="p">):</span>
+        <span class="k">return</span>
 
-def add(self, widget, svg_id):
-    &quot;&quot;&quot;Adds the given widget to the map, bound to the given SVG element
-    identifier. If the element identifier or its leader is not found in the
-    SVG, the widget is not added.
-
-    @param widget The widget to add, as Gtk.Widget
-    @param svg_id The identifier of the SVG element with which this widget
-                  is to be paired, as str
-    &quot;&quot;&quot;
-    svg_leader = svg_id + &quot;-leader&quot;
-    if widget is None or svg_id is None or not \
-        self._handle.has_sub(svg_id) or not \
-            self._handle.has_sub(svg_leader):
-        return
-
-    is_left = self._xpath_has_style(svg_leader[1:], &quot;text-align:end&quot;)
-    child = _MouseMapChild(widget, is_left, svg_id)
-    self._children.append(child)
-    widget.connect(&quot;enter-notify-event&quot;, self._on_enter, child)
-    widget.connect(&quot;leave-notify-event&quot;, self._on_leave)
-    widget.set_parent(self)
-</code></pre>
-
+    <span class="n">is_left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xpath_has_style</span><span class="p">(</span><span class="n">svg_leader</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="s2">&#34;text-align:end&#34;</span><span class="p">)</span>
+    <span class="n">child</span> <span class="o">=</span> <span class="n">_MouseMapChild</span><span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">is_left</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+    <span class="n">widget</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&#34;enter-notify-event&#34;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_enter</span><span class="p">,</span> <span class="n">child</span><span class="p">)</span>
+    <span class="n">widget</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&#34;leave-notify-event&#34;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_leave</span><span class="p">)</span>
+    <span class="n">widget</span><span class="o">.</span><span class="n">set_parent</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code></pre></div>
 <p>As you can see, we use <a href="https://www.w3schools.com/xml/xpath_intro.asp">XPath</a> to query the XML tree for style
 attributes. It&rsquo;s implemented like this:</p>
-
-<pre><code class="language-python">def _xpath_has_style(self, svg_id, style):
-    # Checks if the SVG element with the given identifier has the given
-    # style attribute set.
-    namespaces = {
-        'sodipodi': 'http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd',
-        'cc': 'http://web.resource.org/cc/',
-        'svg': 'http://www.w3.org/2000/svg',
-        'dc': 'http://purl.org/dc/elements/1.1/',
-        'xlink': 'http://www.w3.org/1999/xlink',
-        'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
-        'inkscape': 'http://www.inkscape.org/namespaces/inkscape'
-    }
-    query = &quot;//svg:rect[@id=\&quot;{}\&quot;][contains(@style, \&quot;{}\&quot;)]&quot;.\
-            format(svg_id, style)
-    element = self._svg_data.xpath(query, namespaces=namespaces)
-    return element is not None and len(element) == 1 and element[0] is not None
-</code></pre>
-
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">_xpath_has_style</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">,</span> <span class="n">style</span><span class="p">):</span>
+    <span class="c1"># Checks if the SVG element with the given identifier has the given</span>
+    <span class="c1"># style attribute set.</span>
+    <span class="n">namespaces</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;sodipodi&#39;</span><span class="p">:</span> <span class="s1">&#39;http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;cc&#39;</span><span class="p">:</span> <span class="s1">&#39;http://web.resource.org/cc/&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;svg&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.w3.org/2000/svg&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;dc&#39;</span><span class="p">:</span> <span class="s1">&#39;http://purl.org/dc/elements/1.1/&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;xlink&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.w3.org/1999/xlink&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;rdf&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.w3.org/1999/02/22-rdf-syntax-ns#&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;inkscape&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.inkscape.org/namespaces/inkscape&#39;</span>
+    <span class="p">}</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&#34;//svg:rect[@id=</span><span class="se">\&#34;</span><span class="s2">{}</span><span class="se">\&#34;</span><span class="s2">][contains(@style, </span><span class="se">\&#34;</span><span class="s2">{}</span><span class="se">\&#34;</span><span class="s2">)]&#34;</span><span class="o">.</span>\
+            <span class="n">format</span><span class="p">(</span><span class="n">svg_id</span><span class="p">,</span> <span class="n">style</span><span class="p">)</span>
+    <span class="n">element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_svg_data</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">namespaces</span><span class="o">=</span><span class="n">namespaces</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">element</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">element</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span></code></pre></div>
 <p>The attentive reader may have noticed the <code>_MouseMapChild</code> class. This is an
 implementation detail (hence it is private) to capture all data related to
 children:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">_MouseMapChild</span><span class="p">:</span>
+    <span class="c1"># A helper class to manage children and their properties.</span>
 
-<pre><code class="language-python">class _MouseMapChild:
-    # A helper class to manage children and their properties.
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">,</span> <span class="n">is_left</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_widget</span> <span class="o">=</span> <span class="n">widget</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_is_left</span> <span class="o">=</span> <span class="n">is_left</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_svg_id</span> <span class="o">=</span> <span class="n">svg_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_svg_leader</span> <span class="o">=</span> <span class="n">svg_id</span> <span class="o">+</span> <span class="s2">&#34;-leader&#34;</span>
 
-    def __init__(self, widget, is_left, svg_id):
-        self._widget = widget
-        self._is_left = is_left
-        self._svg_id = svg_id
-        self._svg_leader = svg_id + &quot;-leader&quot;
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">widget</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># The widget belonging to this child.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_widget</span>
 
-    @property
-    def widget(self):
-        # The widget belonging to this child.
-        return self._widget
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">svg_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># The identifier of the SVG element with which this child&#39;s widget is</span>
+        <span class="c1"># paired.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_svg_id</span>
 
-    @property
-    def svg_id(self):
-        # The identifier of the SVG element with which this child's widget is
-        # paired.
-        return self._svg_id
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">svg_leader</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># The identifier of the leader SVG element with which this child&#39;s</span>
+        <span class="c1"># widget is paired.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_svg_leader</span>
 
-    @property
-    def svg_leader(self):
-        # The identifier of the leader SVG element with which this child's
-        # widget is paired.
-        return self._svg_leader
-
-    @property
-    def is_left(self):
-        # True iff this child's widget is allocated to the left of the SVG.
-        return self._is_left
-</code></pre>
-
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">is_left</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># True iff this child&#39;s widget is allocated to the left of the SVG.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_left</span></code></pre></div>
 <p>To calculate the preferred width with left and right aligned children, we simply
 iterate over the children and take for each side the maximum width:</p>
-
-<pre><code class="language-python">def do_get_preferred_width(self):
-    &quot;&quot;&quot;Calculates the container's initial minimum and natural width. While
-    this call is specific to height-for-width requests (that we requested
-    not to get) we cannot be certain that our wishes are granted and hence
-    we must implement this method as well. We return the sum of the SVG's
-    width, the natural child widths (left and right), spacing and border
-    width.
-    &quot;&quot;&quot;
-    width = 2 * self.props.border_width
-    width_svg = self._handle.props.width
-    width_left = max((child.widget.get_preferred_width()[1] for
-                      child in self._children if child.is_left), default=0)
-    width_right = max((child.widget.get_preferred_width()[1] for
-                      child in self._children if not child.is_left),
-                      default=0)
-    width += width_left + width_svg + width_right + self.spacing
-    if width_left &gt; 0:
-        width += self.spacing
-    return (width, width)
-</code></pre>
-
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_get_preferred_width</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Calculates the container&#39;s initial minimum and natural width. While
+</span><span class="s2">    this call is specific to height-for-width requests (that we requested
+</span><span class="s2">    not to get) we cannot be certain that our wishes are granted and hence
+</span><span class="s2">    we must implement this method as well. We return the sum of the SVG&#39;s
+</span><span class="s2">    width, the natural child widths (left and right), spacing and border
+</span><span class="s2">    width.
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">border_width</span>
+    <span class="n">width_svg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">width</span>
+    <span class="n">width_left</span> <span class="o">=</span> <span class="nb">max</span><span class="p">((</span><span class="n">child</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">get_preferred_width</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span>
+                      <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span> <span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">is_left</span><span class="p">),</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">width_right</span> <span class="o">=</span> <span class="nb">max</span><span class="p">((</span><span class="n">child</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">get_preferred_width</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span>
+                      <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">child</span><span class="o">.</span><span class="n">is_left</span><span class="p">),</span>
+                      <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">width</span> <span class="o">+=</span> <span class="n">width_left</span> <span class="o">+</span> <span class="n">width_svg</span> <span class="o">+</span> <span class="n">width_right</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">spacing</span>
+    <span class="k">if</span> <span class="n">width_left</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">width</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spacing</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span></code></pre></div>
 <p>Because we cannot reliably calculate whether children are positioned above or
 below the SVG (the SVG elements may have arbitrary coordinates), we simply
 assume that the SVG is tall enough to fit all children (which works because we
 have control over the SVGs):</p>
-
-<pre><code class="language-python">def do_get_preferred_height(self):
-    &quot;&quot;&quot;Calculates the container's initial minimum and natural height. While
-    this call is specific to width-for-height requests (that we requested
-    not to get) we cannot be certain that our wishes are granted and hence
-    we must implement this method as well. We just return the SVG's height
-    plus the border widths.
-    &quot;&quot;&quot;
-    # TODO: account for children sticking out under or above the SVG, if
-    # they exist. At the moment we cannot reliably do so because the
-    # y-coordinates of the leaders can have any arbitrary value. For now,
-    # we assume that the SVG is high enough to fit all children and do not
-    # worry about setups beyond the default GNOME Adwaita.
-    height = self._handle.props.height + 2 * self.props.border_width
-    return (height, height)
-</code></pre>
-
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_get_preferred_height</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Calculates the container&#39;s initial minimum and natural height. While
+</span><span class="s2">    this call is specific to width-for-height requests (that we requested
+</span><span class="s2">    not to get) we cannot be certain that our wishes are granted and hence
+</span><span class="s2">    we must implement this method as well. We just return the SVG&#39;s height
+</span><span class="s2">    plus the border widths.
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="c1"># TODO: account for children sticking out under or above the SVG, if</span>
+    <span class="c1"># they exist. At the moment we cannot reliably do so because the</span>
+    <span class="c1"># y-coordinates of the leaders can have any arbitrary value. For now,</span>
+    <span class="c1"># we assume that the SVG is high enough to fit all children and do not</span>
+    <span class="c1"># worry about setups beyond the default GNOME Adwaita.</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">height</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">border_width</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span></code></pre></div>
 <p>Finally, the coordinate system is now centric to the SVG with its origin to the
 top left of the SVG such that the MouseMap will be drawn in the center of its
 allocated width (this also shows how the highlighting is now done using masks,
 as discussed in the previous blog entry):</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_size_allocate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">allocation</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Assigns a size and position to the child widgets. Children may
+</span><span class="s2">    adjust the given allocation in their adjust_size_allocation virtual
+</span><span class="s2">    method implementation.
+</span><span class="s2">
+</span><span class="s2">    @param allocation The position and size allocated to this container, as
+</span><span class="s2">                      Gdk.Rectangle
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">set_allocation</span><span class="p">(</span><span class="n">allocation</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_translate_to_origin</span><span class="p">()</span>
+    <span class="n">child_allocation</span> <span class="o">=</span> <span class="n">Gdk</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">()</span>
 
-<pre><code class="language-python">def do_size_allocate(self, allocation):
-    &quot;&quot;&quot;Assigns a size and position to the child widgets. Children may
-    adjust the given allocation in their adjust_size_allocation virtual
-    method implementation.
+    <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">child</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">get_visible</span><span class="p">():</span>
+            <span class="k">continue</span>
+        <span class="n">svg_geom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_svg_sub_geometry</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">svg_leader</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">nat_size</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">get_preferred_size</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">is_left</span><span class="p">:</span>
+            <span class="n">child_allocation</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">svg_geom</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">spacing</span> <span class="o">-</span> <span class="n">nat_size</span><span class="o">.</span><span class="n">width</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">child_allocation</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">svg_geom</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">spacing</span>
+        <span class="n">child_allocation</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">svg_geom</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">svg_geom</span><span class="o">.</span><span class="n">height</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">nat_size</span><span class="o">.</span><span class="n">height</span>
+        <span class="n">child_allocation</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">nat_size</span><span class="o">.</span><span class="n">width</span>
+        <span class="n">child_allocation</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">nat_size</span><span class="o">.</span><span class="n">height</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">child</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">get_has_window</span><span class="p">():</span>
+            <span class="n">child_allocation</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">allocation</span><span class="o">.</span><span class="n">x</span>
+            <span class="n">child_allocation</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">allocation</span><span class="o">.</span><span class="n">y</span>
+        <span class="n">child</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">size_allocate</span><span class="p">(</span><span class="n">child_allocation</span><span class="p">)</span>
 
-    @param allocation The position and size allocated to this container, as
-                      Gdk.Rectangle
-    &quot;&quot;&quot;
-    self.set_allocation(allocation)
-    x, y = self._translate_to_origin()
-    child_allocation = Gdk.Rectangle()
+<span class="k">def</span> <span class="nf">do_draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cr</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Draws the container to the given Cairo context. The top left corner
+</span><span class="s2">    of the widget will be drawn to the currently set origin point of the
+</span><span class="s2">    context. The container needs to propagate the draw signal to its
+</span><span class="s2">    children.
+</span><span class="s2">
+</span><span class="s2">    @param cr The Cairo context to draw into, as cairo.Context
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="n">cr</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_translate_to_origin</span><span class="p">()</span>
+    <span class="n">cr</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_draw_device</span><span class="p">(</span><span class="n">cr</span><span class="p">)</span>
+    <span class="n">cr</span><span class="o">.</span><span class="n">restore</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">propagate_draw</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">widget</span><span class="p">,</span> <span class="n">cr</span><span class="p">)</span>
 
-    for child in self._children:
-        if not child.widget.get_visible():
-            continue
-        svg_geom = self._get_svg_sub_geometry(child.svg_leader)[1]
-        nat_size = child.widget.get_preferred_size()[1]
-        if child.is_left:
-            child_allocation.x = x + svg_geom.x - self.spacing - nat_size.width
-        else:
-            child_allocation.x = x + svg_geom.x + self.spacing
-        child_allocation.y = y + svg_geom.y + 0.5 * svg_geom.height - 0.5 * nat_size.height
-        child_allocation.width = nat_size.width
-        child_allocation.height = nat_size.height
-        if not child.widget.get_has_window():
-            child_allocation.x += allocation.x
-            child_allocation.y += allocation.y
-        child.widget.size_allocate(child_allocation)
+<span class="k">def</span> <span class="nf">_translate_to_origin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c1"># Translates the coordinate system such that the SVG and its buttons</span>
+    <span class="c1"># will be drawn in the center of the allocated space. The returned x-</span>
+    <span class="c1"># and y-coordinates will be the top left corner of the centered SVG.</span>
+    <span class="n">allocation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_allocation</span><span class="p">()</span>
+    <span class="n">width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_preferred_width</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_preferred_height</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
 
-def do_draw(self, cr):
-    &quot;&quot;&quot;Draws the container to the given Cairo context. The top left corner
-    of the widget will be drawn to the currently set origin point of the
-    context. The container needs to propagate the draw signal to its
-    children.
+    <span class="n">width_left</span> <span class="o">=</span> <span class="nb">max</span><span class="p">((</span><span class="n">child</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">get_preferred_width</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span>
+                      <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span> <span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">is_left</span><span class="p">),</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">width_left</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">width_left</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spacing</span>
 
-    @param cr The Cairo context to draw into, as cairo.Context
-    &quot;&quot;&quot;
-    cr.save()
-    x, y = self._translate_to_origin()
-    cr.translate(x, y)
-    self._draw_device(cr)
-    cr.restore()
-    for child in self._children:
-        self.propagate_draw(child.widget, cr)
+    <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">allocation</span><span class="o">.</span><span class="n">width</span> <span class="o">-</span> <span class="n">width</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">border_width</span> <span class="o">+</span> <span class="n">width_left</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">allocation</span><span class="o">.</span><span class="n">height</span> <span class="o">-</span> <span class="n">height</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">border_width</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
-def _translate_to_origin(self):
-    # Translates the coordinate system such that the SVG and its buttons
-    # will be drawn in the center of the allocated space. The returned x-
-    # and y-coordinates will be the top left corner of the centered SVG.
-    allocation = self.get_allocation()
-    width = self.get_preferred_width()[1]
-    height = self.get_preferred_height()[1]
+<span class="k">def</span> <span class="nf">_draw_device</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cr</span><span class="p">):</span>
+    <span class="c1"># Draws the SVG into the Cairo context. If there is an element to be</span>
+    <span class="c1"># highlighted, it will do as such in a separate surface which will be</span>
+    <span class="c1"># used as a mask over the device surface.</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_style_context</span><span class="p">()</span><span class="o">.</span><span class="n">get_color</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">StateFlags</span><span class="o">.</span><span class="n">LINK</span><span class="p">)</span>
+    <span class="n">cr</span><span class="o">.</span><span class="n">set_source_rgba</span><span class="p">(</span><span class="n">color</span><span class="o">.</span><span class="n">red</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">green</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">blue</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 
-    width_left = max((child.widget.get_preferred_width()[1] for
-                      child in self._children if child.is_left), default=0)
-    if width_left &gt; 0:
-        width_left += self.spacing
-
-    x = (allocation.width - width) / 2 + self.props.border_width + width_left
-    y = (allocation.height - height) / 2 + self.props.border_width
-    return round(x), round(y)
-
-def _draw_device(self, cr):
-    # Draws the SVG into the Cairo context. If there is an element to be
-    # highlighted, it will do as such in a separate surface which will be
-    # used as a mask over the device surface.
-    color = self.get_style_context().get_color(Gtk.StateFlags.LINK)
-    cr.set_source_rgba(color.red, color.green, color.blue, 0.5)
-
-    self._handle.render_cairo_sub(cr, id=&quot;#Device&quot;)
-    if self._highlight_element is not None:
-        svg_surface = cr.get_target()
-        highlight_surface = svg_surface.create_similar(cairo.Content.COLOR_ALPHA,
-                                                       self._handle.props.width,
-                                                       self._handle.props.height)
-        highlight_context = cairo.Context(highlight_surface)
-        self._handle.render_cairo_sub(highlight_context,
-                                      self._highlight_element)
-        cr.mask_surface(highlight_surface, 0, 0)
-    self._handle.render_cairo_sub(cr, id=self._layer)
-</code></pre>
-
+    <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">render_cairo_sub</span><span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&#34;#Device&#34;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_highlight_element</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">svg_surface</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">get_target</span><span class="p">()</span>
+        <span class="n">highlight_surface</span> <span class="o">=</span> <span class="n">svg_surface</span><span class="o">.</span><span class="n">create_similar</span><span class="p">(</span><span class="n">cairo</span><span class="o">.</span><span class="n">Content</span><span class="o">.</span><span class="n">COLOR_ALPHA</span><span class="p">,</span>
+                                                       <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">width</span><span class="p">,</span>
+                                                       <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
+        <span class="n">highlight_context</span> <span class="o">=</span> <span class="n">cairo</span><span class="o">.</span><span class="n">Context</span><span class="p">(</span><span class="n">highlight_surface</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">render_cairo_sub</span><span class="p">(</span><span class="n">highlight_context</span><span class="p">,</span>
+                                      <span class="bp">self</span><span class="o">.</span><span class="n">_highlight_element</span><span class="p">)</span>
+        <span class="n">cr</span><span class="o">.</span><span class="n">mask_surface</span><span class="p">(</span><span class="n">highlight_surface</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">render_cairo_sub</span><span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_layer</span><span class="p">)</span></code></pre></div>
 <p>All this work leads to the below video. You can find the pull request
 <a href="https://github.com/libratbag/piper/pull/20">here</a>.</p>
 
@@ -1365,108 +397,50 @@ buttons!</p>
 resolutions stack page <a href="/blog/gsoc-part-7">here</a> or the previous part
 <a href="/blog/gsoc-part-5">here</a>.</p>
 
-
-                <br>
-            </div>
-            
-            
-                <div class="navigation">
-                    
-                    <div>
-                        <img class="icon" src="/img/back.svg" alt="back" />
-                        <a href="https://hjdskes.nl/blog/gsoc-part-5/">GSoC part 5: exams</a>
-                    </div>
-                    
-                    <div style="width: 100%;"></div>
-                    
-                    <div>
-                        <a href="https://hjdskes.nl/blog/gsoc-part-7/">GSoC part 7: the resolutions stack page</a>
-                        <img class="icon" src="/img/next.svg" alt="next" />
-                    </div>
-                    
-                </div>
-            
-            <br>
-            <div class="disqus">
-                
-            </div>
-            
-        </div>
-    </div>
 </div>
 
-<div class="footer column">
-    <div class="container">
+<div id="postamble">
+  <footer>
+    <ul class="social-icons mb-md">
+      
+      <li>
+        <a href="mailto:hjdskes@gmail.com" title="Send a mail to hjdskes@gmail.com">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </li>
+      
 
-        
+      
+      <li>
+        <a href="https://github.com/Hjdskes" title="Hjdskes on GitHub">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </li>
+      
 
-        <div class="copyright">
+      
+      <li>
+        <a href="https://hjdskes.nl/index.xml" title="">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </li>
+      
+    </ul>
 
-        
-            
-                <a href="https://hjdskes.nl/license">Copyright © 2016-2018 Jente Hidskes</a>
-            
-        
-
-        </div>
-        <div class="icons">
-
-        
-
-        
-            <a href="https://github.com/Hjdskes" target="_blank">
-                <img class="icon" src="https://hjdskes.nl/img/github.svg" alt="github" />
-            </a>
-        
-
-        
-
-        
-
-        
-            <a href="mailto:hjdskes@gmail.com">
-                <img class="icon" src="https://hjdskes.nl/img/email.svg" alt="email" />
-            </a>
-        
-
-        
-            <a href="https://hjdskes.nl/index.xml">
-                <img class="icon" src="https://hjdskes.nl/img/rss.svg" alt="rss" />
-            </a>
-        
-
-        </div>
+    <div id="license-note">
+      <a href="https://hjdskes.nl/license">Copyright © 2016-2018 Jente Hidskes</a>
     </div>
+  </footer>
 </div>
-
-
-
-
-  <script src="https://hjdskes.nl/js/highlight.min.js" defer></script>
-  
-
-
-
-
-
-
-
-
-
-
-
-<script>
-  window.onload = function() {
-    
-      hljs.initHighlighting();
-    
-    
-    
-  };
-</script>
-
-
-
 
 </body>
 </html>

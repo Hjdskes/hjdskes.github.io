@@ -6,18 +6,17 @@
     <description>Recent content in Series on Jente Hidskes&#39; website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Copyright © 2016-2018 Jente Hidskes</copyright>
     <lastBuildDate>Wed, 23 Aug 2017 16:19:04 +0200</lastBuildDate>
     
 	<atom:link href="https://hjdskes.nl/series/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Gsoc</title>
-      <link>https://hjdskes.nl/series/gsoc/</link>
+      <title>Google Summer of Code</title>
+      <link>https://hjdskes.nl/series/google-summer-of-code/</link>
       <pubDate>Wed, 23 Aug 2017 16:19:04 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/series/gsoc/</guid>
+      <guid>https://hjdskes.nl/series/google-summer-of-code/</guid>
       <description></description>
     </item>
     

@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://hjdskes.nl/blog/</loc>
+    <lastmod>2018-07-09T21:47:00+02:00</lastmod>
+  </url>
   
   <url>
     <loc>https://hjdskes.nl/blog/pass/</loc>
@@ -127,7 +133,7 @@
   </url>
   
   <url>
-    <loc>https://hjdskes.nl/contributions/contributions/</loc>
+    <loc>https://hjdskes.nl/contributions/</loc>
     <lastmod>2017-02-23T20:59:42+01:00</lastmod>
   </url>
   
@@ -137,7 +143,7 @@
   </url>
   
   <url>
-    <loc>https://hjdskes.nl/home/</loc>
+    <loc>https://hjdskes.nl/</loc>
     <lastmod>2017-02-21T14:43:43+02:00</lastmod>
   </url>
   
@@ -167,7 +173,7 @@
   </url>
   
   <url>
-    <loc>https://hjdskes.nl/projects/projects/</loc>
+    <loc>https://hjdskes.nl/projects/</loc>
     <lastmod>2016-08-08T13:18:21+02:00</lastmod>
   </url>
   
@@ -273,13 +279,13 @@
   </url>
   
   <url>
-    <loc>https://hjdskes.nl/categories/administration/</loc>
-    <lastmod>2017-02-26T22:12:00+01:00</lastmod>
+    <loc>https://hjdskes.nl/categories/administation/</loc>
+    <lastmod>2018-05-02T11:41:05+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://hjdskes.nl/blog/</loc>
+    <loc>https://hjdskes.nl/categories/administration/</loc>
     <lastmod>2018-07-04T20:47:00+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -304,19 +310,13 @@
   
   <url>
     <loc>https://hjdskes.nl/categories/</loc>
-    <lastmod>2017-02-26T22:12:00+01:00</lastmod>
+    <lastmod>2018-05-02T11:41:05+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hjdskes.nl/tags/container/</loc>
     <lastmod>2017-06-16T20:47:56+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hjdskes.nl/contributions/</loc>
-    <lastmod>2017-09-09T14:35:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -393,14 +393,14 @@
   </url>
   
   <url>
-    <loc>https://hjdskes.nl/tags/gpg/</loc>
-    <lastmod>2018-07-04T20:47:00+02:00</lastmod>
+    <loc>https://hjdskes.nl/series/google-summer-of-code/</loc>
+    <lastmod>2017-08-23T16:19:04+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://hjdskes.nl/series/gsoc/</loc>
-    <lastmod>2017-08-23T16:19:04+02:00</lastmod>
+    <loc>https://hjdskes.nl/tags/gpg/</loc>
+    <lastmod>2018-07-04T20:47:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -431,12 +431,6 @@
   <url>
     <loc>https://hjdskes.nl/tags/inkscape/</loc>
     <lastmod>2017-06-03T17:53:27+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hjdskes.nl/</loc>
-    <lastmod>2018-07-04T20:47:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -519,12 +513,6 @@
   </url>
   
   <url>
-    <loc>https://hjdskes.nl/projects/</loc>
-    <lastmod>2017-12-11T00:47:00+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://hjdskes.nl/tags/property/</loc>
     <lastmod>2017-08-23T13:01:32+02:00</lastmod>
     <priority>0</priority>
@@ -580,7 +568,7 @@
   
   <url>
     <loc>https://hjdskes.nl/categories/server/</loc>
-    <lastmod>2018-05-01T20:30:41+01:00</lastmod>
+    <lastmod>2018-07-04T20:47:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   

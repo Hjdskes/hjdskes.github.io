@@ -1,1058 +1,108 @@
 <!DOCTYPE html>
-<html lang="en-us">
-
 <head>
-<meta charset="utf-8">
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="referrer" content="no-referrer">
-<meta name="description" content="Jente Hidskes&#39; website">
-
-
-<meta property="og:site_name" content="Jente Hidskes&#39; website" />
-<meta property="og:locale" content="nn_NO" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://hjdskes.nl/blog/gsoc-part-4/" />
-<meta property="og:title" content="GSoC part 4: the first sprint" />
-<meta property="twitter:title" content="GSoC part 4: the first sprint">
-
-    <meta property="twitter:card" content="summary">
-
-<meta property="og:description" content="GSoC blog series on rewriting Piper">
-<meta property="twitter:description" content="GSoC blog series on rewriting Piper">
-
-<title>
-
-
-     Jente Hidskes&#39; website - GSoC part 4: the first sprint 
-
-</title>
-<link rel="canonical" href="https://hjdskes.nl/blog/gsoc-part-4/">
-
-
-<style media="screen">
-  @font-face {
-  font-family: 'Nexa Bold';
-  src: url('https://hjdskes.nl/fonts/Nexa Bold.otf');
-}
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section, div.column {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol, ul {
-  list-style: none;
-}
-blockquote, q {
-  quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-a,
-a:visited,
-a:focus,
-a:active {
-  text-decoration: none;
-}
-html {
-  height: 100%;
-  font-size: 16px;
-}
-body {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  -webkit-justify-content: flex-start;
-  -moz-justify-content: flex-start;
-  -ms-justify-content: flex-start;
-  justify-content: flex-start;
-  width: 100%;
-  min-height: 100%;
-  font-weight: 400;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
-  color: #111111;
-  line-height: 1.6;
-  text-rendering: optimizeLegibility !important;
-}
-.icon {
-  text-rendering: geometricPrecision !important;
-}
-section {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  width: 100%;
-}
-div.column {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  width: 100%;
-}
-.container {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  width: 100%;
-}
-div.header .container {
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-}
-div.header .content {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-}
-div.header .container .logo {
-  max-width: 100px;
-  margin-left: -2em;
-}
-div.header .name {
-  padding-top: 20px;
-  font-size: 28px;
-  font-family: 'Nexa Bold', 'Helvetica Neue', 'Arial', sans-serif;
-  letter-spacing: -0.005rem;
-  text-transform: uppercase;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  color: #333333;
-  color: #555555;
-}
-div.header nav {
-  margin-bottom: 16px;
-}
-div.header nav ul {
-  list-style: none;
-  text-align: center;
-  display: -webkit-inline-flex;
-  display: -moz-inline-flex;
-  display: -ms-inline-flexbox;
-  display: -ms-inline-flex;
-  display: inline-flex;
-}
-div.header nav ul li {
-  margin-left: 6px;
-  margin-right: 6px;
-}
-div.header nav ul li:first-child {
-  margin-left: 0;
-}
-div.header nav ul li:last-child {
-  margin-right: 0;
-}
-div.header nav ul a {
-  color: #555555;
-  font-weight: 400;
-  font-size: 14px;
-  text-transform: uppercase;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
-  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-}
-div.header nav ul a:hover {
-  color: #111111;
-}
-div.footer .container {
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-  flex-direction: column-reverse;
-  width: 100%;
-  text-align: center;
-}
-div.footer .container a {
-  font-size: 14px;
-  margin-left: 6px;
-  margin-right: 6px;
-  opacity: 0.6;
-  -webkit-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -moz-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-}
-div.footer .container a:first-child {
-  margin-left: 0;
-}
-div.footer .container a:last-child {
-  margin-right: 0;
-}
-div.footer .container a:hover {
-  opacity: 0.8;
-}
-div.footer .container a .icon {
-  width: 16px;
-  height: 16px;
-}
-div.footer .container .copyright {
-  flex-grow: 0.5;
-  text-align: start;
-}
-div.footer .container .icons {
-  flex-grow: 0.5;
-  text-align: end;
-}
-div.main .container {
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  -webkit-justify-content: flex-start;
-  -moz-justify-content: flex-start;
-  -ms-justify-content: flex-start;
-  justify-content: flex-start;
-}
-div.main .content {
-  color: #111111;
-  font-size: 16px;
-}
-div.main .content .title-container {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-justify-content: space-between;
-  -moz-justify-content: space-between;
-  -ms-justify-content: space-between;
-  justify-content: space-between;
-}
-div.main .content .posts {
-  margin-bottom: 4em;
-}
-div.main .content .page-heading {
-  font-size: 20px;
-  font-weight: 700;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
-  letter-spacing: -0.005rem;
-  text-transform: uppercase;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  color: #333333;
-  margin-bottom: 16px;
-}
-div.main .content .front-matter .page-heading {
-  margin-bottom: 0;
-}
-div.main .content .front-matter .meta {
-  font-size: 14px;
-  color: #666666;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  margin-bottom: 32px;
-}
-div.main .content .front-matter .date,
-div.main .content .front-matter .author,
-div.main .content .front-matter .tags,
-div.main .content .front-matter .word-count,
-div.main .content .front-matter .middot:before {
-  display: none;
-}
-div.main .content .front-matter .middot:before {
-  font-size: 6px;
-  margin: 0 6px;
-  vertical-align: middle;
-  content: "•";
-}
-div.main .content .front-matter .tags ul {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  -moz-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-}
-div.main .content .front-matter .tags ul li {
-  -webkit-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -moz-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-}
-div.main .content .front-matter .tags ul li:hover {
-  opacity: 0.7;
-}
-div.main .content .front-matter .tags ul li a {
-  color: #666666;
-}
-div.main .container.f04 {
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-}
-div.main .container.f04 .content {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-}
-div.main .container.f04 .content .num {
-  margin: 30px 0px 30px 0;
-  font-weight: 400;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
-  font-size: 50px;
-}
-div.main .container.f04 .content .detail {
-  margin-bottom: 40px;
-}
-div.main .container .content .groupby {
-  margin-top: 1em;
-  padding-left: 0.5em;
-}
-div.main .container .content .post-item {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  display: list-item;
-  list-style: disc inside;
-}
-div.main .container .content .post-item .meta {
-  font-size: 14px;
-  color: #666666;
-  display: none;
-  min-width: 100px;
-}
-div.main .container .content .see-more {
-  font-style: italic;
-  float: right;
-  font-size: 0.9em;
-  margin-top: 2em;
-  color: #313537;
-}
-div.main .container .content .see-more:hover {
-  color: #666;
-}
-section {
-  padding: 0 16px;
-}
-div.column {
-  padding: 0 16px;
-}
-div.header {
-  padding-top: 10px;
-}
-div.header-home {
-  padding-top: 36px;
-}
-div.main {
-  padding-top: 32px;
-}
-div.main .container .content .post-item .meta {
-    display: block;
-}
-div.main .container .content .post-item {
-    display: flex;
-    list-style: none;
-}
-a {
-  color: #428bca;
-  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-}
-a:hover {
-  color: #2a6496;
-}
-img {
-  max-width: 100%;
-}
-div.main .content {
-    width: 100%;
-}
-div.main .content .markdown {
-  font-size: 1.1em;
-  line-height: 1.75em;
-  color: #313537;
-  font-family: serif;
-  font-weight: 300;
-}
-div.main .content .markdown h1,
-div.main .content .markdown h2,
-div.main .content .markdown h3,
-div.main .content .markdown h4,
-div.main .content .markdown h5,
-div.main .content .markdown h6 {
-  font-size: 22px;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
-  letter-spacing: -0.005rem;
-  font-weight: 700;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  color: #333333;
-  text-transform: none;
-  margin-top: 1.75rem;
-}
-div.main .content .markdown h1 {
-  font-size: 1.75rem;
-  margin-bottom: 2rem;
-}
-div.main .content .markdown h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-div.main .content .markdown h3 {
-  font-size: 1em;
-  margin-bottom: 1rem;
-}
-div.main .content .markdown h4,
-div.main .content .markdown h5,
-div.main .content .markdown h6 {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  letter-spacing: none;
-}
-div.main .content .markdown code,
-div.main .content .markdown pre {
-  font-family: 'Menlo', monospace;
-  font-size: 0.98rem;
-  background-color: #f7f7f7;
-}
-div.main .content .markdown code {
-  /* enclosed by single backtick (`) */
-  padding: .15em .5em;
-  border-radius: 2px;
-}
-div.main .content .markdown pre {
-  /* Hugo specific: consider using the 'highlight' shortcode */
-  display: block;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  padding: 1rem;
-  line-height: 1.5em;
-  white-space: pre;
-  word-break: break-all;
-  word-wrap: break-word;
-}
-div.main .content .markdown pre code {
-  /* enclosed by 4 backticks (````) */
-  padding: 0;
-  font-size: 0.9rem;
-}
-div.main .content .markdown a code {
-  color: #428bca !important;
-}
-div.main .content .markdown a code:hover {
-  text-decoration: underline;
-}
-div.main .content .markdown p {
+  <meta charset="utf-8"/>
   
-  text-align: justify;
+  <meta name="author" content=""/>
+  <meta name="description" content="GSoC blog series on rewriting Piper"/>
+  <meta name="generator" content="Hugo 0.42.2" />
+  <meta name="referrer" content="no-referrer"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta property="og:description" content="GSoC blog series on rewriting Piper"/>
+  <meta property="og:locale" content="nn_NO"/>
+  <meta property="og:site_name" content="Jente Hidskes&#39; website"/>
+  <meta property="og:title" content="GSoC part 4: the first sprint"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://hjdskes.nl/blog/gsoc-part-4/"/>
+  <meta property="og:image" content="https://hjdskes.nl/img/avatar.png"/>
+
+  <title>
+    
+    
+       Jente Hidskes&#39; website - GSoC part 4: the first sprint 
+    
+  </title>
+
+  <link rel="canonical" href="https://hjdskes.nl/blog/gsoc-part-4/"/>
+  <link rel="stylesheet" type="text/css" href="/css/stylesheet.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/syntax.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/zoom.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/fontawesome-all.min.css"/>
   
-  margin-top: 0;
-  margin-bottom: 1em;
-}
-div.main .content .markdown ul,
-div.main .content .markdown ol,
-div.main .content .markdown dl {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-}
-div.main .content .markdown dt {
-  font-weight: bold;
-}
-div.main .content .markdown dd {
-  margin-bottom: .5rem;
-}
-div.main .content .markdown ul {
-  list-style-type: disc;
-  list-style-position: outside;
-  margin-bottom: 1.25rem;
-}
-div.main .content .markdown ol {
-  list-style-type: decimal;
-  margin-bottom: 1.25rem;
-}
-div.main .content .markdown li {
-  margin-left: 2em;
-}
-div.main .content .markdown em {
-  font-style: italic;
-}
-div.main .content .markdown strong {
-  font-weight: 700;
-}
-div.main .content .markdown hr {
-  position: relative;
-  margin: 1.75rem 0;
-  border: 0;
-  border-top: 1px solid #808080;
-  border-top: 1px solid #999999;
-}
-div.main .content .markdown abbr {
-  font-size: 0.85rem;
-  font-weight: bold;
-  color: #666666;
-  text-transform: uppercase;
-}
-div.main .content .markdown abbr[title] {
-  cursor: help;
-  border-bottom: 1px dotted #808080;
-}
-div.main .content .markdown blockquote {
-  padding: .5rem 1rem;
-  margin: .8rem 0;
-  color: #7a7a7a;
-  border-left: .25rem solid #e5e5e5;
-}
-div.main .content .markdown blockquote p:last-child {
-  margin-bottom: 0;
-}
-div.main .content .markdown figure {
-  width: 100%;
-  background: #fff;
-  margin-bottom: 1em;
-}
-div.main .content .markdown figure img {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  display: block;
-  position: static;
-  margin: auto;
-}
-div.main .content .markdown table {
-  margin-bottom: 1rem;
-  width: 100%;
-  border: 1px solid #e5e5e5;
-  border-collapse: collapse;
-}
-div.main .content .markdown td,
-div.main .content .markdown th {
-  padding: .25rem .5rem;
-  border: 1px solid #e5e5e5;
-}
-div.main .content .markdown tbody tr:nth-child(odd) td,
-div.main .content .markdown tbody tr:nth-child(odd) th {
-  background-color: #f7f7f7;
-}
-div.main .content .markdown .footnotes ol {
-  list-style-type: decimal;
-  margin-left: 16px;
-}
-div.main .content .markdown .footnotes li {
-  list-style-type: unset;
-}
-div.main .content .markdown .footnote-ref {
-  font-size: 0.7em;
-}
-div.main .content .navigation {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  padding: 2em;
-}
-div.main .content .navigation div {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  -moz-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  margin-top: 1em;
-}
-div.main .content .navigation .icon {
-  width: 16px;
-  height: 16px;
-}
-div.main .content .navigation a {
-  width: 250px;
-  margin: 0 1em;
-  text-align: center;
-  font-style: italic;
-  color: #313537;
-}
-div.main .content .share, div.main .content .share div {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  -moz-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  justify-content: center;
-}
-div.main .content .share {
-  background-color: rgba(152, 152, 152, 0.07);
-  padding: 1em 0;
-}
-div.main .content .share a {
-  margin: 0 6px;
-}
-kbd {
-  padding: 0.1em 0.6em;
-  border: 1px solid #ccc;
-  font-size: 11px;
-  font-family: Arial,Helvetica,sans-serif;
-  background-color: #f7f7f7;
-  color: #333;
-  -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
-  -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
-  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  display: inline-block;
-  margin: 0 0.1em;
-  text-shadow: 0 1px 0 #fff;
-  line-height: 1.4;
-  white-space: nowrap;
-}
+  <link rel="shortcut icon" href="https://hjdskes.nl/img/favicon.ico"/>
 
-/* Fonts */
-
-
-
-</style>
-<style media="(min-width: 600px)">
-  body {
--webkit-justify-content: center;
--moz-justify-content: center;
--ms-justify-content: center;
-justify-content: center;
-}
-.non-narrow.zero-top-spacing {
-padding-top: 0 !important;
-}
-section {
-padding: 0 16px;
-margin-left: 100px;
-margin-right: 100px;
-max-width: 750px;
-}
-div.column {
-padding: 0 16px;
-margin-left: 100px;
-margin-right: 100px;
-max-width: 750px;
-}
-div.header {
-background-color: transparent;
-}
-div.header .container {
--webkit-justify-content: flex-start;
--moz-justify-content: flex-start;
--ms-justify-content: flex-start;
-justify-content: flex-start;
-}
-div.header .container .logo {
-margin: 0;
-}
-div.header-home .container .logo {
-max-width: 180px;
-margin-left: 20px;
-}
-div.header-home .name-home {
-padding-top: 30px;
-font-size: 40px;
-}
-div.header-home nav ul a {
-font-size: 18px;
-}
-div.header .content {
--webkit-align-items: flex-start;
--moz-align-items: flex-start;
--ms-align-items: flex-start;
-align-items: flex-start;
-}
-div.header .name {
-color: #333333;
-}
-div.header nav {
-font-size: 14px;
-margin-bottom: 0;
-}
-div.header nav ul {
-text-align: left;
-}
-div.header nav ul a {
-color: #666666;
-}
-div.header nav ul a:hover {
-color: #333333;
-}
-div.footer {
-background-color: transparent;
-}
-div.footer .container {
-flex-direction: row;
-}
-div.footer .container a {
-margin-left: 3px;
-margin-right: 3px;
-color: #666666;
-}
-div.footer .container a:hover {
-color: #333333;
-}
-div.footer .container a .icon {
-font-size: 18px;
-}
-div.footer .container a .icon.larger {
-font-size: 20px;
-}
-div.main .content .front-matter .date,
-div.main .content .front-matter .author,
-div.main .content .front-matter .tags,
-div.main .content .front-matter .word-count,
-div.main .content .front-matter .middot:before {
-display: initial;
-}
-div.main .container.f04 {
--webkit-justify-content: flex-start;
--moz-justify-content: flex-start;
--ms-justify-content: flex-start;
-justify-content: flex-start;
-}
-div.main .container.f04 .content {
--webkit-align-items: flex-start;
--moz-align-items: flex-start;
--ms-align-items: flex-start;
-align-items: flex-start;
-}
-div.main .container.f04 .content .num {
-margin: 0 0 10px 0;
-font-size: 32px;
-}
-div.main .container.f04 .content .detail {
-margin-bottom: 30px;
-}
-.container {
-padding: 0 30px;
-}
-div.header {
-padding-top: 60px;
-padding-bottom: 60px;
-}
-div.footer {
-padding-top: 30px;
-padding-bottom: 60px;
-}
-div.main {
-padding-top: 0;
-}
-div.main .container .content .post-item {
-display: flex;
-list-style: none;
-padding-left: 1.5em;
-}
-div.main .container .content .post-item .meta {
-display: block;
-}
-div.main.post {
-padding-top: 60px;
-padding-bottom: 60px;
-}
-div.main .content .markdown blockquote {
-padding-right: 5rem;
-padding-left: 1.25rem;
-}
-div.main .content .navigation {
--webkit-flex-direction: row;
--moz-flex-direction: row;
--ms-flex-direction: row;
-flex-direction: row;
-}
-div.main .content .navigation div {
-margin-top: 0em;
-}
-
-</style>
-<style media="(min-width: 769px)">
-  div.main .content .markdown figure {
-width: 110%;
-margin-left: -4%;
-}
-div.main .content .markdown img {
-max-width: 110%;
-width: 110%;
-margin-left: -4%;
-}
-div.main .content .markdown pre {
-width: 110%;
-margin-left: -4%;
-}
-
-</style>
-
-<noscript>
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,700,700i" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet">
-</noscript>
-
-
-  <style type="text/css" media="screen">
-    .hljs-comment,.hljs-quote{color:#8e908c}.hljs-variable,.hljs-template-variable,.hljs-tag,.hljs-name,.hljs-selector-id,.hljs-selector-class,.hljs-regexp,.hljs-deletion{color:#c82829}.hljs-number,.hljs-built_in,.hljs-builtin-name,.hljs-literal,.hljs-type,.hljs-params,.hljs-meta,.hljs-link{color:#f5871f}.hljs-attribute{color:#eab700}.hljs-string,.hljs-symbol,.hljs-bullet,.hljs-addition{color:#718c00}.hljs-title,.hljs-section{color:#4271ae}.hljs-keyword,.hljs-selector-tag{color:#8959a8}.hljs{display:block;overflow-x:auto;background:white;color:#4d4d4c;padding:0.5em}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:bold}
-  </style>
-
-
-
-
-
-
-
-
-
-  <link rel="stylesheet" href="https://hjdskes.nl/css/message.css">
-
-  <link rel="stylesheet" href="https://hjdskes.nl/css/gallery.css">
-
-  <link rel="stylesheet" href="https://hjdskes.nl/css/cocoa-eh-fixes.css">
-
-
-
-
-
-<link rel="shortcut icon"
-
-    href="https://hjdskes.nl/img/favicon.ico"
-
->
-
-
-
-
+  <script src="/js/zoom-vanilla.js"></script>
 </head>
 
-
 <body>
-
-
-<div class="header column">
-
-    <div class="container">
-        <a href="https://hjdskes.nl/"><img class="logo" src="https://hjdskes.nl/img/avatar.png" alt="logo" /></a>
-        <div class="content">
-            <a href="https://hjdskes.nl/"><div class="name"><h1>Jente Hidskes&#39; website</h1></div></a>
-            <nav>
-                <ul>
-                    
-                        <li><a href="https://hjdskes.nl/blog/">Blog</a></li>
-                    
-                    
-                        
-                            
-                        
-                    
-                        
-                            
-                            <li><a href="https://hjdskes.nl/contributions">contributions</a></li>
-                            
-                        
-                    
-                        
-                            
-                            <li><a href="https://hjdskes.nl/projects">projects</a></li>
-                            
-                        
-                    
-                    
-                        
-                            <li><a href="https://hjdskes.nl/about/">About me</a></li>
-                        
-                    
-                        
-                    
-                        
-                    
-                </ul>
-            </nav>
-        </div>
+  <div class="banner">
+    <a href="https://hjdskes.nl/"><img class="logo" src="https://hjdskes.nl/img/avatar.png" alt="logo" /></a>
+    <div>
+      <a id="name" href="https://hjdskes.nl/"><h1>Jente Hidskes&#39; website</h1></a>
+      <nav>
+        <ul>
+	  
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+          
+            
+              
+            
+          
+            
+              
+                <li><a href="https://hjdskes.nl/contributions">contributions</a></li>
+              
+            
+          
+            
+              
+                <li><a href="https://hjdskes.nl/projects">projects</a></li>
+              
+            
+          
+          
+            
+              <li><a href="https://hjdskes.nl/about/">About me</a></li>
+            
+          
+            
+          
+        </ul>
+      </nav>
     </div>
+  </div>
+
+
+<div class="page-heading">
+  <h1>GSoC part 4: the first sprint</h1>
 </div>
 
-
-<div class="main post non-narrow zero-top-spacing column">
-    <div class="container">
-        <div class="content">
-            <div class="front-matter">
-                <div class="title-container">
-                    <div class="page-heading">
-
-    GSoC part 4: the first sprint
-
+<div class="meta">
+  Jun 16, 2017
+  <div class="middot">17 minute read</div>
+  <div class="tags">
+    <ul>
+      
+        <li class="middot"><a href="/tags/piper">Piper</a></li>
+      
+        <li class="middot"><a href="/tags/fdo">fdo</a></li>
+      
+        <li class="middot"><a href="/tags/gtk">Gtk</a></li>
+      
+        <li class="middot"><a href="/tags/container">container</a></li>
+      
+        <li class="middot"><a href="/tags/mousemap">MouseMap</a></li>
+      
+        <li class="middot"><a href="/tags/ratbagd">ratbagd</a></li>
+      
+    </ul>
+  </div>
 </div>
 
-                </div>
-                <div class="meta">
-                    <div class="date" title="Fri Jun 16 2017 20:47:56 CEST">Jun 16, 2017</div>
-                    
-                        
-                    
-                    <div class="reading-time middot">17 minute read</div>
-                    <div class="tags">
-                        <ul>
-                          
-                            <li class="middot"><a href="/tags/piper">Piper</a> </li>
-                          
-                            <li class="middot"><a href="/tags/fdo">fdo</a> </li>
-                          
-                            <li class="middot"><a href="/tags/gtk">Gtk</a> </li>
-                          
-                            <li class="middot"><a href="/tags/container">container</a> </li>
-                          
-                            <li class="middot"><a href="/tags/mousemap">MouseMap</a> </li>
-                          
-                            <li class="middot"><a href="/tags/ratbagd">ratbagd</a> </li>
-                          
-                        </ul>
-                    </div>
-                    <div class="tags">
-                        <ul>
-                          
-                          
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="markdown">
-                
-    
+<div class="content">
+  
 
 <p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal" /></p>
 
@@ -1149,29 +199,26 @@ of GLib. To implement our own custom container widget we thus need to subclass
 
 <p>Subclassing a GTK+ widget class in Python is just like subclassing a regular
 Python class; you declare the base class and you chain to its <code>__init__</code> method:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">MouseMap</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Container</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;A Gtk.Container subclass to draw a device SVG with child widgets that
+</span><span class="s2">    map to the SVG. The SVG should have objects with identifiers, whose value
+</span><span class="s2">    should also be set on a custom `id` property of any child added to this
+</span><span class="s2">    container. See https://github.com/libratbag/libratbag/blob/master/data/README.md
+</span><span class="s2">    and do_size_allocate for more information.
+</span><span class="s2">    &#34;&#34;&#34;</span>
 
-<pre><code class="language-python">class MouseMap(Gtk.Container):
-    &quot;&quot;&quot;A Gtk.Container subclass to draw a device SVG with child widgets that
-    map to the SVG. The SVG should have objects with identifiers, whose value
-    should also be set on a custom `id` property of any child added to this
-    container. See https://github.com/libratbag/libratbag/blob/master/data/README.md
-    and do_size_allocate for more information.
-    &quot;&quot;&quot;
+    <span class="n">__gtype_name__</span> <span class="o">=</span> <span class="s2">&#34;MouseMap&#34;</span>
 
-    __gtype_name__ = &quot;MouseMap&quot;
+    <span class="n">__gproperties__</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&#34;spacing&#34;</span><span class="p">:</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span>
+                    <span class="s2">&#34;spacing&#34;</span><span class="p">,</span>
+                    <span class="s2">&#34;The amount of space between children and the SVG leaders&#34;</span><span class="p">,</span>
+                     <span class="mi">0</span><span class="p">,</span> <span class="n">GLib</span><span class="o">.</span><span class="n">MAXINT</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+                     <span class="n">GObject</span><span class="o">.</span><span class="n">PARAM_READWRITE</span><span class="p">),</span>
+    <span class="p">}</span>
 
-    __gproperties__ = {
-        &quot;spacing&quot;: (int,
-                    &quot;spacing&quot;,
-                    &quot;The amount of space between children and the SVG leaders&quot;,
-                     0, GLib.MAXINT, 0,
-                     GObject.PARAM_READWRITE),
-    }
-
-    def __init__(self, ratbag_device, spacing, layer):
-        Gtk.Container.__init__(self)
-</code></pre>
-
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ratbag_device</span><span class="p">,</span> <span class="n">spacing</span><span class="p">,</span> <span class="n">layer</span><span class="p">):</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">Container</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code></pre></div>
 <p>This creates a new <code>GObject.GType</code>, which is connected to the new Python type.
 <code>__gtype_name__</code> specifies a custom GType name, but isn&rsquo;t required.</p>
 
@@ -1181,33 +228,30 @@ are typed, get minimum, maximum and default values, can be set read-only,
 write-only or readwrite and finally, they can be watched for changes.</p>
 
 <p>In <code>__init__</code>, we initialize the MouseMap object:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ratbag_device</span><span class="p">,</span> <span class="n">spacing</span><span class="p">,</span> <span class="n">layer</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Instantiates a new MouseMap.
+</span><span class="s2">
+</span><span class="s2">    @param ratbag_device The device that should be mapped, as ratbagd.RatbagdDevice
+</span><span class="s2">    @param spacing The spacing between the SVG leaders and the children, as int
+</span><span class="s2">    @param layer The SVG layer whose leaders to draw.
+</span><span class="s2">
+</span><span class="s2">    @raises GLib.Error when the SVG cannot be loaded.
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="n">Gtk</span><span class="o">.</span><span class="n">Container</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">set_has_window</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_children</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_device</span> <span class="o">=</span> <span class="n">ratbag_device</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">spacing</span> <span class="o">=</span> <span class="n">spacing</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_layer</span> <span class="o">=</span> <span class="n">layer</span>
 
-<pre><code class="language-python">def __init__(self, ratbag_device, spacing, layer):
-    &quot;&quot;&quot;Instantiates a new MouseMap.
-
-    @param ratbag_device The device that should be mapped, as ratbagd.RatbagdDevice
-    @param spacing The spacing between the SVG leaders and the children, as int
-    @param layer The SVG layer whose leaders to draw.
-
-    @raises GLib.Error when the SVG cannot be loaded.
-    &quot;&quot;&quot;
-    Gtk.Container.__init__(self)
-    self.set_has_window(False)
-    self._children = []
-    self._device = ratbag_device
-    self.spacing = spacing
-    self._layer = layer
-
-    if not os.path.isfile(ratbag_device.svg_path):
-        stream = Gio.Resource.open_stream(&quot;/org/freedesktop/Piper/404.svg&quot;,
-                                          Gio.ResourceLookupFlags.NONE)
-        self._handle = Rsvg.Handle.new_from_stream(stream, None,
-                                                   Rsvg.HandleFlags.FLAGS_NONE,
-                                                   None)
-    else:
-        self._handle = Rsvg.Handle.new_from_file(ratbag_device.svg_path
-</code></pre>
-
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">ratbag_device</span><span class="o">.</span><span class="n">svg_path</span><span class="p">):</span>
+        <span class="n">stream</span> <span class="o">=</span> <span class="n">Gio</span><span class="o">.</span><span class="n">Resource</span><span class="o">.</span><span class="n">open_stream</span><span class="p">(</span><span class="s2">&#34;/org/freedesktop/Piper/404.svg&#34;</span><span class="p">,</span>
+                                          <span class="n">Gio</span><span class="o">.</span><span class="n">ResourceLookupFlags</span><span class="o">.</span><span class="n">NONE</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">Rsvg</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">new_from_stream</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span>
+                                                   <span class="n">Rsvg</span><span class="o">.</span><span class="n">HandleFlags</span><span class="o">.</span><span class="n">FLAGS_NONE</span><span class="p">,</span>
+                                                   <span class="bp">None</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">Rsvg</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">new_from_file</span><span class="p">(</span><span class="n">ratbag_device</span><span class="o">.</span><span class="n">svg_path</span></code></pre></div>
 <p>A <code>Gtk.Container</code> subclass needs to implement <code>Gtk.Container</code>&rsquo;s interface
 methods and a few <code>Gtk.Widget</code> interface methods that deal with geometry
 management.</p>
@@ -1273,33 +317,27 @@ its children. The default implementation in <code>Gtk.Container</code> is fine f
 
 <p>This method returns the type of the children that this container supports. The
 MouseMap widget accepts any GTK+ widget, so we simply state as such:</p>
-
-<pre><code class="language-python">def do_child_type(self):
-    &quot;&quot;&quot;Indicates that this container accepts any GTK+ widget.&quot;&quot;&quot;
-    return Gtk.Widget.get_type()
-</code></pre>
-
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_child_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Indicates that this container accepts any GTK+ widget.&#34;&#34;&#34;</span>
+    <span class="k">return</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Widget</span><span class="o">.</span><span class="n">get_type</span><span class="p">()</span></code></pre></div>
 <h5 id="do-forall-include-internals-callback-callback-data"><code>do_forall (include_internals, callback, callback_data)</code></h5>
 
 <p><code>do_forall</code> invokes <code>callback</code> on each (direct) child widget, including internal
 children iff <code>include_internals</code> is <code>True</code>, with <code>callback_data</code> as arguments.
 Implementing this method is required for every container, because it is used for
 drawing and other internal GTK+ operations.</p>
-
-<pre><code class="language-python">def do_forall(self, include_internals, callback, *parameters):
-    &quot;&quot;&quot;Invokes the given callback on each child, with the given parameters.
-
-    @param include_internals Whether to run on internal children as well, as
-                             boolean. Ignored, as there are no internal
-                             children.
-    @param callback The callback to call on each child, as Gtk.Callback
-    @param parameters The parameters to pass to the callback, as object or None
-    &quot;&quot;&quot;
-    if not callback is None:
-        for child in self._children:
-            callback(child, *parameters)
-</code></pre>
-
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_forall</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">include_internals</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="o">*</span><span class="n">parameters</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Invokes the given callback on each child, with the given parameters.
+</span><span class="s2">
+</span><span class="s2">    @param include_internals Whether to run on internal children as well, as
+</span><span class="s2">                             boolean. Ignored, as there are no internal
+</span><span class="s2">                             children.
+</span><span class="s2">    @param callback The callback to call on each child, as Gtk.Callback
+</span><span class="s2">    @param parameters The parameters to pass to the callback, as object or None
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">callback</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">:</span>
+            <span class="n">callback</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="o">*</span><span class="n">parameters</span><span class="p">)</span></code></pre></div>
 <h5 id="do-set-child-property-child-property-id-value-pspec-and-do-get-child-property-child-property-id-value-pspec"><code>do_set_child_property (child, property_id, value, pspec)</code> and <code>do_get_child_property (child, property_id, value, pspec)</code></h5>
 
 <p>Containers introduce child properties: object properties that are not specific
@@ -1361,14 +399,11 @@ width-for-height layout.</p>
 <p>Since the MouseMap&rsquo;s geometry is rather static and we are a custom container
 with control over the amount and placement of child widgets, we simply return
 <code>Gtk.SizeRequestMode.CONSTANT_SIZE</code>:</p>
-
-<pre><code class="language-python">def do_get_request_mode(self):
-    &quot;&quot;&quot;Gets whether the container prefers a height-for-width or a
-    width-for-height layout. We don't want to trade width for height or
-    height for width so we return CONSTANT_SIZE.&quot;&quot;&quot;
-    return Gtk.SizeRequestMode.CONSTANT_SIZE
-</code></pre>
-
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_get_request_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Gets whether the container prefers a height-for-width or a
+</span><span class="s2">    width-for-height layout. We don&#39;t want to trade width for height or
+</span><span class="s2">    height for width so we return CONSTANT_SIZE.&#34;&#34;&#34;</span>
+    <span class="k">return</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">SizeRequestMode</span><span class="o">.</span><span class="n">CONSTANT_SIZE</span></code></pre></div>
 <h5 id="do-get-preferred-height-and-do-get-preferred-width"><code>do_get_preferred_height()</code> and <code>do_get_preferred_width()</code></h5>
 
 <p>These methods return the container&rsquo;s initial minimum and natural height and
@@ -1379,77 +414,71 @@ of the children, plus the border width which is also allocated on the top and
 bottom edges of the container. For the preferred minimum and natural width, we
 return the SVG&rsquo;s width plus the maximum minimum (savvy?) and natural width, the
 border width and the spacing property.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_get_preferred_height</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Calculates the container&#39;s initial minimum and natural height. While
+</span><span class="s2">    this call is specific to width-for-height requests (that we requested
+</span><span class="s2">    not to get) we cannot be certain that our wishes are granted and hence
+</span><span class="s2">    we must implement this method as well. In any case, we just return the
+</span><span class="s2">    maximum of the SVG&#39;s height or the children&#39;s summed (minimum and
+</span><span class="s2">    natural) height, including the border width.&#34;&#34;&#34;</span>
+    <span class="n">svg_height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">height</span>
+    <span class="n">children_height_min</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">children_height_nat</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">:</span>
+        <span class="n">child_min</span><span class="p">,</span> <span class="n">child_nat</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">get_preferred_height</span><span class="p">()</span>
+        <span class="n">children_height_min</span> <span class="o">+=</span> <span class="n">child_min</span>
+        <span class="n">children_height_nat</span> <span class="o">+=</span> <span class="n">child_nat</span>
+    <span class="n">height_min</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">svg_height</span><span class="p">,</span> <span class="n">children_height_min</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">border_width</span>
+    <span class="n">height_nat</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">svg_height</span><span class="p">,</span> <span class="n">children_height_nat</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">border_width</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">height_min</span><span class="p">,</span> <span class="n">height_nat</span><span class="p">)</span>
 
-<pre><code class="language-python">def do_get_preferred_height(self):
-    &quot;&quot;&quot;Calculates the container's initial minimum and natural height. While
-    this call is specific to width-for-height requests (that we requested
-    not to get) we cannot be certain that our wishes are granted and hence
-    we must implement this method as well. In any case, we just return the
-    maximum of the SVG's height or the children's summed (minimum and
-    natural) height, including the border width.&quot;&quot;&quot;
-    svg_height = self._handle.props.height
-    children_height_min = 0
-    children_height_nat = 0
-    for child in self._children:
-        child_min, child_nat = child.get_preferred_height()
-        children_height_min += child_min
-        children_height_nat += child_nat
-    height_min = max(svg_height, children_height_min) + 2 * self.props.border_width
-    height_nat = max(svg_height, children_height_nat) + 2 * self.props.border_width
-    return (height_min, height_nat)
-
-def do_get_preferred_width(self):
-    &quot;&quot;&quot;Calculates the container's initial minimum and natural width. While
-    this call is specific to height-for-width requests (that we requested
-    not to get) we cannot be certain that our wishes are granted and hence
-    we must implement this method as well. In any case, we just return the
-    SVG's width, including the maximum (minimum and natural) child width,
-    border width and spacing.&quot;&quot;&quot;
-    # TODO: account for left-aligned children, if they exist
-    svg_width = self._handle.props.width
-    children_width_min = 0
-    children_width_nat = 0
-    for child in self._children:
-        child_min, child_nat = child.get_preferred_width()
-        children_width_min = max(children_width_min, child_min)
-        children_width_nat = max(children_width_nat, child_nat)
-    width_min = svg_width + children_width_min + 2 * self.props.border_width + self.spacing
-    width_nat = svg_width + children_width_nat + 2 * self.props.border_width + self.spacing
-    return (width_min, width_nat)
-</code></pre>
-
+<span class="k">def</span> <span class="nf">do_get_preferred_width</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Calculates the container&#39;s initial minimum and natural width. While
+</span><span class="s2">    this call is specific to height-for-width requests (that we requested
+</span><span class="s2">    not to get) we cannot be certain that our wishes are granted and hence
+</span><span class="s2">    we must implement this method as well. In any case, we just return the
+</span><span class="s2">    SVG&#39;s width, including the maximum (minimum and natural) child width,
+</span><span class="s2">    border width and spacing.&#34;&#34;&#34;</span>
+    <span class="c1"># TODO: account for left-aligned children, if they exist</span>
+    <span class="n">svg_width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">width</span>
+    <span class="n">children_width_min</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">children_width_nat</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">:</span>
+        <span class="n">child_min</span><span class="p">,</span> <span class="n">child_nat</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">get_preferred_width</span><span class="p">()</span>
+        <span class="n">children_width_min</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">children_width_min</span><span class="p">,</span> <span class="n">child_min</span><span class="p">)</span>
+        <span class="n">children_width_nat</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">children_width_nat</span><span class="p">,</span> <span class="n">child_nat</span><span class="p">)</span>
+    <span class="n">width_min</span> <span class="o">=</span> <span class="n">svg_width</span> <span class="o">+</span> <span class="n">children_width_min</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">border_width</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">spacing</span>
+    <span class="n">width_nat</span> <span class="o">=</span> <span class="n">svg_width</span> <span class="o">+</span> <span class="n">children_width_nat</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">border_width</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">spacing</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">width_min</span><span class="p">,</span> <span class="n">width_nat</span><span class="p">)</span></code></pre></div>
 <h5 id="do-get-preferred-height-for-width-width-and-do-get-preferred-width-for-height-height"><code>do_get_preferred_height_for_width(width)</code> and <code>do_get_preferred_width_for_height(height)</code></h5>
 
 <p>These are the contextual methods that return the container&rsquo;s minimum and natural
 height and width given the specified width and height. Again, as the MouseMap is
 static in regards to geometry we simply return <code>do_get_preferred_height</code> and
 <code>do_get_preferred_width</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_get_preferred_height_for_width</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Returns this container&#39;s minimum and natural height if it would be
+</span><span class="s2">    given the specified width. While this call is specific to
+</span><span class="s2">    height-for-width requests (that we requested not to get) we cannot be
+</span><span class="s2">    certain that our wishes are granted and hence we must implement this
+</span><span class="s2">    method as well. Since we really want to be the same size always, we
+</span><span class="s2">    simply return do_get_preferred_height.
+</span><span class="s2">
+</span><span class="s2">    @param width The given width, as int. Ignored.
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_get_preferred_height</span><span class="p">()</span>
 
-<pre><code class="language-python">def do_get_preferred_height_for_width(self, width):
-    &quot;&quot;&quot;Returns this container's minimum and natural height if it would be
-    given the specified width. While this call is specific to
-    height-for-width requests (that we requested not to get) we cannot be
-    certain that our wishes are granted and hence we must implement this
-    method as well. Since we really want to be the same size always, we
-    simply return do_get_preferred_height.
-
-    @param width The given width, as int. Ignored.
-    &quot;&quot;&quot;
-    return self.do_get_preferred_height()
-
-def do_get_preferred_width_for_height(self, height):
-    &quot;&quot;&quot;Returns this container's minimum and natural width if it would be
-    given the specified height. While this call is specific to
-    width-for-height requests (that we requested not to get) we cannot be
-    certain that our wishes are granted and hence we must implement this
-    method as well. Since we really want to be the same size always, we
-    simply return do_get_preferred_width.
-
-    @param height The given height, as int. Ignored.
-    &quot;&quot;&quot;
-    return self.do_get_preferred_width()
-</code></pre>
-
+<span class="k">def</span> <span class="nf">do_get_preferred_width_for_height</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Returns this container&#39;s minimum and natural width if it would be
+</span><span class="s2">    given the specified height. While this call is specific to
+</span><span class="s2">    width-for-height requests (that we requested not to get) we cannot be
+</span><span class="s2">    certain that our wishes are granted and hence we must implement this
+</span><span class="s2">    method as well. Since we really want to be the same size always, we
+</span><span class="s2">    simply return do_get_preferred_width.
+</span><span class="s2">
+</span><span class="s2">    @param height The given height, as int. Ignored.
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_get_preferred_width</span><span class="p">()</span></code></pre></div>
 <h5 id="do-size-allocate-allocation"><code>do_size_allocate(allocation)</code></h5>
 
 <p>This is a <code>Gtk.Widget</code> method only used by <code>Gtk.Container</code> subclasses. It is
@@ -1470,88 +499,82 @@ and height.</li>
 
 <p>The current implementation does not yet work with device SVGs that also have
 markings extend to the left.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_size_allocate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">allocation</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Assigns a size and position to the child widgets. Children may adjust
+</span><span class="s2">    the given allocation in the adjust_size_allocation virtual method.
+</span><span class="s2">
+</span><span class="s2">    This method uses a custom property on the children to position them
+</span><span class="s2">    relative to their SVG counterparts. Children that you want to be
+</span><span class="s2">    positioned should have an `id` property set on them, with value the SVG
+</span><span class="s2">    identifier they should position themselves next to. Children without
+</span><span class="s2">    this property are skipped.
+</span><span class="s2">
+</span><span class="s2">    @param The position and size allocated to this container, as Gdk.Rectangle
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="c1"># TODO: account for left-aligned children, if they exist</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">set_allocation</span><span class="p">(</span><span class="n">allocation</span><span class="p">)</span>
+    <span class="n">child_allocation</span> <span class="o">=</span> <span class="n">Gdk</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">:</span>
+        <span class="n">svg_id</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="nb">id</span> <span class="o">+</span> <span class="s2">&#34;-leader&#34;</span>
+        <span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">get_visible</span><span class="p">():</span>
+            <span class="n">min_size</span><span class="p">,</span> <span class="n">nat_size</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">get_preferred_size</span><span class="p">()</span>
+            <span class="n">child_allocation</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">nat_size</span><span class="o">.</span><span class="n">width</span>
+            <span class="n">child_allocation</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">nat_size</span><span class="o">.</span><span class="n">height</span>
 
-<pre><code class="language-python">def do_size_allocate(self, allocation):
-    &quot;&quot;&quot;Assigns a size and position to the child widgets. Children may adjust
-    the given allocation in the adjust_size_allocation virtual method.
+            <span class="n">ok</span><span class="p">,</span> <span class="n">svg_geom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_svg_sub_geometry</span><span class="p">(</span><span class="n">svg_id</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">ok</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">child_allocation</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">svg_geom</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">svg_geom</span><span class="o">.</span><span class="n">width</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">spacing</span>
+            <span class="n">child_allocation</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">svg_geom</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">child_allocation</span><span class="o">.</span><span class="n">height</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">child</span><span class="o">.</span><span class="n">get_has_window</span><span class="p">():</span>
+                <span class="n">child_allocation</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">allocation</span><span class="o">.</span><span class="n">x</span>
+                <span class="n">child_allocation</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">allocation</span><span class="o">.</span><span class="n">y</span>
+            <span class="n">child</span><span class="o">.</span><span class="n">size_allocate</span><span class="p">(</span><span class="n">child_allocation</span>
 
-    This method uses a custom property on the children to position them
-    relative to their SVG counterparts. Children that you want to be
-    positioned should have an `id` property set on them, with value the SVG
-    identifier they should position themselves next to. Children without
-    this property are skipped.
-
-    @param The position and size allocated to this container, as Gdk.Rectangle
-    &quot;&quot;&quot;
-    # TODO: account for left-aligned children, if they exist
-    self.set_allocation(allocation)
-    child_allocation = Gdk.Rectangle()
-    for child in self._children:
-        svg_id = child.id + &quot;-leader&quot;
-        if child.get_visible():
-            min_size, nat_size = child.get_preferred_size()
-            child_allocation.width = nat_size.width
-            child_allocation.height = nat_size.height
-
-            ok, svg_geom = self._get_svg_sub_geometry(svg_id)
-            if not ok:
-                continue
-            child_allocation.x = svg_geom.x + svg_geom.width + self.spacing
-            child_allocation.y = svg_geom.y - 0.5 * child_allocation.height
-            if not child.get_has_window():
-                child_allocation.x += allocation.x
-                child_allocation.y += allocation.y
-            child.size_allocate(child_allocation
-
-def _get_svg_sub_geometry(self, svg_id):
-    &quot;&quot;&quot;Helper method to get an SVG element's x- and y-coordinates, width and
-    height.
-
-    @param svg_id The identifier of the SVG element whose geometry to get.
-    @returns (bool, Gdk.Rectangle)
-    &quot;&quot;&quot;
-    ret = Gdk.Rectangle()
-    ok, svg_pos = self._handle.get_position_sub(svg_id)
-    if not ok:
-        print(&quot;Warning: cannot retrieve element's position:&quot;, svg_id, file=sys.stderr)
-        return ok, ret
-    ok, svg_dim = self._handle.get_dimensions_sub(svg_id)
-    if not ok:
-        print(&quot;Warning: cannot retrieve element's dimensions:&quot;, svg_id, file=sys.stderr)
-        return ok, ret
-    ret.x = svg_pos.x
-    ret.y = svg_pos.y
-    ret.width = svg_dim.width
-    ret.height = svg_dim.height
-    return ok, ret
-</code></pre>
-
+<span class="k">def</span> <span class="nf">_get_svg_sub_geometry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Helper method to get an SVG element&#39;s x- and y-coordinates, width and
+</span><span class="s2">    height.
+</span><span class="s2">
+</span><span class="s2">    @param svg_id The identifier of the SVG element whose geometry to get.
+</span><span class="s2">    @returns (bool, Gdk.Rectangle)
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">Gdk</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">()</span>
+    <span class="n">ok</span><span class="p">,</span> <span class="n">svg_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">get_position_sub</span><span class="p">(</span><span class="n">svg_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">ok</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Warning: cannot retrieve element&#39;s position:&#34;</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ok</span><span class="p">,</span> <span class="n">ret</span>
+    <span class="n">ok</span><span class="p">,</span> <span class="n">svg_dim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">get_dimensions_sub</span><span class="p">(</span><span class="n">svg_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">ok</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Warning: cannot retrieve element&#39;s dimensions:&#34;</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ok</span><span class="p">,</span> <span class="n">ret</span>
+    <span class="n">ret</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">svg_pos</span><span class="o">.</span><span class="n">x</span>
+    <span class="n">ret</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">svg_pos</span><span class="o">.</span><span class="n">y</span>
+    <span class="n">ret</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">svg_dim</span><span class="o">.</span><span class="n">width</span>
+    <span class="n">ret</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">svg_dim</span><span class="o">.</span><span class="n">height</span>
+    <span class="k">return</span> <span class="n">ok</span><span class="p">,</span> <span class="n">ret</span></code></pre></div>
 <h5 id="do-draw-cr"><code>do_draw(cr)</code></h5>
 
 <p>Finally, the method that draws the SVG into the container&rsquo;s drawing context.
 It&rsquo;s rather self explanatory: ask the SVG if it has the required layers and if
 so, we draw only those. Otherwise, we draw the entire SVG. Finally, we propagate
 the draw signal to all children so they draw themselves on top of the SVG.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cr</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Draws the container to the given Cairo context. The top left corner
+</span><span class="s2">    of the widget will be drawn to the currently set origin point of the
+</span><span class="s2">    context. The container needs to propagate the draw signal to its
+</span><span class="s2">    children.
+</span><span class="s2">
+</span><span class="s2">    @param cr The Cairo context to draw into, as cairo.Context
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="c1"># TODO: account for left-aligned children, if they exist</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">has_sub</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&#34;#Device&#34;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">has_sub</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_layer</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">render_cairo_sub</span><span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&#34;#Device&#34;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">render_cairo_sub</span><span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_layer</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">render_cairo</span><span class="p">(</span><span class="n">cr</span><span class="p">)</span>
 
-<pre><code class="language-python">def do_draw(self, cr):
-    &quot;&quot;&quot;Draws the container to the given Cairo context. The top left corner
-    of the widget will be drawn to the currently set origin point of the
-    context. The container needs to propagate the draw signal to its
-    children.
-
-    @param cr The Cairo context to draw into, as cairo.Context
-    &quot;&quot;&quot;
-    # TODO: account for left-aligned children, if they exist
-    if self._handle.has_sub(id=&quot;#Device&quot;) and self._handle.has_sub(id=self._layer):
-        self._handle.render_cairo_sub(cr, id=&quot;#Device&quot;)
-        self._handle.render_cairo_sub(cr, id=self._layer)
-    else:
-        self._handle.render_cairo(cr)
-
-    for child in self._children:
-        self.propagate_draw(child, cr)
-</code></pre>
-
+    <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">propagate_draw</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="n">cr</span><span class="p">)</span></code></pre></div>
 <h4 id="interactive-highlighting-of-the-svg">Interactive highlighting of the SVG</h4>
 
 <p>If you&rsquo;ve made it this far, you might have forgotten that the SVG has to be
@@ -1564,80 +587,77 @@ could use in GTK+.</p>
 <code>enter-notify-event</code> and <code>leave-notify-event</code> signals? These signals are fired
 when the mouse cursor enters and leaves the widget&rsquo;s window. Here&rsquo;s how we do
 that:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">_on_enter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="n">svg_width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">width</span>
+    <span class="n">svg_height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">height</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">file_data</span> <span class="o">=</span> <span class="n">GLib</span><span class="o">.</span><span class="n">file_get_contents</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="o">.</span><span class="n">svg_path</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">GLib</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Cannot get SVG file contents: {}, cannot highlight SVG</span><span class="se">\
+</span><span class="se"></span><span class="s2">              elements&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="n">stream</span> <span class="o">=</span> <span class="n">Gio</span><span class="o">.</span><span class="n">MemoryInputStream</span><span class="o">.</span><span class="n">new_from_data</span><span class="p">(</span><span class="n">file_data</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="n">escaped_file_data</span> <span class="o">=</span> <span class="n">GLib</span><span class="o">.</span><span class="n">markup_escape_text</span><span class="p">(</span><span class="n">file_data</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
-<pre><code class="language-python">def _on_enter(self, widget, event):
-    svg_width = self._handle.props.width
-    svg_height = self._handle.props.height
-    try:
-        _, file_data = GLib.file_get_contents(self._device.svg_path)
-    except GLib.Error as e:
-        print(&quot;Cannot get SVG file contents: {}, cannot highlight SVG\
-              elements&quot;.format(e.message), file=sys.stderr)
-        return
-    stream = Gio.MemoryInputStream.new_from_data(file_data, None)
-    escaped_file_data = GLib.markup_escape_text(file_data, -1)
+    <span class="n">data</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; standalone=&#34;no&#34;?&gt;
+</span><span class="s2">              &lt;svg version=&#34;1.1&#34;
+</span><span class="s2">                xmlns=&#34;http://www.w3.org/2000/svg&#34;
+</span><span class="s2">                xmlns:xi=&#34;http://www.w3.org/2001/XInclude&#34;
+</span><span class="s2">                width=&#34;</span><span class="si">%s</span><span class="s2">&#34;
+</span><span class="s2">                height=&#34;</span><span class="si">%s</span><span class="s2">&#34;&gt;
+</span><span class="s2">                &lt;style type=&#34;text/css&#34;&gt;
+</span><span class="s2">                  </span><span class="si">%s</span><span class="s2"> {
+</span><span class="s2">                    stroke: #2a76c6 !important;
+</span><span class="s2">                    stroke-width: 2 !important;
+</span><span class="s2">                  }
+</span><span class="s2">                &lt;/style&gt;
+</span><span class="s2">                &lt;xi:include href=&#34;data:text/xml,</span><span class="si">%s</span><span class="s2">&#34;/&gt;
+</span><span class="s2">              &lt;/svg&gt;&#34;&#34;&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">svg_width</span><span class="p">,</span> <span class="n">svg_height</span><span class="p">,</span> <span class="n">widget</span><span class="o">.</span><span class="nb">id</span><span class="p">,</span> <span class="n">escaped_file_data</span><span class="p">)</span>
 
-    data = &quot;&quot;&quot;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
-              &lt;svg version=&quot;1.1&quot;
-                xmlns=&quot;http://www.w3.org/2000/svg&quot;
-                xmlns:xi=&quot;http://www.w3.org/2001/XInclude&quot;
-                width=&quot;%s&quot;
-                height=&quot;%s&quot;&gt;
-                &lt;style type=&quot;text/css&quot;&gt;
-                  %s {
-                    stroke: #2a76c6 !important;
-                    stroke-width: 2 !important;
-                  }
-                &lt;/style&gt;
-                &lt;xi:include href=&quot;data:text/xml,%s&quot;/&gt;
-              &lt;/svg&gt;&quot;&quot;&quot; % (svg_width, svg_height, widget.id, escaped_file_data)
+    <span class="n">stream</span> <span class="o">=</span> <span class="n">Gio</span><span class="o">.</span><span class="n">MemoryInputStream</span><span class="o">.</span><span class="n">new_from_data</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">),</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">handle</span> <span class="o">=</span> <span class="n">Rsvg</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">new_from_stream_sync</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span>
+                                                  <span class="n">Rsvg</span><span class="o">.</span><span class="n">HandleFlags</span><span class="o">.</span><span class="n">FLAGS_NONE</span><span class="p">,</span>
+                                                  <span class="bp">None</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">GLib</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Cannot create new SVG handle: {}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">),</span>
+              <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">handle</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_redraw_svg_element</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="nb">id</span><span class="p">)</span>
 
-    stream = Gio.MemoryInputStream.new_from_data(data.encode('UTF-8'), None)
-    try:
-        handle = Rsvg.Handle.new_from_stream_sync(stream, None,
-                                                  Rsvg.HandleFlags.FLAGS_NONE,
-                                                  None)
-    except GLib.Error as e:
-        print(&quot;Cannot create new SVG handle: {}&quot;.format(e.message),
-              file=sys.stderr)
-        return
-    self._handle = handle
-    self._redraw_svg_element(widget.id)
+<span class="k">def</span> <span class="nf">_on_leave</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Restores the device SVG to its original state (i.e., simply reloads
+</span><span class="s2">    the device&#39;s SVG).
+</span><span class="s2">
+</span><span class="s2">    @param widget The widget that fired this signal, as Gtk.Widget
+</span><span class="s2">    @param event The Gdk.EventCrossing that triggered this signal.
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">handle</span> <span class="o">=</span> <span class="n">Rsvg</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">new_from_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="o">.</span><span class="n">svg_path</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">GLib</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Cannot load SVG: {}. Restoring not possible&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">),</span>
+              <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">handle</span>
+    <span class="n">ok</span><span class="p">,</span> <span class="n">svg_geom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_svg_sub_geometry</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="nb">id</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_redraw_svg_element</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="nb">id</span><span class="p">)</span>
 
-def _on_leave(self, widget, event):
-    &quot;&quot;&quot;Restores the device SVG to its original state (i.e., simply reloads
-    the device's SVG).
-
-    @param widget The widget that fired this signal, as Gtk.Widget
-    @param event The Gdk.EventCrossing that triggered this signal.
-    &quot;&quot;&quot;
-    try:
-        handle = Rsvg.Handle.new_from_file(self._device.svg_path)
-    except GLib.Error as e:
-        print(&quot;Cannot load SVG: {}. Restoring not possible&quot;.format(e.message),
-              file=sys.stderr)
-        return
-    self._handle = handle
-    ok, svg_geom = self._get_svg_sub_geometry(widget.id)
-    self._redraw_svg_element(widget.id)
-
-def _redraw_svg_element(self, svg_id):
-   &quot;&quot;&quot;Helper method to redraw an element of the SVG image. Attempts to
-   redraw only the element plus an offset, but will fall back to redrawing
-   the complete SVG.
-
-   @param svg_id The identifier of the SVG element to redraw.
-   &quot;&quot;&quot;
-   ok, svg_geom = self._get_svg_sub_geometry(svg_id)
-   if not ok:
-       svg_width = self._handle.props.width
-       svg_height = self._handle.props.height
-       self.queue_draw_area(0, 0, svg_width, svg_height)
-   else:
-       self.queue_draw_area(svg_geom.x - 10, svg_geom.y - 10,
-                            svg_geom.width + 20, svg_geom.height + 20)
-</code></pre>
-
+<span class="k">def</span> <span class="nf">_redraw_svg_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">):</span>
+   <span class="s2">&#34;&#34;&#34;Helper method to redraw an element of the SVG image. Attempts to
+</span><span class="s2">   redraw only the element plus an offset, but will fall back to redrawing
+</span><span class="s2">   the complete SVG.
+</span><span class="s2">
+</span><span class="s2">   @param svg_id The identifier of the SVG element to redraw.
+</span><span class="s2">   &#34;&#34;&#34;</span>
+   <span class="n">ok</span><span class="p">,</span> <span class="n">svg_geom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_svg_sub_geometry</span><span class="p">(</span><span class="n">svg_id</span><span class="p">)</span>
+   <span class="k">if</span> <span class="ow">not</span> <span class="n">ok</span><span class="p">:</span>
+       <span class="n">svg_width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">width</span>
+       <span class="n">svg_height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">height</span>
+       <span class="bp">self</span><span class="o">.</span><span class="n">queue_draw_area</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">svg_width</span><span class="p">,</span> <span class="n">svg_height</span><span class="p">)</span>
+   <span class="k">else</span><span class="p">:</span>
+       <span class="bp">self</span><span class="o">.</span><span class="n">queue_draw_area</span><span class="p">(</span><span class="n">svg_geom</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span> <span class="n">svg_geom</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span>
+                            <span class="n">svg_geom</span><span class="o">.</span><span class="n">width</span> <span class="o">+</span> <span class="mi">20</span><span class="p">,</span> <span class="n">svg_geom</span><span class="o">.</span><span class="n">height</span> <span class="o">+</span> <span class="mi">20</span><span class="p">)</span></code></pre></div>
 <p>All that work has resulted in the following animation:</p>
 
 <video controls>
@@ -1677,108 +697,50 @@ long way before this sprint is over!</p>
 <a href="/blog/gsoc-part-5">here</a> or the previous part about
 designing and making the mockups <a href="/blog/gsoc-part-3">here</a>.</p>
 
-
-                <br>
-            </div>
-            
-            
-                <div class="navigation">
-                    
-                    <div>
-                        <img class="icon" src="/img/back.svg" alt="back" />
-                        <a href="https://hjdskes.nl/blog/gsoc-part-3/">GSoC part 3: mockups, mockups, mockups!</a>
-                    </div>
-                    
-                    <div style="width: 100%;"></div>
-                    
-                    <div>
-                        <a href="https://hjdskes.nl/blog/gsoc-part-5/">GSoC part 5: exams</a>
-                        <img class="icon" src="/img/next.svg" alt="next" />
-                    </div>
-                    
-                </div>
-            
-            <br>
-            <div class="disqus">
-                
-            </div>
-            
-        </div>
-    </div>
 </div>
 
-<div class="footer column">
-    <div class="container">
+<div id="postamble">
+  <footer>
+    <ul class="social-icons mb-md">
+      
+      <li>
+        <a href="mailto:hjdskes@gmail.com" title="Send a mail to hjdskes@gmail.com">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </li>
+      
 
-        
+      
+      <li>
+        <a href="https://github.com/Hjdskes" title="Hjdskes on GitHub">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </li>
+      
 
-        <div class="copyright">
+      
+      <li>
+        <a href="https://hjdskes.nl/index.xml" title="">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </li>
+      
+    </ul>
 
-        
-            
-                <a href="https://hjdskes.nl/license">Copyright © 2016-2018 Jente Hidskes</a>
-            
-        
-
-        </div>
-        <div class="icons">
-
-        
-
-        
-            <a href="https://github.com/Hjdskes" target="_blank">
-                <img class="icon" src="https://hjdskes.nl/img/github.svg" alt="github" />
-            </a>
-        
-
-        
-
-        
-
-        
-            <a href="mailto:hjdskes@gmail.com">
-                <img class="icon" src="https://hjdskes.nl/img/email.svg" alt="email" />
-            </a>
-        
-
-        
-            <a href="https://hjdskes.nl/index.xml">
-                <img class="icon" src="https://hjdskes.nl/img/rss.svg" alt="rss" />
-            </a>
-        
-
-        </div>
+    <div id="license-note">
+      <a href="https://hjdskes.nl/license">Copyright © 2016-2018 Jente Hidskes</a>
     </div>
+  </footer>
 </div>
-
-
-
-
-  <script src="https://hjdskes.nl/js/highlight.min.js" defer></script>
-  
-
-
-
-
-
-
-
-
-
-
-
-<script>
-  window.onload = function() {
-    
-      hljs.initHighlighting();
-    
-    
-    
-  };
-</script>
-
-
-
 
 </body>
 </html>

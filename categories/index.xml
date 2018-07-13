@@ -6,16 +6,24 @@
     <description>Recent content in Categories on Jente Hidskes&#39; website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Copyright © 2016-2018 Jente Hidskes</copyright>
-    <lastBuildDate>Sun, 26 Feb 2017 22:12:00 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 02 May 2018 11:41:05 +0200</lastBuildDate>
     
 	<atom:link href="https://hjdskes.nl/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Administation</title>
+      <link>https://hjdskes.nl/categories/administation/</link>
+      <pubDate>Wed, 02 May 2018 11:41:05 +0200</pubDate>
+      
+      <guid>https://hjdskes.nl/categories/administation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Administration</title>
       <link>https://hjdskes.nl/categories/administration/</link>
-      <pubDate>Sun, 26 Feb 2017 22:12:00 +0100</pubDate>
+      <pubDate>Wed, 04 Jul 2018 20:47:00 +0200</pubDate>
       
       <guid>https://hjdskes.nl/categories/administration/</guid>
       <description></description>
@@ -33,7 +41,7 @@
     <item>
       <title>Server</title>
       <link>https://hjdskes.nl/categories/server/</link>
-      <pubDate>Tue, 01 May 2018 20:30:41 +0100</pubDate>
+      <pubDate>Wed, 04 Jul 2018 20:47:00 +0200</pubDate>
       
       <guid>https://hjdskes.nl/categories/server/</guid>
       <description></description>
