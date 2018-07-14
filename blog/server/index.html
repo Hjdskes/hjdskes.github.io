@@ -30,7 +30,15 @@
   
   <link rel="shortcut icon" href="https://hjdskes.nl/img/favicon.ico"/>
 
-  <script src="/js/zoom-vanilla.js"></script>
+  <script type="text/javascript" src="/js/zoom-vanilla.js"></script>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+	images = document.querySelectorAll("img[data-action=\"zoom\"]");
+	images.forEach(function(image) {
+	    image.style.display = "block";
+	})
+    }, false);
+  </script>
 </head>
 
 <body>
@@ -176,11 +184,26 @@ from a modifiability perspective.</p>
 
 <div style="column-count: 3; column-gap: 20px;">
   
-  <img src="/img/blog/server/old_outside.jpg" style="width: 100%; height: auto;" data-action="zoom">
+  <img src="/img/blog/server/old_outside.jpg" style="width: 100%; height: auto; display: none" data-action="zoom">
+  <noscript>
+    <a href="/img/blog/server/old_outside.jpg">
+      <img src="/img/blog/server/old_outside.jpg" style="width: 100%; height: auto;">
+    </a>
+  </noscript>
   
-  <img src="/img/blog/server/old_top.jpg" style="width: 100%; height: auto;" data-action="zoom">
+  <img src="/img/blog/server/old_top.jpg" style="width: 100%; height: auto; display: none" data-action="zoom">
+  <noscript>
+    <a href="/img/blog/server/old_top.jpg">
+      <img src="/img/blog/server/old_top.jpg" style="width: 100%; height: auto;">
+    </a>
+  </noscript>
   
-  <img src="/img/blog/server/old_inside.jpg" style="width: 100%; height: auto;" data-action="zoom">
+  <img src="/img/blog/server/old_inside.jpg" style="width: 100%; height: auto; display: none" data-action="zoom">
+  <noscript>
+    <a href="/img/blog/server/old_inside.jpg">
+      <img src="/img/blog/server/old_inside.jpg" style="width: 100%; height: auto;">
+    </a>
+  </noscript>
   
 </div>
 
@@ -215,7 +238,12 @@ my requirements:</p>
 
 <div style="column-count: 1; column-gap: 20px;">
   
-  <img src="/img/blog/server/new_model.png" style="width: 100%; height: auto;" data-action="zoom">
+  <img src="/img/blog/server/new_model.png" style="width: 100%; height: auto; display: none" data-action="zoom">
+  <noscript>
+    <a href="/img/blog/server/new_model.png">
+      <img src="/img/blog/server/new_model.png" style="width: 100%; height: auto;">
+    </a>
+  </noscript>
   
 </div>
 
@@ -259,13 +287,33 @@ away again. I feel proud every time I see it 😊</p>
 
 <div style="column-count: 4; column-gap: 20px;">
   
-  <img src="/img/blog/server/new_outside.jpg" style="width: 100%; height: auto;" data-action="zoom">
+  <img src="/img/blog/server/new_outside.jpg" style="width: 100%; height: auto; display: none" data-action="zoom">
+  <noscript>
+    <a href="/img/blog/server/new_outside.jpg">
+      <img src="/img/blog/server/new_outside.jpg" style="width: 100%; height: auto;">
+    </a>
+  </noscript>
   
-  <img src="/img/blog/server/new_top.jpg" style="width: 100%; height: auto;" data-action="zoom">
+  <img src="/img/blog/server/new_top.jpg" style="width: 100%; height: auto; display: none" data-action="zoom">
+  <noscript>
+    <a href="/img/blog/server/new_top.jpg">
+      <img src="/img/blog/server/new_top.jpg" style="width: 100%; height: auto;">
+    </a>
+  </noscript>
   
-  <img src="/img/blog/server/new_inside.jpeg" style="width: 100%; height: auto;" data-action="zoom">
+  <img src="/img/blog/server/new_inside.jpeg" style="width: 100%; height: auto; display: none" data-action="zoom">
+  <noscript>
+    <a href="/img/blog/server/new_inside.jpeg">
+      <img src="/img/blog/server/new_inside.jpeg" style="width: 100%; height: auto;">
+    </a>
+  </noscript>
   
-  <img src="/img/blog/server/new_ports.jpg" style="width: 100%; height: auto;" data-action="zoom">
+  <img src="/img/blog/server/new_ports.jpg" style="width: 100%; height: auto; display: none" data-action="zoom">
+  <noscript>
+    <a href="/img/blog/server/new_ports.jpg">
+      <img src="/img/blog/server/new_ports.jpg" style="width: 100%; height: auto;">
+    </a>
+  </noscript>
   
 </div>
 

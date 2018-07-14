@@ -30,7 +30,15 @@
   
   <link rel="shortcut icon" href="https://hjdskes.nl/img/favicon.ico"/>
 
-  <script src="/js/zoom-vanilla.js"></script>
+  <script type="text/javascript" src="/js/zoom-vanilla.js"></script>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+	images = document.querySelectorAll("img[data-action=\"zoom\"]");
+	images.forEach(function(image) {
+	    image.style.display = "block";
+	})
+    }, false);
+  </script>
 </head>
 
 <body>
@@ -80,9 +88,19 @@
 
 <div style="column-count: 2; column-gap: 20px;">
   
-  <img src="/img/projects/gcolor3/picker.png" style="width: 100%; height: auto;" data-action="zoom">
+  <img src="/img/projects/gcolor3/picker.png" style="width: 100%; height: auto; display: none" data-action="zoom">
+  <noscript>
+    <a href="/img/projects/gcolor3/picker.png">
+      <img src="/img/projects/gcolor3/picker.png" style="width: 100%; height: auto;">
+    </a>
+  </noscript>
   
-  <img src="/img/projects/gcolor3/saved.png" style="width: 100%; height: auto;" data-action="zoom">
+  <img src="/img/projects/gcolor3/saved.png" style="width: 100%; height: auto; display: none" data-action="zoom">
+  <noscript>
+    <a href="/img/projects/gcolor3/saved.png">
+      <img src="/img/projects/gcolor3/saved.png" style="width: 100%; height: auto;">
+    </a>
+  </noscript>
   
 </div>
 

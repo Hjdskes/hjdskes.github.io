@@ -113,8 +113,6 @@ nav ul {
     display: inline-flex;
     margin-top: 0em;
     margin-bottom: 1em;
-    margin-left: 0px;
-    margin-right: 0px;
 }
 nav ul li:first-child {
     margin-left: 0em;
@@ -162,7 +160,6 @@ article {
     text-align: center;
     margin-bottom: 1em;
     display: flex;
-    width: 100%;
     align-items: center;
     justify-content: center;
 }
@@ -170,7 +167,6 @@ article {
     max-width: 180px;
     padding-right: 1.5em;
 }
-
 .groupby {
     margin-top: 1em;
     margin-bottom: .2em;
@@ -181,6 +177,7 @@ article {
     color: #67767e;
     display: flex;
     padding-bottom: 1.4rem;
+    flex-wrap: wrap;
 }
 .posts {
     list-style: none;
@@ -265,6 +262,10 @@ pre {
     background-color: #fdf6e3;
     border: 1pt solid #93a1a1;
     box-shadow: 2pt 2pt 4pt #93a1a1;
+    white-space: pre;
+    word-break: break-all;
+    word-wrap: break-word;
+    overflow-x: auto;
 }
 pre code {
     background-color: #fdf6e3;
@@ -346,4 +347,33 @@ footer li {
 }
 .warning a:hover {
   color: #98190f;
+}
+
+@media screen and (max-width: 765px) {
+    p {
+	text-align: justify;
+    }
+    .banner {
+	display: block;
+    }
+    .logo {
+	padding-right: 0;
+    }
+    nav ul {
+	margin-top: 1em;
+	display: block;
+    }
+    nav ul li {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	margin-left: 0;
+	margin-right: 0;
+    }
+    #name {
+	display: none;
+    }
+    .page-heading h1 {
+	margin-top: 0em;
+	padding-top: 0em;
+    }
 }
