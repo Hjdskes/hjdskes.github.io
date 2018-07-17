@@ -158,25 +158,22 @@ article {
     flex-flow: row nowrap;
     align-items: baseline;
 }
-
-nav ul {
-    list-style: none;
+nav {
+    margin-bottom: 1em;
     text-align: center;
     display: inline-flex;
     margin-top: 0;
-    margin-bottom: 1em;
+    font-size: 1.2rem;
 }
-nav ul li:first-child {
+nav a:first-child {
     margin-left: 0;
 }
-nav ul li:last-child {
+nav a:last-child  {
     margin-right: 0;
 }
-nav ul li {
+nav a {
     margin-left: 0.3em;
     margin-right: 0.3em;
-}
-nav ul a {
     text-transform: uppercase;
 }
 footer ul {
@@ -306,11 +303,12 @@ footer li {
     .logo {
 	padding-right: 0;
     }
-    nav ul {
-	margin-top: 1em;
+    nav {
 	display: block;
+	margin-top: 1em;
     }
-    nav ul li {
+    nav a {
+	display: block;
 	margin: 0.5em 0;
     }
     #name {
