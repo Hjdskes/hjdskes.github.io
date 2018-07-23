@@ -176,18 +176,13 @@ nav a {
     margin-right: 0.3em;
     text-transform: uppercase;
 }
-footer ul {
+footer nav {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 2em;
     margin: 0;
     padding: 0;
-}
-footer li {
-    list-style: none;
-    display: inline-block;
-    margin: 0 5px;
 }
 
 .banner {
@@ -255,13 +250,19 @@ footer li {
 .social-icons a:hover {
     color: #81949e;
 }
+.icon {
+  height: 1em;
+  width: 1em;
+  stroke: currentColor;
+  fill: none;
+}
 #name {
     color: #213038;
 }
 #license-note {
     text-align: center;
     font-size: .9em;
-    padding-top: 3em;
+    padding-top: 1em;
 }
 .info,
 .warning {
@@ -306,10 +307,6 @@ footer li {
     nav {
 	display: block;
 	margin-top: 1em;
-    }
-    nav a {
-	display: block;
-	margin: 0.5em 0;
     }
     #name {
 	display: none;
