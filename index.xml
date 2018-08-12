@@ -254,7 +254,7 @@ The period between that of announcing the accepted student proposals and phase o
       
       <guid>https://hjdskes.nl/blog/update-deploying-hugo-on-personal-gh-pages/</guid>
       <description>In my previous post I explained the workflow I use to update this website. It has never been particularly stable, and the process seemed far more complicated than it needed to be.
-This week I attempted to update the theme of this website (sidenote: thanks Alexis Tacnet for your awesome theme and cooperation!). To pull in the theme&amp;rsquo;s files, I use git submodules. Apparently, this completely break git&amp;rsquo;s subtrees. I had enough of trying to maintain this complicated setup, so I started looking around for better ways.</description>
+This week I attempted to update the theme of this website. To pull in the theme&amp;rsquo;s files, I use git submodules. Apparently, this completely break git&amp;rsquo;s subtrees. I had enough of trying to maintain this complicated setup, so I started looking around for better ways.</description>
     </item>
     
     <item>

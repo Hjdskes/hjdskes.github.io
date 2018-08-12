@@ -173,7 +173,7 @@ all well and good, if not for one problem (don&rsquo;t we love solving problems!
 there is no readily made GTK+ widget that allows us to do all this.</p>
 
 <p>Because the design is similar to GNOME&rsquo;s Wacom settings, the first step was to
-<a href="https://github.com/GNOME/gnome-control-center/blob/master/panels/wacom/wacom-stylus-page.ui#L115">check how they do it</a>: a <a href="https://developer.gnome.org/gtk3/stable/GtkGrid.html">GtkGrid</a>. This works
+<a href="https://github.com/GNOME/gnome-control-center/blob/510dc167779c0a02d4b6b06da56875ae0ae26efa/panels/wacom/wacom-stylus-page.ui#L117">check how they do it</a>: a <a href="https://developer.gnome.org/gtk3/stable/GtkGrid.html">GtkGrid</a>. This works
 for them because they have to display only a single stylus, with a static amount
 of buttons. For Piper, however, we need to display a range of devices that all
 have a different amount of buttons. Queue our problem again: there is no such
