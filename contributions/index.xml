@@ -130,7 +130,7 @@ Until the patches are merged (if ever), you can find them in my fork on GitHub.<
       <pubDate>Mon, 02 Feb 2015 19:36:38 +0100</pubDate>
       
       <guid>https://hjdskes.nl/contributions/eog/</guid>
-      <description>I implemented a GtkHeaderBar in Eye of GNOME. You can review all the patches here, or view the relevant bug reports here and here.</description>
+      <description>I implemented a GtkHeaderBar in Eye of GNOME. You can review all the patches here (GitHub mirror link until GitLab can filter commits per author), or view the relevant bug reports here and here.</description>
     </item>
     
     <item>
