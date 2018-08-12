@@ -137,6 +137,6 @@ profile support. I expect to spend more time than usual on architecture for
 that, while the code should then be relatively simpler. Let's see how I'll
 manage to thread this out through the existing codebase!
 
-This blog post is part of a [series](/series/gsoc/). You can read the next part about
+This blog post is part of a [series](/series/google-summer-of-code/). You can read the next part about
 implementing profile support and the welcome screen [here](/blog/gsoc-part-11)
 or the previous part about the button page [here](/blog/gsoc-part-9).

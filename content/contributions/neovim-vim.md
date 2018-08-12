@@ -8,7 +8,7 @@ and contribute to an existing open source project. The group I was part of chose
 Neovim as our project. The result of this analysis is a
 [chapter](https://delftswa.gitbooks.io/desosa-2017/content/neovim/chapter.html)
 in the book [Delft Students on Software Architecture:
-2017](https://www.gitbook.com/book/delftswa/desosa-2017/details).
+2017](https://delftswa.gitbooks.io/desosa-2017/content/).
 
 Our contributions resulted in several small fixes to both Neovim and Vim:
 

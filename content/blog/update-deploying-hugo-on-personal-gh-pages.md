@@ -10,12 +10,12 @@ In my [previous post](/blog/deploying-hugo-on-personal-gh-pages) I explained the
 workflow I use to update this website. It has never been particularly stable,
 and the process seemed far more complicated than it needed to be.
 
-This week I attempted to update the theme of this website (sidenote: thanks
-[Alexis Tacnet](https://github.com/fuegowolf) for your awesome theme and
-cooperation!). To pull in the theme's files, I use [git
+This week I attempted to update the theme of this website. To pull in
+the theme's files, I use [git
 submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules). Apparently,
-this completely break git's subtrees. I had enough of trying to maintain
-this complicated setup, so I started looking around for better ways.
+this completely break git's subtrees. I had enough of trying to
+maintain this complicated setup, so I started looking around for
+better ways.
 
 Fortunately, Hugo's "Hosting on GitHub" tutorial has been updated to include
 instructions on [deploying via a `gh-pages`

@@ -9,7 +9,7 @@ series = "Google Summer of Code"
 
 ![GSoC logo horizontal](/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg)
 
-This is the last entry in the Google Summer of Code [series](/series/gsoc/) that
+This is the last entry in the Google Summer of Code [series](/series/google-summer-of-code/) that
 I have been writing weekly for the last three months. It is different from the
 usual updates in that I won't be discussing development progress: rather, this
 will be the submission report for the project as a whole. I'll be discussing the
@@ -575,5 +575,6 @@ organisation for having us under their umbrella and the GNOME design and Gtk+
 teams for their openness and advice. Finally, thank you Google for hosting the
 summer of code!
 
-This blog post the end of a [series](/series/gsoc/). You can read the previous
+This blog post marks the end of a
+[series](/series/google-summer-of-code/). You can read the previous
 part about the final changes [here](/blog/gsoc-part-14).

@@ -631,7 +631,7 @@ is a realistic goal, because so much has changed from the current design.
 However, considering that the MouseMap is almost done, I can definitely get a
 long way before this sprint is over!
 
-This blog post is part of a [series](/series/gsoc/). You can read the next part
+This blog post is part of a [series](/series/google-summer-of-code/). You can read the next part
 [here](/blog/gsoc-part-5) or the previous part about
 designing and making the mockups [here][previous].
 
@@ -641,7 +641,7 @@ designing and making the mockups [here][previous].
 [merge]: https://github.com/libratbag/libratbag/issues/179
 [toned-down-svgs]: https://github.com/libratbag/libratbag/pull/182
 [wiki]: https://github.com/libratbag/piper/wiki/Piper-Redesign
-[gnome-control-center]: https://github.com/GNOME/gnome-control-center/blob/master/panels/wacom/wacom-stylus-page.ui#L115
+[gnome-control-center]: https://github.com/GNOME/gnome-control-center/blob/510dc167779c0a02d4b6b06da56875ae0ae26efa/panels/wacom/wacom-stylus-page.ui#L117
 [gtkgrid]: https://developer.gnome.org/gtk3/stable/GtkGrid.html
 [next-section]: /blog/gsoc-part-4#importing-ratbagd-s-bindings
 [gtkcontainer]: https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Container.html

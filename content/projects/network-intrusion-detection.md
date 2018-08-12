@@ -4,8 +4,8 @@ title = "Network intrusion detection/prevention system: Advanced Network Securit
 +++
 
 For the course [ET4307IN Advanced Network
-Security](http://networksecuritycourse.nl) I had to develop an intrusion
-detection/prevention system. This system does the following:
+Security](https://networksecuritycourse.nl) I had to develop an
+intrusion detection/prevention system. This system does the following:
 
 * capture live data from the NIC and save data to / read data from a pcap file.
 * capture and parse DNS packets according to RFC1035, with (as required) a

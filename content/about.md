@@ -12,8 +12,9 @@ interested in operating systems, distributed systems and programming
 languages.  I am currently working on my MSc thesis at the
 [Programming Languages group of the TU
 Delft](https://www.tudelft.nl/en/eemcs/the-faculty/departments/software-technology/programming-languages/)
-under the supervision of [Dr.  S.T. Erdweg](www.erdweg.org) and [Sven
-Keidel](https://svenkeidel.de). I live in Rotterdam, The Netherlands.
+under the supervision of [Dr.  S.T. Erdweg](http://www.erdweg.org) and
+[Sven Keidel](https://svenkeidel.de). I live in Rotterdam, The
+Netherlands.
 
 A great passion of mine is free and open-source software, to which I contribute
 in several ways. I have been using Linux for over ten years and participate in
@@ -24,7 +25,7 @@ Crunchbang Linux project
 [ended](http://crunchbang.org/forums/viewtopic.php?id=38916), I played a role in
 [forming](http://crunchbang.org/forums/viewtopic.php?id=39049) the [BunsenLabs
 community continuation](https://www.bunsenlabs.org/). In 2017, I participated in
-Google's Summer of Code. I have written a [series of blog posts](/series/gsoc/)
+Google's Summer of Code. I have written a [series of blog posts](/series/google-summer-of-code/)
 about my summer.
 
 I also maintain several open-source applications [myself](/projects/) and

@@ -70,10 +70,10 @@ have ported Piper and opened [#6][issue6] to get this implemented. This is the
 first activity in Piper's repository since April 6 last year, so I guess it
 officially starts GSoC for Piper!
 
-This blog post is part of a [series](/series/gsoc/). You can read the next part about the mockups
+This blog post is part of a [series](/series/google-summer-of-code/). You can read the next part about the mockups
 [here](/blog/gsoc-part-3) or the introductory, previous part [here](/blog/gsoc-part-1).
 
-[bonding]: https://googlesummerofcode.blogspot.nl/2007/04/so-what-is-this-community-bonding-all.html)
+[bonding]: https://googlesummerofcode.blogspot.nl/2007/04/so-what-is-this-community-bonding-all.html
 [libratbag]: https://github.com/libratbag
 [planet.fdo]: https://planet.freedesktop.org/
 [ratbag]: https://github.com/libratbag/ratbagd

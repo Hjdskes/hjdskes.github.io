@@ -322,7 +322,7 @@ Your browser does not support the video tag.
 Next week I will attempt to implement the resolutions and begin with the
 buttons!
 
-This blog post is part of a [series](/series/gsoc/). You can read the next part about the
+This blog post is part of a [series](/series/google-summer-of-code/). You can read the next part about the
 resolutions stack page [here](/blog/gsoc-part-7) or the previous part
 [here](/blog/gsoc-part-5).
 

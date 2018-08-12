@@ -244,7 +244,7 @@ That was it for this week! You can find the complete resolutions page PR
 [here][resolution-pr].  Hopefully it will be merged early next week, so that I
 can start on the next page.
 
-This blog post is part of a [series](/series/gsoc/). You can read the next part about the LED
+This blog post is part of a [series](/series/google-summer-of-code/). You can read the next part about the LED
 stack page [here](/blog/gsoc-part-8) or the previous part
 [here](/blog/gsoc-part-6).
 
