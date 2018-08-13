@@ -18,22 +18,11 @@
   <title> Jente Hidskes&#39; website - GSoC part 3: mockups, mockups, mockups! </title>
 
   <link rel="canonical" href="https://hjdskes.nl/blog/gsoc-part-3/"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito|Quicksand|Roboto+Mono"/>
-  <link rel="stylesheet" type="text/css" href="/css/stylesheet.css"/>
-  <link rel="stylesheet" type="text/css" href="/css/syntax.css"/>
-  <link rel="stylesheet" type="text/css" href="/css/zoom.css"/>
   
   <link rel="shortcut icon" href="https://hjdskes.nl/img/favicon.ico"/>
 
-  <script defer type="text/javascript" src="/js/zoom-vanilla.js"></script>
-  <script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', function() {
-	images = document.querySelectorAll("img[data-action=\"zoom\"]");
-	images.forEach(function(image) {
-	    image.style.display = "block";
-	})
-    }, false);
-  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito|Quicksand|Roboto+Mono"/>
+  <link rel="stylesheet" type="text/css" href="/css/stylesheet.css"/>
 </head>
 
 <body>
@@ -171,6 +160,18 @@ community bonding period <a href="/blog/gsoc-part-2">here</a>.</p>
     </div>
   </footer>
 </div>
+
+<link rel="stylesheet" type="text/css" href="/css/syntax.css"/>
+<link rel="stylesheet" type="text/css" href="/css/zoom.css"/>
+<script type="text/javascript" src="/js/zoom-vanilla.js"></script>
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    images = document.querySelectorAll("img[data-action=\"zoom\"]");
+    images.forEach(function(image) {
+      image.style.display = "block";
+    })
+  }, false);
+</script>
 
 </body>
 </html>
