@@ -13,6 +13,16 @@
     
     
     <item>
+      <title>Gcolor3 version 2.3 is out!</title>
+      <link>https://hjdskes.nl/blog/gcolor3-2.3/</link>
+      <pubDate>Mon, 27 Aug 2018 00:00:21 +0200</pubDate>
+      
+      <guid>https://hjdskes.nl/blog/gcolor3-2.3/</guid>
+      <description>Finally, after a long period of sporadic commits, I released Gcolor3 version 2.3 out into the wild!
+          This release was two years in the making (two years and twelve days, to be precise). It features 67 commits, resulting in a redesigned saved colors page, a redesigned headerbar and loads of under-the-hood changes. In this post, I want to go into a little more detail on the development and what led up to Gcolor 2.</description>
+    </item>
+    
+    <item>
       <title>Managing my passwords with pass</title>
       <link>https://hjdskes.nl/blog/pass/</link>
       <pubDate>Wed, 04 Jul 2018 20:47:00 +0200</pubDate>

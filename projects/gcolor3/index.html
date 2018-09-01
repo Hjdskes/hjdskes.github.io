@@ -67,7 +67,7 @@
   
 
 
-<div style="column-count: 2; column-gap: 20px;">
+<div style="column-count: 3; column-gap: 20px;">
   
   <img src="/img/projects/gcolor3/picker.png" style="width: 100%; height: auto; display: none" data-action="zoom">
   <noscript>
@@ -80,6 +80,13 @@
   <noscript>
     <a href="/img/projects/gcolor3/saved.png">
       <img src="/img/projects/gcolor3/saved.png" style="width: 100%; height: auto;">
+    </a>
+  </noscript>
+  
+  <img src="/img/projects/gcolor3/empty.png" style="width: 100%; height: auto; display: none" data-action="zoom">
+  <noscript>
+    <a href="/img/projects/gcolor3/empty.png">
+      <img src="/img/projects/gcolor3/empty.png" style="width: 100%; height: auto;">
     </a>
   </noscript>
   
@@ -107,18 +114,19 @@ other modernisations to better integrate into your modern desktop.</p>
 
 <h3 id="installation">Installation</h3>
 
-<p>There are two ways to install Gcolor3: you can either compile it <a href="#compile-from-source">from
-source</a> or use a <a href="#distribution-packages">package</a> created
-for your Linux distribution.</p>
+<p>There are three ways to install Gcolor3: you can either compile it <a href="#compile-from-source">from
+source</a>, use a <a href="#distribution-packages">package</a> created
+for your Linux distribution, or use the <a href="#flatpak">Flatpak</a>.</p>
 
-<p>The most recent version of Gcolor3 requires GTK+ 3.16. If your Linux
-distribution uses an older version, please see the <a href="https://github.com/Hjdskes/gcolor3/releases">older
+<p>The most recent version of Gcolor3 is <a href="https://github.com/Hjdskes/gcolor3/releases/latest">version
+2.3</a>, which
+requires GTK+ 3.20. If your Linux distribution uses an older version,
+please see the <a href="https://github.com/Hjdskes/gcolor3/releases">older
 releases</a>.</p>
 
 <h4 id="distribution-packages">Distribution packages</h4>
 
-<p>Gcolor3 is packaged for some Linux distributions. This should be your preferred
-method of installation, if your Linux distribution is listed below:</p>
+<p>Gcolor3 is packaged for some Linux distributions:</p>
 
 <ul>
 <li><p><strong>Arch Linux:</strong> There are AUR packages for the <a href="https://aur.archlinux.org/packages/gcolor3/">latest stable
@@ -126,10 +134,16 @@ release</a> and for the <a href="https://aur.archlinux.org/packages/gcolor3-git/
 version</a>.</p></li>
 
 <li><p><strong>Fedora:</strong> There is a <a href="https://copr.fedorainfracloud.org/coprs/fnux/gcolor3/">copr
-repository</a> to install
-Gcolor3. Please see the instructions there.</p></li>
+repository</a>
+to install Gcolor3. Please see the instructions there.</p></li>
 
-<li><p><strong>openSUSE:</strong> There is an <a href="https://build.opensuse.org/package/show/home:sogal/gcolor3">openSUSE package</a> available.</p></li>
+<li><p><strong>openSUSE:</strong> There is an <a href="https://build.opensuse.org/package/show/home:sogal/gcolor3">openSUSE
+package</a>
+available.</p></li>
+
+<li><p><strong>Ubuntu:</strong> There is a
+<a href="https://launchpad.net/~evertiro/+archive/ubuntu/gcolor3">PPA</a>
+available.</p></li>
 </ul>
 
 <h4 id="compile-from-source">Compile from source</h4>
@@ -137,23 +151,27 @@ Gcolor3. Please see the instructions there.</p></li>
 <p>To compile Gcolor3, you need the GTK+ 3 development packages and your
 Linux distribution&rsquo;s package containing the tools to compile packages.</p>
 
-<p>When the build- and runtime dependencies of Gcolor3 have been installed, run the
-following commands to build and install Gcolor3:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ ./autogen.sh
-$ make
-# make clean install</code></pre></div>
+<p>You can download the tarball from the <a href="https://github.com/Hjdskes/gcolor3/releases/latest">current stable
+release</a>, or pull
+the latest changes from <a href="https://github.com/Hjdskes/gcolor3">git</a>.</p>
+
+<p>When the build- and runtime dependencies of Gcolor3
+have been installed, run the following commands to build and install
+Gcolor3:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ meson build
+$ ninja -C build
+# ninja -C build install</code></pre></div>
 <p>Optionally, the development packages can now be uninstalled.</p>
 
 <h3 id="translations">Translations</h3>
 
 <p>You can help translating Gcolor3 to your own language! Currently, Gcolor3 is
-available in Dutch, American and British English, French, Galician, German,
-Greek, Norwegian Bokmål, Serbian, Swedish and Ukrainian.</p>
+available in over 10 languages.</p>
 
 <p>New translations are always welcome! To do so, simply follow these steps:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ <span class="nb">cd</span> po
-$ intltool-update --pot
-$ mv Gcolor3.pot xx.po</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ meson build
+$ ninja -C build gcolor3-pot
+$ mv po/Gcolor3.pot po/xx.po</code></pre></div>
 <p>Where <code>xx</code> is the code of your language (e.g. <code>nl</code> for Dutch or <code>en_GB</code> for
 British English). Edit the
 <a href="https://github.com/Hjdskes/gcolor3/blob/master/po/LINGUAS">LINGUAS</a> file and add
@@ -162,9 +180,8 @@ the <code>.po</code> file you just generated and translate all the strings. Don&
 fill in the information in the header!</p>
 
 <p>When a translation needs updating, execute the following commands:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ <span class="nb">cd</span> po
-$ intltool-update --pot
-$ intltool-update --dist --gettext-package<span class="o">=</span>Gcolor3 --output-file<span class="o">=</span>xx.po xx</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ meson build
+$ ninja -C build gcolor3-update-po</code></pre></div>
 <p>When you are done translating, either make a pull request on GitHub or send me
 the file via <a href="mailto:hjdskes@gmail.com">email</a>.</p>
 

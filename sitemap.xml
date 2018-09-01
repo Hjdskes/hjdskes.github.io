@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://hjdskes.nl/blog/gcolor3-2.3/</loc>
+    <lastmod>2018-08-27T00:00:21+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.nl/blog/</loc>
     <lastmod>2018-07-09T21:47:00+02:00</lastmod>
   </url>
@@ -340,7 +345,7 @@
   
   <url>
     <loc>https://hjdskes.nl/categories/development/</loc>
-    <lastmod>2017-08-23T16:19:04+02:00</lastmod>
+    <lastmod>2018-08-27T00:00:21+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -364,13 +369,19 @@
   
   <url>
     <loc>https://hjdskes.nl/tags/flatpak/</loc>
-    <lastmod>2017-05-19T16:01:04+02:00</lastmod>
+    <lastmod>2018-08-27T00:00:21+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hjdskes.nl/tags/gaming-mice/</loc>
     <lastmod>2017-05-05T15:44:04+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.nl/tags/gcolor3/</loc>
+    <lastmod>2018-08-27T00:00:21+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -401,6 +412,12 @@
   <url>
     <loc>https://hjdskes.nl/tags/gtk/</loc>
     <lastmod>2017-06-16T20:47:56+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.nl/tags/gtk&#43;/</loc>
+    <lastmod>2018-08-27T00:00:21+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -507,6 +524,12 @@
   </url>
   
   <url>
+    <loc>https://hjdskes.nl/categories/projects/</loc>
+    <lastmod>2018-08-27T00:00:21+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.nl/tags/property/</loc>
     <lastmod>2017-08-23T13:01:32+02:00</lastmod>
     <priority>0</priority>
@@ -555,14 +578,14 @@
   </url>
   
   <url>
-    <loc>https://hjdskes.nl/tags/server/</loc>
-    <lastmod>2018-05-01T20:30:41+01:00</lastmod>
+    <loc>https://hjdskes.nl/categories/server/</loc>
+    <lastmod>2018-07-04T20:47:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://hjdskes.nl/categories/server/</loc>
-    <lastmod>2018-07-04T20:47:00+02:00</lastmod>
+    <loc>https://hjdskes.nl/tags/server/</loc>
+    <lastmod>2018-05-01T20:30:41+01:00</lastmod>
     <priority>0</priority>
   </url>
   
