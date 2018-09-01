@@ -34,6 +34,12 @@ requires GTK+ 3.20. If your Linux distribution uses an older version,
 please see the [older
 releases](https://github.com/Hjdskes/gcolor3/releases).
 
+#### Flatpak
+
+Gcolor3 is available from [Flathub](https://flathub.org/home).
+
+<button type="button"><a href="https://flathub.org/repo/appstream/nl.hjdskes.Gcolor3.flatpakref">Install</a></button>
+
 #### Distribution packages
 
 Gcolor3 is packaged for some Linux distributions:
