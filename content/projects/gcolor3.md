@@ -36,9 +36,9 @@ releases](https://github.com/Hjdskes/gcolor3/releases).
 
 #### Flatpak
 
-Gcolor3 is available from [Flathub](https://flathub.org/home).
+Gcolor3 is available from [Flathub](https://flathub.org/apps/details/nl.hjdskes.gcolor3).
 
-<button type="button"><a href="https://flathub.org/repo/appstream/nl.hjdskes.Gcolor3.flatpakref">Install</a></button>
+<button type="button"><a href="https://flathub.org/repo/appstream/nl.hjdskes.gcolor3.flatpakref">Install</a></button>
 
 #### Distribution packages
 
