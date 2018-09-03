@@ -9,9 +9,9 @@ categories = ["Development","Projects"]
 Finally, after a long period of sporadic commits, I released Gcolor3
 version 2.3 out into the wild!
 
-{{< gallery "/img/projects/gcolor3/picker.png"
-            "/img/projects/gcolor3/saved.png"
-            "/img/projects/gcolor3/empty.png" >}}
+{{< gallery "/img/blog/gcolor3-v2.3/picker.png"
+            "/img/blog/gcolor3-v2.3/saved.png"
+            "/img/blog/gcolor3-v2.3/empty.png" >}}
 
 This release was two years in the making (two years and twelve days,
 to be precise). It features 67 commits, resulting in a redesigned
