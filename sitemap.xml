@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://hjdskes.nl/blog/gcolor3-gitlab/</loc>
+    <lastmod>2018-09-02T00:00:21+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.nl/blog/gcolor3-2.3/</loc>
     <lastmod>2018-08-27T00:00:21+02:00</lastmod>
   </url>
@@ -345,7 +350,7 @@
   
   <url>
     <loc>https://hjdskes.nl/categories/development/</loc>
-    <lastmod>2018-08-27T00:00:21+02:00</lastmod>
+    <lastmod>2018-09-02T00:00:21+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -381,7 +386,7 @@
   
   <url>
     <loc>https://hjdskes.nl/tags/gcolor3/</loc>
-    <lastmod>2018-08-27T00:00:21+02:00</lastmod>
+    <lastmod>2018-09-02T00:00:21+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -394,6 +399,18 @@
   <url>
     <loc>https://hjdskes.nl/tags/github-pages/</loc>
     <lastmod>2018-05-02T11:41:05+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.nl/tags/gitlab/</loc>
+    <lastmod>2018-09-02T00:00:21+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.nl/tags/gnome/</loc>
+    <lastmod>2018-09-02T00:00:21+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -525,7 +542,7 @@
   
   <url>
     <loc>https://hjdskes.nl/categories/projects/</loc>
-    <lastmod>2018-08-27T00:00:21+02:00</lastmod>
+    <lastmod>2018-09-02T00:00:21+02:00</lastmod>
     <priority>0</priority>
   </url>
   
