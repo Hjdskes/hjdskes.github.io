@@ -139,6 +139,9 @@ sub {
 ul {
     padding-left: 0;
 }
+ul ul {
+    padding-left: 1em;
+}
 svg:not(:root) {
     overflow: hidden;
 }
