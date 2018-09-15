@@ -41,12 +41,25 @@ releases](https://gitlab.gnome.org/World/gcolor3/tags).
 
 #### Flatpak
 
-Gcolor3 is available from
-[Flathub](https://flathub.org/apps/details/nl.hjdskes.gcolor3).
+{{% flathub title="Install Gcolor3 Flatpak" appstream-id="nl.hjdskes.gcolor3"%}}Install Gcolor3 from Flathub{{% /flathub %}}
 
-<button type="button">
-  <a href="https://flathub.org/repo/appstream/nl.hjdskes.gcolor3.flatpakref">Install</a>
-</button>
+To be able to install apps from Flathub you need to add the Flathub remote server:
+
+```
+$ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+```
+
+Now you can install Gcolor3 with the following command:
+
+```
+$ flatpak install flathub nl.hjdskes.gcolor3
+```
+
+To run Gcolor3, use:
+
+```
+$ flatpak run nl.hjdskes.gcolor3
+```
 
 #### Distribution packages
 
