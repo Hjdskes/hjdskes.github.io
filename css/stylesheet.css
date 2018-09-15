@@ -184,6 +184,38 @@ footer nav {
     margin: 0;
     padding: 0;
 }
+kbd {
+    background-color:#f7f7f7;
+    border:1px solid #ccc;
+    border-radius:3px;
+    box-shadow:0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
+    color:#333;
+    display:inline-block;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:11px;
+    line-height:1.4;
+    margin:0 .1em;
+    padding:.1em .6em;
+    text-shadow:0 1px 0 #fff;
+}
+button:hover {
+    background: #429946;
+    transition: 250ms opacity;
+}
+button {
+    border-radius: 3px;
+    color: #fff;
+    display: inline-block;
+    position: relative;
+    padding: .5rem 1rem .5rem 2.5rem;
+    margin: 1rem 0;
+    line-height: 1.5rem;
+
+    background-image: linear-gradient(#4CAF50, #429946);
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
 
 .banner {
     font-family: 'Quicksand', sans-serif;
@@ -292,6 +324,22 @@ footer nav {
 }
 .warning a:hover {
   color: #98190f;
+}
+.Flathub-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    left: .5rem;
+    top: 50%;
+    margin-top: -.75rem;
+    color: #fff;
+    fill: currentColor;
+}
+.Flathub-content {
+    display: inline-block;
+    border-left: 1px solid rgba(0,0,0,0.25);
+    padding-left: .5rem;
+    color: #fff;
 }
 
 @media screen and (max-width: 765px) {

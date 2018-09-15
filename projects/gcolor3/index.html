@@ -130,12 +130,31 @@ releases</a>.</p>
 
 <h4 id="flatpak">Flatpak</h4>
 
-<p>Gcolor3 is available from
-<a href="https://flathub.org/apps/details/nl.hjdskes.gcolor3">Flathub</a>.</p>
+<button type="button">
+  <a  title="Install Gcolor3 Flatpak"  href="https://flathub.org/repo/appstream/nl.hjdskes.gcolor3.flatpakref">
+    
+    <svg class="Flathub-icon" viewBox="0 0 448 512" width="100%" height="100%">
+      <path d="M352 128C352 57.42 294.579 0 224 0 153.42 0 96 57.42 96 128H0v304c0 44.183 35.817 80 80 80h288c44.183 0 80-35.817 80-80V128h-96zM224 48c44.112 0 80 35.888 80 80H144c0-44.112 35.888-80 80-80zm176 384c0 17.645-14.355 32-32 32H80c-17.645 0-32-14.355-32-32V176h48v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h160v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h48v256z"></path>
+    </svg>
+    <span class="Flathub-content">Install Gcolor3 from Flathub</span>
+  </a>
+</button>
 
-<p><button type="button">
-  <a href="https://flathub.org/repo/appstream/nl.hjdskes.gcolor3.flatpakref">Install</a>
-</button></p>
+
+<p>To be able to install apps from Flathub you need to add the Flathub remote server:</p>
+
+<pre><code>$ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+</code></pre>
+
+<p>Now you can install Gcolor3 with the following command:</p>
+
+<pre><code>$ flatpak install flathub nl.hjdskes.gcolor3
+</code></pre>
+
+<p>To run Gcolor3, use:</p>
+
+<pre><code>$ flatpak run nl.hjdskes.gcolor3
+</code></pre>
 
 <h4 id="distribution-packages">Distribution packages</h4>
 
