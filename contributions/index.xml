@@ -94,7 +94,7 @@ Our contributions resulted in several small fixes to both Neovim and Vim:
       
       <guid>https://hjdskes.nl/contributions/gnome-screenshot/</guid>
       <description>I wrote some as of yet unmerged patches and opened some outstanding bug reports to GNOME Screenshot. You can review them here and here.
-Until the patches are merged (if ever), you can find them in my fork on GitHub.</description>
+Last week (september 22, 2018), I was cleaning up old GitHub repositories and came across these patches again. In an attempt to upstream them once more, I found that most of these fixes had already found their way into GNOME screenshot, except one. I opened a merge request for that patch, which was accepted after a small change.</description>
     </item>
     
     <item>
