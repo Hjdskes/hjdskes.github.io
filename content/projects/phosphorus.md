@@ -1,6 +1,7 @@
 +++
 date = "2013-11-15T21:40:00+01:00"
 title = "Phosphorus: a wallpaper browser and setter in the spirit of Nitrogen"
+type = "Unmaintained"
 +++
 
 [Phosphorus](https://github.com/Hjdskes/phosphorus) is a wallpaper browser and

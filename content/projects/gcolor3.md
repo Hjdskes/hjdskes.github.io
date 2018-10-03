@@ -1,6 +1,7 @@
 +++
 date = "2013-02-24T17:31:00+01:00"
 title = "Gcolor3: a color selection dialog written in GTK+ 3"
+type = "Active"
 +++
 
 {{< gallery "/img/projects/gcolor3/picker.png"

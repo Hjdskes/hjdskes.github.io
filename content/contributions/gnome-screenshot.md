@@ -1,6 +1,7 @@
 +++
 date = "2015-12-09T23:53:00+01:00"
 title = "Some as of yet unmerged patches for GNOME Screenshot"
+highlight = false
 +++
 
 I wrote some as of yet unmerged patches and opened some outstanding bug reports

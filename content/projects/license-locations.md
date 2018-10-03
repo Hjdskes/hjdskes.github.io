@@ -1,6 +1,7 @@
 +++
 date = "2017-02-21T00:47:00+01:00"
 title = "License locations: proof of concept code for a draft research paper"
+type = "University"
 +++
 
 For the course [IN4252 Web Science &

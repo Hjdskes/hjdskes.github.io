@@ -1,6 +1,7 @@
 +++
 date = "2017-05-28T00:47:00+01:00"
 title = "Network intrusion detection/prevention system: Advanced Network Security course project"
+type = "University"
 +++
 
 For the course [ET4307IN Advanced Network

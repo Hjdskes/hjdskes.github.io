@@ -1,6 +1,7 @@
 +++
 date = "2016-06-29T17:23:00+01:00"
 title = "Spoofax Shell: my thesis project to create a REPL for Spoofax"
+type = "University"
 +++
 
 [Spoofax Shell](https://github.com/spoofax-shell-2016) is my thesis

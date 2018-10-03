@@ -1,6 +1,7 @@
 +++
 date = "2017-03-23T01:55:50+01:00"
 title = "Google Summer of Code proposal contributions"
+highlight = false
 +++
 
 The application process of Google Summer of Code requires students to make a

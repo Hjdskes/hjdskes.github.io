@@ -1,6 +1,7 @@
 +++
 date = "2012-06-30T00:22:00+01:00"
 title = "Powersave: aggressive power saving on a Linux system"
+type = "Active"
 +++
 
 [Powersave](https://github.com/Hjdskes/powersave) is a combination of scripts,

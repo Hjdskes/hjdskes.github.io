@@ -1,6 +1,7 @@
 +++
 date = "2017-12-11T00:47:00+01:00"
 title = "Quadrupel: an embedded software project to stabilize a drone"
+type = "University"
 +++
 
 For the course [IN4073 Embedded Real-Time

@@ -1,6 +1,7 @@
 +++
 date = "2017-02-20T23:18:00+01:00"
 title = "Small fixes to Neovim and Vim"
+highlight = false
 +++
 
 For the course [Software Architecture](http://studiegids.tudelft.nl/a101_displayCourse.do?course_id=38330&_NotifyTextSearch_) at the TU Delft we were required to analyse

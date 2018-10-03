@@ -1,6 +1,7 @@
 +++
 date = "2015-02-02T19:36:38+01:00"
 title = "Implement a GtkHeaderBar in Eye of GNOME"
+highlight = true
 +++
 
 I implemented a

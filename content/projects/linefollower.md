@@ -1,6 +1,7 @@
 +++
 date = "2015-01-25T21:27:00+01:00"
 title = "Line Follower: an embedded software course project"
+type = "University"
 +++
 
 [Line Follower](https://github.com/Hjdskes/TI2726-B) is an embedded software

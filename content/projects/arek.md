@@ -1,6 +1,7 @@
 +++
 date = "2015-03-21T21:29:00+01:00"
 title = "Arek Window Manager: a Mutter-based tiling window manager"
+type = "Unmaintained"
 +++
 
 [Arek Window Manager](https://github.com/Hjdskes/arek-wm) is a plugin to
