@@ -28,10 +28,13 @@ community continuation](https://www.bunsenlabs.org/). In 2017, I participated in
 Google's Summer of Code. I have written a [series of blog posts](/series/google-summer-of-code/)
 about my summer.
 
-I also maintain several open-source applications [myself](/projects/) and
-contribute patches to [other](/contributions/) open-source projects. Also see my
-[GitHub](https://github.com/Hjdskes) page and my [GitHub
+I also maintain several open-source applications [myself](/projects/)
+and contribute patches to [other](/contributions/) open-source
+projects. Also see my <a href="https://github.com/Hjdskes"
+title="Hjdskes on GitHub" rel=me>GitHub</a> page and my [GitHub
 resumé](https://resume.github.io/?Hjdskes).
 
 If you wish to know more, please feel free to contact me via
-[email](mailto:hjdskes@gmail.com).
+[email](mailto:hjdskes@gmail.com) or <a
+href="https://twitter.com/Hjdskes" title="Hjdskes on Twitter"
+rel=me>Twitter</a>.
