@@ -18,7 +18,7 @@ series = "series"
 [params]
 dateform = "Jan 2, 2006"
 description = "Jente Hidskes' website"
-logofile = "img/avatar.png"
+logofile = "img/avatar.svg"
 latestpostcount = 5
 github = "Hjdskes"
 twitter = "Hjdskes"
