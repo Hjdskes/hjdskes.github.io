@@ -13,6 +13,16 @@
     
     
     <item>
+      <title>MSc thesis: Abstract Interpretation of Program Transformations using Regular Tree Grammars</title>
+      <link>https://hjdskes.nl/projects/msc/</link>
+      <pubDate>Fri, 02 Nov 2018 11:00:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.nl/projects/msc/</guid>
+      <description>I completed my MSc thesis at the Programming Languages group of the TU Delft under the supervision of Dr. S.T. Erdweg and Sven Keidel.
+Program transformations translate code of an input language to code of an output language. Examples of program transformations are desugarings, optimizations and refactorings. Developers of program transformations need to ensure correctness of their programs. For example, for a desugaring we would want to know whether all sugar constructs have been removed after the transformation.</description>
+    </item>
+    
+    <item>
       <title>Gcolor3 has moved to GNOME&#39;s GitLab!</title>
       <link>https://hjdskes.nl/blog/gcolor3-gitlab/</link>
       <pubDate>Sun, 02 Sep 2018 00:00:21 +0200</pubDate>
@@ -87,7 +97,7 @@ As a result of my Google Summer of Code, I am now the maintainer of Piper. I als
       <pubDate>Sat, 09 Sep 2017 14:29:09 +0200</pubDate>
       
       <guid>https://hjdskes.nl/about/</guid>
-      <description>I am a master student in Computer Science at the Delft University of Technology. In the third year of my bachelor (Computer Science at the Delft University of Technology), I have studied in Stockholm, Sweden for six months at the KTH Royal Institute of Technology. In the field of Computer Science, my interests are broad. Mainly, however, I am interested in operating systems, distributed systems and programming languages. I am currently working on my MSc thesis at the Programming Languages group of the TU Delft under the supervision of Dr.</description>
+      <description>I am a Master of Science (ir., see Wikipedia) in Computer Science. I completed both my bachelor and master in Computer Science at the Delft University of Technology. In the last year of my bachelor, I studied at the KTH Royal Institute of Technology in Stockholm, Sweden for six months. In the field of Computer Science, my interests are broad. Mainly, however, I am interested in operating systems and programming languages.</description>
     </item>
     
     <item>

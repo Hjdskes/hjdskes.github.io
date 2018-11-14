@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://hjdskes.nl/projects/msc/</loc>
+    <lastmod>2018-11-02T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.nl/blog/gcolor3-gitlab/</loc>
     <lastmod>2018-09-02T00:00:21+02:00</lastmod>
   </url>
@@ -595,14 +600,14 @@
   </url>
   
   <url>
-    <loc>https://hjdskes.nl/categories/server/</loc>
-    <lastmod>2018-07-04T20:47:00+02:00</lastmod>
+    <loc>https://hjdskes.nl/tags/server/</loc>
+    <lastmod>2018-05-01T20:30:41+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://hjdskes.nl/tags/server/</loc>
-    <lastmod>2018-05-01T20:30:41+01:00</lastmod>
+    <loc>https://hjdskes.nl/categories/server/</loc>
+    <lastmod>2018-07-04T20:47:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -13,6 +13,16 @@
     
     
     <item>
+      <title>MSc thesis: Abstract Interpretation of Program Transformations using Regular Tree Grammars</title>
+      <link>https://hjdskes.nl/projects/msc/</link>
+      <pubDate>Fri, 02 Nov 2018 11:00:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.nl/projects/msc/</guid>
+      <description>I completed my MSc thesis at the Programming Languages group of the TU Delft under the supervision of Dr. S.T. Erdweg and Sven Keidel.
+Program transformations translate code of an input language to code of an output language. Examples of program transformations are desugarings, optimizations and refactorings. Developers of program transformations need to ensure correctness of their programs. For example, for a desugaring we would want to know whether all sugar constructs have been removed after the transformation.</description>
+    </item>
+    
+    <item>
       <title>Quadrupel: an embedded software project to stabilize a drone</title>
       <link>https://hjdskes.nl/projects/quadrupel/</link>
       <pubDate>Mon, 11 Dec 2017 00:47:00 +0100</pubDate>
