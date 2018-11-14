@@ -3,7 +3,7 @@ date = "2016-08-08T13:18:21+02:00"
 title = "Projects"
 +++
 
-I maintain several open-source applications of my own. I also do
+I maintain several open-source applications of my own. I also did
 course projects for university. Below you will find a list of projects
 I think are worth mentioning. Please browse through my
 <a href="https://github.com/Hjdskes/repositories" title="Hjdskes' repositories on GitHub" rel=me>GitHub</a> and

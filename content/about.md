@@ -3,36 +3,42 @@ date = "2017-09-09T14:29:09+02:00"
 title = "About me"
 +++
 
-I am a master student in Computer Science at the Delft University of
-Technology.  In the third year of my bachelor (Computer Science at the
-Delft University of Technology), I have studied in Stockholm, Sweden
-for six months at the KTH Royal Institute of Technology. In the field
-of Computer Science, my interests are broad. Mainly, however, I am
-interested in operating systems, distributed systems and programming
-languages.  I am currently working on my MSc thesis at the
-[Programming Languages group of the TU
-Delft](https://www.tudelft.nl/en/eemcs/the-faculty/departments/software-technology/programming-languages/)
-under the supervision of [Dr.  S.T. Erdweg](http://www.erdweg.org) and
-[Sven Keidel](https://svenkeidel.de). I live in Rotterdam, The
-Netherlands.
+I am a Master of Science (*ir.*, see
+[Wikipedia](https://en.wikipedia.org/wiki/Engineer%27s_degree#The_Netherlands))
+in Computer Science.  I completed both my bachelor and master in
+Computer Science at the Delft University of Technology.  In the last
+year of my bachelor, I studied at the KTH Royal Institute of
+Technology in Stockholm, Sweden for six months. In the field of
+Computer Science, my interests are broad. Mainly, however, I am
+interested in operating systems and programming languages.  I
+completed my [MSc thesis](/projects/msc/) at the [Programming
+Languages
+group](https://www.tudelft.nl/en/eemcs/the-faculty/departments/software-technology/programming-languages/)
+of the TU Delft under the supervision of [Dr.
+S.T. Erdweg](http://www.erdweg.org) and [Sven
+Keidel](https://svenkeidel.de). I live in Rotterdam, The Netherlands.
 
-A great passion of mine is free and open-source software, to which I contribute
-in several ways. I have been using Linux for over ten years and participate in
-several Linux-related communities. This includes being a moderator at the
-[Crunchbang Linux forum](http://crunchbang.org/forums/index.php) and the
-[BunsenLabs Linux forum](https://forums.bunsenlabs.org/index.php). When the
-Crunchbang Linux project
-[ended](http://crunchbang.org/forums/viewtopic.php?id=38916), I played a role in
-[forming](http://crunchbang.org/forums/viewtopic.php?id=39049) the [BunsenLabs
-community continuation](https://www.bunsenlabs.org/). In 2017, I participated in
-Google's Summer of Code. I have written a [series of blog posts](/series/google-summer-of-code/)
-about my summer.
-
-I also maintain several open-source applications [myself](/projects/)
-and contribute patches to [other](/contributions/) open-source
-projects. Also see my <a href="https://github.com/Hjdskes"
-title="Hjdskes on GitHub" rel=me>GitHub</a> page and my [GitHub
+A great passion of mine is free and open-source software. I enjoy
+[contributing](/contributions/) to other projects and maintaining
+projects [of my own](/projects/).  In 2017, I participated in Google's
+Summer of Code about which I have written a [series of blog
+posts](/series/google-summer-of-code/). Also see my <a
+href="https://github.com/Hjdskes" title="Hjdskes on GitHub"
+rel=me>GitHub</a> page and my [GitHub
 resumé](https://resume.github.io/?Hjdskes).
+
+I have been using Linux for over ten years and participate in several
+Linux-related communities. This includes being a moderator at the
+[Crunchbang
+Linux](https://web.archive.org/web/20150207013657/http://crunchbang.org/)
+forum when it still existed and the [BunsenLabs Linux
+forum](https://forums.bunsenlabs.org/index.php). When the Crunchbang
+Linux project
+[ended](https://web.archive.org/web/20150914181039/http://crunchbang.org/forums/viewtopic.php?id=38916),
+I [played a
+role](https://web.archive.org/web/20150914162213/http://crunchbang.org/forums/viewtopic.php?id=39049)
+in forming the [BunsenLabs community
+continuation](https://www.bunsenlabs.org/).
 
 If you wish to know more, please feel free to contact me via
 [email](mailto:hjdskes@gmail.com) or <a
