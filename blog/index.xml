@@ -13,6 +13,16 @@
     
     
     <item>
+      <title>PSA: want to use a new subkey to sign your commits?</title>
+      <link>https://hjdskes.nl/blog/psa-github-gpg/</link>
+      <pubDate>Thu, 13 Dec 2018 15:23:39 +0100</pubDate>
+      
+      <guid>https://hjdskes.nl/blog/psa-github-gpg/</guid>
+      <description>I not so recently started using subkeys to do my normal PGP work. I made a new subkey specifically for signing things, and naturally wanted to use this new key to sign my commits with git&amp;rsquo;s builtin GPG support. I picked up my subkey&amp;rsquo;s ID with gpg --list-keys --keyid-format LONG and set it with git config --global user.signingKey &amp;lt;id&amp;gt;. That&amp;rsquo;d be it, right?
+Since you&amp;rsquo;re reading this, you&amp;rsquo;ve found out the answer is &amp;ldquo;no&amp;rdquo;.</description>
+    </item>
+    
+    <item>
       <title>Gcolor3 has moved to GNOME&#39;s GitLab!</title>
       <link>https://hjdskes.nl/blog/gcolor3-gitlab/</link>
       <pubDate>Sun, 02 Sep 2018 00:00:21 +0200</pubDate>
