@@ -66,9 +66,8 @@ $ flatpak run nl.hjdskes.gcolor3
 
 Gcolor3 is packaged for some Linux distributions:
 
-* **Arch Linux:** There are AUR packages for the [latest stable
-  release](https://aur.archlinux.org/packages/gcolor3/) and for the
-  [git version](https://aur.archlinux.org/packages/gcolor3-git/).
+* **Arch Linux:** Gcolor3 is packaged in `[community]`. There is an AUR package
+  for the [git version](https://aur.archlinux.org/packages/gcolor3-git/).
 
 * **Fedora:** There is a [copr
   repository](https://copr.fedorainfracloud.org/coprs/fnux/gcolor3/)
