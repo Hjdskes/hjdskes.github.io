@@ -13,6 +13,24 @@
     
     
     <item>
+      <title>Allow wlroots to be built without X11</title>
+      <link>https://hjdskes.nl/contributions/wlroots/</link>
+      <pubDate>Sat, 22 Dec 2018 16:53:40 +0100</pubDate>
+      
+      <guid>https://hjdskes.nl/contributions/wlroots/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A small contribution to gitg</title>
+      <link>https://hjdskes.nl/contributions/gitg/</link>
+      <pubDate>Sun, 22 Jul 2018 20:52:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.nl/contributions/gitg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Redesign and rewrite Piper for Google Summer of Code 2017</title>
       <link>https://hjdskes.nl/contributions/piper/</link>
       <pubDate>Sat, 09 Sep 2017 14:35:00 +0200</pubDate>
