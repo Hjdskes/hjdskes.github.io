@@ -40,11 +40,29 @@
     </item>
     
     <item>
+      <title>Cage</title>
+      <link>https://hjdskes.nl/tags/cage/</link>
+      <pubDate>Thu, 22 Nov 2018 19:59:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.nl/tags/cage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Capture</title>
       <link>https://hjdskes.nl/tags/capture/</link>
       <pubDate>Fri, 21 Jul 2017 17:35:55 +0200</pubDate>
       
       <guid>https://hjdskes.nl/tags/capture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Compositor</title>
+      <link>https://hjdskes.nl/tags/compositor/</link>
+      <pubDate>Thu, 22 Nov 2018 19:59:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.nl/tags/compositor/</guid>
       <description></description>
     </item>
     
@@ -508,11 +526,29 @@
     </item>
     
     <item>
+      <title>Wayland</title>
+      <link>https://hjdskes.nl/tags/wayland/</link>
+      <pubDate>Thu, 22 Nov 2018 19:59:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.nl/tags/wayland/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Website</title>
       <link>https://hjdskes.nl/tags/website/</link>
       <pubDate>Wed, 02 May 2018 11:41:05 +0200</pubDate>
       
       <guid>https://hjdskes.nl/tags/website/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wlroots</title>
+      <link>https://hjdskes.nl/tags/wlroots/</link>
+      <pubDate>Thu, 22 Nov 2018 19:59:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.nl/tags/wlroots/</guid>
       <description></description>
     </item>
     

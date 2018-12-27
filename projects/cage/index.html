@@ -2,17 +2,17 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
-  <meta name="description" content=""/>
+  <meta name="description" content="Cage: the Wayland kiosk"/>
   <meta name="generator" content="Hugo 0.53" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <meta property="og:description" content=""/>
+  <meta property="og:description" content="Cage: the Wayland kiosk"/>
   <meta property="og:locale" content="en-us"/>
   <meta property="og:site_name" content="Jente Hidskes&#39; website"/>
-  <meta property="og:title" content="Development"/>
+  <meta property="og:title" content="Cage: the Wayland kiosk"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:url" content="https://hjdskes.nl/categories/development/"/>
+  <meta property="og:url" content="https://hjdskes.nl/projects/cage/"/>
   <meta property="og:image" content="https://hjdskes.nl/img/avatar.svg"/>
 
   <meta name="twitter:card" content="summary"/>
@@ -21,11 +21,9 @@
   
   <meta name="twitter:image:alt" content="Logo"/>
 
-  <title> Jente Hidskes&#39; website - Development </title>
+  <title> Jente Hidskes&#39; website - Cage: the Wayland kiosk </title>
 
-  <link rel="canonical" href="https://hjdskes.nl/categories/development/"/>
-  
-  <link rel="alternate" type="application/rss+xml" href="https://hjdskes.nl/categories/development/index.xml" title="Jente Hidskes&#39; website"/>
+  <link rel="canonical" href="https://hjdskes.nl/projects/cage/"/>
   
   <link rel="shortcut icon" href="https://hjdskes.nl/img/favicon.ico"/>
 
@@ -70,225 +68,103 @@
     </div>
   </div>
 
-<section>
-  <div class="content">
-    <div>
-      <h2>Posts in the Development category</h2>
-      <ul class="posts">
-        
-          <li class="post-item">
-  <article>
-    <time class="meta" datetime="2017-05-05 15:44:04 &#43;0200 CEST">May 5, 2017</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/gsoc-part-1/">GSoC part 1: an introduction!</a>
-      
-    </header>
-</li>
+<div class="content">
+  <h2>Cage: the Wayland kiosk</h2>
+  
 
-        
-          <li class="post-item">
-  <article>
-    <time class="meta" datetime="2017-05-19 16:01:04 &#43;0200 CEST">May 19, 2017</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/gsoc-part-2/">GSoC part 2: community bonding</a>
-      
-    </header>
-</li>
+<p>Cage is a kiosk compositor for Wayland. A kiosk is a window manager
+(in the X11 world) or compositor (in the Wayland world) that is
+designed for a user experience wherein user interaction and activities
+outside the scope of the running application are prevented. That is, a
+kiosk compositor runs a single, maximized application and prevents the
+user from interacting with anything but this application.</p>
 
-        
-          <li class="post-item">
-  <article>
-    <time class="meta" datetime="2017-06-03 17:53:27 &#43;0200 CEST">Jun 3, 2017</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/gsoc-part-3/">GSoC part 3: mockups, mockups, mockups!</a>
-      
-    </header>
-</li>
+<p>As such, user input such as moving, resizing, minimizing and
+unmaximizing windows is ignored. Cage supports dialogs, although they
+too cannot be resized nor moved. Instead, dialogs are centered on the
+screen.</p>
 
-        
-          <li class="post-item">
-  <article>
-    <time class="meta" datetime="2017-06-16 20:47:56 &#43;0200 CEST">Jun 16, 2017</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/gsoc-part-4/">GSoC part 4: the first sprint</a>
-      
-    </header>
-</li>
+<p>Cage supports a single, static output. It does not support hotplugging
+additional outputs and exits when its only output is removed. Cage
+defaults to the output&rsquo;s preferred mode and does not support
+rotation. Input-wise, Cage supports pointer input, keyboard input and
+(<a href="https://github.com/Hjdskes/cage/issues/1">soon</a>) touch input. Copy
+and paste works as well.</p>
 
-        
-          <li class="post-item">
-  <article>
-    <time class="meta" datetime="2017-06-23 16:52:20 &#43;0200 CEST">Jun 23, 2017</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/gsoc-part-5/">GSoC part 5: exams</a>
-      
-    </header>
-</li>
+<p>There is no configuration for Cage. To start Cage, simply call its
+binary with the path to the application you want to launch within the
+session. For example, use <code>cage /usr/bin/epiphany</code> to launch Cage with
+the Epiphany web browser. When the application is closed, Cage closes
+as well.</p>
 
-        
-          <li class="post-item">
-  <article>
-    <time class="meta" datetime="2017-06-30 16:11:24 &#43;0200 CEST">Jun 30, 2017</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/gsoc-part-6/">GSoC part 6: progress!</a>
-      
-    </header>
-</li>
+<p>Cage does not support any Wayland protocols other than xdg-shell. That
+is, there is no support for panels, virtual keyboards, screen capture,
+primary selection, et cetera. Cage fulfills my needs in its current
+state (well, <a href="https://github.com/Hjdskes/cage/issues">almost</a>), but I
+welcome pull requests implementing one the features listed. The
+layer-shell protocol especially might make for a cleaner
+implementation and virtual keyboard support is something that I might
+want to add later too, depending on how my needs grow.</p>
 
-        
-          <li class="post-item">
-  <article>
-    <time class="meta" datetime="2017-07-07 14:58:33 &#43;0200 CEST">Jul 7, 2017</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/gsoc-part-7/">GSoC part 7: the resolutions stack page</a>
-      
-    </header>
-</li>
+<p>Cage is based on the annotated source of
+<a href="https://gist.github.com/ddevault/ae4d1cdcca97ffeb2c35f0878d75dc17">TinyWL</a>.</p>
 
-        
-          <li class="post-item">
-  <article>
-    <time class="meta" datetime="2017-07-14 10:03:55 &#43;0200 CEST">Jul 14, 2017</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/gsoc-part-8/">GSoC part 8: the LED stack page</a>
-      
-    </header>
-</li>
+<h2 id="installation">Installation</h2>
 
-        
-          <li class="post-item">
-  <article>
-    <time class="meta" datetime="2017-07-21 17:35:55 &#43;0200 CEST">Jul 21, 2017</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/gsoc-part-9/">GSoC part 9: the button stack page</a>
-      
-    </header>
-</li>
+<p>For now you&rsquo;ll have to compile Cage from source. There is no release
+yet, so you&rsquo;ll have to grab the latest master from
+<a href="https://github.com/Hjdskes/cage">GitHub</a>.</p>
 
-        
-          <li class="post-item">
-  <article>
-    <time class="meta" datetime="2017-07-28 15:10:26 &#43;0200 CEST">Jul 28, 2017</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/gsoc-part-10/">GSoC part 10: finishing the button stack page</a>
-      
-    </header>
-</li>
+<p>You can build Cage with the <a href="https://mesonbuild.com">Meson</a> build
+system. It requires <a href="https://github.com/swaywm/wlroots">wlroots</a> (and
+its dependencies wayland and xkbcommon) to be installed. Simply
+execute the following steps to build Cage:</p>
 
-        
-          <li class="post-item">
-  <article>
-    <time class="meta" datetime="2017-08-04 15:06:40 &#43;0200 CEST">Aug 4, 2017</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/gsoc-part-11/">GSoC part 11: all large features are done!</a>
-      
-    </header>
-</li>
+<pre><code>$ meson build
+$ ninja -C build
+</code></pre>
 
-        
-          <li class="post-item">
-  <article>
-    <time class="meta" datetime="2017-08-11 15:35:37 &#43;0200 CEST">Aug 11, 2017</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/gsoc-part-12/">GSoC part 12: the finishing touches</a>
-      
-    </header>
-</li>
+<p>You can then run Cage by running <code>./build/cage /path/to/application
+--with=arguments</code>. If you run Cage from within an existing X11 or
+Wayland session, it will open in a virtual output as a window within
+your existing session. If you run it from a TTY, it&rsquo;ll run with the
+KMS+DRM backend. In debug mode (the default build type with Meson),
+press <kbd>Alt</kbd>+<kbd>Esc</kbd> to quit. To build a release build,
+use <code>meson build --buildtype=release</code>.</p>
 
-        
-          <li class="post-item">
-  <article>
-    <time class="meta" datetime="2017-08-18 19:47:27 &#43;0200 CEST">Aug 18, 2017</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/gsoc-part-13/">GSoC part 13: I solved global warming!</a>
-      
-    </header>
-</li>
+<h2 id="running-cage-with-systemd">Running Cage with systemd</h2>
 
-        
-          <li class="post-item">
-  <article>
-    <time class="meta" datetime="2017-08-23 13:01:32 &#43;0200 CEST">Aug 23, 2017</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/gsoc-part-14/">GSoC part 14: final code changes</a>
-      
-    </header>
-</li>
+<p>You might want to start Cage automatically on boot. I have written
+such a service for my <a href="/blog/home-automation">home automation</a>
+project. This service logs in as the specified user after boot and
+then launches Cage with the specified application. It sets up a full
+user session with logind and a custom PAM stack.</p>
 
-        
-          <li class="post-item">
-  <article>
-    <time class="meta" datetime="2017-08-23 16:19:04 &#43;0200 CEST">Aug 23, 2017</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/gsoc-part-15/">GSoC part 15: submission</a>
-      
-    </header>
-</li>
+<p>You can find the systemd service
+<a href="https://github.com/Hjdskes/buildroot/blob/hjdskes/board/hjdskes/rpi3/rootfs_overlay/etc/systemd/system/cage%40.service">here</a>. When
+using it, be sure to change the user. You will also need to add the
+custom <a href="http://linux-pam.org/">PAM</a> stack found
+<a href="https://github.com/Hjdskes/buildroot/blob/hjdskes/board/hjdskes/rpi3/rootfs_overlay/etc/pam.d/cage">here</a>. This
+stack simply logs the user in with pam_unix and then launches a user
+session with pam_systemd. Don&rsquo;t forget to enable the service and to
+change systemd&rsquo;s default target to <code>graphical</code>!</p>
 
-        
-          <li class="post-item">
-  <article>
-    <time class="meta" datetime="2018-09-01 00:00:21 &#43;0200 CEST">Sep 1, 2018</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/gcolor3-2.3/">Gcolor3 version 2.3 is out!</a>
-      
-    </header>
-</li>
+<h2 id="bugs">Bugs</h2>
 
-        
-          <li class="post-item">
-  <article>
-    <time class="meta" datetime="2018-09-02 00:00:21 &#43;0200 CEST">Sep 2, 2018</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/gcolor3-gitlab/">Gcolor3 has moved to GNOME&#39;s GitLab!</a>
-      
-    </header>
-</li>
+<p>For any bug or feature request, please <a href="https://github.com/Hjdskes/cage/issues/new">create an
+issue</a> on
+<a href="https://github.com/Hjdskes/cage">GitHub</a>.</p>
 
-        
-          <li class="post-item">
-  <article>
-    <time class="meta" datetime="2018-11-22 19:59:00 &#43;0100 CET">Nov 22, 2018</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/projects/cage/">Cage: the Wayland kiosk</a>
-      
-    </header>
-</li>
+<h2 id="license">License</h2>
 
-        
-          <li class="post-item">
-  <article>
-    <time class="meta" datetime="2018-12-13 15:23:39 &#43;0100 CET">Dec 13, 2018</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/psa-github-gpg/">PSA: want to use a new subkey to sign your commits?</a>
-      
-    </header>
-</li>
+<p>Please see
+<a href="https://github.com/Hjdskes/cage/blob/master/LICENSE">LICENSE</a> on
+<a href="https://github.com/Hjdskes/cage">GitHub</a>.</p>
 
-        
-      </ul>
-    </div>
-  </div>
-</section>
+<p>Copyright © 2018 Jente Hidskes
+<a href="mailto:hjdskes@gmail.com">hjdskes@gmail.com</a>.</p>
+
+</div>
 <div id="postamble">
   <footer>
     <nav class="social-icons">

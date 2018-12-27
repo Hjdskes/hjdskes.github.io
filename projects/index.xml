@@ -13,6 +13,16 @@
     
     
     <item>
+      <title>Cage: the Wayland kiosk</title>
+      <link>https://hjdskes.nl/projects/cage/</link>
+      <pubDate>Thu, 22 Nov 2018 19:59:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.nl/projects/cage/</guid>
+      <description>Cage is a kiosk compositor for Wayland. A kiosk is a window manager (in the X11 world) or compositor (in the Wayland world) that is designed for a user experience wherein user interaction and activities outside the scope of the running application are prevented. That is, a kiosk compositor runs a single, maximized application and prevents the user from interacting with anything but this application.
+As such, user input such as moving, resizing, minimizing and unmaximizing windows is ignored.</description>
+    </item>
+    
+    <item>
       <title>MSc thesis: Abstract Interpretation of Program Transformations using Regular Tree Grammars</title>
       <link>https://hjdskes.nl/projects/msc/</link>
       <pubDate>Fri, 02 Nov 2018 11:00:00 +0100</pubDate>

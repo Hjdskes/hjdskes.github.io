@@ -23,6 +23,16 @@ Since you&amp;rsquo;re reading this, you&amp;rsquo;ve found out the answer is &a
     </item>
     
     <item>
+      <title>Cage: the Wayland kiosk</title>
+      <link>https://hjdskes.nl/projects/cage/</link>
+      <pubDate>Thu, 22 Nov 2018 19:59:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.nl/projects/cage/</guid>
+      <description>Cage is a kiosk compositor for Wayland. A kiosk is a window manager (in the X11 world) or compositor (in the Wayland world) that is designed for a user experience wherein user interaction and activities outside the scope of the running application are prevented. That is, a kiosk compositor runs a single, maximized application and prevents the user from interacting with anything but this application.
+As such, user input such as moving, resizing, minimizing and unmaximizing windows is ignored.</description>
+    </item>
+    
+    <item>
       <title>Gcolor3 has moved to GNOME&#39;s GitLab!</title>
       <link>https://hjdskes.nl/blog/gcolor3-gitlab/</link>
       <pubDate>Sun, 02 Sep 2018 00:00:21 +0200</pubDate>

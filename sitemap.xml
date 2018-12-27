@@ -13,6 +13,11 @@
   </url>
   
   <url>
+    <loc>https://hjdskes.nl/projects/cage/</loc>
+    <lastmod>2018-11-22T19:59:00+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.nl/projects/msc/</loc>
     <lastmod>2018-11-02T11:00:00+01:00</lastmod>
   </url>
@@ -327,6 +332,12 @@
   </url>
   
   <url>
+    <loc>https://hjdskes.nl/tags/cage/</loc>
+    <lastmod>2018-11-22T19:59:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.nl/tags/capture/</loc>
     <lastmod>2017-07-21T17:35:55+02:00</lastmod>
     <priority>0</priority>
@@ -335,6 +346,12 @@
   <url>
     <loc>https://hjdskes.nl/categories/</loc>
     <lastmod>2018-12-13T15:23:39+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.nl/tags/compositor/</loc>
+    <lastmod>2018-11-22T19:59:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -477,6 +494,12 @@
   </url>
   
   <url>
+    <loc>https://hjdskes.nl/categories/home-automation/</loc>
+    <lastmod>2018-11-22T19:59:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.nl/tags/https/</loc>
     <lastmod>2018-05-02T11:41:05+02:00</lastmod>
     <priority>0</priority>
@@ -580,7 +603,7 @@
   
   <url>
     <loc>https://hjdskes.nl/categories/projects/</loc>
-    <lastmod>2018-09-02T00:00:21+02:00</lastmod>
+    <lastmod>2018-11-22T19:59:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -681,8 +704,20 @@
   </url>
   
   <url>
+    <loc>https://hjdskes.nl/tags/wayland/</loc>
+    <lastmod>2018-11-22T19:59:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.nl/tags/website/</loc>
     <lastmod>2018-05-02T11:41:05+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.nl/tags/wlroots/</loc>
+    <lastmod>2018-11-22T19:59:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
