@@ -13,6 +13,16 @@
     
     
     <item>
+      <title>Announcing Cage: the Wayland kiosk</title>
+      <link>https://hjdskes.nl/blog/cage/</link>
+      <pubDate>Thu, 27 Dec 2018 17:31:12 +0100</pubDate>
+      
+      <guid>https://hjdskes.nl/blog/cage/</guid>
+      <description>Yesterday I made Cage publically available. Cage is a kiosk for Wayland. A kiosk is designed for running a single, maximized application and preventing the user from interacting with any other part of the system. You can read more about Cage on its project page.
+I developed Cage as part of my home automation project. This is a hobby and learning project where I build my own, well, home automation system (from scratch, i.</description>
+    </item>
+    
+    <item>
       <title>PSA: want to use a new subkey to sign your commits?</title>
       <link>https://hjdskes.nl/blog/psa-github-gpg/</link>
       <pubDate>Thu, 13 Dec 2018 15:23:39 +0100</pubDate>

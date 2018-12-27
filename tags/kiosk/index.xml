@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Wlroots on Jente Hidskes&#39; website</title>
-    <link>https://hjdskes.nl/tags/wlroots/</link>
-    <description>Recent content in Wlroots on Jente Hidskes&#39; website</description>
+    <title>Kiosk on Jente Hidskes&#39; website</title>
+    <link>https://hjdskes.nl/tags/kiosk/</link>
+    <description>Recent content in Kiosk on Jente Hidskes&#39; website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2018 Jente Hidskes</copyright>
     <lastBuildDate>Thu, 27 Dec 2018 17:31:12 +0100</lastBuildDate>
     
-	<atom:link href="https://hjdskes.nl/tags/wlroots/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://hjdskes.nl/tags/kiosk/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,16 +20,6 @@
       <guid>https://hjdskes.nl/blog/cage/</guid>
       <description>Yesterday I made Cage publically available. Cage is a kiosk for Wayland. A kiosk is designed for running a single, maximized application and preventing the user from interacting with any other part of the system. You can read more about Cage on its project page.
 I developed Cage as part of my home automation project. This is a hobby and learning project where I build my own, well, home automation system (from scratch, i.</description>
-    </item>
-    
-    <item>
-      <title>Cage: the Wayland kiosk</title>
-      <link>https://hjdskes.nl/projects/cage/</link>
-      <pubDate>Thu, 22 Nov 2018 19:59:00 +0100</pubDate>
-      
-      <guid>https://hjdskes.nl/projects/cage/</guid>
-      <description>Cage is a kiosk compositor for Wayland. A kiosk is a window manager (in the X11 world) or compositor (in the Wayland world) that is designed for a user experience wherein user interaction and activities outside the scope of the running application are prevented. That is, a kiosk compositor runs a single, maximized application and prevents the user from interacting with anything but this application.
-As such, user input such as moving, resizing, minimizing and unmaximizing windows is ignored.</description>
     </item>
     
   </channel>

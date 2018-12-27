@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://hjdskes.nl/blog/cage/</loc>
+    <lastmod>2018-12-27T17:31:12+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.nl/contributions/wlroots/</loc>
     <lastmod>2018-12-22T16:53:40+01:00</lastmod>
   </url>
@@ -333,7 +338,7 @@
   
   <url>
     <loc>https://hjdskes.nl/tags/cage/</loc>
-    <lastmod>2018-11-22T19:59:00+01:00</lastmod>
+    <lastmod>2018-12-27T17:31:12+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -351,7 +356,7 @@
   
   <url>
     <loc>https://hjdskes.nl/tags/compositor/</loc>
-    <lastmod>2018-11-22T19:59:00+01:00</lastmod>
+    <lastmod>2018-12-27T17:31:12+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -387,7 +392,7 @@
   
   <url>
     <loc>https://hjdskes.nl/categories/development/</loc>
-    <lastmod>2018-12-13T15:23:39+01:00</lastmod>
+    <lastmod>2018-12-27T17:31:12+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -495,7 +500,7 @@
   
   <url>
     <loc>https://hjdskes.nl/categories/home-automation/</loc>
-    <lastmod>2018-11-22T19:59:00+01:00</lastmod>
+    <lastmod>2018-12-27T17:31:12+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -514,6 +519,12 @@
   <url>
     <loc>https://hjdskes.nl/tags/inkscape/</loc>
     <lastmod>2017-06-03T17:53:27+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.nl/tags/kiosk/</loc>
+    <lastmod>2018-12-27T17:31:12+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -603,7 +614,7 @@
   
   <url>
     <loc>https://hjdskes.nl/categories/projects/</loc>
-    <lastmod>2018-11-22T19:59:00+01:00</lastmod>
+    <lastmod>2018-12-27T17:31:12+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -705,7 +716,7 @@
   
   <url>
     <loc>https://hjdskes.nl/tags/wayland/</loc>
-    <lastmod>2018-11-22T19:59:00+01:00</lastmod>
+    <lastmod>2018-12-27T17:31:12+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -717,7 +728,7 @@
   
   <url>
     <loc>https://hjdskes.nl/tags/wlroots/</loc>
-    <lastmod>2018-11-22T19:59:00+01:00</lastmod>
+    <lastmod>2018-12-27T17:31:12+01:00</lastmod>
     <priority>0</priority>
   </url>
   

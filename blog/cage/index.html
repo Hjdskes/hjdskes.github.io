@@ -2,17 +2,17 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
-  <meta name="description" content=""/>
+  <meta name="description" content="Cage: the Wayland kiosk"/>
   <meta name="generator" content="Hugo 0.53" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <meta property="og:description" content=""/>
+  <meta property="og:description" content="Cage: the Wayland kiosk"/>
   <meta property="og:locale" content="en-us"/>
   <meta property="og:site_name" content="Jente Hidskes&#39; website"/>
-  <meta property="og:title" content="Wayland"/>
+  <meta property="og:title" content="Announcing Cage: the Wayland kiosk"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:url" content="https://hjdskes.nl/tags/wayland/"/>
+  <meta property="og:url" content="https://hjdskes.nl/blog/cage/"/>
   <meta property="og:image" content="https://hjdskes.nl/img/avatar.svg"/>
 
   <meta name="twitter:card" content="summary"/>
@@ -21,11 +21,9 @@
   
   <meta name="twitter:image:alt" content="Logo"/>
 
-  <title> Jente Hidskes&#39; website - Wayland </title>
+  <title> Jente Hidskes&#39; website - Announcing Cage: the Wayland kiosk </title>
 
-  <link rel="canonical" href="https://hjdskes.nl/tags/wayland/"/>
-  
-  <link rel="alternate" type="application/rss+xml" href="https://hjdskes.nl/tags/wayland/index.xml" title="Jente Hidskes&#39; website"/>
+  <link rel="canonical" href="https://hjdskes.nl/blog/cage/"/>
   
   <link rel="shortcut icon" href="https://hjdskes.nl/img/favicon.ico"/>
 
@@ -70,38 +68,77 @@
     </div>
   </div>
 
-<section>
-  <div class="content">
-    <div>
-      <h2>Posts about wayland</h2>
-      <ul class="posts">
-        
-          <li class="post-item">
-  <article>
-    <time class="meta" datetime="2018-11-22 19:59:00 &#43;0100 CET">Nov 22, 2018</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/projects/cage/">Cage: the Wayland kiosk</a>
-      
-    </header>
-</li>
 
-        
-          <li class="post-item">
-  <article>
-    <time class="meta" datetime="2018-12-27 17:31:12 &#43;0100 CET">Dec 27, 2018</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/cage/">Announcing Cage: the Wayland kiosk</a>
-      
-    </header>
-</li>
+<div class="page-heading">
+  <h1>Announcing Cage: the Wayland kiosk</h1>
+</div>
 
-        
-      </ul>
-    </div>
+<div class="meta">Dec 27, 2018<div class="middot">2 minute read</div>
+  <div class="tags">
+    <ul>
+      
+        <li class="middot"><a href="/tags/wayland">wayland</a></li>
+      
+        <li class="middot"><a href="/tags/compositor">compositor</a></li>
+      
+        <li class="middot"><a href="/tags/cage">cage</a></li>
+      
+        <li class="middot"><a href="/tags/kiosk">kiosk</a></li>
+      
+        <li class="middot"><a href="/tags/wlroots">wlroots</a></li>
+      
+    </ul>
   </div>
-</section>
+</div>
+
+<div class="content">
+  <p>Yesterday I made <a href="https://github.com/Hjdskes/cage">Cage</a> publically
+available. Cage is a kiosk for Wayland. A kiosk is designed for
+running a single, maximized application and preventing the user from
+interacting with any other part of the system. You can read more about
+Cage on its <a href="/projects/cage">project page</a>.</p>
+
+<p>I developed Cage as part of my <a href="/blog/home-automation">home
+automation</a> project. This is a hobby and
+learning project where I build my own, well, home automation system
+(from scratch, i.e., I also developed a <a href="/projects/rpi-linux">purpose-built Linux-based
+operating system</a>). Home automation is an
+excellent learning project, as it encompasses so much different
+technologies both high- and low-level, especially if you go as far as
+I did. In any case, I envision this system to run a single application
+that then allows you to control your home. This is where the idea of a
+kiosk came in.</p>
+
+<p>As I want this to be a modern system and learn new Linux technologies,
+I wanted to use a Wayland compositor. There is no existing kiosk
+solution available, and although I could use
+e.g. <a href="https://swaywm.org/">sway</a> and configure that, I went with the
+learning and do-it-myself approach. I have developed X11 window
+managers before but had never touched a Wayland compositor. Also, I
+want to &ldquo;do it right&rdquo;™ and don&rsquo;t want to lock something down and
+inevitably risk there is a way out after all, even if this is in the
+friendly environment of my own appartment.</p>
+
+<p>Cage isn&rsquo;t done yet; my Raspberry Pi (that runs the whole system) is
+connected to the official 7&rdquo; touch screen, but Cage does not yet
+support touch input. There are also some things to refine, such as not
+displaying a cursor if there is no pointer and to darken the primary
+window when a dialog is open. I also want to optimize the power usage
+by implementing damage tracking and activity tracking to turn the
+screen off automatically after inactivity. All of these features are
+provided by wlroots, it&rsquo;s simply a matter of building it into Cage.</p>
+
+<p>If a Wayland kiosk is something you&rsquo;ve been waiting for, or if you
+want a simple project to get your feet wet with wlroots and/or
+Wayland, please feel free to jump in and help out!</p>
+
+<p>For questions, comments or feedback you can reach me on
+<a href="https://twitter.com/Hjdskes">Twitter</a>,
+<a href="https://github.com/Hjdskes">GitHub</a> or
+<a href="mailto:hjdskes@gmail.com">email</a>.</p>
+
+</div>
+
 <div id="postamble">
   <footer>
     <nav class="social-icons">

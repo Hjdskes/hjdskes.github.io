@@ -42,7 +42,7 @@
     <item>
       <title>Cage</title>
       <link>https://hjdskes.nl/tags/cage/</link>
-      <pubDate>Thu, 22 Nov 2018 19:59:00 +0100</pubDate>
+      <pubDate>Thu, 27 Dec 2018 17:31:12 +0100</pubDate>
       
       <guid>https://hjdskes.nl/tags/cage/</guid>
       <description></description>
@@ -60,7 +60,7 @@
     <item>
       <title>Compositor</title>
       <link>https://hjdskes.nl/tags/compositor/</link>
-      <pubDate>Thu, 22 Nov 2018 19:59:00 +0100</pubDate>
+      <pubDate>Thu, 27 Dec 2018 17:31:12 +0100</pubDate>
       
       <guid>https://hjdskes.nl/tags/compositor/</guid>
       <description></description>
@@ -279,6 +279,15 @@
       <pubDate>Sat, 03 Jun 2017 17:53:27 +0200</pubDate>
       
       <guid>https://hjdskes.nl/tags/inkscape/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kiosk</title>
+      <link>https://hjdskes.nl/tags/kiosk/</link>
+      <pubDate>Thu, 27 Dec 2018 17:31:12 +0100</pubDate>
+      
+      <guid>https://hjdskes.nl/tags/kiosk/</guid>
       <description></description>
     </item>
     
@@ -528,7 +537,7 @@
     <item>
       <title>Wayland</title>
       <link>https://hjdskes.nl/tags/wayland/</link>
-      <pubDate>Thu, 22 Nov 2018 19:59:00 +0100</pubDate>
+      <pubDate>Thu, 27 Dec 2018 17:31:12 +0100</pubDate>
       
       <guid>https://hjdskes.nl/tags/wayland/</guid>
       <description></description>
@@ -546,7 +555,7 @@
     <item>
       <title>Wlroots</title>
       <link>https://hjdskes.nl/tags/wlroots/</link>
-      <pubDate>Thu, 22 Nov 2018 19:59:00 +0100</pubDate>
+      <pubDate>Thu, 27 Dec 2018 17:31:12 +0100</pubDate>
       
       <guid>https://hjdskes.nl/tags/wlroots/</guid>
       <description></description>
