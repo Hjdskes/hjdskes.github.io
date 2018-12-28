@@ -73,7 +73,7 @@
   <h1>My home automation system</h1>
 </div>
 
-<div class="meta">Dec 27, 2018<div class="middot">6 minute read</div>
+<div class="meta">Dec 28, 2018<div class="middot">6 minute read</div>
   <div class="tags">
     <ul>
       
@@ -141,7 +141,7 @@ looking not too shabby.</p>
 allows you to for example control the smart lighting. For the reasons
 outlined in the introduction, I won&rsquo;t use an off-the-shelf solution
 such as <a href="https://www.home-assistant.io">Home Assistant</a>. No, I want to
-do everything myself. This way, I can tailer the system exactly to my
+do everything myself. This way, I can tailor the system exactly to my
 needs. This not only results in a minimal system, but also one that I
 can fully trust to run inside my home. And I should learn a ton!</p>
 
@@ -170,17 +170,21 @@ GitHub</a>. I added a
 custom defconfig (<code>configs/hjdskes_rpi3_defconfig</code>) that holds my
 image&rsquo;s configuration, and there is a subdirectory in
 <code>board/hjdskes/rpi3/</code> to hold configuration files and a rootsfs
-overlay. The process of developing this system has taught me more
-about the lower and inner workings of Linux. I am familiar with
-maintaining Linux on my laptop and building up what I need from the
-standard, default Arch Linux installation. However, in this scenario,
-a lot is already done for you by the distribution packagers (I did
-find an increased gratitude after this project!). Upon selecting
-systemd (Buildroot by default opts for busybox, but I went with what I
-knew and consider the standard), the system booted fine. However, it
-wouldn&rsquo;t spawn a getty to log in on, despite Buildroot&rsquo;s
-<code>BR2_TARGET_GENERIC_GETTY</code> option being set to <em>yes</em>. As it turns out,
-you need to explicitly install agetty.</p>
+overlay. I also had to package
+<a href="https://github.com/swaywm/wlroots">wlroots</a> and of course <a href="/blog/cage">my own
+compositor</a> (<a href="#a-kiosk-for-wayland">see below</a>), in
+<code>packages/wlroots</code> and <code>packages/cage</code> respectively. The process of
+developing this system has taught me more about the lower and inner
+workings of Linux. I am familiar with maintaining Linux on my laptop
+and building up what I need from the standard, default Arch Linux
+installation. However, even in this scenario, a lot is already done
+for you by the distribution packagers (I did find an increased
+gratitude after this project!). Upon selecting systemd (Buildroot by
+default opts for busybox, but I went with what I knew and consider the
+standard), the system booted fine. However, it wouldn&rsquo;t spawn a getty
+to log in on, despite Buildroot&rsquo;s <code>BR2_TARGET_GENERIC_GETTY</code> option
+being set to <em>yes</em>. As it turns out, you need to explicitly install
+agetty.</p>
 
 <p><em><q>Great! Now I got a getty and a login prompt.</q></em>, I thought. This
 victory was short-lived, as the getty would respawn after entering the
@@ -209,9 +213,9 @@ have a flawless boot into Cage!</p>
 
 <p>The resulting system is very minimal and modern: on top of the Linux
 kernel, it installs systemd (only the required parts and <code>logind</code>),
-util-linux&rsquo; <code>agetty</code> and <code>login</code>, bash, Raspberry Pi firmare,
+util-linux&rsquo; <code>agetty</code> and <code>login</code>, bash, Raspberry Pi firmware,
 <code>wpa_supplicant</code>, mesa (Gallium VC4 driver, OpenGL ES and EGL), GTK+
-3, my Wayland compositor <a href="/projects/cage">Cage</a> (see below), the
+3, my Wayland compositor Cage (<a href="#a-kiosk-for-wayland">see below</a>), the
 Cantarell font and the Adwaita icon theme. Of course this also
 includes these packages&rsquo; dependencies, but with the finished
 filesystem using only 155 MB I think this qualifies as a minimal
@@ -229,8 +233,8 @@ Your browser does not support the video tag.
 
 <h3 id="a-kiosk-for-wayland">A kiosk for Wayland</h3>
 
-<p>However, with the screen being only 7&rdquo;, I don&rsquo;t want to have to move
-windows and have different applications for different automation
+<p>With the screen being only 7&rdquo;, I don&rsquo;t want to have to move windows
+and have different applications for different automation
 scenarios. Instead, I envision this to be a kiosk, with a single
 application that interfaces with all the smart products in my
 appartment.</p>

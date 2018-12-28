@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2018 Jente Hidskes</copyright>
-    <lastBuildDate>Thu, 27 Dec 2018 17:31:20 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 28 Dec 2018 08:46:20 +0100</lastBuildDate>
     
 	<atom:link href="https://hjdskes.nl/tags/raspberry-pi/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>My home automation system</title>
       <link>https://hjdskes.nl/blog/home-automation/</link>
-      <pubDate>Thu, 27 Dec 2018 17:31:20 +0100</pubDate>
+      <pubDate>Fri, 28 Dec 2018 08:46:20 +0100</pubDate>
       
       <guid>https://hjdskes.nl/blog/home-automation/</guid>
       <description>Back in May I wrote that I was thinking of some home automation projects. However, what fun would it be to buy readily made products? And, more importantly, what would the quality of those products be? We all know that many IoT products are insecure and privacy invading and leave you depending on the manufacturer for updates. Finally, home automation is an excellent learning project. It encompasses so many different technologies, both high- and low-level.</description>
@@ -29,7 +29,7 @@
       <guid>https://hjdskes.nl/projects/rpi-linux/</guid>
       <description>For my home automation system I developed a purpose-built (minimal, embedded) Linux-based operating system.
 This embedded Linux distribution is built using Buildroot. To house my configuration, I forked Buildroot on GitHub. I added a custom defconfig (configs/hjdskes_rpi3_defconfig) that holds my image&amp;rsquo;s configuration, and there is a subdirectory in board/hjdskes/rpi3/ to hold configuration files and a rootsfs overlay.
-The system is very minimal and modern: on top of the Linux kernel, it installs systemd (only the required parts and logind), util-linux&amp;rsquo; agetty and login, bash, Raspberry Pi firmare, wpa_supplicant, mesa (Gallium VC4 driver, OpenGL ES and EGL), GTK+ 3, my Wayland compositor Cage, the Cantarell font and the Adwaita icon theme.</description>
+The system is very minimal and modern: on top of the Linux kernel, it installs systemd (only the required parts and logind), util-linux&amp;rsquo; agetty and login, bash, Raspberry Pi firmware, wpa_supplicant, mesa (Gallium VC4 driver, OpenGL ES and EGL), GTK+ 3, my Wayland compositor Cage, the Cantarell font and the Adwaita icon theme.</description>
     </item>
     
   </channel>
