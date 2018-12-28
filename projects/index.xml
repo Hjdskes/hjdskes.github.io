@@ -13,6 +13,17 @@
     
     
     <item>
+      <title>A purpose-built Linux OS for my Raspberry Pi 3B&#43; home automation system</title>
+      <link>https://hjdskes.nl/projects/rpi-linux/</link>
+      <pubDate>Thu, 27 Dec 2018 16:54:01 +0100</pubDate>
+      
+      <guid>https://hjdskes.nl/projects/rpi-linux/</guid>
+      <description>For my home automation system I developed a purpose-built (minimal, embedded) Linux-based operating system.
+This embedded Linux distribution is built using Buildroot. To house my configuration, I forked Buildroot on GitHub. I added a custom defconfig (configs/hjdskes_rpi3_defconfig) that holds my image&amp;rsquo;s configuration, and there is a subdirectory in board/hjdskes/rpi3/ to hold configuration files and a rootsfs overlay.
+The system is very minimal and modern: on top of the Linux kernel, it installs systemd (only the required parts and logind), util-linux&amp;rsquo; agetty and login, bash, Raspberry Pi firmare, wpa_supplicant, mesa (Gallium VC4 driver, OpenGL ES and EGL), GTK+ 3, my Wayland compositor Cage, the Cantarell font and the Adwaita icon theme.</description>
+    </item>
+    
+    <item>
       <title>Cage: the Wayland kiosk</title>
       <link>https://hjdskes.nl/projects/cage/</link>
       <pubDate>Thu, 22 Nov 2018 19:59:00 +0100</pubDate>

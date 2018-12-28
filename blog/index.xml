@@ -13,6 +13,15 @@
     
     
     <item>
+      <title>My home automation system</title>
+      <link>https://hjdskes.nl/blog/home-automation/</link>
+      <pubDate>Thu, 27 Dec 2018 17:31:20 +0100</pubDate>
+      
+      <guid>https://hjdskes.nl/blog/home-automation/</guid>
+      <description>Back in May I wrote that I was thinking of some home automation projects. However, what fun would it be to buy readily made products? And, more importantly, what would the quality of those products be? We all know that many IoT products are insecure and privacy invading and leave you depending on the manufacturer for updates. Finally, home automation is an excellent learning project. It encompasses so many different technologies, both high- and low-level.</description>
+    </item>
+    
+    <item>
       <title>Announcing Cage: the Wayland kiosk</title>
       <link>https://hjdskes.nl/blog/cage/</link>
       <pubDate>Thu, 27 Dec 2018 17:31:12 +0100</pubDate>

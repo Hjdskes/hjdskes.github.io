@@ -2,17 +2,17 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
-  <meta name="description" content="Jente Hidskes&#39; website"/>
+  <meta name="description" content="A minimal Linux OS for my home automation system"/>
   <meta name="generator" content="Hugo 0.53" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <meta property="og:description" content="Jente Hidskes&#39; website"/>
+  <meta property="og:description" content="A minimal Linux OS for my home automation system"/>
   <meta property="og:locale" content="en-us"/>
   <meta property="og:site_name" content="Jente Hidskes&#39; website"/>
-  <meta property="og:title" content="Jente Hidskes&#39; website"/>
+  <meta property="og:title" content="A purpose-built Linux OS for my Raspberry Pi 3B&#43; home automation system"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:url" content="https://hjdskes.nl/"/>
+  <meta property="og:url" content="https://hjdskes.nl/projects/rpi-linux/"/>
   <meta property="og:image" content="https://hjdskes.nl/img/avatar.svg"/>
 
   <meta name="twitter:card" content="summary"/>
@@ -21,11 +21,9 @@
   
   <meta name="twitter:image:alt" content="Logo"/>
 
-  <title>Jente Hidskes&#39; website</title>
+  <title> Jente Hidskes&#39; website - A purpose-built Linux OS for my Raspberry Pi 3B&#43; home automation system </title>
 
-  <link rel="canonical" href="https://hjdskes.nl/"/>
-  
-  <link rel="alternate" type="application/rss+xml" href="https://hjdskes.nl/index.xml" title="Jente Hidskes&#39; website"/>
+  <link rel="canonical" href="https://hjdskes.nl/projects/rpi-linux/"/>
   
   <link rel="shortcut icon" href="https://hjdskes.nl/img/favicon.ico"/>
 
@@ -71,91 +69,41 @@
   </div>
 
 <div class="content">
-  <p>Welcome to my personal website. This site serves as a blog, a repository of my
-work and perhaps as some sort of resumé. You can learn more <a href="/about/">about me</a>,
-browse my own open-source <a href="/projects/">projects</a> or view my
-<a href="/contributions/">contributions</a> to other open-source projects.</p>
+  <h2>A purpose-built Linux OS for my Raspberry Pi 3B&#43; home automation system</h2>
+  <p>For my <a href="/blog/home-automation">home automation system</a> I developed a
+purpose-built (minimal, embedded) Linux-based operating system.</p>
 
+<p>This embedded Linux distribution is built using
+<a href="https://buildroot.org/">Buildroot</a>. To house my configuration, I
+forked <a href="https://github.com/Hjdskes/buildroot/tree/hjdskes">Buildroot on
+GitHub</a>. I added a
+custom defconfig (<code>configs/hjdskes_rpi3_defconfig</code>) that holds my
+image&rsquo;s configuration, and there is a subdirectory in
+<code>board/hjdskes/rpi3/</code> to hold configuration files and a rootsfs
+overlay.</p>
 
-  
-  <div>
-    
-    
-    <h2>Latest posts</h2>
-    <ul class="posts">
-      
-        <li class="groupby">Dec, 2018</li>
-          
-            <li class="post-item">
-  <article>
-    <time class="meta" datetime="2018-12-27 17:31:20 &#43;0100 CET">Dec 27, 2018</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/home-automation/">My home automation system</a>
-      
-    </header>
-</li>
+<p>The system is very minimal and modern: on top of the Linux kernel, it
+installs systemd (only the required parts and <code>logind</code>), util-linux&rsquo;
+<code>agetty</code> and <code>login</code>, bash, Raspberry Pi firmare, <code>wpa_supplicant</code>,
+mesa (Gallium VC4 driver, OpenGL ES and EGL), GTK+ 3, my Wayland
+compositor <a href="/projects/cage">Cage</a>, the Cantarell font and the Adwaita
+icon theme. Of course this also includes these packages&rsquo; dependencies,
+but with the finished filesystem using only 155 MB I think this
+qualifies as a minimal system. I do still have to develop the actual
+home automation application, which will add a few more dependencies to
+the system.</p>
 
-          
-            <li class="post-item">
-  <article>
-    <time class="meta" datetime="2018-12-27 17:31:12 &#43;0100 CET">Dec 27, 2018</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/cage/">Announcing Cage: the Wayland kiosk</a>
-      
-    </header>
-</li>
+<p>Cage is started automatically on boot. I have <a href="https://github.com/Hjdskes/buildroot/blob/hjdskes/board/hjdskes/rpi3/rootfs_overlay/etc/systemd/system/cage%40.service">written a systemd
+service</a>
+for this, which logs in as the specified user after boot and then
+launches Cage. This systemd service does things the proper way, after
+<a href="https://lists.freedesktop.org/archives/wayland-devel/2017-November/035973.html">this discussion on
+wayland-devel</a>.
+That is, it sets up a full user session with logind and a <a href="https://github.com/Hjdskes/buildroot/blob/hjdskes/board/hjdskes/rpi3/rootfs_overlay/etc/pam.d/cage">custom PAM
+stack</a>.
+This stack does the usual login handling through pam_unix and then
+launches a user session with pam_systemd.</p>
 
-          
-            <li class="post-item">
-  <article>
-    <time class="meta" datetime="2018-12-13 15:23:39 &#43;0100 CET">Dec 13, 2018</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/psa-github-gpg/">PSA: want to use a new subkey to sign your commits?</a>
-      
-    </header>
-</li>
-
-          
-        
-        <li class="groupby">Sep, 2018</li>
-          
-            <li class="post-item">
-  <article>
-    <time class="meta" datetime="2018-09-02 00:00:21 &#43;0200 CEST">Sep 2, 2018</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/gcolor3-gitlab/">Gcolor3 has moved to GNOME&#39;s GitLab!</a>
-      
-    </header>
-</li>
-
-          
-            <li class="post-item">
-  <article>
-    <time class="meta" datetime="2018-09-01 00:00:21 &#43;0200 CEST">Sep 1, 2018</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/gcolor3-2.3/">Gcolor3 version 2.3 is out!</a>
-      
-    </header>
-</li>
-
-          
-        
-      </ul>
-
-      
-        <a href="/blog/" class="see-more">See more ...</a>
-      
-    
-  </div>
-  
-
-  
-  
 </div>
 <div id="postamble">
   <footer>

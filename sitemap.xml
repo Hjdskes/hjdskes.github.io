@@ -3,8 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://hjdskes.nl/blog/home-automation/</loc>
+    <lastmod>2018-12-27T17:31:20+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.nl/blog/cage/</loc>
     <lastmod>2018-12-27T17:31:12+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.nl/projects/rpi-linux/</loc>
+    <lastmod>2018-12-27T16:54:01+01:00</lastmod>
   </url>
   
   <url>
@@ -325,6 +335,12 @@
   </url>
   
   <url>
+    <loc>https://hjdskes.nl/tags/buildroot/</loc>
+    <lastmod>2018-12-27T17:31:20+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.nl/tags/button/</loc>
     <lastmod>2017-08-11T15:35:37+02:00</lastmod>
     <priority>0</priority>
@@ -392,13 +408,19 @@
   
   <url>
     <loc>https://hjdskes.nl/categories/development/</loc>
-    <lastmod>2018-12-27T17:31:12+01:00</lastmod>
+    <lastmod>2018-12-27T17:31:20+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hjdskes.nl/tags/diy/</loc>
     <lastmod>2018-05-01T20:30:41+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.nl/tags/embedded/</loc>
+    <lastmod>2018-12-27T17:31:20+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -499,6 +521,18 @@
   </url>
   
   <url>
+    <loc>https://hjdskes.nl/series/home-automation/</loc>
+    <lastmod>2018-12-27T17:31:20+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.nl/tags/home-automation/</loc>
+    <lastmod>2018-12-27T17:31:20+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.nl/categories/home-automation/</loc>
     <lastmod>2018-12-27T17:31:12+01:00</lastmod>
     <priority>0</priority>
@@ -537,6 +571,12 @@
   <url>
     <loc>https://hjdskes.nl/tags/libratbag/</loc>
     <lastmod>2017-05-19T16:01:04+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.nl/tags/linux/</loc>
+    <lastmod>2018-12-27T17:31:20+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -633,6 +673,18 @@
   <url>
     <loc>https://hjdskes.nl/tags/race-condition/</loc>
     <lastmod>2017-07-14T10:03:55+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.nl/tags/raspberry-pi/</loc>
+    <lastmod>2018-12-27T17:31:20+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.nl/categories/raspberry-pi/</loc>
+    <lastmod>2018-12-27T16:54:01+01:00</lastmod>
     <priority>0</priority>
   </url>
   
