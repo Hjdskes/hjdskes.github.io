@@ -36,10 +36,10 @@ Cage does not support any Wayland protocols other than xdg-shell. That
 is, there is no support for panels, virtual keyboards, screen capture,
 primary selection, et cetera. Cage fulfills my needs in its current
 state (well, [almost](https://github.com/Hjdskes/cage/issues)), but I
-welcome pull requests implementing one of the features listed. The
-layer-shell protocol especially might make for a cleaner
-implementation and virtual keyboard support is something that I might
-want to add later too, depending on how my needs grow.
+welcome pull requests implementing one of the features listed or other
+Wayland protocols. The layer-shell protocol especially might make for
+a cleaner implementation and virtual keyboard support is something
+that I might want to add later too, depending on how my needs grow.
 
 Cage is based on the annotated source of
 [TinyWL](https://gist.github.com/ddevault/ae4d1cdcca97ffeb2c35f0878d75dc17).
