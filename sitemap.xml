@@ -526,6 +526,12 @@
   </url>
   
   <url>
+    <loc>https://hjdskes.nl/tags/home-automation/</loc>
+    <lastmod>2018-12-28T08:46:20+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.nl/categories/home-automation/</loc>
     <lastmod>2018-12-27T17:31:12+01:00</lastmod>
     <priority>0</priority>
@@ -533,12 +539,6 @@
   
   <url>
     <loc>https://hjdskes.nl/series/home-automation/</loc>
-    <lastmod>2018-12-28T08:46:20+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hjdskes.nl/tags/home-automation/</loc>
     <lastmod>2018-12-28T08:46:20+01:00</lastmod>
     <priority>0</priority>
   </url>
@@ -682,14 +682,14 @@
   </url>
   
   <url>
-    <loc>https://hjdskes.nl/categories/raspberry-pi/</loc>
-    <lastmod>2018-12-27T16:54:01+01:00</lastmod>
+    <loc>https://hjdskes.nl/tags/raspberry-pi/</loc>
+    <lastmod>2018-12-28T08:46:20+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://hjdskes.nl/tags/raspberry-pi/</loc>
-    <lastmod>2018-12-28T08:46:20+01:00</lastmod>
+    <loc>https://hjdskes.nl/categories/raspberry-pi/</loc>
+    <lastmod>2018-12-27T16:54:01+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -724,14 +724,14 @@
   </url>
   
   <url>
-    <loc>https://hjdskes.nl/categories/server/</loc>
-    <lastmod>2018-07-04T20:47:00+02:00</lastmod>
+    <loc>https://hjdskes.nl/tags/server/</loc>
+    <lastmod>2018-05-01T20:30:41+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://hjdskes.nl/tags/server/</loc>
-    <lastmod>2018-05-01T20:30:41+01:00</lastmod>
+    <loc>https://hjdskes.nl/categories/server/</loc>
+    <lastmod>2018-07-04T20:47:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
