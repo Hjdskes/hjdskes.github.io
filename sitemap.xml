@@ -526,12 +526,6 @@
   </url>
   
   <url>
-    <loc>https://hjdskes.nl/series/home-automation/</loc>
-    <lastmod>2018-12-28T08:46:20+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://hjdskes.nl/tags/home-automation/</loc>
     <lastmod>2018-12-28T08:46:20+01:00</lastmod>
     <priority>0</priority>
@@ -540,6 +534,12 @@
   <url>
     <loc>https://hjdskes.nl/categories/home-automation/</loc>
     <lastmod>2018-12-27T17:31:12+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.nl/series/home-automation/</loc>
+    <lastmod>2018-12-28T08:46:20+01:00</lastmod>
     <priority>0</priority>
   </url>
   
