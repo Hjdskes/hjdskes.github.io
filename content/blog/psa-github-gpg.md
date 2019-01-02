@@ -3,7 +3,7 @@ date = 2018-12-13T15:23:39+01:00
 title = "PSA: want to use a new subkey to sign your commits?"
 description = "Here's what to do to get it picked up by GitHub & GitLab"
 tags = ["pgp", "gnupg", "github", "gitlab", "subkey"]
-categories = ["development","administration"]
+categories = ["Development","Administration"]
 +++
 
 I [~~not so~~](/blog/pass/) recently started
@@ -38,3 +38,8 @@ worry: as we are adding this same key back, those commits will all
 become verified again. In fact, even the commits I made since starting
 to use subkeys suddenly became verified as well. This same trick works
 on GitLab, by the way.
+
+### Update Jan 2 2019
+
+I reported this issue when I discovered it. [I have now gotten a
+response](/blog/github-pgp-response).
