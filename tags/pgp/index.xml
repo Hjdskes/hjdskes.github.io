@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2018 Jente Hidskes</copyright>
-    <lastBuildDate>Thu, 13 Dec 2018 15:23:39 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 02 Jan 2019 11:47:43 +0100</lastBuildDate>
     
 	<atom:link href="https://hjdskes.nl/tags/pgp/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>An update from GitHub on PGP subkeys</title>
+      <link>https://hjdskes.nl/blog/github-pgp-response/</link>
+      <pubDate>Wed, 02 Jan 2019 11:47:43 +0100</pubDate>
+      
+      <guid>https://hjdskes.nl/blog/github-pgp-response/</guid>
+      <description>A few weeks ago I wrote about adding a new PGP subkey to your GitHub account. I reported this issue to GitHub when I discovered it. Today, I have gotten a response from GitHub:
+ When a new subkey is added to an existing PGP key on an account, it currently has to be removed and added back to the account to update it on our side.
+This is expected behaviour for now but I agree it isn&amp;rsquo;t the most elegant solution!</description>
+    </item>
     
     <item>
       <title>PSA: want to use a new subkey to sign your commits?</title>

@@ -2,17 +2,17 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
-  <meta name="description" content="Jente Hidskes&#39; website"/>
+  <meta name="description" content="GitHub&#39;s response to my report about adding new subkeys"/>
   <meta name="generator" content="Hugo 0.53" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <meta property="og:description" content="Jente Hidskes&#39; website"/>
+  <meta property="og:description" content="GitHub&#39;s response to my report about adding new subkeys"/>
   <meta property="og:locale" content="en-us"/>
   <meta property="og:site_name" content="Jente Hidskes&#39; website"/>
-  <meta property="og:title" content="Jente Hidskes&#39; website"/>
+  <meta property="og:title" content="An update from GitHub on PGP subkeys"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:url" content="https://hjdskes.nl/"/>
+  <meta property="og:url" content="https://hjdskes.nl/blog/github-pgp-response/"/>
   <meta property="og:image" content="https://hjdskes.nl/img/avatar.svg"/>
 
   <meta name="twitter:card" content="summary"/>
@@ -21,11 +21,9 @@
   
   <meta name="twitter:image:alt" content="Logo"/>
 
-  <title>Jente Hidskes&#39; website</title>
+  <title> Jente Hidskes&#39; website - An update from GitHub on PGP subkeys </title>
 
-  <link rel="canonical" href="https://hjdskes.nl/"/>
-  
-  <link rel="alternate" type="application/rss+xml" href="https://hjdskes.nl/index.xml" title="Jente Hidskes&#39; website"/>
+  <link rel="canonical" href="https://hjdskes.nl/blog/github-pgp-response/"/>
   
   <link rel="shortcut icon" href="https://hjdskes.nl/img/favicon.ico"/>
 
@@ -70,96 +68,50 @@
     </div>
   </div>
 
-<div class="content">
-  <p>Welcome to my personal website. This site serves as a blog, a repository of my
-work and perhaps as some sort of resumé. You can learn more <a href="/about/">about me</a>,
-browse my own open-source <a href="/projects/">projects</a> or view my
-<a href="/contributions/">contributions</a> to other open-source projects.</p>
 
-
-  
-  <div>
-    
-    
-    <h2>Latest posts</h2>
-    <ul class="posts">
-      
-        <li class="groupby">Jan, 2019</li>
-          
-            <li class="post-item">
-  <article>
-    <time class="meta" datetime="2019-01-02 11:47:43 &#43;0100 CET">Jan 2, 2019</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/github-pgp-response/">An update from GitHub on PGP subkeys</a>
-      
-    </header>
-</li>
-
-          
-        
-        <li class="groupby">Dec, 2018</li>
-          
-            <li class="post-item">
-  <article>
-    <time class="meta" datetime="2018-12-28 08:46:20 &#43;0100 CET">Dec 28, 2018</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/home-automation/">My home automation system</a>
-      
-    </header>
-</li>
-
-          
-            <li class="post-item">
-  <article>
-    <time class="meta" datetime="2018-12-27 17:31:12 &#43;0100 CET">Dec 27, 2018</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/cage/">Announcing Cage: the Wayland kiosk</a>
-      
-    </header>
-</li>
-
-          
-            <li class="post-item">
-  <article>
-    <time class="meta" datetime="2018-12-13 15:23:39 &#43;0100 CET">Dec 13, 2018</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/psa-github-gpg/">PSA: want to use a new subkey to sign your commits?</a>
-      
-    </header>
-</li>
-
-          
-        
-        <li class="groupby">Sep, 2018</li>
-          
-            <li class="post-item">
-  <article>
-    <time class="meta" datetime="2018-09-02 00:00:21 &#43;0200 CEST">Sep 2, 2018</time>
-    <header>
-      
-      <a href="https://hjdskes.nl/blog/gcolor3-gitlab/">Gcolor3 has moved to GNOME&#39;s GitLab!</a>
-      
-    </header>
-</li>
-
-          
-        
-      </ul>
-
-      
-        <a href="/blog/" class="see-more">See more ...</a>
-      
-    
-  </div>
-  
-
-  
-  
+<div class="page-heading">
+  <h1>An update from GitHub on PGP subkeys</h1>
 </div>
+
+<div class="meta">Jan 2, 2019<div class="middot">1 minute read</div>
+  <div class="tags">
+    <ul>
+      
+        <li class="middot"><a href="/tags/pgp">pgp</a></li>
+      
+        <li class="middot"><a href="/tags/gnupg">gnupg</a></li>
+      
+        <li class="middot"><a href="/tags/github">github</a></li>
+      
+        <li class="middot"><a href="/tags/subkey">subkey</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="content">
+  <p>A few weeks ago I wrote about adding a <a href="/blog/psa-github-gpg">new PGP subkey to your GitHub account</a>.
+I reported this issue to GitHub when I discovered it. Today, I have gotten a response from GitHub:</p>
+
+<blockquote>
+<p>When a new subkey is added to an existing PGP key on an account, it
+currently has to be removed and added back to the account to update it
+on our side.</p>
+
+<p>This is expected behaviour for now but I agree it isn&rsquo;t the most
+elegant solution! We&rsquo;ll pass your request onto the team to consider.</p>
+
+<p>I can&rsquo;t promise if or when we&rsquo;d add this but we&rsquo;ll make sure the
+request is in the right hands.</p>
+</blockquote>
+
+<p>So, perhaps this will work properly in the future, or at least be
+documented behavior ☺ I have now also <a href="https://gitlab.com/gitlab-org/gitlab-ce/issues/55864">reported this issue to
+GitLab</a>, which I
+forgot to do earlier because I had a plane to catch.</p>
+
+</div>
+
 <div id="postamble">
   <footer>
     <nav class="social-icons">

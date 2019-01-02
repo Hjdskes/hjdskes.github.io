@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://hjdskes.nl/blog/github-pgp-response/</loc>
+    <lastmod>2019-01-02T11:47:43+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hjdskes.nl/blog/home-automation/</loc>
     <lastmod>2018-12-28T08:46:20+01:00</lastmod>
   </url>
@@ -330,7 +335,7 @@
   
   <url>
     <loc>https://hjdskes.nl/categories/administration/</loc>
-    <lastmod>2018-12-13T15:23:39+01:00</lastmod>
+    <lastmod>2019-01-02T11:47:43+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -366,7 +371,7 @@
   
   <url>
     <loc>https://hjdskes.nl/categories/</loc>
-    <lastmod>2018-12-13T15:23:39+01:00</lastmod>
+    <lastmod>2019-01-02T11:47:43+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -408,7 +413,7 @@
   
   <url>
     <loc>https://hjdskes.nl/categories/development/</loc>
-    <lastmod>2018-12-28T08:46:20+01:00</lastmod>
+    <lastmod>2019-01-02T11:47:43+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -462,7 +467,7 @@
   
   <url>
     <loc>https://hjdskes.nl/tags/github/</loc>
-    <lastmod>2018-12-13T15:23:39+01:00</lastmod>
+    <lastmod>2019-01-02T11:47:43+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -486,7 +491,7 @@
   
   <url>
     <loc>https://hjdskes.nl/tags/gnupg/</loc>
-    <lastmod>2018-12-13T15:23:39+01:00</lastmod>
+    <lastmod>2019-01-02T11:47:43+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -521,12 +526,6 @@
   </url>
   
   <url>
-    <loc>https://hjdskes.nl/tags/home-automation/</loc>
-    <lastmod>2018-12-28T08:46:20+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://hjdskes.nl/categories/home-automation/</loc>
     <lastmod>2018-12-27T17:31:12+01:00</lastmod>
     <priority>0</priority>
@@ -534,6 +533,12 @@
   
   <url>
     <loc>https://hjdskes.nl/series/home-automation/</loc>
+    <lastmod>2018-12-28T08:46:20+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hjdskes.nl/tags/home-automation/</loc>
     <lastmod>2018-12-28T08:46:20+01:00</lastmod>
     <priority>0</priority>
   </url>
@@ -636,7 +641,7 @@
   
   <url>
     <loc>https://hjdskes.nl/tags/pgp/</loc>
-    <lastmod>2018-12-13T15:23:39+01:00</lastmod>
+    <lastmod>2019-01-02T11:47:43+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -677,14 +682,14 @@
   </url>
   
   <url>
-    <loc>https://hjdskes.nl/tags/raspberry-pi/</loc>
-    <lastmod>2018-12-28T08:46:20+01:00</lastmod>
+    <loc>https://hjdskes.nl/categories/raspberry-pi/</loc>
+    <lastmod>2018-12-27T16:54:01+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://hjdskes.nl/categories/raspberry-pi/</loc>
-    <lastmod>2018-12-27T16:54:01+01:00</lastmod>
+    <loc>https://hjdskes.nl/tags/raspberry-pi/</loc>
+    <lastmod>2018-12-28T08:46:20+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -719,14 +724,14 @@
   </url>
   
   <url>
-    <loc>https://hjdskes.nl/tags/server/</loc>
-    <lastmod>2018-05-01T20:30:41+01:00</lastmod>
+    <loc>https://hjdskes.nl/categories/server/</loc>
+    <lastmod>2018-07-04T20:47:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://hjdskes.nl/categories/server/</loc>
-    <lastmod>2018-07-04T20:47:00+02:00</lastmod>
+    <loc>https://hjdskes.nl/tags/server/</loc>
+    <lastmod>2018-05-01T20:30:41+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -738,7 +743,7 @@
   
   <url>
     <loc>https://hjdskes.nl/tags/subkey/</loc>
-    <lastmod>2018-12-13T15:23:39+01:00</lastmod>
+    <lastmod>2019-01-02T11:47:43+01:00</lastmod>
     <priority>0</priority>
   </url>
   
