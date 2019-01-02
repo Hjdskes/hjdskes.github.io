@@ -100,5 +100,5 @@ Please see
 [LICENSE](https://github.com/Hjdskes/cage/blob/master/LICENSE) on
 [GitHub](https://github.com/Hjdskes/cage).
 
-Copyright © 2018 Jente Hidskes
+Copyright © 2018-2019 Jente Hidskes
 [hjdskes@gmail.com](mailto:hjdskes@gmail.com).
