@@ -125,7 +125,9 @@ $ ninja -C build
 
 <p>Cage comes with compile-time support for XWayland. To enable this,
 first make sure that your version of wlroots is compiled with this
-option. Then, add <code>-Dxwayland=true</code> to the <code>meson</code> command above.</p>
+option. Then, add <code>-Dxwayland=true</code> to the <code>meson</code> command above. Note
+that you&rsquo;ll need to have the XWayland binary installed on your system
+for this to work.</p>
 
 <p>You can then run Cage by running <code>./build/cage /path/to/application
 --with=arguments</code>. If you run Cage from within an existing X11 or
