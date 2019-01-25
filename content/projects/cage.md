@@ -11,13 +11,18 @@ Cage is a kiosk compositor for Wayland. A kiosk is a window manager
 (in the X11 world) or compositor (in the Wayland world) that is
 designed for a user experience wherein user interaction and activities
 outside the scope of the running application are prevented. That is, a
-kiosk compositor runs a single, maximized application and prevents the
-user from interacting with anything but this application.
+kiosk compositor runs a maximized application at a time and prevents
+the user from interacting with anything but this application.
 
 As such, user input such as moving, resizing, minimizing and
 unmaximizing windows is ignored. Cage supports dialogs, although they
 too cannot be resized nor moved. Instead, dialogs are centered on the
-screen.
+screen. Note that multiple maximized windows are supported, but the
+user is not able to cycle between them. That is, if Cage is launched
+with a terminal emulator and an application is launched from this
+terminal emulator, that application is placed "on top" of the terminal
+emulator and takes all input until it is closed. When this application
+is closed, the terminal emulator becomes visible again.
 
 Cage supports a single, static output. It does not support hotplugging
 additional outputs and exits when its only output is removed. Cage
