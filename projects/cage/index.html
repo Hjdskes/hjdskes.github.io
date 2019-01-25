@@ -76,19 +76,25 @@
 (in the X11 world) or compositor (in the Wayland world) that is
 designed for a user experience wherein user interaction and activities
 outside the scope of the running application are prevented. That is, a
-kiosk compositor runs a single, maximized application and prevents the
-user from interacting with anything but this application.</p>
+kiosk compositor runs a maximized application at a time and prevents
+the user from interacting with anything but this application.</p>
 
 <p>As such, user input such as moving, resizing, minimizing and
 unmaximizing windows is ignored. Cage supports dialogs, although they
 too cannot be resized nor moved. Instead, dialogs are centered on the
-screen.</p>
+screen. Note that multiple maximized windows are supported, but the
+user is not able to cycle between them. That is, if Cage is launched
+with a terminal emulator and an application is launched from this
+terminal emulator, that application is placed &ldquo;on top&rdquo; of the terminal
+emulator and takes all input until it is closed. When this application
+is closed, the terminal emulator becomes visible again.</p>
 
 <p>Cage supports a single, static output. It does not support hotplugging
 additional outputs and exits when its only output is removed. Cage
 defaults to the output&rsquo;s preferred mode and does not support
-rotation. Input-wise, Cage supports pointer input, keyboard input and
-touch input. Copy and paste works as well.</p>
+rotation. Cage does not support virtual workspaces. Input-wise, Cage
+supports pointer input, keyboard input and touch input. Copy and paste
+works as well.</p>
 
 <p>There is no configuration for Cage. To start Cage, simply call its
 binary with the path to the application you want to launch within the
@@ -105,7 +111,8 @@ a cleaner implementation and virtual keyboard support is definitely
 something we want in the future.</p>
 
 <p>Cage is based on the annotated source of
-<a href="https://gist.github.com/ddevault/ae4d1cdcca97ffeb2c35f0878d75dc17">TinyWL</a>.</p>
+<a href="https://gist.github.com/ddevault/ae4d1cdcca97ffeb2c35f0878d75dc17">TinyWL</a>
+and rootston.</p>
 
 <h2 id="installation">Installation</h2>
 
