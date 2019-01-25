@@ -27,8 +27,9 @@ is closed, the terminal emulator becomes visible again.
 Cage supports a single, static output. It does not support hotplugging
 additional outputs and exits when its only output is removed. Cage
 defaults to the output's preferred mode and does not support
-rotation. Input-wise, Cage supports pointer input, keyboard input and
-touch input. Copy and paste works as well.
+rotation. Cage does not support virtual workspaces. Input-wise, Cage
+supports pointer input, keyboard input and touch input. Copy and paste
+works as well.
 
 There is no configuration for Cage. To start Cage, simply call its
 binary with the path to the application you want to launch within the
