@@ -45,9 +45,7 @@ Wayland protocols. The layer-shell protocol especially might make for
 a cleaner implementation and virtual keyboard support is definitely
 something we want in the future.
 
-Cage is based on the annotated source of
-[TinyWL](https://gist.github.com/ddevault/ae4d1cdcca97ffeb2c35f0878d75dc17)
-and rootston.
+Cage is based on the annotated source of tinywl and rootston.
 
 ## Installation
 
