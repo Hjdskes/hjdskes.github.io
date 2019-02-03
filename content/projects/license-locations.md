@@ -6,7 +6,7 @@ type = "University"
 
 For the course [IN4252 Web Science &
 Engineering](http://studiegids.tudelft.nl/a101_displayCourse.do?course_id=38331)
-I had to write a draft research paper, titled *Open source software licenses: is
+I wrote a draft research paper, titled *Open source software licenses: is
 there a correlation between developer location and software licenses?*. In this
 paper I attempted to map the use of free and open source software licenses, in
 order to see whether a developer's geographic location is a determinant of FOSS
