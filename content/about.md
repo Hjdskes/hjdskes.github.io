@@ -14,9 +14,9 @@ interested in operating systems and programming languages.  I
 completed my [MSc thesis](/projects/msc/) at the [Programming
 Languages
 group](https://www.tudelft.nl/en/eemcs/the-faculty/departments/software-technology/programming-languages/)
-of the TU Delft under the supervision of [Dr.
-S.T. Erdweg](http://www.erdweg.org) and [Sven
-Keidel](https://svenkeidel.de). I live in Rotterdam, The Netherlands.
+of the TU Delft under the supervision of [Dr. S.T.
+Erdweg](http://www.erdweg.org) and [Sven Keidel](https://svenkeidel.de). I live
+in Stockholm, Sweden.
 
 A great passion of mine is free and open-source software. I enjoy
 [contributing](/contributions/) to other projects and maintaining
