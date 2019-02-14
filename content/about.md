@@ -16,10 +16,10 @@ of the TU Delft under the supervision of [Dr. S.T.
 Erdweg](http://www.erdweg.org) and [Sven Keidel](https://svenkeidel.de). I live
 in Stockholm, Sweden.
 
-A great passion of mine is free and open-source software. I enjoy
-[contributing](/contributions/) to other projects and maintaining projects [of
-my own](/projects/).  In 2017, I participated in Google's Summer of Code about
-which I have written a [series of blog posts](/series/google-summer-of-code/).
+A great passion of mine is free and open-source software. I [enjoy](/projects/)
+contributing to other projects and maintaining projects of my own.  In 2017, I
+participated in Google's Summer of Code about which I have written a [series of
+blog posts](/series/google-summer-of-code/). 
 
 I have been using Linux for over ten years and participate in several
 Linux-related communities. This includes being a moderator at the [Crunchbang

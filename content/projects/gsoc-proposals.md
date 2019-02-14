@@ -1,7 +1,7 @@
 +++
 date = "2017-03-23T01:55:50+01:00"
 title = "Google Summer of Code proposal contributions"
-highlight = false
+type = "Contribution"
 +++
 
 The application process of Google Summer of Code requires students to make a
@@ -24,6 +24,6 @@ reason that the contributions here are rather small:
   otherwise [crash](https://github.com/libratbag/piper/issues/2) Piper when
   ratbagd wasn't running.
 
-I'm keeping a blog on my GSoC progress. You can read the introduction
-[here](/blog/gsoc-part-1/); an overview of the complete series can be found
-[here](/series/google-summer-of-code/).
+I got accepted for 2017's GSoC and kept a blog on my progress. You can
+read the introduction [here](/blog/gsoc-part-1/); an overview of the complete
+series can be found [here](/series/google-summer-of-code/).

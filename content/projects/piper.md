@@ -1,7 +1,7 @@
 +++
 date = "2017-09-09T14:35:00+02:00"
 title = "Redesign and rewrite Piper for Google Summer of Code 2017"
-highlight = true
+type = "Contribution"
 +++
 
 I redesigned and rewrote the [Piper](https://github.com/libratbag/piper) mouse
