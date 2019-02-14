@@ -19,7 +19,9 @@ in Stockholm, Sweden.
 A great passion of mine is free and open-source software. I [enjoy](/projects/)
 contributing to other projects and maintaining projects of my own.  In 2017, I
 participated in Google's Summer of Code about which I have written a [series of
-blog posts](/series/google-summer-of-code/). 
+blog posts](/series/google-summer-of-code/). I am the maintainer of
+[Piper](/projects/piper), [Gcolor3](/projects/gcolor3) and
+[Cage](/projects/cage).
 
 I have been using Linux for over ten years and participate in several
 Linux-related communities. This includes being a moderator at the [Crunchbang
