@@ -3,7 +3,7 @@ date = 2018-12-27T17:31:12+01:00
 title = "Announcing Cage: the Wayland kiosk"
 description = "Cage: the Wayland kiosk"
 tags = ["wayland","compositor","cage","kiosk","wlroots"]
-categories = ["Development","Projects","Home automation"]
+categories = ["Projects","Home automation"]
 +++
 
 Yesterday I made [Cage](https://github.com/Hjdskes/cage) publically

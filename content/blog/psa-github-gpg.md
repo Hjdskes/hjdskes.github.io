@@ -3,7 +3,7 @@ date = 2018-12-13T15:23:39+01:00
 title = "PSA: want to use a new subkey to sign your commits?"
 description = "Here's what to do to get it picked up by GitHub & GitLab"
 tags = ["pgp", "gnupg", "github", "gitlab", "subkey"]
-categories = ["Development","Administration"]
+categories = ["Administration"]
 +++
 
 I [~~not so~~](/blog/pass/) recently started

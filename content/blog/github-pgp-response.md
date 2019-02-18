@@ -2,8 +2,8 @@
 date = 2019-01-02T11:47:43+01:00
 title = "An update from GitHub on PGP subkeys"
 description = "GitHub's response to my report about adding new subkeys"
-tags = ["pgp", "gnupg", "github", "subkey"]
-categories = ["Development", "Administration"]
+tags = ["pgp", "gnupg", "github", "gitlab", "subkey"]
+categories = ["Administration"]
 +++
 
 A few weeks ago I wrote about adding a [new PGP subkey to your GitHub account](/blog/psa-github-gpg).

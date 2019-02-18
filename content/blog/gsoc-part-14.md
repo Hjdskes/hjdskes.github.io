@@ -1,9 +1,9 @@
 +++
 date = "2017-08-23T13:01:32+02:00"
 description = "GSoC blog series on rewriting Piper"
-tags = [ "Piper", "fdo", "macro", "localization", "property", "exception" ]
+tags = [ "Piper", "fdo", "macro", "PyGObject" ]
 title = "GSoC part 14: final code changes"
-categories = ["Development"]
+categories = ["Projects"]
 series = "Google Summer of Code"
 +++
 

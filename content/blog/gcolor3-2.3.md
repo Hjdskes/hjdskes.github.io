@@ -3,7 +3,7 @@ date = 2018-09-01T00:00:21+02:00
 title = "Gcolor3 version 2.3 is out!"
 description = "A new release of Gcolor3"
 tags = ["Gcolor3","Flatpak","GTK+"]
-categories = ["Development","Projects"]
+categories = ["Projects"]
 +++
 
 Finally, after a long period of sporadic commits, I released Gcolor3

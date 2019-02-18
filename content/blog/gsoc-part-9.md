@@ -1,9 +1,9 @@
 +++
 date = "2017-07-21T17:35:55+02:00"
 description = "GSoC blog series on rewriting Piper"
-tags = [ "Piper", "fdo", "button", "capture", "modifier" ]
+tags = [ "Piper", "fdo", "buttons", "keyval", "keycode" ]
 title = "GSoC part 9: the button stack page"
-categories = ["Development"]
+categories = ["Projects"]
 series = "Google Summer of Code"
 +++
 

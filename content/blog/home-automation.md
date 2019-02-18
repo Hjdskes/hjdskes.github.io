@@ -2,9 +2,8 @@
 date = 2018-12-28T8:46:20+01:00
 title = "My home automation system"
 description = "An introduction to my home automation system"
-tags = ["linux","embedded","buildroot","raspberry pi","home automation"]
-categories = ["Development"]
-series = ["Home automation"]
+tags = ["linux","embedded","buildroot","raspberry pi"]
+categories = ["Home automation"]
 +++
 
 Back in May I [wrote](/blog/server/#the-server) that I was thinking of
@@ -24,8 +23,8 @@ official 7" touch screen stand, so that it can stand by itself while
 looking not too shabby.
 
 {{< gallery "/img/blog/home-automation/front.jpg"
-	        "/img/blog/home-automation/back.jpg"
-			"/img/blog/home-automation/side.jpg" >}}
+            "/img/blog/home-automation/back.jpg"
+            "/img/blog/home-automation/side.jpg" >}}
 
 On top of this beauty, the control system should run software that
 allows you to for example control the smart lighting. For the reasons

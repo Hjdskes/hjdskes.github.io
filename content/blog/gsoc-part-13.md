@@ -1,9 +1,9 @@
 +++
 date = "2017-08-18T19:47:27+02:00"
 description = "GSoC blog series on rewriting Piper"
-tags = [ "Piper", "fdo", "style context", "loop" ]
+tags = [ "Piper", "fdo", "Gtk" ]
 title = "GSoC part 13: I solved global warming!"
-categories = ["Development"]
+categories = ["Projects"]
 series = "Google Summer of Code"
 +++
 

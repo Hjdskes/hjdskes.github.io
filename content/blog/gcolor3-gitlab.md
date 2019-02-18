@@ -3,7 +3,7 @@ date = 2018-09-02T00:00:21+02:00
 title = "Gcolor3 has moved to GNOME's GitLab!"
 description = "A new chapter in Gcolor3"
 tags = ["Gcolor3","GNOME","GitLab"]
-categories = ["Development","Projects"]
+categories = ["Projects"]
 +++
 
 Gcolor3 has moved from GitHub to GNOME's GitLab instance! You can now

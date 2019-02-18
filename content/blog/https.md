@@ -1,8 +1,8 @@
 +++
-title = 'This website is now HTTPS only again!'
 date = 2018-05-02T11:41:05+02:00
-tags = ["website","https","github pages","custom domain"]
+title = "This website is now HTTPS only again!"
 description = "GitHub enabled HTTPS support for custom domains"
+tags = ["https","github pages","custom domain"]
 categories = ["Administration"]
 +++
 

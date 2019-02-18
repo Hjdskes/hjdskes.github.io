@@ -3,7 +3,7 @@ date = "2017-06-03T17:53:27+02:00"
 tags = [ "Piper", "fdo", "Inkscape", "mockup" ]
 title = "GSoC part 3: mockups, mockups, mockups!"
 description = "GSoC blog series on rewriting Piper"
-categories = ["Development"]
+categories = ["Projects"]
 series = "Google Summer of Code"
 +++
 

@@ -2,7 +2,7 @@
 date = "2016-08-16T22:07:21+02:00"
 title = "Deploying Hugo-generated websites on personal GitHub Pages"
 description = "How I deploy my Hugo generated website to GitHub Pages"
-tags = [ "Hugo", "GitHub Pages", "Deploying" ]
+tags = [ "Hugo", "GitHub Pages" ]
 categories = ["Administration"]
 +++
 
