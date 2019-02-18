@@ -9,4 +9,4 @@ through my <a href="https://github.com/Hjdskes/repositories" title="Hjdskes'
 repositories on GitHub" rel=me>GitHub</a> and <a
 href="https://gitlab.gnome.org/users/hjdskes/contributed" title="Hjdskes'
 repositories on GNOME GitLab" rel=me>GNOME GitLab</a> repositories for a more
-exhaustive list.
+exhaustive (yet necessarily incomplete) list.
