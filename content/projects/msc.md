@@ -54,11 +54,4 @@ interpreters sound.*
 
 You can browse the slides of my defence below:
 
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSFMcpRCVEHRT7rTmMxwC2wHCsK3XQneYOVv3u3AroGr88K9gkg-x72ImMmvBjhjUpNqvh1GRIul_t3/embed?start=false&loop=false&delayms=3000"
-        frameborder="0"
-		width="864"
-		height="512"
-		allowfullscreen="true"
-		mozallowfullscreen="true"
-		webkitallowfullscreen="true">
-</iframe>
+{{% google-slides src="https://docs.google.com/presentation/d/e/2PACX-1vSFMcpRCVEHRT7rTmMxwC2wHCsK3XQneYOVv3u3AroGr88K9gkg-x72ImMmvBjhjUpNqvh1GRIul_t3/embed?start=false&loop=false&delayms=3000" %}}
