@@ -3,7 +3,7 @@ title = "A new case for my home made server"
 date = "2018-05-01T20:30:41+01:00"
 tags = ["DIY", "server", "3d printing"]
 description = "A build log of my home made server"
-categories = "Server"
+categories = ["Server"]
 +++
 
 A little less than a year ago I finished my home made server/NAS. I

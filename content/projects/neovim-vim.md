@@ -11,7 +11,9 @@ Neovim as our project. The result of this analysis is a
 in the book [Delft Students on Software Architecture:
 2017](https://delftswa.gitbooks.io/desosa-2017/content/).
 
-Our contributions resulted in several small fixes to both Neovim and Vim:
-
-* Neovim commits by [myself](https://github.com/neovim/neovim/commits/master?author=Hjdskes) and [Sander](https://github.com/neovim/neovim/commits/master?author=sander2);
-* Vim commits by [myself](https://github.com/vim/vim/commit/3457d295f4035293a78f9a9851ea416f923dd59e).
+Our contributions resulted in several small fixes to both Neovim and Vim, namely
+Neovim commits by
+[myself](https://github.com/neovim/neovim/commits/master?author=Hjdskes) and
+[Sander](https://github.com/neovim/neovim/commits/master?author=sander2) and Vim
+commits by
+[myself](https://github.com/vim/vim/commit/3457d295f4035293a78f9a9851ea416f923dd59e).

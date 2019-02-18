@@ -6,6 +6,7 @@ title = "Jente Hidskes' website"
 copyright = "Copyright © 2016-2019 Jente Hidskes"
 pygmentsCodeFences = true
 pygmentsUseClasses = true
+enableGitInfo = true
 
 [author]
   name = "Jente Hidskes"
@@ -24,3 +25,6 @@ github = "Hjdskes"
 twitter = "Hjdskes"
 gnome = "Hjdskes"
 email = "hjdskes@gmail.com"
+
+[frontmatter]
+lastmod = [":git", "lastmod", "date", "publishDate"]

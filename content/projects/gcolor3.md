@@ -42,7 +42,7 @@ releases](https://gitlab.gnome.org/World/gcolor3/tags).
 
 #### Flatpak
 
-{{% flathub title="Install Gcolor3 Flatpak" appstream-id="nl.hjdskes.gcolor3"%}}Install Gcolor3 from Flathub{{% /flathub %}}
+{{% flathub title="Install Gcolor3 from Flathub" appstream-id="nl.hjdskes.gcolor3" %}}
 
 To be able to install apps from Flathub you need to add the Flathub remote server:
 

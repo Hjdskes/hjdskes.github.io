@@ -3,7 +3,7 @@ date = "2017-08-04T15:06:40+02:00"
 description = "GSoC blog series on rewriting Piper"
 tags = [ "Piper", "fdo", "profiles", "buttons", "GUADEC" ]
 title = "GSoC part 11: all large features are done!"
-categories = "Development"
+categories = ["Development"]
 series = "Google Summer of Code"
 +++
 

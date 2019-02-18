@@ -3,7 +3,7 @@ title = 'This website is now HTTPS only again!'
 date = 2018-05-02T11:41:05+02:00
 tags = ["website","https","github pages","custom domain"]
 description = "GitHub enabled HTTPS support for custom domains"
-categories = "Administration"
+categories = ["Administration"]
 +++
 
 From today, my website enforces HTTPS again! Github Pages have been supporting
