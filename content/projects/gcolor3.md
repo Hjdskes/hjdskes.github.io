@@ -27,7 +27,7 @@ desktop.
 issue [#38](https://gitlab.gnome.org/World/gcolor3/issues/38)). {{%
 /message %}}
 
-### Installation
+## Installation
 
 There are three ways to install Gcolor3: you can either compile it
 [from source](#compile-from-source), use a
@@ -40,7 +40,7 @@ requires GTK+ 3.20. If your Linux distribution uses an older version,
 please see the [older
 releases](https://gitlab.gnome.org/World/gcolor3/tags).
 
-#### Flatpak
+### Flatpak
 
 {{% flathub title="Install Gcolor3 from Flathub" appstream-id="nl.hjdskes.gcolor3" %}}
 
@@ -62,7 +62,7 @@ To run Gcolor3, use:
 $ flatpak run nl.hjdskes.gcolor3
 ```
 
-#### Distribution packages
+### Distribution packages
 
 Gcolor3 is packaged for some Linux distributions:
 
@@ -81,7 +81,7 @@ Gcolor3 is packaged for some Linux distributions:
   [PPA](https://launchpad.net/~evertiro/+archive/ubuntu/gcolor3)
   available.
 
-#### Compile from source
+### Compile from source
 
 To compile Gcolor3, you need the GTK+ 3 development packages and your
 Linux distribution's package containing the tools to compile packages.
@@ -101,12 +101,12 @@ $ ninja -C build
 
 Optionally, the development packages can now be uninstalled.
 
-### Bugs
+## Bugs
 For any bug or feature request, please [create an
 issue](https://gitlab.gnome.org/World/gcolor3/issues/new?issue%5Bassignee_id%5D=&issue%5Bmilestone_id%5D=)
 on GitLab.
 
-### License
+## License
 
 Please see
 [LICENSE](https://gitlab.gnome.org/World/gcolor3/blob/master/LICENSE) on

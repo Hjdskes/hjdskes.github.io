@@ -28,7 +28,7 @@ Your browser does not support the video tag.
 
 I also reported on the work that was still to be done, which we'll get to now.
 
-### Piper shouldn't crash when libratbag returns an error
+## Piper shouldn't crash when libratbag returns an error
 
 Libratbag returns error codes to clients over DBus, it can for example return
 `RATBAG_ERROR_CAPABILITY` that has a value of -1001 (a <q>random</q> number so
@@ -130,7 +130,7 @@ solved. Oh, and [the bindings' setter methods also don't return values
 anymore](https://github.com/libratbag/piper/pull/145), as this never worked in
 the first place because the `GObject.Property` always returns the set value.
 
-### Macro rework
+## Macro rework
 
 Last week I mentioned an issue with [correctly restoring the macro preview label
 upon cancel](https://github.com/libratbag/piper/issues/141). There was another

@@ -24,7 +24,7 @@ written for the actual submission. Of course I finish with a
 For the uninitiated, my mentor is Peter Hutterer and the project was done under
 the X.Org organization.
 
-### Why
+## Why
 
 So why did Peter and I propose this project? Well, it was Google Summer of
 Code, I wanted to gain experience in the real world and Peter wanted free
@@ -54,7 +54,7 @@ present a unified graphical user interface to those that want to configure their
 gaming mice on their Linux desktop. <span style="font-size:xx-small">(*something
 something year of the Linux desktop.*)</span>
 
-### The plan
+## The plan
 
 The goal thus was to rewrite Piper in order to make it more user-friendly and to
 enable support for features found in today's gaming mice. This support was
@@ -149,7 +149,7 @@ daemon called ratbagd.-->
   </tbody>
 </table>
 
-### The work I did
+## The work I did
 
 If you've been following along with my weekly progress updates, you'll know that
 I didn't exactly follow this schedule. As I already mentioned, the first sprint
@@ -169,7 +169,7 @@ things done.
 Let's run through each of the sprints, in the order of which I actually executed
 them.
 
-#### Creating the mockups
+### Creating the mockups
 
 Creating mockups of how the new user interface should look was the basis of my
 project, together with establishing the feature set. I wasn't really looking
@@ -214,7 +214,7 @@ to
 
 ![The map-based approach](/img/blog/gsoc-part-15/map.png)
 
-#### Creating the MouseMap
+### Creating the MouseMap
 
 A central element of the new mockups was thus this <q>map</q>: it was to be used
 in all three configuration pages. As you can guess, there is no standard Gtk
@@ -237,7 +237,7 @@ on the right side. This required a significant rewrite of the layout code and
 required updating all the SVGs we had as well. You can read all about that in
 [part 6](/blog/gsoc-part-6/#adding-the-finishing-touches-to-the-mousemap).
 
-#### The resolutions page
+### The resolutions page
 
 With the MouseMap finished, it was time to get started on the real work. The
 first step was to do the resolutions page, because this had the most support on
@@ -263,7 +263,7 @@ to understand.
 With this out of the way I started on the resolutions page. I discuss all of
 that (and the PyGI templates) in [part 7](/blog/gsoc-part-7).
 
-#### The LED page
+### The LED page
 
 Next up was the LED configuration page. I deviated from the original mockup
 shown below:
@@ -287,7 +287,7 @@ without returning to the main loop to give our DBus proxy a chance to update.
 You can read about this and other issues with ratbagd in [part
 8](/blog/gsoc-part-8).
 
-#### The buttons page
+### The buttons page
 
 When making the planning, Peter told me that the buttons would be the most
 difficult part. He wasn't wrong, and I think overall I have spent most of my
@@ -341,7 +341,7 @@ in the technical details behind this configuration dialog, you can read [part
 9](/blog/gsoc-part-9#technical-details) and [part
 13](/blog/gsoc-part-13#preventing-the-user-from-shooting-themselves-in-the-foot).
 
-#### Profiles
+### Profiles
 
 I moved the profiles to the end of the summer (as opposed to the beginning
 according to the schedule) because I wanted to have a solid architecture for the
@@ -367,7 +367,7 @@ different approaches to do this throughout the architecture are discussed in
 implementing the code wasn't much work (which I took as a confirmation of both
 the approach and shuffling plans around being the right choices).
 
-#### The welcome- and error screens
+### The welcome- and error screens
 
 Both these features didn't appear in the original schedule, but were brought
 forward by Peter as feedback on my mockups. He rightly said that Piper
@@ -399,7 +399,7 @@ perspectives, one of which it activates depending on what happens. Adding
 keyboard support is now as simple as adding a keyboard perspective that contains
 all the necessary control widgets.
 
-#### Libratbag and ratbagd changes
+### Libratbag and ratbagd changes
 
 Over the course of the summer there have also been substantial changes to
 libratbag and ratbagd. The most visible change on the user-side is that
@@ -428,7 +428,7 @@ setter method. This was done not only to clean up the API but also to solve
 issues in the bindings where the property would have to be updated in the DBus
 proxy immediately in order to avoid race conditions.
 
-### Result
+## Result
 
 Here's a short summary of what Piper can currently do:
 
@@ -437,7 +437,7 @@ Here's a short summary of what Piper can currently do:
 Your browser does not support the video tag.
 </video>
 
-### What's left
+## What's left
 
 As I mentioned in [part 11](/blog/gsoc-part-11), I finished all large features.
 In the weeks after that, I also fixed (the most important) issues to improve the
@@ -511,7 +511,7 @@ issues](https://github.com/libratbag/piper/issues) with the labels <q>easy</q>
 and <q>help wanted</q>! If you have questions, you can contact us on
 `#libratbag` on Freenode, or on GitHub.
 
-### What I've learned
+## What I've learned
 
 I went into this project with some previous open source
 [contributions](/contributions/) and experience with previous (university)
@@ -541,7 +541,7 @@ Finally, I experienced debugging across multiple projects; sometimes I noticed a
 bug in Piper, tracked it to and fixed it in either the bindings, ratbagd or
 libratbag.
 
-### Code submission
+## Code submission
 
 All of my code can be found in the master branch of [Piper's GitHub
 repository](https://github.com/libratbag/piper). The commits between version
@@ -565,7 +565,7 @@ You can also
 [browse](https://github.com/libratbag/libratbag/commits/master?author=Hjdskes)
 the commits online on GitHub.
 
-### Thanks
+## Thanks
 
 I would like to thank my mentor, Peter Hutterer, for offering me this
 opportunity. It goes without saying (I'm doing it anyway!) that this was an

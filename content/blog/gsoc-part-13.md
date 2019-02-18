@@ -15,7 +15,7 @@ cvuchener from the libratbag project have been testing Piper the last week, and
 together with a handful of users attracted to Piper they have opened a bunch of
 issues for me to solve. Let's run through the most visible ones!
 
-### Solving global warming
+## Solving global warming
 
 Probably the most fun issue to resolve this week was the one reported by my
 mentor: [Piper contributes to global
@@ -51,7 +51,7 @@ However, this doesn't apply for the MouseMap and as such, I [used the
 workaround](https://github.com/libratbag/piper/pull/135/files) to do my share of
 saving the planet.
 
-### Preventing the user from shooting themselves in the foot
+## Preventing the user from shooting themselves in the foot
 
 During GUADEC my mentor opened the issue that [we shouldn't allow a user to
 unset the left mouse button](https://github.com/libratbag/piper/issues/82),
@@ -100,7 +100,7 @@ issue](https://github.com/libratbag/piper/issues/78), again over GUADEC, and,
 [as of last week](https://github.com/libratbag/piper/pull/112), this won't
 happen and Piper is just that bit smarter!
 
-### Preventing Piper from crashing
+## Preventing Piper from crashing
 
 Libratbag contributor cvuchener reported [a bunch of
 issues](https://github.com/libratbag/piper/issues?q=is%3Aissue+author%3Acvuchener)
@@ -178,7 +178,7 @@ exceptions from GObject
 properties](https://github.com/libratbag/piper/pull/125). After making this a
 <q>real</q> setter method, the error perspective is now presented as it should.
 
-### Work-in-progress
+## Work-in-progress
 
 I'm still working on a bunch of other issues that I can hopefully get merged
 before the 21st of August, which marks the end of my Google Summer of Code. I

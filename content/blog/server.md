@@ -13,7 +13,7 @@ day, I wanted a project that was ***not*** programming to relax my
 mind after a long day. I decided to try my hand at something I had
 never done before and create my own 3D printed case.
 
-# The server
+## The server
 
 Before we dive into the old and new cases, I'll list the server
 components so you have a basic idea what I was dealing with. The
@@ -57,7 +57,7 @@ how to connect the fan, too.
 If there is anything you want to know about the software, such as any
 configuration, feel free to send me an [email](mailto:hjdskes@gmail.com).
 
-# The old case
+## The old case
 
 This case is made from an old wooden box; see the photos at the bottom
 of this page. This was all I could get my hands on for free, and the
@@ -90,7 +90,7 @@ And yep, you guessed it: I never finished the box. It has been running
 half open like that gathering dust (surprisingly little, though) for a
 year.
 
-# The new case
+## The new case
 
 So, I wanted something that fixes the above issues. All existing
 designs online are, however, made for a UDOO Quad without any drive at
@@ -160,4 +160,3 @@ My design is available on
 [Thingiverse](https://www.thingiverse.com/thing:2886653) and
 [announced on the UDOO
 forums](https://www.udoo.org/forum/threads/udoo-quad-case-with-3-5-hdd-compartment-and-fan.14005/).
-

@@ -14,7 +14,7 @@ that was left were issues raised by GNOME contributors when my mentor demoed my
 progress over GUADEC. This week I've just been chugging away on those issues;
 let me show you.
 
-### Obvious save button is.. not obvious?
+## Obvious save button is.. not obvious?
 
 [Hadess](http://www.hadess.net/)
 [noted](https://github.com/libratbag/piper/issues/69) that the save button
@@ -39,7 +39,7 @@ button, in order to draw the user's attention that something needs to be
 committed. You can view the pull request
 [here](https://github.com/libratbag/piper/pull/101).
 
-### Shutdown confirmation
+## Shutdown confirmation
 
 Related to the above (and unsurprisingly also suggested by hadess) is asking for
 confirmation when the user attempts to close Piper with unsaved changes:
@@ -82,7 +82,7 @@ def do_delete_event(self, event):
     return Gdk.EVENT_PROPAGATE
 ```
 
-### Device (dis)connects
+## Device (dis)connects
 
 This was the last unimplemented feature that my mentor and I agreed Piper had to
 have when we came up with the GSoC proposal. I saved it for last because it's
@@ -121,7 +121,7 @@ Of course you can mix and match these, for example if you are configuring a
 device, disconnect it and then connect it again you'll jump straight back into
 editing it.
 
-### Back button
+## Back button
 
 When multiple devices are connected, you might want to configure more than
 one as well. It is inconvenient to have to close and open Piper again, so for
@@ -167,7 +167,7 @@ def _add_perspective(self, perspective, ratbag):
 
 That's a small amount of code for another large dose o' polish!
 
-### Other smaller changes
+## Other smaller changes
 
 In making ratbagd use enums everywhere as opposed to strings for some
 properties, the `ResolutionsPage` was left behind and couldn't display which

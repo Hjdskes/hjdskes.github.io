@@ -23,7 +23,7 @@ make sure to align sprint ends on Fridays so they align with my weekly updates.
 Anyway, what have I done in the previous sprint? How nice of you to ask! Quite a
 lot, actually (as I said, I'm ahead of schedule!).
 
-### Updating the mockups
+## Updating the mockups
 
 As you know if you've read the [previous blog post][previous], I began with
 designing the new Piper and making mockups to demo these designs. Last week I
@@ -68,7 +68,7 @@ As an example, this is how the button assignment stack page will look now:
 
 Much better! All the updated mockups can be seen on the [Redesign Wiki][wiki].
 
-### A custom GTK+ container: MouseMap
+## A custom GTK+ container: MouseMap
 
 These new mockups required us to position our widgets on arbitrary x- and
 y-coordinates, relative to their markings in the SVG. The SVG image also has to
@@ -165,14 +165,14 @@ A `Gtk.Container` subclass needs to implement `Gtk.Container`'s interface
 methods and a few `Gtk.Widget` interface methods that deal with geometry
 management.
 
-#### `Gtk.Container` interface methods
+### `Gtk.Container` interface methods
 
 GtkContainerClass's official C [documentation][gtkcontainerclass] mentions the
 virtual methods (<q>interface methods</q>) that each subclass has to implement.
 The [API documentation][gtkcontainer-vfunc] for PyGObject lists them specific to
 Python:
 
-##### `do_add (widget)` and `do_remove (widget)`
+#### `do_add (widget)` and `do_remove (widget)`
 
 As their names imply, these functions add or remove the given widget to or from
 the container.  More complicated containers may provide alternative methods, see
@@ -218,12 +218,12 @@ def do_remove(self, widget):
 We'll get to the `enter-notify-event` and `leave-notify-event` signals
 [later][interactive].
 
-##### `do_check_resize ()`
+#### `do_check_resize ()`
 
 Emits the `check-resize` signal, forcing the recalculation of the container and
 its children. The default implementation in `Gtk.Container` is fine for us.
 
-##### `do_child_type ()`
+#### `do_child_type ()`
 
 This method returns the type of the children that this container supports. The
 MouseMap widget accepts any GTK+ widget, so we simply state as such:
@@ -234,7 +234,7 @@ def do_child_type(self):
     return Gtk.Widget.get_type()
 ```
 
-##### `do_forall (include_internals, callback, callback_data)`
+#### `do_forall (include_internals, callback, callback_data)`
 
 `do_forall` invokes `callback` on each (direct) child widget, including internal
 children iff `include_internals` is `True`, with `callback_data` as arguments.
@@ -256,7 +256,7 @@ def do_forall(self, include_internals, callback, *parameters):
             callback(child, *parameters)
 ```
 
-##### `do_set_child_property (child, property_id, value, pspec)` and `do_get_child_property (child, property_id, value, pspec)`
+#### `do_set_child_property (child, property_id, value, pspec)` and `do_get_child_property (child, property_id, value, pspec)`
 
 Containers introduce child properties: object properties that are not specific
 to either the container or its child, but rather the relation between them
@@ -273,18 +273,18 @@ possible that in the future there will be a MouseMapChild class that wraps a
 child widget with its x- and y-coordinates and SVG element identifier. In this
 case, these methods will have to be implemented.
 
-##### `do_get_path_for_child (child)`
+#### `do_get_path_for_child (child)`
 
 This methods returns a widget path, representing the widget hierarchy from the
 toplevel widget down to and including `child`. The default `Gtk.Container`
 implementation is fine.
 
-##### `do_set_focus_child (child)`
+#### `do_set_focus_child (child)`
 
 This method sets (or unsets, if child is `None`) the focused child of the
 container. The default implementation is again fine.
 
-#### `Gtk.Widget` interface methods
+### `Gtk.Widget` interface methods
 
 Finally, MouseMap needs to implement a few `Gtk.Widget` interface methods to
 manage its geometry. GTK+ uses a height-for-width or width-for-height geometry
@@ -306,7 +306,7 @@ taken into consideration:
 This way of managing geometry is implemented through a few virtual methods that
 a widget should implement:
 
-##### `do_get_request_mode()`
+#### `do_get_request_mode()`
 
 This method returns the `Gtk.SizeRequestMode` preferred by the container, which
 tells any parent widget whether it prefers a height-for-width or a
@@ -324,7 +324,7 @@ def do_get_request_mode(self):
     return Gtk.SizeRequestMode.CONSTANT_SIZE
 ```
 
-##### `do_get_preferred_height()` and `do_get_preferred_width()`
+#### `do_get_preferred_height()` and `do_get_preferred_width()`
 
 These methods return the container's initial minimum and natural height and
 width. Since the MouseMap is static with regards to geometry, we don't have to
@@ -374,7 +374,7 @@ def do_get_preferred_width(self):
     return (width_min, width_nat)
 ```
 
-##### `do_get_preferred_height_for_width(width)` and `do_get_preferred_width_for_height(height)`
+#### `do_get_preferred_height_for_width(width)` and `do_get_preferred_width_for_height(height)`
 
 These are the contextual methods that return the container's minimum and natural
 height and width given the specified width and height. Again, as the MouseMap is
@@ -407,7 +407,7 @@ def do_get_preferred_width_for_height(self, height):
     return self.do_get_preferred_width()
 ```
 
-##### `do_size_allocate(allocation)`
+#### `do_size_allocate(allocation)`
 
 This is a `Gtk.Widget` method only used by `Gtk.Container` subclasses. It is
 used to assign a size and position to child widgets, so this is where we align
@@ -482,7 +482,7 @@ def _get_svg_sub_geometry(self, svg_id):
     return ok, ret
 ```
 
-##### `do_draw(cr)`
+#### `do_draw(cr)`
 
 Finally, the method that draws the SVG into the container's drawing context.
 It's rather self explanatory: ask the SVG if it has the required layers and if
@@ -509,7 +509,7 @@ def do_draw(self, cr):
         self.propagate_draw(child, cr)
 ```
 
-#### Interactive highlighting of the SVG
+### Interactive highlighting of the SVG
 
 If you've made it this far, you might have forgotten that the SVG has to be
 interactive: if a widget is hovered by the cursor, that widget's SVG element
@@ -605,7 +605,7 @@ Your browser does not support the video tag.
 
 Pretty darn cool, if I say so myself!
 
-### Importing ratbagd's bindings
+## Importing ratbagd's bindings
 
 ratbagd [dropped][dropped] its Python bindings, because <q>they were mostly
 boilerplate and 1:1 mapping of the DBus interface anyway</q>. This was actually
@@ -622,7 +622,7 @@ using `Ratbagd*.connect("<signal>", <callback>)` which are called when the
 signals are emitted, and watch for property changes  using
 `Ratbagd*.connect("notify::<property>", <callback>)`.
 
-### What's next?
+## What's next?
 
 The next item on the schedule is to finish the MouseMap widget and reimplement
 Piper's main window following the mockups. According to the schedule, this

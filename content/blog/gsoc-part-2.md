@@ -20,7 +20,7 @@ are supposed to get to know their mentors, their organizations, familiarize
 themselves with their projects (even more) and get everything ready to start
 off the coding period on May 30th.
 
-### Community bonding
+## Community bonding
 
 My mentor gave me a list of IRC channels I could join and a list of mailing
 lists I may want to subscribe to. I am now subcribed to four mailing lists and I
@@ -30,7 +30,7 @@ currently over 600 students participate. Finally, I started watching all the
 repositories under the [libratbag GitHub organisation][libratbag] so that I stay
 up to date on any issues, pull requests and commits.
 
-### Preparing the work on Piper
+## Preparing the work on Piper
 
 Probably the most important thing you can do during the community bonding period
 is preparing your project. This does not just mean getting your development
@@ -88,4 +88,3 @@ This blog post is part of a [series](/series/google-summer-of-code/). You can re
 [gsettings]: https://developer.gnome.org/gio/stable/GSettings.html
 [gresource]: https://developer.gnome.org/gio/stable/GResource.html
 [issue6]: https://github.com/libratbag/piper/pull/6
-

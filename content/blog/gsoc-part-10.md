@@ -66,7 +66,7 @@ mentioned for the button page are related syncing the bindings and the ratbagd's
 rewritten DBus interface. These aren't hard; I just haven't gotten around to
 rebasing the buttons branch yet.
 
-### Beginning the work on profiles
+## Beginning the work on profiles
 
 My mentor lives on the other side of the globe (Down Under), so we normally have
 only a few hours overlap a day. This is enough to sync and get some work done
@@ -95,7 +95,7 @@ list's profile objects, it never received the signal on those. The solution is t
 simply [cache](https://github.com/libratbag/piper/pull/64) the lists to make
 sure the bindings always return the same object.
 
-### Piper development version
+## Piper development version
 
 Up until now I had just been running `./piper.in` from the top level source
 directory to test my changes. This is less than ideal, especially because it

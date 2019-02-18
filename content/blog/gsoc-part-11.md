@@ -30,7 +30,7 @@ Piper to a bunch of awesome people while at GUADEC! That's oke though, I
 wouldn't know what else to do with my summer anyway... &#x1f609; Before I get
 lost in dreaming about the summer that could have been, let's get to the point!
 
-### *Really* finishing the button page
+## *Really* finishing the button page
 
 Last week I said that the button page was done and pending a review before being
 merged. While it was pending for review, it turned out it wasn't really ready to
@@ -47,7 +47,7 @@ update](https://github.com/libratbag/piper/pull/47/commits/27062a2b59e3f9846d568
 to the bindings resolved most of the issues. Finally, the button page was
 *really* done (yes, really!) and it is now merged!
 
-### Profiles!
+## Profiles!
 
 Last week I also added the widgets to Piper to support
 [profiles](/blog/gsoc-part-10#beginning-the-work-on-profiles). The second, more
@@ -96,7 +96,7 @@ commits](https://github.com/libratbag/piper/pull/73) for the individual widgets
 to see how easy this was; but all in all I estimate that the actual threading
 and updating the widgets is less than a hundred lines of code.
 
-### Perspectives?
+## Perspectives?
 
 From the much too abstract list of features in the beginning of this post, the
 only items that aren't linked to are the welcome and error screens. No, I didn't
@@ -152,7 +152,7 @@ a quite clean implementation, fully adhering to the single responsibility
 principle. You can check this for yourself in the [pull
 request](https://github.com/libratbag/piper/pull/84).
 
-### GUADEC issues
+## GUADEC issues
 
 As I mentioned last week, my mentor was at [GUADEC](https://2017.guadec.org/)
 together with bentiss. While there, he demoed Piper to GNOME designers and other

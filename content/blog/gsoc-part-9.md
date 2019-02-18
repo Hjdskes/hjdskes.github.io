@@ -18,7 +18,7 @@ slow week. Indeed, there hasn't been that much activity this week as in
 previous weeks. I've mostly just been stuck in my own little branch iterating
 and debugging away to get these pesky buttons into shape.
 
-### The button stack page
+## The button stack page
 
 As usual I'll discuss the various obstacles I've hit this past week. All of that
 work has resulted in the following work-in-progress:
@@ -69,7 +69,7 @@ this is the final design; I might switch it around to something like [GNOME
 Control Center's Wacom panel][gcc-wacom]. In any case, it needs more work, as
 you've probably also concluded already from the visual bug showing!
 
-### Technical details
+## Technical details
 
 As mentioned, the button page is the most complex part of Piper. This week has
 had a somewhat larger amount of head &rarr; wall than usual; let me explain.
@@ -202,7 +202,7 @@ will also find the discussion that I gave an overview of here. If you're
 interested and have a better idea to fix these problems, please do chime in and
 tell us!
 
-### Smaller changes
+## Smaller changes
 
 In other news, support for enabling and disabling profiles is [just around the
 corner][pr-profile]. This is required for the next step, in which I'll be adding
@@ -223,4 +223,3 @@ stack page [here](/blog/gsoc-part-8).
 [entries]: https://lazka.github.io/pgi-docs/#Gdk-3.0/classes/Keymap.html#Gdk.Keymap.get_entries_for_keycode
 [pr-buttons]: https://github.com/libratbag/piper/pull/47
 [pr-profile]: https://github.com/libratbag/libratbag/pull/238
-

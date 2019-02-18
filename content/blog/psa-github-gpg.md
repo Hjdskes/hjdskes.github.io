@@ -39,7 +39,7 @@ become verified again. In fact, even the commits I made since starting
 to use subkeys suddenly became verified as well. This same trick works
 on GitLab, by the way.
 
-### Update Jan 2 2019
+## Update Jan 2 2019
 
 I reported this issue when I discovered it. [I have now gotten a
 response](/blog/github-pgp-response).

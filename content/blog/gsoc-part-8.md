@@ -17,7 +17,7 @@ run you through the implementation of the LED stack page, and the coming weeks
 I'll be working on button mappings, profile support and a proper welcome screen,
 in that order.
 
-### The LED stack page
+## The LED stack page
 
 A picture is worth more than a thousand words. A video, however, is priceless:
 
@@ -118,7 +118,7 @@ easier to work with (my device would support `CAP_SWITCHABLE_RESOLUTION` but not
 as `CAP_RESOLUTION` are set before any child capabilities such as
 `CAP_SWITCHABLE_RESOLUTION` are.
 
-### Setting a default resolution
+## Setting a default resolution
 
 A leftover from last week's resolution stack page is that there is [no
 way][issue-default-res] to set the default resolution yet. This week I attempted
@@ -211,7 +211,7 @@ new profile's resolution to update.
 My suggestion is thus to postpone this issue until I get around to implementing
 profile support in a few weeks, so that we only have to change things once.
 
-### Smaller changes
+## Smaller changes
 
 Last week I asked the question [<q>does every resolution have its own report
 rate?</q>][report-rate]. The concensus then was to implement report rates per

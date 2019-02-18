@@ -38,7 +38,7 @@ To start, I developed my own purpose-built embedded Linux distribution
 for my home automation system. After all, what is cooler and teaches
 you more than developing your own Linux-based operating system?
 
-### Building an embedded Linux distribution
+## Building an embedded Linux distribution
 
 In the space of building custom embedded Linux distributions, there
 are two projects to help you set everything up:
@@ -120,7 +120,7 @@ Your browser does not support the video tag.
 
 I know, *<q>is that all?</q>*, but to me this is exciting 😁
 
-### A kiosk for Wayland
+## A kiosk for Wayland
 
 With the screen being only 7", I don't want to have to move windows
 and have different applications for different automation

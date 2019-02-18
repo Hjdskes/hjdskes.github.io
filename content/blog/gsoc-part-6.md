@@ -19,7 +19,7 @@ While Piper shouldn't notice any of this (it talks to ratbagd over DBus), it's
 still a highlight I want to mention. I also passed for the first evaluation, so
 I can keep working &#9786;.
 
-### Ratbagd LED API
+## Ratbagd LED API
 
 libratbag has supported configuring LEDs for a while now, but this hadn't been
 implemented in ratbagd yet. Piper will need the implementation in ratbagd in
@@ -30,13 +30,13 @@ Since Piper now manages its own ratbagd <q>bindings</q> (they really are just
 DBus wrappers), I added support for the newly exposed DBus interface straight
 away. This was merged [today][ratbagdledpiper].
 
-### Minimum and maximum resolution in Piper's ratbagd bindings
+## Minimum and maximum resolution in Piper's ratbagd bindings
 
 Last week, my mentor exposed a device's minimum and maximum resolution through
 libratbag and ratbagd. Today I quickly [implemented][ratbagdres] this in Piper's
 ratbagd bindings, as well.
 
-### Adhering to PEP8 in Piper
+## Adhering to PEP8 in Piper
 
 Adhering to a certain style is good. It makes your code consistent, which helps
 when reading it. Since code is read more often than it is written, this is a
@@ -48,7 +48,7 @@ Personally I use flake8's [Git hook][flake8-hook], but we now also have a
 [CircleCI build][circleci] running for every PR to run flake8. In the future,
 this will probably also be used to run unit tests.
 
-### Adding the finishing touches to the MouseMap
+## Adding the finishing touches to the MouseMap
 
 The most obvious change is that the MouseMap now also works with left-aligned
 children:
@@ -309,7 +309,7 @@ All this work leads to the below video. You can find the pull request
 Your browser does not support the video tag.
 </video>
 
-### In progress: reimplementing Piper according to the new mockups
+## In progress: reimplementing Piper according to the new mockups
 
 As you can see from the video, I have started with a rough implementation of the
 new window:

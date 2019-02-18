@@ -17,7 +17,7 @@ been preaching proper password hygiene to my family and friends whilst
 not yet practicing it myself! It was finally time to put my money
 where my mouth is. To walk the walk... you get it.
 
-# What is proper password hygiene?
+## What is proper password hygiene?
 
 You've probably heard it a thousand times already, but let me refresh
 your memory. Proper password hygience consists of the following:
@@ -43,7 +43,7 @@ Of course, you also shouldn't use *too easy* passwords. This is one
 place where password managers shine: they can generate random
 (*actually* random) passwords for you.
 
-# Pass
+## Pass
 
 [Pass](https://passwordstore.org) is *"the standard Unix password
 manager"*. Pass is simple: each password is stored in a GPG encrypted
@@ -68,7 +68,7 @@ man page are excellent resources. You do need a GPG key pair; if you
 don't have one yet I recommend reading [Debian's
 how-to](https://keyring.debian.org/creating-key.html).
 
-# Syncing your password store between multiple devices
+## Syncing your password store between multiple devices
 
 So now you have a super secure password store on your PC. Memorizing
 every password is impossible, let alone not the point of a password

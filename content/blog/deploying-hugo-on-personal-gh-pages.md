@@ -32,7 +32,7 @@ pushing changes to these repositories updates the website.
 This blog post explains how I combined the two: the website's contents are
 created using Hugo and are deployed through GitHub Pages.
 
-### Deploying your Hugo-generated website on GitHub Pages
+## Deploying your Hugo-generated website on GitHub Pages
 
 There is a [good tutorial](https://gohugo.io/tutorials/github-pages-blog/) on
 deploying your Hugo-generated website on GitHub Pages on the Hugo website. The
@@ -185,4 +185,3 @@ You can find the structure and setup in use in [this website's
 repository](https://github.com/Hjdskes/hjdskes.github.io). If any of the above is
 unclear, feel free to send me an [email](mailto:hjdskes@gmail.com) and I'll try
 my best to update this post.
-
