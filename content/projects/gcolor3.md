@@ -106,3 +106,11 @@ For any bug or feature request, please [create an
 issue](https://gitlab.gnome.org/World/gcolor3/issues/new?issue%5Bassignee_id%5D=&issue%5Bmilestone_id%5D=)
 on GitLab.
 
+### License
+
+Please see
+[LICENSE](https://gitlab.gnome.org/World/gcolor3/blob/master/LICENSE) on
+[GNOME GitLab](https://gitlab.gnome.org/World/gcolor3).
+
+Copyright © 2013-2018 Jente Hidskes
+[hjdskes@gmail.com](mailto:hjdskes@gmail.com).
