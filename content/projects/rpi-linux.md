@@ -2,8 +2,6 @@
 date = 2018-12-27T16:54:01+01:00
 title = "A purpose-built Linux OS for my Raspberry Pi 3B+ home automation system"
 description = "A minimal Linux OS for my home automation system"
-tags = ["linux","embedded","buildroot","raspberry pi","home automation"]
-categories = ["Home automation", "Raspberry Pi"]
 type = "Active"
 +++
 

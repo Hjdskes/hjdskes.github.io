@@ -2,8 +2,6 @@
 date = 2018-11-22T19:59:00+01:00
 title = "Cage: the Wayland kiosk"
 description = "Cage: the Wayland kiosk"
-tags = ["wayland","compositor","cage","wlroots"]
-categories = ["Projects","Development","Home automation"]
 type = "Active"
 +++
 
