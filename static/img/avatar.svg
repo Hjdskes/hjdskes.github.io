@@ -14,7 +14,7 @@
    viewBox="0 0 720 600"
    version="1.1"
    id="svg498"
-   sodipodi:docname="avatar.svg"
+   sodipodi:docname="avatar (current2).svg"
    inkscape:version="0.92.4 5da689c313, 2019-01-14">
   <metadata
      id="metadata502">
@@ -24,7 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -41,9 +41,9 @@
      inkscape:window-height="1016"
      id="namedview500"
      showgrid="false"
-     inkscape:zoom="2.9168155"
-     inkscape:cx="750.99249"
-     inkscape:cy="260.1878"
+     inkscape:zoom="1.03125"
+     inkscape:cx="593.27231"
+     inkscape:cy="405.93264"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
@@ -205,9 +205,10 @@
      fill="#bfb34f"
      fill-rule="evenodd" />
   <g
-     id="g1363">
+     id="g1363"
+     style="fill:#e1b200;fill-opacity:1">
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="9.23999999999999"
@@ -217,7 +218,7 @@
        transform="translate(552.546406549885, 157.402028910894)"
        id="shape01" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="2.75999999999999"
@@ -227,7 +228,7 @@
        transform="translate(576.72, 179.28)"
        id="shape11" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="11.76"
@@ -237,7 +238,7 @@
        transform="translate(483.6, 222.24)"
        id="shape21" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="3.23999999999999"
@@ -247,7 +248,7 @@
        transform="translate(546.48, 243.6)"
        id="shape31" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="5.40000000000001"
@@ -257,7 +258,7 @@
        transform="translate(519.12, 258.72)"
        id="shape4" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="5.52000000000001"
@@ -267,7 +268,7 @@
        transform="translate(553.44, 282.72)"
        id="shape5" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="6.35999999999999"
@@ -277,7 +278,7 @@
        transform="translate(487.2, 292.56)"
        id="shape6" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="4.67999999999998"
@@ -287,7 +288,7 @@
        transform="translate(459.36, 273.12)"
        id="shape7" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="5.04000000000001"
@@ -297,7 +298,7 @@
        transform="translate(442.8, 144.48)"
        id="shape8" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="7.44"
@@ -307,7 +308,7 @@
        transform="translate(480.48, 101.52)"
        id="shape9" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="4.2"
@@ -317,7 +318,7 @@
        transform="translate(505.68, 126.96)"
        id="shape10" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="11.04"
@@ -327,7 +328,7 @@
        transform="translate(398.4, 124.32)"
        id="ellipse434" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="7.2"
@@ -337,7 +338,7 @@
        transform="translate(398.16, 82.32)"
        id="shape12" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="10.44"
@@ -347,7 +348,7 @@
        transform="translate(311.76, 92.88)"
        id="shape13" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="4.32"
@@ -357,7 +358,7 @@
        transform="translate(340.8, 117.36)"
        id="shape14" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="3.95999999999999"
@@ -367,7 +368,7 @@
        transform="translate(318.48, 149.76)"
        id="shape15" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="6.60000000000001"
@@ -377,7 +378,7 @@
        transform="translate(345.12, 169.68)"
        id="shape16" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="11.52"
@@ -387,7 +388,7 @@
        transform="translate(225.6, 119.04)"
        id="shape17" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="4.56"
@@ -397,7 +398,7 @@
        transform="translate(196.08, 157.68)"
        id="shape18" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="12.36"
@@ -407,7 +408,7 @@
        transform="translate(201.12, 203.04)"
        id="shape19" />
     <circle
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="2.28"
@@ -416,7 +417,7 @@
        transform="translate(226.56, 235.44)"
        id="shape20" />
     <circle
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="4.44"
@@ -425,7 +426,7 @@
        transform="translate(175.68, 212.16)"
        id="circle445" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="10.2"
@@ -435,7 +436,7 @@
        transform="translate(148.32, 231.6)"
        id="shape22" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="8.16"
@@ -445,7 +446,7 @@
        transform="translate(158.4, 300)"
        id="shape23" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="11.16"
@@ -455,7 +456,7 @@
        transform="translate(199.68, 302.16)"
        id="shape24" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="5.52000000000001"
@@ -465,7 +466,7 @@
        transform="translate(222.24, 290.64)"
        id="shape25" />
     <circle
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="6"
@@ -474,7 +475,7 @@
        transform="translate(303.6, 359.76)"
        id="shape28" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="9.24000000000001"
@@ -484,7 +485,7 @@
        transform="translate(389.52, 367.68)"
        id="shape29" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="4.31999999999999"
@@ -494,7 +495,7 @@
        transform="translate(430.08, 355.44)"
        id="shape30" />
     <circle
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="3"
@@ -503,7 +504,7 @@
        transform="translate(607.68, 341.04)"
        id="circle456" />
     <ellipse
-       style="fill:#deba4c;fill-opacity:1"
+       style="fill:#e1b200;fill-opacity:1"
        fill-rule="evenodd"
        fill="#bfb34f"
        cy="6.72"
