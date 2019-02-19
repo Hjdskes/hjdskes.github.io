@@ -22,5 +22,25 @@
  A welcome screen, presenting a list of connected and supported devices. An error screen, presenting any problems in a user-friendly manner. The main screen, presenting the configuration pages:  A page to configure resolutions (see part 7) A page to configure button mappings (see parts 9 and 10) A page to configure LEDs (see part 8)  Support for device profiles (see part 9 for the start on this).</description>
     </item>
     
+    <item>
+      <title>GSoC part 10: finishing the button stack page</title>
+      <link>https://hjdskes.nl/blog/gsoc-part-10/</link>
+      <pubDate>Fri, 28 Jul 2017 15:10:26 +0200</pubDate>
+      
+      <guid>https://hjdskes.nl/blog/gsoc-part-10/</guid>
+      <description>I can start this blog post by sharing the news that I have passed for my second evaluation! This means that I&amp;rsquo;m now on the last sprint towards the finish line, with ahead of me profile support and the welcome screen.
+Yes; you&amp;rsquo;ve read that correctly: I didn&amp;rsquo;t mention the button page. I managed to fix that this week and it&amp;rsquo;s now pending review and some final issues (more about that below).</description>
+    </item>
+    
+    <item>
+      <title>GSoC part 9: the button stack page</title>
+      <link>https://hjdskes.nl/blog/gsoc-part-9/</link>
+      <pubDate>Fri, 21 Jul 2017 17:35:55 +0200</pubDate>
+      
+      <guid>https://hjdskes.nl/blog/gsoc-part-9/</guid>
+      <description>When I discussed this project with my mentor before GSoC, he told me that the button mappings were going to be the most complicated piece. This week I&amp;rsquo;ve been working on precisely that and, well, let&amp;rsquo;s just say he wasn&amp;rsquo;t wrong &amp;#128521;
+If you&amp;rsquo;ve been following along on GitHub, you&amp;rsquo;re probably thinking that it was a slow week. Indeed, there hasn&amp;rsquo;t been that much activity this week as in previous weeks.</description>
+    </item>
+    
   </channel>
 </rss>

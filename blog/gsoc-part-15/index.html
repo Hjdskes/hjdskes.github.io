@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="GSoC blog series on rewriting Piper"/>
-  <meta name="generator" content="Hugo 0.53" />
+  <meta name="generator" content="Hugo 0.54.0" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -21,74 +21,45 @@
   
   <meta name="twitter:image:alt" content="Logo"/>
 
-  <title> Jente Hidskes&#39; website - GSoC part 15: submission </title>
+  <title>Jente Hidskes&#39; website - GSoC part 15: submission</title>
 
   <link rel="canonical" href="https://hjdskes.nl/blog/gsoc-part-15/"/>
   
   <link rel="shortcut icon" href="https://hjdskes.nl/img/favicon.ico"/>
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito|Quicksand|Roboto+Mono"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito|Roboto+Mono"/>
   <link rel="stylesheet" type="text/css" href="/css/stylesheet.css"/>
 </head>
 
 <body>
   <div class="banner">
-    <a href="https://hjdskes.nl/"><img class="logo" src="https://hjdskes.nl/img/avatar.svg" alt="logo" /></a>
+    <a href="https://hjdskes.nl/"><img src="https://hjdskes.nl/img/avatar.svg" alt="logo" /></a>
     <div>
       <a id="name" href="https://hjdskes.nl/"><h1>Jente Hidskes&#39; website</h1></a>
       <nav>
         
-        <a href="/blog/">Blog</a>
+          <a href="https://hjdskes.nl/blog">Blog</a>
+        
+          <a href="https://hjdskes.nl/projects">Projects &amp; contributions</a>
         
         
-          
-            
-          
-        
-          
-            
-              <a href="https://hjdskes.nl/contributions">Contributions</a>
-            
-          
-        
-          
-            
-              <a href="https://hjdskes.nl/projects">Projects</a>
-            
-          
-        
-        
-          
-            <a href="https://hjdskes.nl/about/">About me</a>
-          
-        
-          
+          <a href="https://hjdskes.nl/about/">About me</a>
         
       </nav>
     </div>
   </div>
 
 
-<div class="page-heading">
-  <h1>GSoC part 15: submission</h1>
-</div>
+<h1>GSoC part 15: submission</h1>
 
-<div class="meta">Aug 23, 2017<div class="middot">20 minute read</div>
-  <div class="tags">
-    <ul>
-      
-        <li class="middot"><a href="/tags/piper">Piper</a></li>
-      
-        <li class="middot"><a href="/tags/fdo">fdo</a></li>
-      
-        <li class="middot"><a href="/tags/submission">submission</a></li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="content">
+<div class="post-meta">
   
+  
+  Posted: <time datetime="Aug 23, 2017">Aug 23, 2017</time>
+  &nbsp;• 20 minute read&nbsp;• Last modified:
+    <time datetime="Feb 18, 2019">Feb 18, 2019</time></div>
+
+
 
 <p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal" /></p>
 
@@ -107,7 +78,7 @@ written for the actual submission. Of course I finish with a
 <p>For the uninitiated, my mentor is Peter Hutterer and the project was done under
 the X.Org organization.</p>
 
-<h3 id="why">Why</h3>
+<h2 id="why">Why</h2>
 
 <p>So why did Peter and I propose this project? Well, it was Google Summer of
 Code, I wanted to gain experience in the real world and Peter wanted free
@@ -139,7 +110,7 @@ present a unified graphical user interface to those that want to configure their
 gaming mice on their Linux desktop. <span style="font-size:xx-small">(<em>something
 something year of the Linux desktop.</em>)</span></p>
 
-<h3 id="the-plan">The plan</h3>
+<h2 id="the-plan">The plan</h2>
 
 <p>The goal thus was to rewrite Piper in order to make it more user-friendly and to
 enable support for features found in today&rsquo;s gaming mice. This support was
@@ -243,7 +214,7 @@ daemon called ratbagd.-->
   </tbody>
 </table>
 
-<h3 id="the-work-i-did">The work I did</h3>
+<h2 id="the-work-i-did">The work I did</h2>
 
 <p>If you&rsquo;ve been following along with my weekly progress updates, you&rsquo;ll know that
 I didn&rsquo;t exactly follow this schedule. As I already mentioned, the first sprint
@@ -263,7 +234,7 @@ things done.</p>
 <p>Let&rsquo;s run through each of the sprints, in the order of which I actually executed
 them.</p>
 
-<h4 id="creating-the-mockups">Creating the mockups</h4>
+<h3 id="creating-the-mockups">Creating the mockups</h3>
 
 <p>Creating mockups of how the new user interface should look was the basis of my
 project, together with establishing the feature set. I wasn&rsquo;t really looking
@@ -308,7 +279,7 @@ visualize that, we went from</p>
 
 <p><img src="/img/blog/gsoc-part-15/map.png" alt="The map-based approach" /></p>
 
-<h4 id="creating-the-mousemap">Creating the MouseMap</h4>
+<h3 id="creating-the-mousemap">Creating the MouseMap</h3>
 
 <p>A central element of the new mockups was thus this <q>map</q>: it was to be used
 in all three configuration pages. As you can guess, there is no standard Gtk
@@ -333,7 +304,7 @@ on the right side. This required a significant rewrite of the layout code and
 required updating all the SVGs we had as well. You can read all about that in
 <a href="/blog/gsoc-part-6/#adding-the-finishing-touches-to-the-mousemap">part 6</a>.</p>
 
-<h4 id="the-resolutions-page">The resolutions page</h4>
+<h3 id="the-resolutions-page">The resolutions page</h3>
 
 <p>With the MouseMap finished, it was time to get started on the real work. The
 first step was to do the resolutions page, because this had the most support on
@@ -359,7 +330,7 @@ to understand.</p>
 <p>With this out of the way I started on the resolutions page. I discuss all of
 that (and the PyGI templates) in <a href="/blog/gsoc-part-7">part 7</a>.</p>
 
-<h4 id="the-led-page">The LED page</h4>
+<h3 id="the-led-page">The LED page</h3>
 
 <p>Next up was the LED configuration page. I deviated from the original mockup
 shown below:</p>
@@ -383,7 +354,7 @@ without returning to the main loop to give our DBus proxy a chance to update.
 You can read about this and other issues with ratbagd in <a href="/blog/gsoc-part-8">part
 8</a>.</p>
 
-<h4 id="the-buttons-page">The buttons page</h4>
+<h3 id="the-buttons-page">The buttons page</h3>
 
 <p>When making the planning, Peter told me that the buttons would be the most
 difficult part. He wasn&rsquo;t wrong, and I think overall I have spent most of my
@@ -439,7 +410,7 @@ in the technical details behind this configuration dialog, you can read <a href=
 9</a> and <a href="/blog/gsoc-part-13#preventing-the-user-from-shooting-themselves-in-the-foot">part
 13</a>.</p>
 
-<h4 id="profiles">Profiles</h4>
+<h3 id="profiles">Profiles</h3>
 
 <p>I moved the profiles to the end of the summer (as opposed to the beginning
 according to the schedule) because I wanted to have a solid architecture for the
@@ -467,7 +438,7 @@ different approaches to do this throughout the architecture are discussed in
 implementing the code wasn&rsquo;t much work (which I took as a confirmation of both
 the approach and shuffling plans around being the right choices).</p>
 
-<h4 id="the-welcome-and-error-screens">The welcome- and error screens</h4>
+<h3 id="the-welcome-and-error-screens">The welcome- and error screens</h3>
 
 <p>Both these features didn&rsquo;t appear in the original schedule, but were brought
 forward by Peter as feedback on my mockups. He rightly said that Piper
@@ -499,7 +470,7 @@ perspectives, one of which it activates depending on what happens. Adding
 keyboard support is now as simple as adding a keyboard perspective that contains
 all the necessary control widgets.</p>
 
-<h4 id="libratbag-and-ratbagd-changes">Libratbag and ratbagd changes</h4>
+<h3 id="libratbag-and-ratbagd-changes">Libratbag and ratbagd changes</h3>
 
 <p>Over the course of the summer there have also been substantial changes to
 libratbag and ratbagd. The most visible change on the user-side is that
@@ -528,7 +499,7 @@ setter method. This was done not only to clean up the API but also to solve
 issues in the bindings where the property would have to be updated in the DBus
 proxy immediately in order to avoid race conditions.</p>
 
-<h3 id="result">Result</h3>
+<h2 id="result">Result</h2>
 
 <p>Here&rsquo;s a short summary of what Piper can currently do:</p>
 
@@ -537,7 +508,7 @@ proxy immediately in order to avoid race conditions.</p>
 Your browser does not support the video tag.
 </video>
 
-<h3 id="what-s-left">What&rsquo;s left</h3>
+<h2 id="what-s-left">What&rsquo;s left</h2>
 
 <p>As I mentioned in <a href="/blog/gsoc-part-11">part 11</a>, I finished all large features.
 In the weeks after that, I also fixed (the most important) issues to improve the
@@ -613,7 +584,7 @@ issues</a> with the labels <q>easy</q>
 and <q>help wanted</q>! If you have questions, you can contact us on
 <code>#libratbag</code> on Freenode, or on GitHub.</p>
 
-<h3 id="what-i-ve-learned">What I&rsquo;ve learned</h3>
+<h2 id="what-i-ve-learned">What I&rsquo;ve learned</h2>
 
 <p>I went into this project with some previous open source
 <a href="/contributions/">contributions</a> and experience with previous (university)
@@ -643,7 +614,7 @@ first Python project, as opposed to single file scripts.</p>
 bug in Piper, tracked it to and fixed it in either the bindings, ratbagd or
 libratbag.</p>
 
-<h3 id="code-submission">Code submission</h3>
+<h2 id="code-submission">Code submission</h2>
 
 <p>All of my code can be found in the master branch of <a href="https://github.com/libratbag/piper">Piper&rsquo;s GitHub
 repository</a>. The commits between version
@@ -667,7 +638,7 @@ You can also
 <a href="https://github.com/libratbag/libratbag/commits/master?author=Hjdskes">browse</a>
 the commits online on GitHub.</p>
 
-<h3 id="thanks">Thanks</h3>
+<h2 id="thanks">Thanks</h2>
 
 <p>I would like to thank my mentor, Peter Hutterer, for offering me this
 opportunity. It goes without saying (I&rsquo;m doing it anyway!) that this was an
@@ -681,60 +652,100 @@ summer of code!</p>
 <a href="/series/google-summer-of-code/">series</a>. You can read the previous
 part about the final changes <a href="/blog/gsoc-part-14">here</a>.</p>
 
-</div>
 
-<div id="postamble">
-  <footer>
-    <nav class="social-icons">
-       
-        <a href="mailto:hjdskes@gmail.com" title="Send a mail to hjdskes@gmail.com">
-          <svg class="icon" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-            <polyline points="22,6 12,13 2,6"/>
-          </svg>
-        </a>
+
+  <div>
+    <div class="align">
       
-
-       
-        <a href="https://twitter.com/Hjdskes" title="Hjdskes on Twitter" rel=me>
-          <svg class="icon" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
-            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
-	  </svg>
-	</a>
-      
-
-       
-        <a href="https://github.com/Hjdskes" title="Hjdskes on GitHub" rel=me>
-          <svg class="icon" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
-            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-	  </svg>
-        </a>
-      
-
-       
-        <a href="https://gitlab.gnome.org/Hjdskes" title="Hjdskes on GNOME GitLab" rel=me>
-	  <svg class="icon" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
-	    <path d="M 10.788594,21.536734 C 7.1281588,20.923645 3.4317212,17.61669 3.8926704,13.669554 5.0660949,10.030121 9.4084325,9.002481 12.797722,9.0110661 c 3.127309,-0.7108099 5.300956,3.1584089 2.079944,4.7634329 -1.481971,1.481121 -6.562787,2.039887 -4.51544,4.8592 2.462629,2.050335 2.533426,-3.290017 5.338069,-2.15334 2.796365,0.976146 -0.163921,4.247454 -1.950641,4.696159 -0.921233,0.406032 -1.969188,0.530203 -2.96106,0.360216 z m 1.794295,-0.08356 c 2.705909,0.255118 6.301544,-4.993159 1.916049,-4.963018 -1.21743,1.167328 -3.784248,4.539961 -4.6998222,1.26491 0.2709802,-2.794652 3.8307952,-2.615115 5.4170302,-4.401817 2.651498,-1.633928 0.402305,-4.7420327 -2.166648,-4.246326 -3.3777465,-0.078097 -7.6444164,0.902415 -9.0000509,4.382807 -0.7054739,4.120455 3.3766681,7.576214 7.1722609,7.993766 0.453028,0.03846 0.910413,0.03039 1.361181,-0.03032 z M 3.9341566,10.427154 C 1.0490542,10.268445 3.2537383,5.1108327 4.7476099,8.3812657 5.0657664,9.1042431 5.0182823,10.460582 3.9341566,10.427154 Z M 4.4699344,10.30542 C 6.4977819,8.6779325 1.9003316,5.8776241 2.5877993,9.0260669 2.867495,9.7751822 3.6284369,10.422289 4.4699344,10.30542 Z M 6.7053902,8.5039933 C 3.6297286,7.8857682 6.6102452,2.4753402 7.9003551,6.1902266 8.0932518,7.0711831 7.829542,8.4523085 6.7053902,8.5039933 Z M 7.2746339,8.3298088 C 9.5332904,6.6816546 5.5180564,3.0049367 5.420685,6.6249745 5.5254822,7.5087681 6.2635101,8.5559472 7.2746339,8.3298088 Z M 14.642553,8.2311668 C 12.2283,6.5368719 14.541155,2.985536 16.840519,2.5219305 20.261447,1.9328509 20.0109,6.206991 17.399643,7.2088589 16.626868,7.8315576 15.666748,8.3385955 14.642553,8.2311668 Z M 15.768655,8.050831 c 2.864892,-0.3134359 5.553252,-6.0915541 0.966528,-5.299797 -2.55054,0.123197 -4.819128,5.8325044 -0.966528,5.299797 z M 10.185719,7.5115241 c -3.3583369,-1.5986324 1.671427,-6.90260758 1.965159,-2.311667 -0.105682,1.0279546 -0.733901,2.3978164 -1.965159,2.311667 z m 0.606495,-0.09287 C 13.232178,6.592527 11.605766,1.4635609 9.4839173,4.2607729 8.9204646,5.3532178 9.2561462,7.4217666 10.792214,7.4186541 Z"/>
-	  </svg>
-	</a>
-      
-
-       
-        <a href="https://hjdskes.nl/index.xml" title="RSS feed">
-          <svg class="icon" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
-            <path d="M4 11a9 9 0 0 1 9 9"/>
-	    <path d="M4 4a16 16 0 0 1 16 16"/>
-	    <circle cx="5" cy="19" r="1"/>
-	  </svg>
-        </a>
-      
-    </nav>
-
-    <div id="license-note">
-      <a href="/license">Copyright © 2016-2019 Jente Hidskes</a>
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+        <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"></path>
+      </svg>
     </div>
-  </footer>
-</div>
+    <ul class="list">
+      
+        <li>
+          
+            <a href="https://hjdskes.nl/categories/projects/">Projects</a></li>
+      
+    </ul>
+  </div>
+
+
+
+  <div>
+    <div class="align">
+      
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+        <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"></path>
+        <line x1="7" y1="7" x2="7" y2="7"></line>
+      </svg>
+    </div>
+    <ul class="list">
+      
+        <li>
+          
+            <a href="https://hjdskes.nl/tags/piper/">Piper</a></li>
+      
+        <li>
+          
+            <a href="https://hjdskes.nl/tags/fdo/">fdo</a></li>
+      
+        <li>
+          
+            <a href="https://hjdskes.nl/tags/submission/">submission</a></li>
+      
+    </ul>
+  </div>
+
+
+<footer>
+  <nav>
+     
+      <a href="mailto:hjdskes@gmail.com" title="Send a mail to hjdskes@gmail.com">
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://twitter.com/Hjdskes" title="Hjdskes on Twitter" rel=me>
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://github.com/Hjdskes" title="Hjdskes on GitHub" rel=me>
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://gitlab.gnome.org/Hjdskes" title="Hjdskes on GNOME GitLab" rel=me>
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M 10.788594,21.536734 C 7.1281588,20.923645 3.4317212,17.61669 3.8926704,13.669554 5.0660949,10.030121 9.4084325,9.002481 12.797722,9.0110661 c 3.127309,-0.7108099 5.300956,3.1584089 2.079944,4.7634329 -1.481971,1.481121 -6.562787,2.039887 -4.51544,4.8592 2.462629,2.050335 2.533426,-3.290017 5.338069,-2.15334 2.796365,0.976146 -0.163921,4.247454 -1.950641,4.696159 -0.921233,0.406032 -1.969188,0.530203 -2.96106,0.360216 z m 1.794295,-0.08356 c 2.705909,0.255118 6.301544,-4.993159 1.916049,-4.963018 -1.21743,1.167328 -3.784248,4.539961 -4.6998222,1.26491 0.2709802,-2.794652 3.8307952,-2.615115 5.4170302,-4.401817 2.651498,-1.633928 0.402305,-4.7420327 -2.166648,-4.246326 -3.3777465,-0.078097 -7.6444164,0.902415 -9.0000509,4.382807 -0.7054739,4.120455 3.3766681,7.576214 7.1722609,7.993766 0.453028,0.03846 0.910413,0.03039 1.361181,-0.03032 z M 3.9341566,10.427154 C 1.0490542,10.268445 3.2537383,5.1108327 4.7476099,8.3812657 5.0657664,9.1042431 5.0182823,10.460582 3.9341566,10.427154 Z M 4.4699344,10.30542 C 6.4977819,8.6779325 1.9003316,5.8776241 2.5877993,9.0260669 2.867495,9.7751822 3.6284369,10.422289 4.4699344,10.30542 Z M 6.7053902,8.5039933 C 3.6297286,7.8857682 6.6102452,2.4753402 7.9003551,6.1902266 8.0932518,7.0711831 7.829542,8.4523085 6.7053902,8.5039933 Z M 7.2746339,8.3298088 C 9.5332904,6.6816546 5.5180564,3.0049367 5.420685,6.6249745 5.5254822,7.5087681 6.2635101,8.5559472 7.2746339,8.3298088 Z M 14.642553,8.2311668 C 12.2283,6.5368719 14.541155,2.985536 16.840519,2.5219305 20.261447,1.9328509 20.0109,6.206991 17.399643,7.2088589 16.626868,7.8315576 15.666748,8.3385955 14.642553,8.2311668 Z M 15.768655,8.050831 c 2.864892,-0.3134359 5.553252,-6.0915541 0.966528,-5.299797 -2.55054,0.123197 -4.819128,5.8325044 -0.966528,5.299797 z M 10.185719,7.5115241 c -3.3583369,-1.5986324 1.671427,-6.90260758 1.965159,-2.311667 -0.105682,1.0279546 -0.733901,2.3978164 -1.965159,2.311667 z m 0.606495,-0.09287 C 13.232178,6.592527 11.605766,1.4635609 9.4839173,4.2607729 8.9204646,5.3532178 9.2561462,7.4217666 10.792214,7.4186541 Z"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://hjdskes.nl/index.xml" title="RSS feed">
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M4 11a9 9 0 0 1 9 9"/>
+          <path d="M4 4a16 16 0 0 1 16 16"/>
+          <circle cx="5" cy="19" r="1"/>
+        </svg>
+      </a>
+    
+  </nav>
+
+  <a href="/license">Copyright © 2016-2019 Jente Hidskes</a>
+</footer>
 
 <link rel="stylesheet" type="text/css" href="/css/syntax.css"/>
 <link rel="stylesheet" type="text/css" href="/css/zoom.css"/>

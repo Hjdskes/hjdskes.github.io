@@ -54,12 +54,12 @@ The system is very minimal and modern: on top of the Linux kernel, it installs s
     </item>
     
     <item>
-      <title>Allow wlroots to be built without X11</title>
-      <link>https://hjdskes.nl/contributions/wlroots/</link>
+      <title>Several contributions to wlroots</title>
+      <link>https://hjdskes.nl/projects/wlroots/</link>
       <pubDate>Sat, 22 Dec 2018 16:53:40 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/contributions/wlroots/</guid>
-      <description></description>
+      <guid>https://hjdskes.nl/projects/wlroots/</guid>
+      <description>My Wayland compositor Cage is built on top of wlroots, the &amp;ldquo;pluggable, composable, unopinionated modules for building a Wayland compositor&amp;rdquo;. Hence I contribute fixes upstream. My commits can be found here, issues and pull requests can be found here.</description>
     </item>
     
     <item>
@@ -93,6 +93,15 @@ Program transformations translate code of an input language to code of an output
     </item>
     
     <item>
+      <title>GNOME Screenshot (again)</title>
+      <link>https://hjdskes.nl/projects/gnome-screenshot-2/</link>
+      <pubDate>Sat, 15 Sep 2018 11:03:00 +0100</pubDate>
+      
+      <guid>https://hjdskes.nl/projects/gnome-screenshot-2/</guid>
+      <description>I was cleaning up old GitHub repositories and came across old patches for GNOME screenshot (see below). In an attempt to upstream them once more, I found that most of these fixes had already found their way into GNOME screenshot, except one. I opened a merge request for that patch, which was accepted after a small change.</description>
+    </item>
+    
+    <item>
       <title>Gcolor3 has moved to GNOME&#39;s GitLab!</title>
       <link>https://hjdskes.nl/blog/gcolor3-gitlab/</link>
       <pubDate>Sun, 02 Sep 2018 00:00:21 +0200</pubDate>
@@ -113,11 +122,11 @@ Being on GNOME&amp;rsquo;s GitLab is awesome, because Gcolor3 is now surrounded 
     </item>
     
     <item>
-      <title>A small contribution to gitg</title>
-      <link>https://hjdskes.nl/contributions/gitg/</link>
+      <title>A small contribution to gitg, GNOME&#39;s git client</title>
+      <link>https://hjdskes.nl/projects/gitg/</link>
       <pubDate>Sun, 22 Jul 2018 20:52:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/contributions/gitg/</guid>
+      <guid>https://hjdskes.nl/projects/gitg/</guid>
       <description></description>
     </item>
     
@@ -150,22 +159,22 @@ Since March, my website is also reachable through (www.)hjdskes.nl. When I set t
     </item>
     
     <item>
-      <title>Quadrupel: an embedded software project to stabilize a drone</title>
-      <link>https://hjdskes.nl/projects/quadrupel/</link>
-      <pubDate>Mon, 11 Dec 2017 00:47:00 +0100</pubDate>
+      <title>Piper: a GTK application to configure gaming mice</title>
+      <link>https://hjdskes.nl/projects/piper/</link>
+      <pubDate>Sat, 09 Sep 2017 14:35:00 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/projects/quadrupel/</guid>
-      <description>For the course IN4073 Embedded Real-Time Systems my project group and I had to program the software of an embedded control unit of a drone (dubbed the Quadrupel), to provide stabilization such that it can hover and fly with limited user control.
-Our drone managed to take off, fly and land safely. Our response time was high enough for adequate stability, which we managed to do by:
- using a simple, custom message format on top of the COBS protocol to communicate between the base station (a PC) and the drone, sticking to a small and simple code base implementing a finite state machine, thoroughly reviewing each other&amp;rsquo;s pull requests.</description>
+      <guid>https://hjdskes.nl/projects/piper/</guid>
+      <description>Piper is a graphical user interface to configure gaming mice. Configuration options include changing the resolution (DPI) of the mouse, adding and removing profiles, changing button behaviors and setting LED colors.
+Piper requires libratbag’s ratbagd, the daemon to actually communicate with the mice. Piper is a just front end to ratbagd.
+Installation We maintain a Wiki page where we keep up-to-date instructions on how to install Piper.</description>
     </item>
     
     <item>
       <title>Redesign and rewrite Piper for Google Summer of Code 2017</title>
-      <link>https://hjdskes.nl/contributions/piper/</link>
+      <link>https://hjdskes.nl/projects/piper-gsoc/</link>
       <pubDate>Sat, 09 Sep 2017 14:35:00 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/contributions/piper/</guid>
+      <guid>https://hjdskes.nl/projects/piper-gsoc/</guid>
       <description>I redesigned and rewrote the Piper mouse configuration tool for the GNOME desktop environment under the guidance of Peter Hutterer from the X.Org Foundation. You can read the project page and browse the development series that I wrote during the project for more information.
 As a result of my Google Summer of Code, I am now the maintainer of Piper. I also regularly contribute to its dependencies, libratbag and ratbagd.</description>
     </item>
@@ -176,7 +185,7 @@ As a result of my Google Summer of Code, I am now the maintainer of Piper. I als
       <pubDate>Sat, 09 Sep 2017 14:29:09 +0200</pubDate>
       
       <guid>https://hjdskes.nl/about/</guid>
-      <description>I am a Master of Science (ir., see Wikipedia) in Computer Science. I completed both my bachelor and master in Computer Science at the Delft University of Technology. In the last year of my bachelor, I studied at the KTH Royal Institute of Technology in Stockholm, Sweden for six months. In the field of Computer Science, my interests are broad. Mainly, however, I am interested in operating systems and programming languages.</description>
+      <description>I am a Master of Science (ir., see Wikipedia) in Computer Science. I completed both my bachelor and master in Computer Science at the Delft University of Technology. In the last year of my bachelor, I studied at the KTH Royal Institute of Technology in Stockholm, Sweden for six months. Within the field of Computer Science, my interests are broad. Mainly, however, I am interested in operating systems and programming languages.</description>
     </item>
     
     <item>
@@ -309,21 +318,11 @@ On the second week, I thought I would get a few days head start on my schedule b
     </item>
     
     <item>
-      <title>Network intrusion detection/prevention system: Advanced Network Security course project</title>
-      <link>https://hjdskes.nl/projects/network-intrusion-detection/</link>
-      <pubDate>Sun, 28 May 2017 00:47:00 +0100</pubDate>
-      
-      <guid>https://hjdskes.nl/projects/network-intrusion-detection/</guid>
-      <description>For the course ET4307IN Advanced Network Security I had to develop an intrusion detection/prevention system. This system does the following:
- capture live data from the NIC and save data to / read data from a pcap file. capture and parse DNS packets according to RFC1035, with (as required) a custom parser. It gracefully ignores record types added in later versions of the DNS protocol. Log ARP packets (parsed with a custom parser, as required) that have generated an error or notice via a custom configuration.</description>
-    </item>
-    
-    <item>
       <title>A small fix to Google&#39;s gopacket</title>
-      <link>https://hjdskes.nl/contributions/gopacket/</link>
+      <link>https://hjdskes.nl/projects/gopacket/</link>
       <pubDate>Tue, 23 May 2017 17:34:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/contributions/gopacket/</guid>
+      <guid>https://hjdskes.nl/projects/gopacket/</guid>
       <description></description>
     </item>
     
@@ -349,10 +348,10 @@ The period between that of announcing the accepted student proposals and phase o
     
     <item>
       <title>Google Summer of Code proposal contributions</title>
-      <link>https://hjdskes.nl/contributions/gsoc-proposals/</link>
+      <link>https://hjdskes.nl/projects/gsoc-proposals/</link>
       <pubDate>Thu, 23 Mar 2017 01:55:50 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/contributions/gsoc-proposals/</guid>
+      <guid>https://hjdskes.nl/projects/gsoc-proposals/</guid>
       <description>The application process of Google Summer of Code requires students to make a small contribution to the project(s) of their choice to demonstrate that they are capable of making a change following the upstream submission procedures. In my understanding, this is less about the actual code than it is about demonstrating these skills. This is (partly, the other reason being that as I was working on these proposals I was also finishing up several course projects) the reason that the contributions here are rather small:</description>
     </item>
     
@@ -368,39 +367,29 @@ This week I attempted to update the theme of this website. To pull in the theme&
     
     <item>
       <title>Fixes and added features to the Cocoa Enhanced theme</title>
-      <link>https://hjdskes.nl/contributions/cocoa-eh/</link>
+      <link>https://hjdskes.nl/projects/cocoa-eh/</link>
       <pubDate>Tue, 21 Feb 2017 19:53:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/contributions/cocoa-eh/</guid>
+      <guid>https://hjdskes.nl/projects/cocoa-eh/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>License locations: proof of concept code for a draft research paper</title>
-      <link>https://hjdskes.nl/projects/license-locations/</link>
-      <pubDate>Tue, 21 Feb 2017 00:47:00 +0100</pubDate>
-      
-      <guid>https://hjdskes.nl/projects/license-locations/</guid>
-      <description>For the course IN4252 Web Science &amp;amp; Engineering I had to write a draft research paper, titled Open source software licenses: is there a correlation between developer location and software licenses?. In this paper I attempted to map the use of free and open source software licenses, in order to see whether a developer&amp;rsquo;s geographic location is a determinant of FOSS license choice. If you are interested in reading the draft (it was never required to go further, and never did), please reach out to me and I will send it to you.</description>
-    </item>
-    
-    <item>
       <title>Small fixes to Neovim and Vim</title>
-      <link>https://hjdskes.nl/contributions/neovim-vim/</link>
+      <link>https://hjdskes.nl/projects/neovim-vim/</link>
       <pubDate>Mon, 20 Feb 2017 23:18:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/contributions/neovim-vim/</guid>
+      <guid>https://hjdskes.nl/projects/neovim-vim/</guid>
       <description>For the course Software Architecture at the TU Delft we were required to analyse and contribute to an existing open source project. The group I was part of chose Neovim as our project. The result of this analysis is a chapter in the book Delft Students on Software Architecture: 2017.
-Our contributions resulted in several small fixes to both Neovim and Vim:
- Neovim commits by myself and Sander; Vim commits by myself.</description>
+Our contributions resulted in several small fixes to both Neovim and Vim, namely Neovim commits by myself and Sander and Vim commits by myself.</description>
     </item>
     
     <item>
       <title>Improve the maintainability, readability and robustness or Playerctl</title>
-      <link>https://hjdskes.nl/contributions/playerctl/</link>
+      <link>https://hjdskes.nl/projects/playerctl/</link>
       <pubDate>Sun, 11 Sep 2016 00:34:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/contributions/playerctl/</guid>
+      <guid>https://hjdskes.nl/projects/playerctl/</guid>
       <description></description>
     </item>
     
@@ -427,40 +416,30 @@ All registered trademarks mentioned on this website belong to their rightful own
     </item>
     
     <item>
-      <title>Spoofax Shell: my thesis project to create a REPL for Spoofax</title>
-      <link>https://hjdskes.nl/projects/spoofax-shell/</link>
-      <pubDate>Wed, 29 Jun 2016 17:23:00 +0100</pubDate>
-      
-      <guid>https://hjdskes.nl/projects/spoofax-shell/</guid>
-      <description>Spoofax Shell is my thesis project to create a REPL for the Spoofax Language Workbench. Read the accompanying report here.</description>
-    </item>
-    
-    <item>
       <title>Add missing keysyms to Haskell&#39;s X11 bindings</title>
-      <link>https://hjdskes.nl/contributions/haskell-x11/</link>
+      <link>https://hjdskes.nl/projects/haskell-x11/</link>
       <pubDate>Mon, 22 Feb 2016 16:51:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/contributions/haskell-x11/</guid>
+      <guid>https://hjdskes.nl/projects/haskell-x11/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Make arch-diff work with Pacman 5.0</title>
-      <link>https://hjdskes.nl/contributions/arch-diff/</link>
+      <link>https://hjdskes.nl/projects/arch-diff/</link>
       <pubDate>Wed, 10 Feb 2016 22:25:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/contributions/arch-diff/</guid>
+      <guid>https://hjdskes.nl/projects/arch-diff/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Some as of yet unmerged patches for GNOME Screenshot</title>
-      <link>https://hjdskes.nl/contributions/gnome-screenshot/</link>
+      <title>Small patches to GNOME Screenshot</title>
+      <link>https://hjdskes.nl/projects/gnome-screenshot/</link>
       <pubDate>Wed, 09 Dec 2015 23:53:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/contributions/gnome-screenshot/</guid>
-      <description>I wrote some as of yet unmerged patches and opened some outstanding bug reports to GNOME Screenshot. You can review them here and here.
-Last week (september 22, 2018), I was cleaning up old GitHub repositories and came across these patches again. In an attempt to upstream them once more, I found that most of these fixes had already found their way into GNOME screenshot, except one. I opened a merge request for that patch, which was accepted after a small change.</description>
+      <guid>https://hjdskes.nl/projects/gnome-screenshot/</guid>
+      <description>I wrote some as of yet unmerged patches and opened some outstanding bug reports to GNOME Screenshot. You can review them here and here.</description>
     </item>
     
     <item>
@@ -469,33 +448,25 @@ Last week (september 22, 2018), I was cleaning up old GitHub repositories and ca
       <pubDate>Sat, 22 Aug 2015 16:52:00 +0100</pubDate>
       
       <guid>https://hjdskes.nl/projects/gtimeutils/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>DNAinator: visualizing and exploring DNA sequence graphs</title>
-      <link>https://hjdskes.nl/projects/dnainator/</link>
-      <pubDate>Thu, 25 Jun 2015 00:47:00 +0100</pubDate>
-      
-      <guid>https://hjdskes.nl/projects/dnainator/</guid>
-      <description></description>
+      <description>GTimeUtils is a collection of simple and small time utilities, namely a stopwatch and a (countdown) timer.
+From version 2.0 onwards, both the timer and the stopwatch are of from GNOME Clocks&amp;rsquo; respective stack pages. Prior to version 2.0, both utilities served more as a practice than anything else. Since I like the modern look of GNOME Clocks, but dislike the fact that all its functionality is combined into one application, I have re-purposed GNOME Clocks&amp;rsquo; ui files into standalone utilities.</description>
     </item>
     
     <item>
       <title>A few commits to background setter (bgs)</title>
-      <link>https://hjdskes.nl/contributions/bgs/</link>
+      <link>https://hjdskes.nl/projects/bgs/</link>
       <pubDate>Sat, 02 May 2015 18:10:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/contributions/bgs/</guid>
+      <guid>https://hjdskes.nl/projects/bgs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Implement animated workspace switching and some fixes to Budgie</title>
-      <link>https://hjdskes.nl/contributions/budgie/</link>
+      <link>https://hjdskes.nl/projects/budgie/</link>
       <pubDate>Thu, 16 Apr 2015 14:59:00 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/contributions/budgie/</guid>
+      <guid>https://hjdskes.nl/projects/budgie/</guid>
       <description></description>
     </item>
     
@@ -510,56 +481,20 @@ Last week (september 22, 2018), I was cleaning up old GitHub repositories and ca
     
     <item>
       <title>Several small contributions to the BunsenLabs Linux projects</title>
-      <link>https://hjdskes.nl/contributions/bunsen/</link>
+      <link>https://hjdskes.nl/projects/bunsen/</link>
       <pubDate>Mon, 16 Feb 2015 14:58:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/contributions/bunsen/</guid>
+      <guid>https://hjdskes.nl/projects/bunsen/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Implement a GtkHeaderBar in Eye of GNOME</title>
-      <link>https://hjdskes.nl/contributions/eog/</link>
+      <link>https://hjdskes.nl/projects/eog/</link>
       <pubDate>Mon, 02 Feb 2015 19:36:38 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/contributions/eog/</guid>
+      <guid>https://hjdskes.nl/projects/eog/</guid>
       <description>I implemented a GtkHeaderBar in Eye of GNOME. You can review all the patches here (GitHub mirror link until GitLab can filter commits per author), or view the relevant bug reports here and here.</description>
-    </item>
-    
-    <item>
-      <title>Line Follower: an embedded software course project</title>
-      <link>https://hjdskes.nl/projects/linefollower/</link>
-      <pubDate>Sun, 25 Jan 2015 21:27:00 +0100</pubDate>
-      
-      <guid>https://hjdskes.nl/projects/linefollower/</guid>
-      <description>Line Follower is an embedded software course project to make a robot follow a line. An Android app is used to send images from the camera to a laptop via the network, where the laptop detects the line and sends commands to the robot via Bluetooth.</description>
-    </item>
-    
-    <item>
-      <title>2048: a software engineering course project</title>
-      <link>https://hjdskes.nl/projects/2048/</link>
-      <pubDate>Fri, 14 Nov 2014 14:27:00 +0100</pubDate>
-      
-      <guid>https://hjdskes.nl/projects/2048/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ray Tracer: a computer graphics course project</title>
-      <link>https://hjdskes.nl/projects/raytracer/</link>
-      <pubDate>Thu, 26 Jun 2014 22:45:00 +0100</pubDate>
-      
-      <guid>https://hjdskes.nl/projects/raytracer/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ExcelPP: a freshmen OOP project to create a spreadsheet application</title>
-      <link>https://hjdskes.nl/projects/excelpp/</link>
-      <pubDate>Mon, 27 Jan 2014 10:37:00 +0100</pubDate>
-      
-      <guid>https://hjdskes.nl/projects/excelpp/</guid>
-      <description></description>
     </item>
     
     <item>
@@ -568,15 +503,16 @@ Last week (september 22, 2018), I was cleaning up old GitHub repositories and ca
       <pubDate>Fri, 15 Nov 2013 21:40:00 +0100</pubDate>
       
       <guid>https://hjdskes.nl/projects/phosphorus/</guid>
-      <description>Phosphorus is a wallpaper browser and setter in the spirit of Nitrogen. It can be considered an unofficial port of Nitrogen to GTK+ 3. Phosphorus is different, however, in that it is plugin-based. This allows it be agnostic as to how the wallpaper is actually applied &amp;ndash; each Desktop Environment has its own plugin with this functionality.</description>
+      <description>Phosphorus is a wallpaper browser and setter in the spirit of Nitrogen. It can be considered an unofficial port of Nitrogen to GTK+ 3. Phosphorus is different, however, in that it is plugin-based.
+Phosphorus, at its core, is agnostic to how the selected image is applied as wallpaper. There are many different Desktop Environments that all have their own way of applying wallpapers. Soon, with Wayland becoming stable, every lightweight compositor will have its own implementation as well.</description>
     </item>
     
     <item>
       <title>Pango fonts in the sxiv image viewer</title>
-      <link>https://hjdskes.nl/contributions/sxiv/</link>
+      <link>https://hjdskes.nl/projects/sxiv/</link>
       <pubDate>Sat, 11 May 2013 01:26:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/contributions/sxiv/</guid>
+      <guid>https://hjdskes.nl/projects/sxiv/</guid>
       <description></description>
     </item>
     

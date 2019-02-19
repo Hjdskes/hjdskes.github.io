@@ -31,15 +31,6 @@
     </item>
     
     <item>
-      <title>Button</title>
-      <link>https://hjdskes.nl/tags/button/</link>
-      <pubDate>Fri, 11 Aug 2017 15:35:37 +0200</pubDate>
-      
-      <guid>https://hjdskes.nl/tags/button/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Buttons</title>
       <link>https://hjdskes.nl/tags/buttons/</link>
       <pubDate>Fri, 04 Aug 2017 15:06:40 +0200</pubDate>
@@ -58,29 +49,11 @@
     </item>
     
     <item>
-      <title>Capture</title>
-      <link>https://hjdskes.nl/tags/capture/</link>
-      <pubDate>Fri, 21 Jul 2017 17:35:55 +0200</pubDate>
-      
-      <guid>https://hjdskes.nl/tags/capture/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Compositor</title>
       <link>https://hjdskes.nl/tags/compositor/</link>
       <pubDate>Thu, 27 Dec 2018 17:31:12 +0100</pubDate>
       
       <guid>https://hjdskes.nl/tags/compositor/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Container</title>
-      <link>https://hjdskes.nl/tags/container/</link>
-      <pubDate>Fri, 16 Jun 2017 20:47:56 +0200</pubDate>
-      
-      <guid>https://hjdskes.nl/tags/container/</guid>
       <description></description>
     </item>
     
@@ -103,24 +76,6 @@
     </item>
     
     <item>
-      <title>Default</title>
-      <link>https://hjdskes.nl/tags/default/</link>
-      <pubDate>Fri, 14 Jul 2017 10:03:55 +0200</pubDate>
-      
-      <guid>https://hjdskes.nl/tags/default/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Deploying</title>
-      <link>https://hjdskes.nl/tags/deploying/</link>
-      <pubDate>Sun, 26 Feb 2017 22:12:00 +0100</pubDate>
-      
-      <guid>https://hjdskes.nl/tags/deploying/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Diy</title>
       <link>https://hjdskes.nl/tags/diy/</link>
       <pubDate>Tue, 01 May 2018 20:30:41 +0100</pubDate>
@@ -139,15 +94,6 @@
     </item>
     
     <item>
-      <title>Exception</title>
-      <link>https://hjdskes.nl/tags/exception/</link>
-      <pubDate>Wed, 23 Aug 2017 13:01:32 +0200</pubDate>
-      
-      <guid>https://hjdskes.nl/tags/exception/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Fdo</title>
       <link>https://hjdskes.nl/tags/fdo/</link>
       <pubDate>Wed, 23 Aug 2017 16:19:04 +0200</pubDate>
@@ -162,15 +108,6 @@
       <pubDate>Sat, 01 Sep 2018 00:00:21 +0200</pubDate>
       
       <guid>https://hjdskes.nl/tags/flatpak/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gaming Mice</title>
-      <link>https://hjdskes.nl/tags/gaming-mice/</link>
-      <pubDate>Fri, 05 May 2017 15:44:04 +0200</pubDate>
-      
-      <guid>https://hjdskes.nl/tags/gaming-mice/</guid>
       <description></description>
     </item>
     
@@ -213,7 +150,7 @@
     <item>
       <title>Gitlab</title>
       <link>https://hjdskes.nl/tags/gitlab/</link>
-      <pubDate>Thu, 13 Dec 2018 15:23:39 +0100</pubDate>
+      <pubDate>Wed, 02 Jan 2019 11:47:43 +0100</pubDate>
       
       <guid>https://hjdskes.nl/tags/gitlab/</guid>
       <description></description>
@@ -249,7 +186,7 @@
     <item>
       <title>Gtk</title>
       <link>https://hjdskes.nl/tags/gtk/</link>
-      <pubDate>Fri, 16 Jun 2017 20:47:56 +0200</pubDate>
+      <pubDate>Fri, 18 Aug 2017 19:47:27 +0200</pubDate>
       
       <guid>https://hjdskes.nl/tags/gtk/</guid>
       <description></description>
@@ -270,15 +207,6 @@
       <pubDate>Fri, 04 Aug 2017 15:06:40 +0200</pubDate>
       
       <guid>https://hjdskes.nl/tags/guadec/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Home Automation</title>
-      <link>https://hjdskes.nl/tags/home-automation/</link>
-      <pubDate>Fri, 28 Dec 2018 08:46:20 +0100</pubDate>
-      
-      <guid>https://hjdskes.nl/tags/home-automation/</guid>
       <description></description>
     </item>
     
@@ -306,6 +234,24 @@
       <pubDate>Sat, 03 Jun 2017 17:53:27 +0200</pubDate>
       
       <guid>https://hjdskes.nl/tags/inkscape/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Keycode</title>
+      <link>https://hjdskes.nl/tags/keycode/</link>
+      <pubDate>Fri, 21 Jul 2017 17:35:55 +0200</pubDate>
+      
+      <guid>https://hjdskes.nl/tags/keycode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Keyval</title>
+      <link>https://hjdskes.nl/tags/keyval/</link>
+      <pubDate>Fri, 21 Jul 2017 17:35:55 +0200</pubDate>
+      
+      <guid>https://hjdskes.nl/tags/keyval/</guid>
       <description></description>
     </item>
     
@@ -346,38 +292,11 @@
     </item>
     
     <item>
-      <title>Localization</title>
-      <link>https://hjdskes.nl/tags/localization/</link>
-      <pubDate>Wed, 23 Aug 2017 13:01:32 +0200</pubDate>
-      
-      <guid>https://hjdskes.nl/tags/localization/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Loop</title>
-      <link>https://hjdskes.nl/tags/loop/</link>
-      <pubDate>Fri, 18 Aug 2017 19:47:27 +0200</pubDate>
-      
-      <guid>https://hjdskes.nl/tags/loop/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Macro</title>
       <link>https://hjdskes.nl/tags/macro/</link>
       <pubDate>Wed, 23 Aug 2017 13:01:32 +0200</pubDate>
       
       <guid>https://hjdskes.nl/tags/macro/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Merge</title>
-      <link>https://hjdskes.nl/tags/merge/</link>
-      <pubDate>Fri, 28 Jul 2017 15:10:26 +0200</pubDate>
-      
-      <guid>https://hjdskes.nl/tags/merge/</guid>
       <description></description>
     </item>
     
@@ -396,15 +315,6 @@
       <pubDate>Sat, 03 Jun 2017 17:53:27 +0200</pubDate>
       
       <guid>https://hjdskes.nl/tags/mockup/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Modifier</title>
-      <link>https://hjdskes.nl/tags/modifier/</link>
-      <pubDate>Fri, 21 Jul 2017 17:35:55 +0200</pubDate>
-      
-      <guid>https://hjdskes.nl/tags/modifier/</guid>
       <description></description>
     </item>
     
@@ -454,20 +364,20 @@
     </item>
     
     <item>
-      <title>Property</title>
-      <link>https://hjdskes.nl/tags/property/</link>
-      <pubDate>Wed, 23 Aug 2017 13:01:32 +0200</pubDate>
-      
-      <guid>https://hjdskes.nl/tags/property/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Pygi</title>
       <link>https://hjdskes.nl/tags/pygi/</link>
       <pubDate>Fri, 07 Jul 2017 14:58:33 +0200</pubDate>
       
       <guid>https://hjdskes.nl/tags/pygi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pygobject</title>
+      <link>https://hjdskes.nl/tags/pygobject/</link>
+      <pubDate>Wed, 23 Aug 2017 13:01:32 +0200</pubDate>
+      
+      <guid>https://hjdskes.nl/tags/pygobject/</guid>
       <description></description>
     </item>
     
@@ -499,47 +409,11 @@
     </item>
     
     <item>
-      <title>Resolution</title>
-      <link>https://hjdskes.nl/tags/resolution/</link>
-      <pubDate>Fri, 14 Jul 2017 10:03:55 +0200</pubDate>
-      
-      <guid>https://hjdskes.nl/tags/resolution/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Resolutions</title>
       <link>https://hjdskes.nl/tags/resolutions/</link>
-      <pubDate>Fri, 07 Jul 2017 14:58:33 +0200</pubDate>
+      <pubDate>Fri, 14 Jul 2017 10:03:55 +0200</pubDate>
       
       <guid>https://hjdskes.nl/tags/resolutions/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Rewrite</title>
-      <link>https://hjdskes.nl/tags/rewrite/</link>
-      <pubDate>Fri, 11 Aug 2017 15:35:37 +0200</pubDate>
-      
-      <guid>https://hjdskes.nl/tags/rewrite/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Server</title>
-      <link>https://hjdskes.nl/tags/server/</link>
-      <pubDate>Tue, 01 May 2018 20:30:41 +0100</pubDate>
-      
-      <guid>https://hjdskes.nl/tags/server/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Style Context</title>
-      <link>https://hjdskes.nl/tags/style-context/</link>
-      <pubDate>Fri, 18 Aug 2017 19:47:27 +0200</pubDate>
-      
-      <guid>https://hjdskes.nl/tags/style-context/</guid>
       <description></description>
     </item>
     
@@ -562,15 +436,6 @@
     </item>
     
     <item>
-      <title>Template</title>
-      <link>https://hjdskes.nl/tags/template/</link>
-      <pubDate>Fri, 07 Jul 2017 14:58:33 +0200</pubDate>
-      
-      <guid>https://hjdskes.nl/tags/template/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Udev</title>
       <link>https://hjdskes.nl/tags/udev/</link>
       <pubDate>Fri, 19 May 2017 16:01:04 +0200</pubDate>
@@ -585,15 +450,6 @@
       <pubDate>Thu, 27 Dec 2018 17:31:12 +0100</pubDate>
       
       <guid>https://hjdskes.nl/tags/wayland/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Website</title>
-      <link>https://hjdskes.nl/tags/website/</link>
-      <pubDate>Wed, 02 May 2018 11:41:05 +0200</pubDate>
-      
-      <guid>https://hjdskes.nl/tags/website/</guid>
       <description></description>
     </item>
     
