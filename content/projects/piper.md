@@ -1,17 +1,37 @@
 +++
 date = "2017-09-09T14:35:00+02:00"
-title = "Redesign and rewrite Piper for Google Summer of Code 2017"
-type = "Contribution"
+title = "Piper: a GTK application to configure gaming mice"
+type = "Active"
 +++
 
-I redesigned and rewrote the [Piper](https://github.com/libratbag/piper) mouse
-configuration tool for the GNOME desktop environment under the guidance of Peter
-Hutterer from the X.Org Foundation. You can read the [project
-page](https://summerofcode.withgoogle.com/projects/?sp-search=Piper\#6602376195604480)
-and browse the [development series](/series/google-summer-of-code/) that I wrote during the
-project for more information.
+{{< gallery "/img/projects/piper/resolutionpage.png"
+            "/img/projects/piper/buttonpage.png"
+            "/img/projects/piper/ledpage.png" >}}
 
-As a result of my Google Summer of Code, I am now the maintainer of Piper. I
-also regularly contribute to its dependencies,
-[libratbag](https://github.com/libratbag/libratbag) and
-[ratbagd](https://github.com/libratbag/ratbagd).
+[Piper](https://github.com/libratbag/piper) is a graphical user interface to
+configure gaming mice. Configuration options include changing the resolution
+(DPI) of the mouse, adding and removing profiles, changing button behaviors and
+setting LED colors.
+
+Piper requires [libratbag](https://github.com/libratbag/libratbag)’s `ratbagd`,
+the daemon to actually communicate with the mice. Piper is a just front end to
+`ratbagd`.
+
+## Installation
+
+We maintain a [Wiki page](https://github.com/libratbag/piper/wiki/Installation)
+where we keep up-to-date instructions on how to install Piper. This page
+contains instructions for installing Piper through your distribution's package
+manager, from Flathub or by compiling it from source.
+
+## Bugs
+
+For any bug or feature request, please [create an
+issue](https://github.com/libratbag/piper/issues/new) on Github.
+
+## License
+
+Please see [COPYING](https://github.com/libratbag/piper/blob/master/COPYING) on
+[Github](https://github.com/libratbag/piper).
+
+Copyright © 2016-2019 The Piper developers
