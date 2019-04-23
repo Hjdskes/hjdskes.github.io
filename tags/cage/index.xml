@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2019 Jente Hidskes</copyright>
-    <lastBuildDate>Thu, 27 Dec 2018 17:31:12 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 23 Apr 2019 20:24:11 +0100</lastBuildDate>
     
 	<atom:link href="https://hjdskes.nl/tags/cage/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The first pre-release of Cage</title>
+      <link>https://hjdskes.nl/blog/cage-01/</link>
+      <pubDate>Tue, 23 Apr 2019 20:24:11 +0100</pubDate>
+      
+      <guid>https://hjdskes.nl/blog/cage-01/</guid>
+      <description>Almost exactly four months ago I announced Cage, my Wayland compositor for a kiosk-like environment. To the uninitiated: a kiosk is designed for running a single, maximized application and preventing the user from interacting with any other part of the system. You&amp;rsquo;ve probably seen many in your life in malls, stores or even the dentist (how satisfied are you with your service?). Kiosks can also be used for much cooler things, though, such as running home automation systems.</description>
+    </item>
     
     <item>
       <title>Announcing Cage: the Wayland kiosk</title>
