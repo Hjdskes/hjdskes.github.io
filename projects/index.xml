@@ -38,7 +38,7 @@ The system is very minimal and modern: on top of the Linux kernel, it installs s
       <pubDate>Thu, 22 Nov 2018 19:59:00 +0100</pubDate>
       
       <guid>https://hjdskes.nl/projects/cage/</guid>
-      <description>Cage is a kiosk compositor for Wayland. A kiosk is a window manager (in the X11 world) or compositor (in the Wayland world) that is designed for a user experience wherein user interaction and activities outside the scope of the running application are prevented. That is, a kiosk compositor runs a maximized application at a time and prevents the user from interacting with anything but this application.
+      <description>Cage is a kiosk compositor for Wayland. A kiosk is a window manager (in the X11 world) or compositor (in the Wayland world) that is designed for a user experience wherein user interaction and activities outside the scope of the running application are prevented. That is, a kiosk compositor displays a single maximized application at a time and prevents the user from interacting with anything but this application.
 As such, user input such as moving, resizing, minimizing and unmaximizing windows is ignored.</description>
     </item>
     
