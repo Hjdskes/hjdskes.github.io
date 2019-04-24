@@ -6,7 +6,7 @@ tags = ["wayland","compositor","cage","kiosk"]
 categories = ["Projects"]
 +++
 
-<img src="/img/projects/cage/cage.svg" alt="Cage's logo" width="15%" align="right">
+<img src="/img/projects/cage/cage.svg" alt="Cage's logo" width="140px" align="right">
 
 Almost exactly four months ago I announced Cage, my Wayland compositor for a
 kiosk-like environment. To the uninitiated: a kiosk is designed for running a

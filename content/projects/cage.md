@@ -5,7 +5,7 @@ description = "Cage: the Wayland kiosk"
 type = "Active"
 +++
 
-<img src="/img/projects/cage/cage.svg" alt="Cage's logo" width="18%" align="right">
+<img src="/img/projects/cage/cage.svg" alt="Cage's logo" width="140px" align="right">
 
 Cage is a kiosk compositor for Wayland. A kiosk is a window manager (in the X11
 world) or compositor (in the Wayland world) that is designed for a user
