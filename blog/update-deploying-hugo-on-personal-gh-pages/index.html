@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="An update to my previous blog on deploying my Hugo generated website with GitHub Pages"/>
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.55.3" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -85,12 +85,10 @@ try my best to help you.</p>
 <p><code>setup.sh</code>:</p>
 
 <div  class="warning" >
-  <p>This script will delete an existing <code>master</code>
-branch and an existing <code>public/</code> directory. Make sure any files you want to keep
-are backed up!</p>
-
+   This script will delete an existing `master`
+branch and an existing `public/` directory. Make sure any files you want to keep
+are backed up! 
 </div>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/usr/bin/env bash
 </span><span class="cp"></span>
 <span class="c1"># This script does the required work to set up your personal GitHub Pages</span>
@@ -125,14 +123,12 @@ msg <span class="s2">&#34;Adding the master branch into the \`public\` folder&#3
 rm -rf public
 git worktree add -B master public origin/master</code></pre></div>
 <div  class="info" >
-  <p>If you need to deploy a CNAME file as well, copy
-the file into the <code>public/</code> folder after the <code>hugo</code> line in the script below.
-You can see <a href="https://github.com/Hjdskes/hjdskes.github.io/blob/hugo/deploy.sh">the
-script</a> in
-this website&rsquo;s repository to see how.</p>
-
+   If you need to deploy a CNAME file as well, copy
+the file into the `public/` folder after the `hugo` line in the script below.
+You can see [the
+script](https://github.com/Hjdskes/hjdskes.github.io/blob/hugo/deploy.sh) in
+this website's repository to see how.  
 </div>
-
 
 <p><code>deploy.sh</code></p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/usr/bin/env bash

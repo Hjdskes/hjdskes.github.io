@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="How I deploy my Hugo generated website to GitHub Pages"/>
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.55.3" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -62,13 +62,11 @@
 
 
 <div  class="info" >
-  <p>The method described here is obsolete. The
+   The method described here is obsolete. The
 introduction still provides a nice overview of the problem, but please see my
-<a href="/blog/update-deploying-hugo-on-personal-gh-pages">updated post</a> for the actual
-steps and scripts!</p>
-
+[updated post](/blog/update-deploying-hugo-on-personal-gh-pages) for the actual
+steps and scripts! 
 </div>
-
 
 <p><em><q>Hello, World!</q></em></p>
 
@@ -187,11 +185,9 @@ change the default branch, open your GitHub repository and go to Settings →
 Branches.</p>
 
 <div  class="warning" >
-  <p>This script will delete the <code>public/</code> directory.
-Make sure any files you want to keep are backed up!</p>
-
+   This script will delete the `public/` directory.
+Make sure any files you want to keep are backed up! 
 </div>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/usr/bin/env bash
 </span><span class="cp"></span>
 <span class="c1"># This script does the required work to set up your personal GitHub Pages</span>
