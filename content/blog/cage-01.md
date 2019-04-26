@@ -31,7 +31,8 @@ had never anticipated or even imagined. For example, [Drew
 DeVault](https://drewdevault.com/), known for starting the
 [sway](https://swaywm.org) and [wlroots](https://github.com/swaywm/wlroots)
 projects and other ambitious endeavors, is working on mimicking a Plan9 rio
-experience with Cage or using it as a "portal" to a [remote sway
+experience with Cage (see it running [here](https://yukari.sr.ht/wio-2.webm))
+or using it as a "portal" to a [remote sway
 session](https://drewdevault.com/2019/04/23/Using-cage-for-a-seamless-RDP-Wayland-desktop.html).
 Other features, such as XWayland, are accommodating Cage to the larger audience
 by providing a better and more smooth experience.
