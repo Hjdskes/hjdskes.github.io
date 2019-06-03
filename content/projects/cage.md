@@ -25,7 +25,7 @@ is closed, the terminal emulator becomes visible again.
 
 Cage supports a single, static output. It does not support hotplugging
 additional outputs and exits when its only output is removed. Cage defaults to
-the output's preferred mode and supports (static, i.e. specific on startup)
+the output's preferred mode and supports (static, i.e. specified on startup)
 output rotation.  Cage does not support virtual workspaces.  Input-wise, Cage
 supports pointer input, keyboard input and touch input. Copy and paste works as
 well, also into and out of XWayland. Primary selection is supported, too.
@@ -48,10 +48,12 @@ Other features of Cage are:
 * Damage tracking. With damage tracking, Cage only redraws the parts of the
   screen that changed. This makes Cage very resource- and power efficient.
 
-There is no configuration for Cage. To start Cage, simply call its binary with
-the path to the application you want to launch within the session. For example,
-use `cage /usr/bin/epiphany` to launch Cage with the Epiphany web browser. When
-the last application window is closed, Cage closes as well.
+There is no configuration for Cage, other than command line arguments on
+startup (see `--help`) and the `XKB_*` environment variables to configure
+keyboard devices. To start Cage, simply call its binary with the path to the
+application you want to launch within the session. For example, use `cage
+/usr/bin/epiphany` to launch Cage with the Epiphany web browser. When the last
+application window is closed, Cage closes as well.
 
 Cage does not support panels, virtual keyboards, screen capture, et cetera.  If
 you have a good use case, I welcome pull requests implementing one of these
@@ -68,12 +70,18 @@ and published on [GitHub](https://github.com/Hjdskes/cage/releases).
 
 ## Installation
 
-For now you'll have to compile Cage from source. There is a pre-release, which
-can you download from
-[here](https://github.com/Hjdskes/cage/releases/tag/v0.1). This version
-requires wlroots 0.5.0.  Alternatively, you can grab the latest master from
-[GitHub](https://github.com/Hjdskes/cage). The git build should always be built
-against the latest tag of wlroots.
+### Packages
+
+Cage is packaged for Arch Linux. Note that this is still a pre-release.
+
+### From source
+
+As there is no stable release of Cage yet, for other distributions you'll have
+to compile Cage from source. You can download the pre-releases from
+[here](https://github.com/Hjdskes/cage/releases/). The latest pre-release
+(version 0.1.1) requires wlroots 0.6.0.  Alternatively, you can grab the latest
+master from [GitHub](https://github.com/Hjdskes/cage). The git build should
+always be built against the latest tag of wlroots.
 
 You can build Cage with the [Meson](https://mesonbuild.com) build system.
 Simply execute the following steps to build Cage:
