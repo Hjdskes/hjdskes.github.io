@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2019 Jente Hidskes</copyright>
-    <lastBuildDate>Tue, 23 Apr 2019 20:24:11 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 03 Jun 2019 20:12:29 +0200</lastBuildDate>
     
 	<atom:link href="https://hjdskes.nl/tags/compositor/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cage 0.1.1 is out</title>
+      <link>https://hjdskes.nl/blog/cage-0.1.1/</link>
+      <pubDate>Mon, 03 Jun 2019 20:12:29 +0200</pubDate>
+      
+      <guid>https://hjdskes.nl/blog/cage-0.1.1/</guid>
+      <description>Just a quick notification to anyone following this website for Cage updates: I just released Cage 0.1.1. This release serves mostly for packagers that want to package Cage with wlroots 0.6.0, such as the Arch Linux packagers.
+As such, not too much has changed between 0.1 and 0.1.1:
+ Cage now drops root on startup on systems without (e)logind support (such as FreeBSD). The XKB_* environment variables can now be used to configure keyboard devices.</description>
+    </item>
     
     <item>
       <title>The first pre-release of Cage</title>

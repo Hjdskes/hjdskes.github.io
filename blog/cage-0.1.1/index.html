@@ -2,17 +2,17 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
-  <meta name="description" content=""/>
+  <meta name="description" content="A new release to build Cage with wlroots 0.6.0"/>
   <meta name="generator" content="Hugo 0.55.6" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <meta property="og:description" content=""/>
+  <meta property="og:description" content="A new release to build Cage with wlroots 0.6.0"/>
   <meta property="og:locale" content="en-us"/>
   <meta property="og:site_name" content="Jente Hidskes&#39; website"/>
-  <meta property="og:title" content="GitLab"/>
+  <meta property="og:title" content="Cage 0.1.1 is out"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:url" content="https://hjdskes.nl/tags/gitlab/"/>
+  <meta property="og:url" content="https://hjdskes.nl/blog/cage-0.1.1/"/>
   <meta property="og:image" content="https://hjdskes.nl/img/avatar.svg"/>
 
   <meta name="twitter:card" content="summary"/>
@@ -21,11 +21,9 @@
   
   <meta name="twitter:image:alt" content="Logo"/>
 
-  <title>Jente Hidskes&#39; website - GitLab</title>
+  <title>Jente Hidskes&#39; website - Cage 0.1.1 is out</title>
 
-  <link rel="canonical" href="https://hjdskes.nl/tags/gitlab/"/>
-  
-  <link rel="alternate" type="application/rss&#43;xml" href="/tags/gitlab/index.xml" title="RSS"/>
+  <link rel="canonical" href="https://hjdskes.nl/blog/cage-0.1.1/"/>
   
   <link rel="shortcut icon" href="https://hjdskes.nl/img/favicon.ico"/>
 
@@ -51,43 +49,100 @@
     </div>
   </div>
 
-<h1>Posts tagged with <q>gitlab</q></h1>
-<ul class="posts">
-  
-    <li class="groupby">Jan, 2019</li>
-    
-      <li>
-  <time class="section-meta" datetime="Jan 2, 2019">
-    Jan 2, 2019
-  </time>
-  <a href="https://hjdskes.nl/blog/github-pgp-response/">An update from GitHub on PGP subkeys</a>
-</li>
 
-    
-  
-    <li class="groupby">Dec, 2018</li>
-    
-      <li>
-  <time class="section-meta" datetime="Dec 13, 2018">
-    Dec 13, 2018
-  </time>
-  <a href="https://hjdskes.nl/blog/psa-github-gpg/">PSA: want to use a new subkey to sign your commits?</a>
-</li>
+<h1>Cage 0.1.1 is out</h1>
 
-    
+<div class="post-meta">
   
-    <li class="groupby">Sep, 2018</li>
-    
-      <li>
-  <time class="section-meta" datetime="Sep 2, 2018">
-    Sep 2, 2018
-  </time>
-  <a href="https://hjdskes.nl/blog/gcolor3-gitlab/">Gcolor3 has moved to GNOME&#39;s GitLab!</a>
-</li>
+  
+  Posted: <time datetime="Jun 3, 2019">Jun 3, 2019</time>
+  &nbsp;• 2 minute read</div>
 
-    
-  
-</ul>
+<p>Just a quick notification to anyone following this website for Cage updates: I
+just released Cage 0.1.1. This release serves mostly for packagers that want to
+package Cage with wlroots 0.6.0, such as the Arch Linux packagers.</p>
+
+<p>As such, not too much has changed between 0.1 and 0.1.1:</p>
+
+<ol>
+<li>Cage now drops root on startup on systems without (e)logind support (such as
+FreeBSD).</li>
+<li>The <code>XKB_*</code> environment variables can now be used to configure keyboard
+devices.</li>
+<li>Cage&rsquo;s damage tracking implementation has been optimized in order to submit
+less damage, resulting in less resource usage and smoother operation.</li>
+<li>Cage will now attempt to use the monitor&rsquo;s preferred mode (if advertised).
+Otherwise, it will fall back to the last listed mode, which is usually the
+preferred one.</li>
+</ol>
+
+<p>Even though this minor release contains only 13 commits, those commits are made
+by 4 authors and even more users have reported issues.  Between 0.1 and 0.1.1
+Cage has been starred 68 times, bringing the total to 153.  For a niche project
+as Cage, these numbers show a healthy community interest, for which I am
+thankful!</p>
+
+<p>The signed release
+(<a href="http://keys.gnupg.net/pks/lookup?op=vindex&amp;fingerprint=on&amp;search=0x37C445296EBC43B1">6EBC43B1</a>)
+is available on <a href="https://github.com/Hjdskes/cage/releases/tag/v0.1.1">GitHub</a>.
+Compile this version of Cage against wlroots 0.6.0.</p>
+
+<p>For the path to 1.0, please see <a href="/blog/cage-01">the previous release announcement</a>. As always, if you want to help out with the development of Cage, please feel free to reach out! I can assist (and/or mentor) anyone willing to contribute.</p>
+
+<p>For questions, comments or feedback you can reach me on
+<a href="https://twitter.com/Hjdskes">Twitter</a>, <a href="https://github.com/Hjdskes">GitHub</a> or
+<a href="mailto:hjdskes@gmail.com">email</a>.</p>
+
+
+
+  <div>
+    <div class="align">
+      
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+        <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"></path>
+      </svg>
+    </div>
+    <ul class="list">
+      
+        <li>
+          
+            <a href="https://hjdskes.nl/categories/projects/">Projects</a></li>
+      
+    </ul>
+  </div>
+
+
+
+  <div>
+    <div class="align">
+      
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+        <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"></path>
+        <line x1="7" y1="7" x2="7" y2="7"></line>
+      </svg>
+    </div>
+    <ul class="list">
+      
+        <li>
+          
+            <a href="https://hjdskes.nl/tags/wayland/">wayland</a></li>
+      
+        <li>
+          
+            <a href="https://hjdskes.nl/tags/compositor/">compositor</a></li>
+      
+        <li>
+          
+            <a href="https://hjdskes.nl/tags/cage/">cage</a></li>
+      
+        <li>
+          
+            <a href="https://hjdskes.nl/tags/kiosk/">kiosk</a></li>
+      
+    </ul>
+  </div>
+
+
 <footer>
   <nav>
      
@@ -123,14 +178,6 @@
       </a>
     
 
-     
-      <a href="/tags/gitlab/index.xml" title="RSS feed">
-        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
-          <path d="M4 11a9 9 0 0 1 9 9"/>
-          <path d="M4 4a16 16 0 0 1 16 16"/>
-          <circle cx="5" cy="19" r="1"/>
-        </svg>
-      </a>
     
   </nav>
 
