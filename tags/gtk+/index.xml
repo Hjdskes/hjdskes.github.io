@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GTK&#43; on Jente Hidskes&#39; website</title>
-    <link>https://hjdskes.nl/tags/gtk&#43;/</link>
+    <link>https://www.hjdskes.nl/tags/gtk&#43;/</link>
     <description>Recent content in GTK&#43; on Jente Hidskes&#39; website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2019 Jente Hidskes</copyright>
     <lastBuildDate>Sat, 01 Sep 2018 00:00:21 +0200</lastBuildDate>
     
-	<atom:link href="https://hjdskes.nl/tags/gtk+/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.hjdskes.nl/tags/gtk+/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Gcolor3 version 2.3 is out!</title>
-      <link>https://hjdskes.nl/blog/gcolor3-2.3/</link>
+      <link>https://www.hjdskes.nl/blog/gcolor3-2.3/</link>
       <pubDate>Sat, 01 Sep 2018 00:00:21 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/blog/gcolor3-2.3/</guid>
+      <guid>https://www.hjdskes.nl/blog/gcolor3-2.3/</guid>
       <description>Finally, after a long period of sporadic commits, I released Gcolor3 version 2.3 out into the wild!
           This release was two years in the making (two years and twelve days, to be precise). It features 67 commits, resulting in a redesigned saved colors page, a redesigned headerbar and loads of under-the-hood changes. In this post, I want to go into a little more detail on the development and what led up to Gcolor 2.</description>
     </item>

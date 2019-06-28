@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mockup on Jente Hidskes&#39; website</title>
-    <link>https://hjdskes.nl/tags/mockup/</link>
+    <link>https://www.hjdskes.nl/tags/mockup/</link>
     <description>Recent content in mockup on Jente Hidskes&#39; website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2019 Jente Hidskes</copyright>
     <lastBuildDate>Sat, 03 Jun 2017 17:53:27 +0200</lastBuildDate>
     
-	<atom:link href="https://hjdskes.nl/tags/mockup/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.hjdskes.nl/tags/mockup/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>GSoC part 3: mockups, mockups, mockups!</title>
-      <link>https://hjdskes.nl/blog/gsoc-part-3/</link>
+      <link>https://www.hjdskes.nl/blog/gsoc-part-3/</link>
       <pubDate>Sat, 03 Jun 2017 17:53:27 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/blog/gsoc-part-3/</guid>
+      <guid>https://www.hjdskes.nl/blog/gsoc-part-3/</guid>
       <description>This will be a quick blog post on the previous two weeks. During this time, the community bonding period ended and the coding phase officially begun!
 I spent most of the first week working on university projects, so that those are as done as they can be at this point and I have little else to work on besides Piper.
 On the second week, I thought I would get a few days head start on my schedule by starting early on the mockups.</description>

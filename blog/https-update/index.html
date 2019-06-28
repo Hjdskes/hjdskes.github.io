@@ -2,17 +2,17 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
-  <meta name="description" content=""/>
+  <meta name="description" content="The certificate has been renewed and HTTPS should once again work"/>
   <meta name="generator" content="Hugo 0.55.6" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <meta property="og:description" content=""/>
+  <meta property="og:description" content="The certificate has been renewed and HTTPS should once again work"/>
   <meta property="og:locale" content="en-us"/>
   <meta property="og:site_name" content="Jente Hidskes&#39; website"/>
-  <meta property="og:title" content="ratbagd"/>
+  <meta property="og:title" content="An update on HTTPS certificate issues"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:url" content="https://www.hjdskes.nl/tags/ratbagd/"/>
+  <meta property="og:url" content="https://www.hjdskes.nl/blog/https-update/"/>
   <meta property="og:image" content="https://www.hjdskes.nl/img/avatar.svg"/>
 
   <meta name="twitter:card" content="summary"/>
@@ -21,11 +21,9 @@
   
   <meta name="twitter:image:alt" content="Logo"/>
 
-  <title>Jente Hidskes&#39; website - ratbagd</title>
+  <title>Jente Hidskes&#39; website - An update on HTTPS certificate issues</title>
 
-  <link rel="canonical" href="https://www.hjdskes.nl/tags/ratbagd/"/>
-  
-  <link rel="alternate" type="application/rss&#43;xml" href="/tags/ratbagd/index.xml" title="RSS"/>
+  <link rel="canonical" href="https://www.hjdskes.nl/blog/https-update/"/>
   
   <link rel="shortcut icon" href="https://www.hjdskes.nl/img/favicon.ico"/>
 
@@ -51,40 +49,94 @@
     </div>
   </div>
 
-<h1>Posts tagged with <q>ratbagd</q></h1>
-<ul class="posts">
-  
-    <li class="groupby">Jun, 2017</li>
-    
-      <li>
-  <time class="section-meta" datetime="Jun 16, 2017">
-    Jun 16, 2017
-  </time>
-  <a href="https://www.hjdskes.nl/blog/gsoc-part-4/">GSoC part 4: the first sprint</a>
-</li>
 
-    
-  
-    <li class="groupby">May, 2017</li>
-    
-      <li>
-  <time class="section-meta" datetime="May 19, 2017">
-    May 19, 2017
-  </time>
-  <a href="https://www.hjdskes.nl/blog/gsoc-part-2/">GSoC part 2: community bonding</a>
-</li>
+<h1>An update on HTTPS certificate issues</h1>
 
-    
-      <li>
-  <time class="section-meta" datetime="May 5, 2017">
-    May 5, 2017
-  </time>
-  <a href="https://www.hjdskes.nl/blog/gsoc-part-1/">GSoC part 1: an introduction!</a>
-</li>
-
-    
+<div class="post-meta">
   
-</ul>
+  
+  Posted: <time datetime="Jun 28, 2019">Jun 28, 2019</time>
+  &nbsp;• 2 minute read</div>
+
+<p>For a little over a year now, this website has been enforcing HTTPS over both
+its <code>www</code> subdomain and the <code>hjdskes.nl</code> apex domain. These certificates are
+kindly provided automagically by GitHub in a partnership with <a href="https://letsencrypt.org/">Let&rsquo;s
+Encrypt</a>.</p>
+
+<p>In May, the certificate for my website expired. Expecting GitHub to be on top
+of this, at first I did not take any action. Some of you have reached out to me
+about the issue, which prompted me to contact GitHub to figure out why my
+certficate wasn&rsquo;t being renewed.</p>
+
+<p>They replied very quickly (thanks!), and at first my <code>AAAA</code> records seemed to
+be the issue as GitHub Pages currently doesn&rsquo;t support IPv6 (I thought I
+followed GitHub&rsquo;s instructions to the letter when I set up HTTPS a year ago,
+but I may remember wrong). This worked and my certificate was renewed. Yay!</p>
+
+<p>However, I was still getting the expired certificate warning when browsing to
+<code>https://hjdskes.nl</code>. A round trip with GitHub support later, it turns out that
+<a href="https://github.community/t5/GitHub-Pages/Does-GitHub-Pages-Support-HTTPS-for-www-and-subdomains/m-p/7202#M495">GitHub does not support creating a certificate that covers both your root
+domain and your <code>www</code>
+subdomain</a>.
+I do remember my website working just fine over both domains for the last year,
+so how this worked (or didn&rsquo;t!) is a mystery to me. In any case, I have removed
+the <code>A</code> records from my DNS settings (thus removing my apex domain,
+<code>https://hjdskes.nl</code>) and now everything is fine and dandy again. With the
+publishing of this blog post, all internal references should go over the <code>www</code>
+subdomain.</p>
+
+<p>The timing of this was a bit unfortunate, since I was away on vacation for two
+weeks. This is one of the reasons that fixing this took over a month. I
+apologise for any inconvenience and I thank those of you that have reached out
+to me. It&rsquo;s always nice to know that people read what I have to say and care
+enough to reach out!</p>
+
+
+
+  <div>
+    <div class="align">
+      
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+        <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"></path>
+      </svg>
+    </div>
+    <ul class="list">
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/categories/administration/">Administration</a></li>
+      
+    </ul>
+  </div>
+
+
+
+  <div>
+    <div class="align">
+      
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+        <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"></path>
+        <line x1="7" y1="7" x2="7" y2="7"></line>
+      </svg>
+    </div>
+    <ul class="list">
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/https/">https</a></li>
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/github-pages/">github pages</a></li>
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/custom-domain/">custom domain</a></li>
+      
+    </ul>
+  </div>
+
+
 <footer>
   <nav>
      
@@ -120,14 +172,6 @@
       </a>
     
 
-     
-      <a href="/tags/ratbagd/index.xml" title="RSS feed">
-        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
-          <path d="M4 11a9 9 0 0 1 9 9"/>
-          <path d="M4 4a16 16 0 0 1 16 16"/>
-          <circle cx="5" cy="19" r="1"/>
-        </svg>
-      </a>
     
   </nav>
 

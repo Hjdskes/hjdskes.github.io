@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects &amp; Contributions on Jente Hidskes&#39; website</title>
-    <link>https://hjdskes.nl/projects/</link>
+    <link>https://www.hjdskes.nl/projects/</link>
     <description>Recent content in Projects &amp; Contributions on Jente Hidskes&#39; website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2019 Jente Hidskes</copyright>
     <lastBuildDate>Mon, 08 Aug 2016 13:18:21 +0200</lastBuildDate>
     
-	<atom:link href="https://hjdskes.nl/projects/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.hjdskes.nl/projects/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>A purpose-built Linux OS for my Raspberry Pi 3B&#43; home automation system</title>
-      <link>https://hjdskes.nl/projects/rpi-linux/</link>
+      <link>https://www.hjdskes.nl/projects/rpi-linux/</link>
       <pubDate>Thu, 27 Dec 2018 16:54:01 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/rpi-linux/</guid>
+      <guid>https://www.hjdskes.nl/projects/rpi-linux/</guid>
       <description>For my home automation system I developed a purpose-built (minimal, embedded) Linux-based operating system.
 This embedded Linux distribution is built using Buildroot. To house my configuration, I forked Buildroot on GitHub. I added a custom defconfig (configs/hjdskes_rpi3_defconfig) that holds my image&amp;rsquo;s configuration, and there is a subdirectory in board/hjdskes/rpi3/ to hold configuration files and a rootsfs overlay.
 The system is very minimal and modern: on top of the Linux kernel, it installs systemd (only the required parts and logind), util-linux&amp;rsquo; agetty and login, bash, Raspberry Pi firmware, wpa_supplicant, mesa (Gallium VC4 driver, OpenGL ES and EGL), GTK+ 3, my Wayland compositor Cage, the Cantarell font and the Adwaita icon theme.</description>
@@ -25,57 +25,57 @@ The system is very minimal and modern: on top of the Linux kernel, it installs s
     
     <item>
       <title>Several contributions to wlroots</title>
-      <link>https://hjdskes.nl/projects/wlroots/</link>
+      <link>https://www.hjdskes.nl/projects/wlroots/</link>
       <pubDate>Sat, 22 Dec 2018 16:53:40 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/wlroots/</guid>
+      <guid>https://www.hjdskes.nl/projects/wlroots/</guid>
       <description>My Wayland compositor Cage is built on top of wlroots, the &amp;ldquo;pluggable, composable, unopinionated modules for building a Wayland compositor&amp;rdquo;. Hence I contribute fixes upstream. My commits can be found here, issues and pull requests can be found here.</description>
     </item>
     
     <item>
       <title>Cage: the Wayland kiosk</title>
-      <link>https://hjdskes.nl/projects/cage/</link>
+      <link>https://www.hjdskes.nl/projects/cage/</link>
       <pubDate>Thu, 22 Nov 2018 19:59:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/cage/</guid>
+      <guid>https://www.hjdskes.nl/projects/cage/</guid>
       <description>Cage is a kiosk compositor for Wayland. A kiosk is a window manager (in the X11 world) or compositor (in the Wayland world) that is designed for a user experience wherein user interaction and activities outside the scope of the running application are prevented. That is, a kiosk compositor displays a single maximized application at a time and prevents the user from interacting with anything but this application.
 As such, user input such as moving, resizing, minimizing and unmaximizing windows is ignored.</description>
     </item>
     
     <item>
       <title>MSc thesis: Abstract Interpretation of Program Transformations using Regular Tree Grammars</title>
-      <link>https://hjdskes.nl/projects/msc/</link>
+      <link>https://www.hjdskes.nl/projects/msc/</link>
       <pubDate>Fri, 02 Nov 2018 11:00:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/msc/</guid>
+      <guid>https://www.hjdskes.nl/projects/msc/</guid>
       <description>I completed my MSc thesis at the Programming Languages group of the TU Delft under the supervision of Dr. S.T. Erdweg and Sven Keidel.
 Program transformations translate code of an input language to code of an output language. Examples of program transformations are desugarings, optimizations and refactorings. Developers of program transformations need to ensure correctness of their programs. For example, for a desugaring we would want to know whether all sugar constructs have been removed after the transformation.</description>
     </item>
     
     <item>
       <title>GNOME Screenshot (again)</title>
-      <link>https://hjdskes.nl/projects/gnome-screenshot-2/</link>
+      <link>https://www.hjdskes.nl/projects/gnome-screenshot-2/</link>
       <pubDate>Sat, 15 Sep 2018 11:03:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/gnome-screenshot-2/</guid>
+      <guid>https://www.hjdskes.nl/projects/gnome-screenshot-2/</guid>
       <description>I was cleaning up old GitHub repositories and came across old patches for GNOME screenshot (see below). In an attempt to upstream them once more, I found that most of these fixes had already found their way into GNOME screenshot, except one. I opened a merge request for that patch, which was accepted after a small change.</description>
     </item>
     
     <item>
       <title>A small contribution to gitg, GNOME&#39;s git client</title>
-      <link>https://hjdskes.nl/projects/gitg/</link>
+      <link>https://www.hjdskes.nl/projects/gitg/</link>
       <pubDate>Sun, 22 Jul 2018 20:52:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/gitg/</guid>
+      <guid>https://www.hjdskes.nl/projects/gitg/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Piper: a GTK application to configure gaming mice</title>
-      <link>https://hjdskes.nl/projects/piper/</link>
+      <link>https://www.hjdskes.nl/projects/piper/</link>
       <pubDate>Sat, 09 Sep 2017 14:35:00 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/projects/piper/</guid>
+      <guid>https://www.hjdskes.nl/projects/piper/</guid>
       <description>Piper is a graphical user interface to configure gaming mice. Configuration options include changing the resolution (DPI) of the mouse, adding and removing profiles, changing button behaviors and setting LED colors.
 Piper requires libratbag’s ratbagd, the daemon to actually communicate with the mice. Piper is a just front end to ratbagd.
 Installation We maintain a Wiki page where we keep up-to-date instructions on how to install Piper.</description>
@@ -83,177 +83,177 @@ Installation We maintain a Wiki page where we keep up-to-date instructions on ho
     
     <item>
       <title>Redesign and rewrite Piper for Google Summer of Code 2017</title>
-      <link>https://hjdskes.nl/projects/piper-gsoc/</link>
+      <link>https://www.hjdskes.nl/projects/piper-gsoc/</link>
       <pubDate>Sat, 09 Sep 2017 14:35:00 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/projects/piper-gsoc/</guid>
+      <guid>https://www.hjdskes.nl/projects/piper-gsoc/</guid>
       <description>I redesigned and rewrote the Piper mouse configuration tool for the GNOME desktop environment under the guidance of Peter Hutterer from the X.Org Foundation. You can read the project page and browse the development series that I wrote during the project for more information.
 As a result of my Google Summer of Code, I am now the maintainer of Piper. I also regularly contribute to its dependencies, libratbag and ratbagd.</description>
     </item>
     
     <item>
       <title>A small fix to Google&#39;s gopacket</title>
-      <link>https://hjdskes.nl/projects/gopacket/</link>
+      <link>https://www.hjdskes.nl/projects/gopacket/</link>
       <pubDate>Tue, 23 May 2017 17:34:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/gopacket/</guid>
+      <guid>https://www.hjdskes.nl/projects/gopacket/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Google Summer of Code proposal contributions</title>
-      <link>https://hjdskes.nl/projects/gsoc-proposals/</link>
+      <link>https://www.hjdskes.nl/projects/gsoc-proposals/</link>
       <pubDate>Thu, 23 Mar 2017 01:55:50 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/gsoc-proposals/</guid>
+      <guid>https://www.hjdskes.nl/projects/gsoc-proposals/</guid>
       <description>The application process of Google Summer of Code requires students to make a small contribution to the project(s) of their choice to demonstrate that they are capable of making a change following the upstream submission procedures. In my understanding, this is less about the actual code than it is about demonstrating these skills. This is (partly, the other reason being that as I was working on these proposals I was also finishing up several course projects) the reason that the contributions here are rather small:</description>
     </item>
     
     <item>
       <title>Fixes and added features to the Cocoa Enhanced theme</title>
-      <link>https://hjdskes.nl/projects/cocoa-eh/</link>
+      <link>https://www.hjdskes.nl/projects/cocoa-eh/</link>
       <pubDate>Tue, 21 Feb 2017 19:53:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/cocoa-eh/</guid>
+      <guid>https://www.hjdskes.nl/projects/cocoa-eh/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Small fixes to Neovim and Vim</title>
-      <link>https://hjdskes.nl/projects/neovim-vim/</link>
+      <link>https://www.hjdskes.nl/projects/neovim-vim/</link>
       <pubDate>Mon, 20 Feb 2017 23:18:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/neovim-vim/</guid>
+      <guid>https://www.hjdskes.nl/projects/neovim-vim/</guid>
       <description>For the course Software Architecture at the TU Delft we were required to analyse and contribute to an existing open source project. The group I was part of chose Neovim as our project. The result of this analysis is a chapter in the book Delft Students on Software Architecture: 2017.
 Our contributions resulted in several small fixes to both Neovim and Vim, namely Neovim commits by myself and Sander and Vim commits by myself.</description>
     </item>
     
     <item>
       <title>Improve the maintainability, readability and robustness or Playerctl</title>
-      <link>https://hjdskes.nl/projects/playerctl/</link>
+      <link>https://www.hjdskes.nl/projects/playerctl/</link>
       <pubDate>Sun, 11 Sep 2016 00:34:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/playerctl/</guid>
+      <guid>https://www.hjdskes.nl/projects/playerctl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Add missing keysyms to Haskell&#39;s X11 bindings</title>
-      <link>https://hjdskes.nl/projects/haskell-x11/</link>
+      <link>https://www.hjdskes.nl/projects/haskell-x11/</link>
       <pubDate>Mon, 22 Feb 2016 16:51:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/haskell-x11/</guid>
+      <guid>https://www.hjdskes.nl/projects/haskell-x11/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Make arch-diff work with Pacman 5.0</title>
-      <link>https://hjdskes.nl/projects/arch-diff/</link>
+      <link>https://www.hjdskes.nl/projects/arch-diff/</link>
       <pubDate>Wed, 10 Feb 2016 22:25:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/arch-diff/</guid>
+      <guid>https://www.hjdskes.nl/projects/arch-diff/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Small patches to GNOME Screenshot</title>
-      <link>https://hjdskes.nl/projects/gnome-screenshot/</link>
+      <link>https://www.hjdskes.nl/projects/gnome-screenshot/</link>
       <pubDate>Wed, 09 Dec 2015 23:53:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/gnome-screenshot/</guid>
+      <guid>https://www.hjdskes.nl/projects/gnome-screenshot/</guid>
       <description>I wrote some as of yet unmerged patches and opened some outstanding bug reports to GNOME Screenshot. You can review them here and here.</description>
     </item>
     
     <item>
       <title>GTimeUtils: a stopwatch and a timer, bundled together as time utilities</title>
-      <link>https://hjdskes.nl/projects/gtimeutils/</link>
+      <link>https://www.hjdskes.nl/projects/gtimeutils/</link>
       <pubDate>Sat, 22 Aug 2015 16:52:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/gtimeutils/</guid>
+      <guid>https://www.hjdskes.nl/projects/gtimeutils/</guid>
       <description>GTimeUtils is a collection of simple and small time utilities, namely a stopwatch and a (countdown) timer.
 From version 2.0 onwards, both the timer and the stopwatch are of from GNOME Clocks&amp;rsquo; respective stack pages. Prior to version 2.0, both utilities served more as a practice than anything else. Since I like the modern look of GNOME Clocks, but dislike the fact that all its functionality is combined into one application, I have re-purposed GNOME Clocks&amp;rsquo; ui files into standalone utilities.</description>
     </item>
     
     <item>
       <title>A few commits to background setter (bgs)</title>
-      <link>https://hjdskes.nl/projects/bgs/</link>
+      <link>https://www.hjdskes.nl/projects/bgs/</link>
       <pubDate>Sat, 02 May 2015 18:10:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/bgs/</guid>
+      <guid>https://www.hjdskes.nl/projects/bgs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Implement animated workspace switching and some fixes to Budgie</title>
-      <link>https://hjdskes.nl/projects/budgie/</link>
+      <link>https://www.hjdskes.nl/projects/budgie/</link>
       <pubDate>Thu, 16 Apr 2015 14:59:00 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/projects/budgie/</guid>
+      <guid>https://www.hjdskes.nl/projects/budgie/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Arek Window Manager: a Mutter-based tiling window manager</title>
-      <link>https://hjdskes.nl/projects/arek/</link>
+      <link>https://www.hjdskes.nl/projects/arek/</link>
       <pubDate>Sat, 21 Mar 2015 21:29:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/arek/</guid>
+      <guid>https://www.hjdskes.nl/projects/arek/</guid>
       <description>Arek Window Manager is a plugin to Mutter in an (ambitious) attempt to create a tiling window manager with eye-candy. Due to several limitations on Mutter&amp;rsquo;s side, a moving Wayland target and a lack of time on my side, this project is not actively maintained at the moment.</description>
     </item>
     
     <item>
       <title>Several small contributions to the BunsenLabs Linux projects</title>
-      <link>https://hjdskes.nl/projects/bunsen/</link>
+      <link>https://www.hjdskes.nl/projects/bunsen/</link>
       <pubDate>Mon, 16 Feb 2015 14:58:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/bunsen/</guid>
+      <guid>https://www.hjdskes.nl/projects/bunsen/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Implement a GtkHeaderBar in Eye of GNOME</title>
-      <link>https://hjdskes.nl/projects/eog/</link>
+      <link>https://www.hjdskes.nl/projects/eog/</link>
       <pubDate>Mon, 02 Feb 2015 19:36:38 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/eog/</guid>
+      <guid>https://www.hjdskes.nl/projects/eog/</guid>
       <description>I implemented a GtkHeaderBar in Eye of GNOME. You can review all the patches here (GitHub mirror link until GitLab can filter commits per author), or view the relevant bug reports here and here.</description>
     </item>
     
     <item>
       <title>Phosphorus: a wallpaper browser and setter in the spirit of Nitrogen</title>
-      <link>https://hjdskes.nl/projects/phosphorus/</link>
+      <link>https://www.hjdskes.nl/projects/phosphorus/</link>
       <pubDate>Fri, 15 Nov 2013 21:40:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/phosphorus/</guid>
+      <guid>https://www.hjdskes.nl/projects/phosphorus/</guid>
       <description>Phosphorus is a wallpaper browser and setter in the spirit of Nitrogen. It can be considered an unofficial port of Nitrogen to GTK+ 3. Phosphorus is different, however, in that it is plugin-based.
 Phosphorus, at its core, is agnostic to how the selected image is applied as wallpaper. There are many different Desktop Environments that all have their own way of applying wallpapers. Soon, with Wayland becoming stable, every lightweight compositor will have its own implementation as well.</description>
     </item>
     
     <item>
       <title>Pango fonts in the sxiv image viewer</title>
-      <link>https://hjdskes.nl/projects/sxiv/</link>
+      <link>https://www.hjdskes.nl/projects/sxiv/</link>
       <pubDate>Sat, 11 May 2013 01:26:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/sxiv/</guid>
+      <guid>https://www.hjdskes.nl/projects/sxiv/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Gcolor3: a color selection dialog written in GTK&#43; 3</title>
-      <link>https://hjdskes.nl/projects/gcolor3/</link>
+      <link>https://www.hjdskes.nl/projects/gcolor3/</link>
       <pubDate>Sun, 24 Feb 2013 17:31:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/gcolor3/</guid>
+      <guid>https://www.hjdskes.nl/projects/gcolor3/</guid>
       <description>Ever wanted to know the value of that color on your screen? Gcolor3 enables you to pick the color from any pixel on your screen. It also offers a palette, so that you can easily mix and match a couple of colors together.
 When you have found the perfect combination of colors, naturally you want to save them. Gcolor3 allows you to conveniently save and retrieve colors.</description>
     </item>
     
     <item>
       <title>Powersave: aggressive power saving on a Linux system</title>
-      <link>https://hjdskes.nl/projects/powersave/</link>
+      <link>https://www.hjdskes.nl/projects/powersave/</link>
       <pubDate>Sat, 30 Jun 2012 00:22:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/powersave/</guid>
+      <guid>https://www.hjdskes.nl/projects/powersave/</guid>
       <description>Powersave is a combination of scripts, udev rules, configuration files and systemd services to enable (aggressive) power saving on a Linux system. The configuration is tailered to my own laptop, but is easily adaptable to a new system.</description>
     </item>
     

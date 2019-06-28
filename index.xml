@@ -2,22 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jente Hidskes&#39; website</title>
-    <link>https://hjdskes.nl/</link>
+    <link>https://www.hjdskes.nl/</link>
     <description>Recent content on Jente Hidskes&#39; website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2019 Jente Hidskes</copyright>
     <lastBuildDate>Tue, 21 Feb 2017 14:43:43 +0200</lastBuildDate>
     
-	<atom:link href="https://hjdskes.nl/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.hjdskes.nl/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>An update on HTTPS certificate issues</title>
+      <link>https://www.hjdskes.nl/blog/https-update/</link>
+      <pubDate>Fri, 28 Jun 2019 21:54:19 +0200</pubDate>
+      
+      <guid>https://www.hjdskes.nl/blog/https-update/</guid>
+      <description>For a little over a year now, this website has been enforcing HTTPS over both its www subdomain and the hjdskes.nl apex domain. These certificates are kindly provided automagically by GitHub in a partnership with Let&amp;rsquo;s Encrypt.
+In May, the certificate for my website expired. Expecting GitHub to be on top of this, at first I did not take any action. Some of you have reached out to me about the issue, which prompted me to contact GitHub to figure out why my certficate wasn&amp;rsquo;t being renewed.</description>
+    </item>
+    
+    <item>
       <title>Cage 0.1.1 is out</title>
-      <link>https://hjdskes.nl/blog/cage-0.1.1/</link>
+      <link>https://www.hjdskes.nl/blog/cage-0.1.1/</link>
       <pubDate>Mon, 03 Jun 2019 20:12:29 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/blog/cage-0.1.1/</guid>
+      <guid>https://www.hjdskes.nl/blog/cage-0.1.1/</guid>
       <description>Just a quick notification to anyone following this website for Cage updates: I just released Cage 0.1.1. This release serves mostly for packagers that want to package Cage with wlroots 0.6.0, such as the Arch Linux packagers.
 As such, not too much has changed between 0.1 and 0.1.1:
  Cage now drops root on startup on systems without (e)logind support (such as FreeBSD). The XKB_* environment variables can now be used to configure keyboard devices.</description>
@@ -25,19 +35,19 @@ As such, not too much has changed between 0.1 and 0.1.1:
     
     <item>
       <title>The first pre-release of Cage</title>
-      <link>https://hjdskes.nl/blog/cage-01/</link>
+      <link>https://www.hjdskes.nl/blog/cage-01/</link>
       <pubDate>Tue, 23 Apr 2019 20:24:11 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/blog/cage-01/</guid>
+      <guid>https://www.hjdskes.nl/blog/cage-01/</guid>
       <description>Almost exactly four months ago I announced Cage, my Wayland compositor for a kiosk-like environment. To the uninitiated: a kiosk is designed for running a single, maximized application and preventing the user from interacting with any other part of the system. You&amp;rsquo;ve probably seen many in your life in malls, stores or even the dentist (how satisfied are you with your service?). Kiosks can also be used for much cooler things, though, such as running home automation systems.</description>
     </item>
     
     <item>
       <title>An update from GitHub on PGP subkeys</title>
-      <link>https://hjdskes.nl/blog/github-pgp-response/</link>
+      <link>https://www.hjdskes.nl/blog/github-pgp-response/</link>
       <pubDate>Wed, 02 Jan 2019 11:47:43 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/blog/github-pgp-response/</guid>
+      <guid>https://www.hjdskes.nl/blog/github-pgp-response/</guid>
       <description>A few weeks ago I wrote about adding a new PGP subkey to your GitHub account. I reported this issue to GitHub when I discovered it. Today, I have gotten a response from GitHub:
  When a new subkey is added to an existing PGP key on an account, it currently has to be removed and added back to the account to update it on our side.
 This is expected behaviour for now but I agree it isn&amp;rsquo;t the most elegant solution!</description>
@@ -45,29 +55,29 @@ This is expected behaviour for now but I agree it isn&amp;rsquo;t the most elega
     
     <item>
       <title>My home automation system</title>
-      <link>https://hjdskes.nl/blog/home-automation/</link>
+      <link>https://www.hjdskes.nl/blog/home-automation/</link>
       <pubDate>Fri, 28 Dec 2018 08:46:20 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/blog/home-automation/</guid>
+      <guid>https://www.hjdskes.nl/blog/home-automation/</guid>
       <description>Back in May I wrote that I was thinking of some home automation projects. However, what fun would it be to buy readily made products? And, more importantly, what would the quality of those products be? We all know that many IoT products are insecure and privacy invading and leave you depending on the manufacturer for updates. Finally, home automation is an excellent learning project. It encompasses so many different technologies, both high- and low-level.</description>
     </item>
     
     <item>
       <title>Announcing Cage: the Wayland kiosk</title>
-      <link>https://hjdskes.nl/blog/cage/</link>
+      <link>https://www.hjdskes.nl/blog/cage/</link>
       <pubDate>Thu, 27 Dec 2018 17:31:12 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/blog/cage/</guid>
+      <guid>https://www.hjdskes.nl/blog/cage/</guid>
       <description>Yesterday I made Cage publically available. Cage is a kiosk for Wayland. A kiosk is designed for running a single, maximized application and preventing the user from interacting with any other part of the system. You can read more about Cage on its project page.
 I developed Cage as part of my home automation project. This is a hobby and learning project where I build my own, well, home automation system (from scratch, i.</description>
     </item>
     
     <item>
       <title>A purpose-built Linux OS for my Raspberry Pi 3B&#43; home automation system</title>
-      <link>https://hjdskes.nl/projects/rpi-linux/</link>
+      <link>https://www.hjdskes.nl/projects/rpi-linux/</link>
       <pubDate>Thu, 27 Dec 2018 16:54:01 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/rpi-linux/</guid>
+      <guid>https://www.hjdskes.nl/projects/rpi-linux/</guid>
       <description>For my home automation system I developed a purpose-built (minimal, embedded) Linux-based operating system.
 This embedded Linux distribution is built using Buildroot. To house my configuration, I forked Buildroot on GitHub. I added a custom defconfig (configs/hjdskes_rpi3_defconfig) that holds my image&amp;rsquo;s configuration, and there is a subdirectory in board/hjdskes/rpi3/ to hold configuration files and a rootsfs overlay.
 The system is very minimal and modern: on top of the Linux kernel, it installs systemd (only the required parts and logind), util-linux&amp;rsquo; agetty and login, bash, Raspberry Pi firmware, wpa_supplicant, mesa (Gallium VC4 driver, OpenGL ES and EGL), GTK+ 3, my Wayland compositor Cage, the Cantarell font and the Adwaita icon theme.</description>
@@ -75,115 +85,115 @@ The system is very minimal and modern: on top of the Linux kernel, it installs s
     
     <item>
       <title>Several contributions to wlroots</title>
-      <link>https://hjdskes.nl/projects/wlroots/</link>
+      <link>https://www.hjdskes.nl/projects/wlroots/</link>
       <pubDate>Sat, 22 Dec 2018 16:53:40 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/wlroots/</guid>
+      <guid>https://www.hjdskes.nl/projects/wlroots/</guid>
       <description>My Wayland compositor Cage is built on top of wlroots, the &amp;ldquo;pluggable, composable, unopinionated modules for building a Wayland compositor&amp;rdquo;. Hence I contribute fixes upstream. My commits can be found here, issues and pull requests can be found here.</description>
     </item>
     
     <item>
       <title>PSA: want to use a new subkey to sign your commits?</title>
-      <link>https://hjdskes.nl/blog/psa-github-gpg/</link>
+      <link>https://www.hjdskes.nl/blog/psa-github-gpg/</link>
       <pubDate>Thu, 13 Dec 2018 15:23:39 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/blog/psa-github-gpg/</guid>
+      <guid>https://www.hjdskes.nl/blog/psa-github-gpg/</guid>
       <description>I not so recently started using subkeys to do my normal PGP work. I made a new subkey specifically for signing things, and naturally wanted to use this new key to sign my commits with git&amp;rsquo;s builtin GPG support. I picked up my subkey&amp;rsquo;s ID with gpg --list-keys --keyid-format LONG and set it with git config --global user.signingKey &amp;lt;id&amp;gt;. That&amp;rsquo;d be it, right?
 Since you&amp;rsquo;re reading this, you&amp;rsquo;ve found out the answer is &amp;ldquo;no&amp;rdquo;.</description>
     </item>
     
     <item>
       <title>Cage: the Wayland kiosk</title>
-      <link>https://hjdskes.nl/projects/cage/</link>
+      <link>https://www.hjdskes.nl/projects/cage/</link>
       <pubDate>Thu, 22 Nov 2018 19:59:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/cage/</guid>
+      <guid>https://www.hjdskes.nl/projects/cage/</guid>
       <description>Cage is a kiosk compositor for Wayland. A kiosk is a window manager (in the X11 world) or compositor (in the Wayland world) that is designed for a user experience wherein user interaction and activities outside the scope of the running application are prevented. That is, a kiosk compositor displays a single maximized application at a time and prevents the user from interacting with anything but this application.
 As such, user input such as moving, resizing, minimizing and unmaximizing windows is ignored.</description>
     </item>
     
     <item>
       <title>MSc thesis: Abstract Interpretation of Program Transformations using Regular Tree Grammars</title>
-      <link>https://hjdskes.nl/projects/msc/</link>
+      <link>https://www.hjdskes.nl/projects/msc/</link>
       <pubDate>Fri, 02 Nov 2018 11:00:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/msc/</guid>
+      <guid>https://www.hjdskes.nl/projects/msc/</guid>
       <description>I completed my MSc thesis at the Programming Languages group of the TU Delft under the supervision of Dr. S.T. Erdweg and Sven Keidel.
 Program transformations translate code of an input language to code of an output language. Examples of program transformations are desugarings, optimizations and refactorings. Developers of program transformations need to ensure correctness of their programs. For example, for a desugaring we would want to know whether all sugar constructs have been removed after the transformation.</description>
     </item>
     
     <item>
       <title>GNOME Screenshot (again)</title>
-      <link>https://hjdskes.nl/projects/gnome-screenshot-2/</link>
+      <link>https://www.hjdskes.nl/projects/gnome-screenshot-2/</link>
       <pubDate>Sat, 15 Sep 2018 11:03:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/gnome-screenshot-2/</guid>
+      <guid>https://www.hjdskes.nl/projects/gnome-screenshot-2/</guid>
       <description>I was cleaning up old GitHub repositories and came across old patches for GNOME screenshot (see below). In an attempt to upstream them once more, I found that most of these fixes had already found their way into GNOME screenshot, except one. I opened a merge request for that patch, which was accepted after a small change.</description>
     </item>
     
     <item>
       <title>Gcolor3 has moved to GNOME&#39;s GitLab!</title>
-      <link>https://hjdskes.nl/blog/gcolor3-gitlab/</link>
+      <link>https://www.hjdskes.nl/blog/gcolor3-gitlab/</link>
       <pubDate>Sun, 02 Sep 2018 00:00:21 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/blog/gcolor3-gitlab/</guid>
+      <guid>https://www.hjdskes.nl/blog/gcolor3-gitlab/</guid>
       <description>Gcolor3 has moved from GitHub to GNOME&amp;rsquo;s GitLab instance! You can now find the repository at https://gitlab.gnome.org/World/gcolor3. This was suggested by GNOME developer Jeremy Bicha and finalized very quickly by Carlos Soriano, thanks both!
 Being on GNOME&amp;rsquo;s GitLab is awesome, because Gcolor3 is now surrounded by other GNOME projects. This should make it easier to find for many people, but there are other benefits too. Since the move yesterday, I have already received nine merge requests!</description>
     </item>
     
     <item>
       <title>Gcolor3 version 2.3 is out!</title>
-      <link>https://hjdskes.nl/blog/gcolor3-2.3/</link>
+      <link>https://www.hjdskes.nl/blog/gcolor3-2.3/</link>
       <pubDate>Sat, 01 Sep 2018 00:00:21 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/blog/gcolor3-2.3/</guid>
+      <guid>https://www.hjdskes.nl/blog/gcolor3-2.3/</guid>
       <description>Finally, after a long period of sporadic commits, I released Gcolor3 version 2.3 out into the wild!
           This release was two years in the making (two years and twelve days, to be precise). It features 67 commits, resulting in a redesigned saved colors page, a redesigned headerbar and loads of under-the-hood changes. In this post, I want to go into a little more detail on the development and what led up to Gcolor 2.</description>
     </item>
     
     <item>
       <title>A small contribution to gitg, GNOME&#39;s git client</title>
-      <link>https://hjdskes.nl/projects/gitg/</link>
+      <link>https://www.hjdskes.nl/projects/gitg/</link>
       <pubDate>Sun, 22 Jul 2018 20:52:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/gitg/</guid>
+      <guid>https://www.hjdskes.nl/projects/gitg/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Managing my passwords with pass</title>
-      <link>https://hjdskes.nl/blog/pass/</link>
+      <link>https://www.hjdskes.nl/blog/pass/</link>
       <pubDate>Wed, 04 Jul 2018 20:47:00 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/blog/pass/</guid>
+      <guid>https://www.hjdskes.nl/blog/pass/</guid>
       <description>Last week, I received an email from Ticketmaster that my account details may have been leaked through an external supplier. Whilst I did not get notified through Troy Hunt&amp;rsquo;s excellent Have I Been Pwned?, now was a good a time as any to finally apply some proper password hygiene. A great time, even, as this has been on my to-do list for way too long. I have been preaching proper password hygiene to my family and friends whilst not yet practicing it myself!</description>
     </item>
     
     <item>
       <title>This website is now HTTPS only again!</title>
-      <link>https://hjdskes.nl/blog/https/</link>
+      <link>https://www.hjdskes.nl/blog/https/</link>
       <pubDate>Wed, 02 May 2018 11:41:05 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/blog/https/</guid>
+      <guid>https://www.hjdskes.nl/blog/https/</guid>
       <description>From today, my website enforces HTTPS again! Github Pages have been supporting HTTPS since June 2016, so when my website was reachable only through hjdskes.github.io I got all of that for free. In fact, because HTTPS is the future&amp;trade;, I enabled Github Pages&amp;rsquo; enforce HTTPS feature in my website&amp;rsquo;s settings.
-Since March, my website is also reachable through (www.)hjdskes.nl. When I set this up, I knew I would lose the ability to enforce HTTPS because up until yesterday, Github Pages did not support HTTPS for custom domains.</description>
+Since June 28 2019, I have removed the apex domain (`https://hjdskes.nl`) from my DNS records. [It turns out that GitHub does not support HTTPS for both the apex domain and the www subdomain](https://help.</description>
     </item>
     
     <item>
       <title>A new case for my home made server</title>
-      <link>https://hjdskes.nl/blog/server/</link>
+      <link>https://www.hjdskes.nl/blog/server/</link>
       <pubDate>Tue, 01 May 2018 20:30:41 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/blog/server/</guid>
+      <guid>https://www.hjdskes.nl/blog/server/</guid>
       <description>A little less than a year ago I finished my home made server/NAS. I have been meaning to blog about the process since, but never got around to it. Since my MSc thesis is keeping my mind busy during the day, I wanted a project that was not programming to relax my mind after a long day. I decided to try my hand at something I had never done before and create my own 3D printed case.</description>
     </item>
     
     <item>
       <title>Piper: a GTK application to configure gaming mice</title>
-      <link>https://hjdskes.nl/projects/piper/</link>
+      <link>https://www.hjdskes.nl/projects/piper/</link>
       <pubDate>Sat, 09 Sep 2017 14:35:00 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/projects/piper/</guid>
+      <guid>https://www.hjdskes.nl/projects/piper/</guid>
       <description>Piper is a graphical user interface to configure gaming mice. Configuration options include changing the resolution (DPI) of the mouse, adding and removing profiles, changing button behaviors and setting LED colors.
 Piper requires libratbag’s ratbagd, the daemon to actually communicate with the mice. Piper is a just front end to ratbagd.
 Installation We maintain a Wiki page where we keep up-to-date instructions on how to install Piper.</description>
@@ -191,147 +201,147 @@ Installation We maintain a Wiki page where we keep up-to-date instructions on ho
     
     <item>
       <title>Redesign and rewrite Piper for Google Summer of Code 2017</title>
-      <link>https://hjdskes.nl/projects/piper-gsoc/</link>
+      <link>https://www.hjdskes.nl/projects/piper-gsoc/</link>
       <pubDate>Sat, 09 Sep 2017 14:35:00 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/projects/piper-gsoc/</guid>
+      <guid>https://www.hjdskes.nl/projects/piper-gsoc/</guid>
       <description>I redesigned and rewrote the Piper mouse configuration tool for the GNOME desktop environment under the guidance of Peter Hutterer from the X.Org Foundation. You can read the project page and browse the development series that I wrote during the project for more information.
 As a result of my Google Summer of Code, I am now the maintainer of Piper. I also regularly contribute to its dependencies, libratbag and ratbagd.</description>
     </item>
     
     <item>
       <title>About me</title>
-      <link>https://hjdskes.nl/about/</link>
+      <link>https://www.hjdskes.nl/about/</link>
       <pubDate>Sat, 09 Sep 2017 14:29:09 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/about/</guid>
+      <guid>https://www.hjdskes.nl/about/</guid>
       <description>I am a Master of Science (ir., see Wikipedia) in Computer Science. I completed both my bachelor and master in Computer Science at the Delft University of Technology. In the last year of my bachelor, I studied at the KTH Royal Institute of Technology in Stockholm, Sweden for six months. Within the field of Computer Science, my interests are broad. Mainly, however, I am interested in operating systems and programming languages.</description>
     </item>
     
     <item>
       <title>GSoC part 15: submission</title>
-      <link>https://hjdskes.nl/blog/gsoc-part-15/</link>
+      <link>https://www.hjdskes.nl/blog/gsoc-part-15/</link>
       <pubDate>Wed, 23 Aug 2017 16:19:04 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/blog/gsoc-part-15/</guid>
+      <guid>https://www.hjdskes.nl/blog/gsoc-part-15/</guid>
       <description>This is the last entry in the Google Summer of Code series that I have been writing weekly for the last three months. It is different from the usual updates in that I won&amp;rsquo;t be discussing development progress: rather, this will be the submission report for the project as a whole. I&amp;rsquo;ll be discussing the why? behind the project, the plan that my mentor and I came up with to execute the project, the work I have done over the summer including a video of the result, the things that are left to work on, what I&amp;rsquo;ve learned during the project and finally, the links to the code that I have written for the actual submission.</description>
     </item>
     
     <item>
       <title>GSoC part 14: final code changes</title>
-      <link>https://hjdskes.nl/blog/gsoc-part-14/</link>
+      <link>https://www.hjdskes.nl/blog/gsoc-part-14/</link>
       <pubDate>Wed, 23 Aug 2017 13:01:32 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/blog/gsoc-part-14/</guid>
+      <guid>https://www.hjdskes.nl/blog/gsoc-part-14/</guid>
       <description>Well, this really is the last week of my Summer of Code! This will be a short update on the final changes made since my last update on Friday, which will be followed by a proper blog post for my final submission later this week.
 Last week I mentioned a few items that were work-in-progress. The search field for the button mapping dialog has been merged, including its revamp of the dialog&amp;rsquo;s UI.</description>
     </item>
     
     <item>
       <title>GSoC part 13: I solved global warming!</title>
-      <link>https://hjdskes.nl/blog/gsoc-part-13/</link>
+      <link>https://www.hjdskes.nl/blog/gsoc-part-13/</link>
       <pubDate>Fri, 18 Aug 2017 19:47:27 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/blog/gsoc-part-13/</guid>
+      <guid>https://www.hjdskes.nl/blog/gsoc-part-13/</guid>
       <description>This week I have been solving more issues to make sure that Piper offers a pleasent user experience, doesn&amp;rsquo;t crash and runs smoothly. My mentor and cvuchener from the libratbag project have been testing Piper the last week, and together with a handful of users attracted to Piper they have opened a bunch of issues for me to solve. Let&amp;rsquo;s run through the most visible ones!
 Solving global warming Probably the most fun issue to resolve this week was the one reported by my mentor: Piper contributes to global warming (you won&amp;rsquo;t believe what happened next!</description>
     </item>
     
     <item>
       <title>GSoC part 12: the finishing touches</title>
-      <link>https://hjdskes.nl/blog/gsoc-part-12/</link>
+      <link>https://www.hjdskes.nl/blog/gsoc-part-12/</link>
       <pubDate>Fri, 11 Aug 2017 15:35:37 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/blog/gsoc-part-12/</guid>
+      <guid>https://www.hjdskes.nl/blog/gsoc-part-12/</guid>
       <description>Last week I shared the news that all large features had been implemented; all that was left were issues raised by GNOME contributors when my mentor demoed my progress over GUADEC. This week I&amp;rsquo;ve just been chugging away on those issues; let me show you.
 Obvious save button is.. not obvious? Hadess noted that the save button wasn&amp;rsquo;t obvious when my mentor demoed Piper to him; I already mentioned this last week: the icon is a save to disk icon and it&amp;rsquo;s not obvious at first glance that you have to press it to write the changes you made to the device.</description>
     </item>
     
     <item>
       <title>GSoC part 11: all large features are done!</title>
-      <link>https://hjdskes.nl/blog/gsoc-part-11/</link>
+      <link>https://www.hjdskes.nl/blog/gsoc-part-11/</link>
       <pubDate>Fri, 04 Aug 2017 15:06:40 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/blog/gsoc-part-11/</guid>
+      <guid>https://www.hjdskes.nl/blog/gsoc-part-11/</guid>
       <description>When I proposed the project with my mentor, we worked out a bunch of features that the new Piper should have. These are listed in the Redesign Wiki, but here&amp;rsquo;s a high-level summary:
  A welcome screen, presenting a list of connected and supported devices. An error screen, presenting any problems in a user-friendly manner. The main screen, presenting the configuration pages:  A page to configure resolutions (see part 7) A page to configure button mappings (see parts 9 and 10) A page to configure LEDs (see part 8)  Support for device profiles (see part 9 for the start on this).</description>
     </item>
     
     <item>
       <title>GSoC part 10: finishing the button stack page</title>
-      <link>https://hjdskes.nl/blog/gsoc-part-10/</link>
+      <link>https://www.hjdskes.nl/blog/gsoc-part-10/</link>
       <pubDate>Fri, 28 Jul 2017 15:10:26 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/blog/gsoc-part-10/</guid>
+      <guid>https://www.hjdskes.nl/blog/gsoc-part-10/</guid>
       <description>I can start this blog post by sharing the news that I have passed for my second evaluation! This means that I&amp;rsquo;m now on the last sprint towards the finish line, with ahead of me profile support and the welcome screen.
 Yes; you&amp;rsquo;ve read that correctly: I didn&amp;rsquo;t mention the button page. I managed to fix that this week and it&amp;rsquo;s now pending review and some final issues (more about that below).</description>
     </item>
     
     <item>
       <title>GSoC part 9: the button stack page</title>
-      <link>https://hjdskes.nl/blog/gsoc-part-9/</link>
+      <link>https://www.hjdskes.nl/blog/gsoc-part-9/</link>
       <pubDate>Fri, 21 Jul 2017 17:35:55 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/blog/gsoc-part-9/</guid>
+      <guid>https://www.hjdskes.nl/blog/gsoc-part-9/</guid>
       <description>When I discussed this project with my mentor before GSoC, he told me that the button mappings were going to be the most complicated piece. This week I&amp;rsquo;ve been working on precisely that and, well, let&amp;rsquo;s just say he wasn&amp;rsquo;t wrong &amp;#128521;
 If you&amp;rsquo;ve been following along on GitHub, you&amp;rsquo;re probably thinking that it was a slow week. Indeed, there hasn&amp;rsquo;t been that much activity this week as in previous weeks.</description>
     </item>
     
     <item>
       <title>GSoC part 8: the LED stack page</title>
-      <link>https://hjdskes.nl/blog/gsoc-part-8/</link>
+      <link>https://www.hjdskes.nl/blog/gsoc-part-8/</link>
       <pubDate>Fri, 14 Jul 2017 10:03:55 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/blog/gsoc-part-8/</guid>
+      <guid>https://www.hjdskes.nl/blog/gsoc-part-8/</guid>
       <description>Originally the plan for this week was to start working on the button mappings, however together with my mentor I decided that it&amp;rsquo;s better to do the LEDs first. This is because I was sure I could finish this in a few days, and button mappings is definitely going to take much longer than that. So, this week I&amp;rsquo;ll run you through the implementation of the LED stack page, and the coming weeks I&amp;rsquo;ll be working on button mappings, profile support and a proper welcome screen, in that order.</description>
     </item>
     
     <item>
       <title>GSoC part 7: the resolutions stack page</title>
-      <link>https://hjdskes.nl/blog/gsoc-part-7/</link>
+      <link>https://www.hjdskes.nl/blog/gsoc-part-7/</link>
       <pubDate>Fri, 07 Jul 2017 14:58:33 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/blog/gsoc-part-7/</guid>
+      <guid>https://www.hjdskes.nl/blog/gsoc-part-7/</guid>
       <description>This week was a good week with loads of progress. I&amp;rsquo;ll just go through each item one by one, as usual.
 MouseMap merged Last Friday I opened the pull request to merge the MouseMap widget. After a bit of a discussion around preferences, my mentor and I decided to merge ongoing work in a rewrite branch. This keeps the master branch functional (while still receiving improvements, such as adding new functionality to the ratbagd bindings or a Gtk.</description>
     </item>
     
     <item>
       <title>GSoC part 6: progress!</title>
-      <link>https://hjdskes.nl/blog/gsoc-part-6/</link>
+      <link>https://www.hjdskes.nl/blog/gsoc-part-6/</link>
       <pubDate>Fri, 30 Jun 2017 16:11:24 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/blog/gsoc-part-6/</guid>
+      <guid>https://www.hjdskes.nl/blog/gsoc-part-6/</guid>
       <description>This week Piper saw some progress again! Today I opened the pull request for the MouseMap that I&amp;rsquo;ve been working on for the past two and a half weeks now. I&amp;rsquo;ll discuss the changes made since the last blog later; first, I want to highlight the other work I did the past week.
 A major milestone this week is the merging of ratbagd and libratbag. While Piper shouldn&amp;rsquo;t notice any of this (it talks to ratbagd over DBus), it&amp;rsquo;s still a highlight I want to mention.</description>
     </item>
     
     <item>
       <title>GSoC part 5: exams</title>
-      <link>https://hjdskes.nl/blog/gsoc-part-5/</link>
+      <link>https://www.hjdskes.nl/blog/gsoc-part-5/</link>
       <pubDate>Fri, 23 Jun 2017 16:52:20 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/blog/gsoc-part-5/</guid>
+      <guid>https://www.hjdskes.nl/blog/gsoc-part-5/</guid>
       <description>As mentioned in my previous blog, the X.Org Foundation now wants us to blog every week. Whilst that means shorter blogs (last week&amp;rsquo;s was a tad long), it also means that there isn&amp;rsquo;t much to blog about if I didn&amp;rsquo;t do much in a week.
 Such is the case for this week, sadly. It&amp;rsquo;s the last week of university, and so there are a few assignment deadlines that I needed to complete; I haven&amp;rsquo;t been able to invest as much time into my project as I would have wanted.</description>
     </item>
     
     <item>
       <title>GSoC part 4: the first sprint</title>
-      <link>https://hjdskes.nl/blog/gsoc-part-4/</link>
+      <link>https://www.hjdskes.nl/blog/gsoc-part-4/</link>
       <pubDate>Fri, 16 Jun 2017 20:47:56 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/blog/gsoc-part-4/</guid>
+      <guid>https://www.hjdskes.nl/blog/gsoc-part-4/</guid>
       <description>This is going to be a long one, so grab a drink and a snack and buckle up! Incidentally, the X.Org foundation has asked us, the 2017 GSoC students, to blog weekly so from now on I will do so; which will also mean smaller blogs in the future.
 I made a schedule to go with my proposal in which I divided the coding period into two week sprints to plan out my project.</description>
     </item>
     
     <item>
       <title>GSoC part 3: mockups, mockups, mockups!</title>
-      <link>https://hjdskes.nl/blog/gsoc-part-3/</link>
+      <link>https://www.hjdskes.nl/blog/gsoc-part-3/</link>
       <pubDate>Sat, 03 Jun 2017 17:53:27 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/blog/gsoc-part-3/</guid>
+      <guid>https://www.hjdskes.nl/blog/gsoc-part-3/</guid>
       <description>This will be a quick blog post on the previous two weeks. During this time, the community bonding period ended and the coding phase officially begun!
 I spent most of the first week working on university projects, so that those are as done as they can be at this point and I have little else to work on besides Piper.
 On the second week, I thought I would get a few days head start on my schedule by starting early on the mockups.</description>
@@ -339,96 +349,96 @@ On the second week, I thought I would get a few days head start on my schedule b
     
     <item>
       <title>A small fix to Google&#39;s gopacket</title>
-      <link>https://hjdskes.nl/projects/gopacket/</link>
+      <link>https://www.hjdskes.nl/projects/gopacket/</link>
       <pubDate>Tue, 23 May 2017 17:34:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/gopacket/</guid>
+      <guid>https://www.hjdskes.nl/projects/gopacket/</guid>
       <description></description>
     </item>
     
     <item>
       <title>GSoC part 2: community bonding</title>
-      <link>https://hjdskes.nl/blog/gsoc-part-2/</link>
+      <link>https://www.hjdskes.nl/blog/gsoc-part-2/</link>
       <pubDate>Fri, 19 May 2017 16:01:04 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/blog/gsoc-part-2/</guid>
+      <guid>https://www.hjdskes.nl/blog/gsoc-part-2/</guid>
       <description>Two weeks have now passed since my introductory blog post, so as promised here is part two! The theme of this blog post is probably something along the lines of preparation, as that is what I&amp;rsquo;ve been doing mostly.
 The period between that of announcing the accepted student proposals and phase one is called the community bonding period. In this period students are supposed to get to know their mentors, their organizations, familiarize themselves with their projects (even more) and get everything ready to start off the coding period on May 30th.</description>
     </item>
     
     <item>
       <title>GSoC part 1: an introduction!</title>
-      <link>https://hjdskes.nl/blog/gsoc-part-1/</link>
+      <link>https://www.hjdskes.nl/blog/gsoc-part-1/</link>
       <pubDate>Fri, 05 May 2017 15:44:04 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/blog/gsoc-part-1/</guid>
+      <guid>https://www.hjdskes.nl/blog/gsoc-part-1/</guid>
       <description>Yesterday, after waiting for what felt like a very long time, I finally got the results of my Google Summer of Code (GSoC) application! I can happily say that one of my proposals has been accepted: I will work with Peter Hutterer to redesign and rewrite Piper. The synopsis of my proposal is as follows:
  Piper is an application frontend to libratbag and ratbagd, a library and system daemon to configure gaming mice respectively.</description>
     </item>
     
     <item>
       <title>Google Summer of Code proposal contributions</title>
-      <link>https://hjdskes.nl/projects/gsoc-proposals/</link>
+      <link>https://www.hjdskes.nl/projects/gsoc-proposals/</link>
       <pubDate>Thu, 23 Mar 2017 01:55:50 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/gsoc-proposals/</guid>
+      <guid>https://www.hjdskes.nl/projects/gsoc-proposals/</guid>
       <description>The application process of Google Summer of Code requires students to make a small contribution to the project(s) of their choice to demonstrate that they are capable of making a change following the upstream submission procedures. In my understanding, this is less about the actual code than it is about demonstrating these skills. This is (partly, the other reason being that as I was working on these proposals I was also finishing up several course projects) the reason that the contributions here are rather small:</description>
     </item>
     
     <item>
       <title>Update: deploying Hugo-generated websites on personal GitHub Pages</title>
-      <link>https://hjdskes.nl/blog/update-deploying-hugo-on-personal-gh-pages/</link>
+      <link>https://www.hjdskes.nl/blog/update-deploying-hugo-on-personal-gh-pages/</link>
       <pubDate>Sun, 26 Feb 2017 22:12:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/blog/update-deploying-hugo-on-personal-gh-pages/</guid>
+      <guid>https://www.hjdskes.nl/blog/update-deploying-hugo-on-personal-gh-pages/</guid>
       <description>In my previous post I explained the workflow I use to update this website. It has never been particularly stable, and the process seemed far more complicated than it needed to be.
 This week I attempted to update the theme of this website. To pull in the theme&amp;rsquo;s files, I use git submodules. Apparently, this completely break git&amp;rsquo;s subtrees. I had enough of trying to maintain this complicated setup, so I started looking around for better ways.</description>
     </item>
     
     <item>
       <title>Fixes and added features to the Cocoa Enhanced theme</title>
-      <link>https://hjdskes.nl/projects/cocoa-eh/</link>
+      <link>https://www.hjdskes.nl/projects/cocoa-eh/</link>
       <pubDate>Tue, 21 Feb 2017 19:53:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/cocoa-eh/</guid>
+      <guid>https://www.hjdskes.nl/projects/cocoa-eh/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Small fixes to Neovim and Vim</title>
-      <link>https://hjdskes.nl/projects/neovim-vim/</link>
+      <link>https://www.hjdskes.nl/projects/neovim-vim/</link>
       <pubDate>Mon, 20 Feb 2017 23:18:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/neovim-vim/</guid>
+      <guid>https://www.hjdskes.nl/projects/neovim-vim/</guid>
       <description>For the course Software Architecture at the TU Delft we were required to analyse and contribute to an existing open source project. The group I was part of chose Neovim as our project. The result of this analysis is a chapter in the book Delft Students on Software Architecture: 2017.
 Our contributions resulted in several small fixes to both Neovim and Vim, namely Neovim commits by myself and Sander and Vim commits by myself.</description>
     </item>
     
     <item>
       <title>Improve the maintainability, readability and robustness or Playerctl</title>
-      <link>https://hjdskes.nl/projects/playerctl/</link>
+      <link>https://www.hjdskes.nl/projects/playerctl/</link>
       <pubDate>Sun, 11 Sep 2016 00:34:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/playerctl/</guid>
+      <guid>https://www.hjdskes.nl/projects/playerctl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Deploying Hugo-generated websites on personal GitHub Pages</title>
-      <link>https://hjdskes.nl/blog/deploying-hugo-on-personal-gh-pages/</link>
+      <link>https://www.hjdskes.nl/blog/deploying-hugo-on-personal-gh-pages/</link>
       <pubDate>Tue, 16 Aug 2016 22:07:21 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/blog/deploying-hugo-on-personal-gh-pages/</guid>
+      <guid>https://www.hjdskes.nl/blog/deploying-hugo-on-personal-gh-pages/</guid>
       <description>The method described here is obsolete. The introduction still provides a nice overview of the problem, but please see my [updated post](/blog/update-deploying-hugo-on-personal-gh-pages) for the actual steps and scripts!  Hello, World!
 As this is the first blog post on this website (and indeed, by myself), the introduction had to be done. I&amp;rsquo;ll leave it at this, though. If you want to know more about me, you can do that here.</description>
     </item>
     
     <item>
       <title>License</title>
-      <link>https://hjdskes.nl/license/</link>
+      <link>https://www.hjdskes.nl/license/</link>
       <pubDate>Thu, 11 Aug 2016 19:43:09 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/license/</guid>
+      <guid>https://www.hjdskes.nl/license/</guid>
       <description>All content on this website, unless otherwise noted, is copyright © 2016-2019 Jente Hidskes and licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
 All code on this website, unless otherwise noted, is copyright © 2016-2019 Jente Hidskes and licensed under the MIT license.
 All registered trademarks mentioned on this website belong to their rightful owners.</description>
@@ -436,121 +446,121 @@ All registered trademarks mentioned on this website belong to their rightful own
     
     <item>
       <title>Add missing keysyms to Haskell&#39;s X11 bindings</title>
-      <link>https://hjdskes.nl/projects/haskell-x11/</link>
+      <link>https://www.hjdskes.nl/projects/haskell-x11/</link>
       <pubDate>Mon, 22 Feb 2016 16:51:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/haskell-x11/</guid>
+      <guid>https://www.hjdskes.nl/projects/haskell-x11/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Make arch-diff work with Pacman 5.0</title>
-      <link>https://hjdskes.nl/projects/arch-diff/</link>
+      <link>https://www.hjdskes.nl/projects/arch-diff/</link>
       <pubDate>Wed, 10 Feb 2016 22:25:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/arch-diff/</guid>
+      <guid>https://www.hjdskes.nl/projects/arch-diff/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Small patches to GNOME Screenshot</title>
-      <link>https://hjdskes.nl/projects/gnome-screenshot/</link>
+      <link>https://www.hjdskes.nl/projects/gnome-screenshot/</link>
       <pubDate>Wed, 09 Dec 2015 23:53:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/gnome-screenshot/</guid>
+      <guid>https://www.hjdskes.nl/projects/gnome-screenshot/</guid>
       <description>I wrote some as of yet unmerged patches and opened some outstanding bug reports to GNOME Screenshot. You can review them here and here.</description>
     </item>
     
     <item>
       <title>GTimeUtils: a stopwatch and a timer, bundled together as time utilities</title>
-      <link>https://hjdskes.nl/projects/gtimeutils/</link>
+      <link>https://www.hjdskes.nl/projects/gtimeutils/</link>
       <pubDate>Sat, 22 Aug 2015 16:52:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/gtimeutils/</guid>
+      <guid>https://www.hjdskes.nl/projects/gtimeutils/</guid>
       <description>GTimeUtils is a collection of simple and small time utilities, namely a stopwatch and a (countdown) timer.
 From version 2.0 onwards, both the timer and the stopwatch are of from GNOME Clocks&amp;rsquo; respective stack pages. Prior to version 2.0, both utilities served more as a practice than anything else. Since I like the modern look of GNOME Clocks, but dislike the fact that all its functionality is combined into one application, I have re-purposed GNOME Clocks&amp;rsquo; ui files into standalone utilities.</description>
     </item>
     
     <item>
       <title>A few commits to background setter (bgs)</title>
-      <link>https://hjdskes.nl/projects/bgs/</link>
+      <link>https://www.hjdskes.nl/projects/bgs/</link>
       <pubDate>Sat, 02 May 2015 18:10:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/bgs/</guid>
+      <guid>https://www.hjdskes.nl/projects/bgs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Implement animated workspace switching and some fixes to Budgie</title>
-      <link>https://hjdskes.nl/projects/budgie/</link>
+      <link>https://www.hjdskes.nl/projects/budgie/</link>
       <pubDate>Thu, 16 Apr 2015 14:59:00 +0200</pubDate>
       
-      <guid>https://hjdskes.nl/projects/budgie/</guid>
+      <guid>https://www.hjdskes.nl/projects/budgie/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Arek Window Manager: a Mutter-based tiling window manager</title>
-      <link>https://hjdskes.nl/projects/arek/</link>
+      <link>https://www.hjdskes.nl/projects/arek/</link>
       <pubDate>Sat, 21 Mar 2015 21:29:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/arek/</guid>
+      <guid>https://www.hjdskes.nl/projects/arek/</guid>
       <description>Arek Window Manager is a plugin to Mutter in an (ambitious) attempt to create a tiling window manager with eye-candy. Due to several limitations on Mutter&amp;rsquo;s side, a moving Wayland target and a lack of time on my side, this project is not actively maintained at the moment.</description>
     </item>
     
     <item>
       <title>Several small contributions to the BunsenLabs Linux projects</title>
-      <link>https://hjdskes.nl/projects/bunsen/</link>
+      <link>https://www.hjdskes.nl/projects/bunsen/</link>
       <pubDate>Mon, 16 Feb 2015 14:58:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/bunsen/</guid>
+      <guid>https://www.hjdskes.nl/projects/bunsen/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Implement a GtkHeaderBar in Eye of GNOME</title>
-      <link>https://hjdskes.nl/projects/eog/</link>
+      <link>https://www.hjdskes.nl/projects/eog/</link>
       <pubDate>Mon, 02 Feb 2015 19:36:38 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/eog/</guid>
+      <guid>https://www.hjdskes.nl/projects/eog/</guid>
       <description>I implemented a GtkHeaderBar in Eye of GNOME. You can review all the patches here (GitHub mirror link until GitLab can filter commits per author), or view the relevant bug reports here and here.</description>
     </item>
     
     <item>
       <title>Phosphorus: a wallpaper browser and setter in the spirit of Nitrogen</title>
-      <link>https://hjdskes.nl/projects/phosphorus/</link>
+      <link>https://www.hjdskes.nl/projects/phosphorus/</link>
       <pubDate>Fri, 15 Nov 2013 21:40:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/phosphorus/</guid>
+      <guid>https://www.hjdskes.nl/projects/phosphorus/</guid>
       <description>Phosphorus is a wallpaper browser and setter in the spirit of Nitrogen. It can be considered an unofficial port of Nitrogen to GTK+ 3. Phosphorus is different, however, in that it is plugin-based.
 Phosphorus, at its core, is agnostic to how the selected image is applied as wallpaper. There are many different Desktop Environments that all have their own way of applying wallpapers. Soon, with Wayland becoming stable, every lightweight compositor will have its own implementation as well.</description>
     </item>
     
     <item>
       <title>Pango fonts in the sxiv image viewer</title>
-      <link>https://hjdskes.nl/projects/sxiv/</link>
+      <link>https://www.hjdskes.nl/projects/sxiv/</link>
       <pubDate>Sat, 11 May 2013 01:26:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/sxiv/</guid>
+      <guid>https://www.hjdskes.nl/projects/sxiv/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Gcolor3: a color selection dialog written in GTK&#43; 3</title>
-      <link>https://hjdskes.nl/projects/gcolor3/</link>
+      <link>https://www.hjdskes.nl/projects/gcolor3/</link>
       <pubDate>Sun, 24 Feb 2013 17:31:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/gcolor3/</guid>
+      <guid>https://www.hjdskes.nl/projects/gcolor3/</guid>
       <description>Ever wanted to know the value of that color on your screen? Gcolor3 enables you to pick the color from any pixel on your screen. It also offers a palette, so that you can easily mix and match a couple of colors together.
 When you have found the perfect combination of colors, naturally you want to save them. Gcolor3 allows you to conveniently save and retrieve colors.</description>
     </item>
     
     <item>
       <title>Powersave: aggressive power saving on a Linux system</title>
-      <link>https://hjdskes.nl/projects/powersave/</link>
+      <link>https://www.hjdskes.nl/projects/powersave/</link>
       <pubDate>Sat, 30 Jun 2012 00:22:00 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/projects/powersave/</guid>
+      <guid>https://www.hjdskes.nl/projects/powersave/</guid>
       <description>Powersave is a combination of scripts, udev rules, configuration files and systemd services to enable (aggressive) power saving on a Linux system. The configuration is tailered to my own laptop, but is easily adaptable to a new system.</description>
     </item>
     

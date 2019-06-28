@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>wlroots on Jente Hidskes&#39; website</title>
-    <link>https://hjdskes.nl/tags/wlroots/</link>
+    <link>https://www.hjdskes.nl/tags/wlroots/</link>
     <description>Recent content in wlroots on Jente Hidskes&#39; website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2019 Jente Hidskes</copyright>
     <lastBuildDate>Thu, 27 Dec 2018 17:31:12 +0100</lastBuildDate>
     
-	<atom:link href="https://hjdskes.nl/tags/wlroots/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.hjdskes.nl/tags/wlroots/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Announcing Cage: the Wayland kiosk</title>
-      <link>https://hjdskes.nl/blog/cage/</link>
+      <link>https://www.hjdskes.nl/blog/cage/</link>
       <pubDate>Thu, 27 Dec 2018 17:31:12 +0100</pubDate>
       
-      <guid>https://hjdskes.nl/blog/cage/</guid>
+      <guid>https://www.hjdskes.nl/blog/cage/</guid>
       <description>Yesterday I made Cage publically available. Cage is a kiosk for Wayland. A kiosk is designed for running a single, maximized application and preventing the user from interacting with any other part of the system. You can read more about Cage on its project page.
 I developed Cage as part of my home automation project. This is a hobby and learning project where I build my own, well, home automation system (from scratch, i.</description>
     </item>
