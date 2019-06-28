@@ -1,5 +1,5 @@
 # Site settings
-baseurl = "https://hjdskes.nl/"
+baseurl = "https://www.hjdskes.nl/"
 theme = "diego"
 languageCode = "en-us"
 title = "Jente Hidskes' website"

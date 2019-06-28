@@ -14,8 +14,15 @@ website was reachable only through
 fact, because HTTPS is the future(tm), I enabled Github Pages' *enforce HTTPS*
 feature in my website's settings.
 
+{{% message type="info" %}} Since June 28 2019, I have removed the apex domain
+(`https://hjdskes.nl`) from my DNS records.  [It turns out that GitHub does not support
+HTTPS for both the apex domain and the www
+subdomain](https://help.github.com/en/articles/setting-up-an-apex-domain-and-www-subdomain).
+See [this small announcement](https://www.hjdskes.nl/blog/https-update) for
+more information.  {{% /message %}}
+
 Since March, my website is also reachable through
-[(www.)hjdskes.nl](https://hjdskes.nl).  When I set this up, I knew I would
+[(www.)hjdskes.nl](https://www.hjdskes.nl).  When I set this up, I knew I would
 lose the ability to enforce HTTPS because up until yesterday, Github Pages did
 not support HTTPS for custom domains. I thought this wouldn't be a big issue
 for a low traffic (I assume; I am not using any analytics but let's be
