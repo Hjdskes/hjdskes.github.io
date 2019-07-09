@@ -24,7 +24,7 @@ latestpostcount = 5
 github = "Hjdskes"
 twitter = "Hjdskes"
 gnome = "Hjdskes"
-email = "dev@hjdskes.nl"
+email = "personal@hjdskes.nl"
 
 [frontmatter]
 lastmod = [":git", "lastmod", "date", "publishDate"]
