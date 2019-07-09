@@ -26,7 +26,7 @@ below are my updated `setup.sh` and `deploy.sh` scripts.
 
 You can find the updated structure and setup in use in [this website's
 repository](https://github.com/Hjdskes/hjdskes.github.io). If any of the above
-is unclear, feel free to send me an [email](mailto:hjdskes@gmail.com) and I'll
+is unclear, feel free to send me an [email](mailto:dev@hjdskes.nl) and I'll
 try my best to help you.
 
 `setup.sh`:

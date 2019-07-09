@@ -35,5 +35,5 @@ role](https://web.archive.org/web/20150914162213/http://crunchbang.org/forums/vi
 in forming the [BunsenLabs community continuation](https://www.bunsenlabs.org/).
 
 If you wish to know more, please feel free to contact me via
-[email](mailto:hjdskes@gmail.com) or <a href="https://twitter.com/Hjdskes"
+[email](mailto:dev@hjdskes.nl) or <a href="https://twitter.com/Hjdskes"
 title="Hjdskes on Twitter" rel=me>Twitter</a>.

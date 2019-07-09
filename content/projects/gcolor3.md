@@ -113,4 +113,4 @@ Please see
 [GNOME GitLab](https://gitlab.gnome.org/World/gcolor3).
 
 Copyright © 2013-2018 Jente Hidskes
-[hjdskes@gmail.com](mailto:hjdskes@gmail.com).
+[dev@hjdskes.nl](mailto:dev@hjdskes.nl).

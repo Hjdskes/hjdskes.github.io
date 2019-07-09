@@ -49,5 +49,5 @@ Wayland, please feel free to jump in and help out!
 For questions, comments or feedback you can reach me on
 [Twitter](https://twitter.com/Hjdskes),
 [GitHub](https://github.com/Hjdskes) or
-[email](mailto:hjdskes@gmail.com).
+[email](mailto:dev@hjdskes.nl).
 

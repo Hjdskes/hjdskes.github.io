@@ -117,5 +117,5 @@ they're tagged for 1.0 or not), please feel free to reach out! I can assist
 
 For questions, comments or feedback you can reach me on
 [Twitter](https://twitter.com/Hjdskes), [GitHub](https://github.com/Hjdskes) or
-[email](mailto:hjdskes@gmail.com).
+[email](mailto:dev@hjdskes.nl).
 

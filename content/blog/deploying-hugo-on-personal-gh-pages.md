@@ -183,5 +183,5 @@ git subtree pull --prefix=public \
 
 You can find the structure and setup in use in [this website's
 repository](https://github.com/Hjdskes/hjdskes.github.io). If any of the above is
-unclear, feel free to send me an [email](mailto:hjdskes@gmail.com) and I'll try
+unclear, feel free to send me an [email](mailto:dev@hjdskes.nl) and I'll try
 my best to update this post.

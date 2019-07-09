@@ -55,7 +55,7 @@ quiet 40x40x10 mm fan. The wiring diagram in the linked tutorial shows
 how to connect the fan, too.
 
 If there is anything you want to know about the software, such as any
-configuration, feel free to send me an [email](mailto:hjdskes@gmail.com).
+configuration, feel free to send me an [email](mailto:dev@hjdskes.nl).
 
 ## The old case
 
