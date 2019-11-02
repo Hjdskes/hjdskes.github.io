@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="GSoC blog series on rewriting Piper"/>
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.59.0" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -472,7 +472,7 @@ markings extend to the left.</p>
     <span class="bp">self</span><span class="o">.</span><span class="n">set_allocation</span><span class="p">(</span><span class="n">allocation</span><span class="p">)</span>
     <span class="n">child_allocation</span> <span class="o">=</span> <span class="n">Gdk</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">:</span>
-        <span class="n">svg_id</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="nb">id</span> <span class="o">+</span> <span class="s2">&#34;-leader&#34;</span>
+        <span class="n">svg_id</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">id</span> <span class="o">+</span> <span class="s2">&#34;-leader&#34;</span>
         <span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">get_visible</span><span class="p">():</span>
             <span class="n">min_size</span><span class="p">,</span> <span class="n">nat_size</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">get_preferred_size</span><span class="p">()</span>
             <span class="n">child_allocation</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">nat_size</span><span class="o">.</span><span class="n">width</span>
@@ -569,7 +569,7 @@ that:</p>
 </span><span class="s2">                  }
 </span><span class="s2">                &lt;/style&gt;
 </span><span class="s2">                &lt;xi:include href=&#34;data:text/xml,</span><span class="si">%s</span><span class="s2">&#34;/&gt;
-</span><span class="s2">              &lt;/svg&gt;&#34;&#34;&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">svg_width</span><span class="p">,</span> <span class="n">svg_height</span><span class="p">,</span> <span class="n">widget</span><span class="o">.</span><span class="nb">id</span><span class="p">,</span> <span class="n">escaped_file_data</span><span class="p">)</span>
+</span><span class="s2">              &lt;/svg&gt;&#34;&#34;&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">svg_width</span><span class="p">,</span> <span class="n">svg_height</span><span class="p">,</span> <span class="n">widget</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">escaped_file_data</span><span class="p">)</span>
 
     <span class="n">stream</span> <span class="o">=</span> <span class="n">Gio</span><span class="o">.</span><span class="n">MemoryInputStream</span><span class="o">.</span><span class="n">new_from_data</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">),</span> <span class="bp">None</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
@@ -581,7 +581,7 @@ that:</p>
               <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
         <span class="k">return</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">handle</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_redraw_svg_element</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="nb">id</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_redraw_svg_element</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">_on_leave</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
     <span class="s2">&#34;&#34;&#34;Restores the device SVG to its original state (i.e., simply reloads
@@ -597,8 +597,8 @@ that:</p>
               <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
         <span class="k">return</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">handle</span>
-    <span class="n">ok</span><span class="p">,</span> <span class="n">svg_geom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_svg_sub_geometry</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="nb">id</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_redraw_svg_element</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="nb">id</span><span class="p">)</span>
+    <span class="n">ok</span><span class="p">,</span> <span class="n">svg_geom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_svg_sub_geometry</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_redraw_svg_element</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">_redraw_svg_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">):</span>
    <span class="s2">&#34;&#34;&#34;Helper method to redraw an element of the SVG image. Attempts to

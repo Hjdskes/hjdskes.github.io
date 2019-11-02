@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Jente Hidskes&#39; website</title>
@@ -7,17 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2019 Jente Hidskes</copyright>
-    <lastBuildDate>Fri, 28 Jun 2019 21:54:19 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 02 Nov 2019 20:51:43 +0100</lastBuildDate>
     
 	<atom:link href="https://www.hjdskes.nl/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>GitHub Pages</title>
-      <link>https://www.hjdskes.nl/tags/github-pages/</link>
-      <pubDate>Fri, 28 Jun 2019 21:54:19 +0200</pubDate>
+      <title>Gcolor3</title>
+      <link>https://www.hjdskes.nl/tags/gcolor3/</link>
+      <pubDate>Sat, 02 Nov 2019 20:51:43 +0100</pubDate>
       
-      <guid>https://www.hjdskes.nl/tags/github-pages/</guid>
+      <guid>https://www.hjdskes.nl/tags/gcolor3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Piper</title>
+      <link>https://www.hjdskes.nl/tags/piper/</link>
+      <pubDate>Sat, 02 Nov 2019 20:51:43 +0100</pubDate>
+      
+      <guid>https://www.hjdskes.nl/tags/piper/</guid>
       <description></description>
     </item>
     
@@ -27,6 +36,15 @@
       <pubDate>Fri, 28 Jun 2019 21:54:19 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/tags/custom-domain/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github pages</title>
+      <link>https://www.hjdskes.nl/tags/github-pages/</link>
+      <pubDate>Fri, 28 Jun 2019 21:54:19 +0200</pubDate>
+      
+      <guid>https://www.hjdskes.nl/tags/github-pages/</guid>
       <description></description>
     </item>
     
@@ -76,20 +94,20 @@
     </item>
     
     <item>
-      <title>GitLab</title>
-      <link>https://www.hjdskes.nl/tags/gitlab/</link>
-      <pubDate>Wed, 02 Jan 2019 11:47:43 +0100</pubDate>
-      
-      <guid>https://www.hjdskes.nl/tags/gitlab/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>github</title>
       <link>https://www.hjdskes.nl/tags/github/</link>
       <pubDate>Wed, 02 Jan 2019 11:47:43 +0100</pubDate>
       
       <guid>https://www.hjdskes.nl/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gitlab</title>
+      <link>https://www.hjdskes.nl/tags/gitlab/</link>
+      <pubDate>Wed, 02 Jan 2019 11:47:43 +0100</pubDate>
+      
+      <guid>https://www.hjdskes.nl/tags/gitlab/</guid>
       <description></description>
     </item>
     
@@ -175,15 +193,6 @@
     </item>
     
     <item>
-      <title>Gcolor3</title>
-      <link>https://www.hjdskes.nl/tags/gcolor3/</link>
-      <pubDate>Sun, 02 Sep 2018 00:00:21 +0200</pubDate>
-      
-      <guid>https://www.hjdskes.nl/tags/gcolor3/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Flatpak</title>
       <link>https://www.hjdskes.nl/tags/flatpak/</link>
       <pubDate>Sat, 01 Sep 2018 00:00:21 +0200</pubDate>
@@ -247,15 +256,6 @@
     </item>
     
     <item>
-      <title>Piper</title>
-      <link>https://www.hjdskes.nl/tags/piper/</link>
-      <pubDate>Wed, 23 Aug 2017 16:19:04 +0200</pubDate>
-      
-      <guid>https://www.hjdskes.nl/tags/piper/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>fdo</title>
       <link>https://www.hjdskes.nl/tags/fdo/</link>
       <pubDate>Wed, 23 Aug 2017 16:19:04 +0200</pubDate>
@@ -274,20 +274,20 @@
     </item>
     
     <item>
-      <title>PyGObject</title>
-      <link>https://www.hjdskes.nl/tags/pygobject/</link>
-      <pubDate>Wed, 23 Aug 2017 13:01:32 +0200</pubDate>
-      
-      <guid>https://www.hjdskes.nl/tags/pygobject/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>macro</title>
       <link>https://www.hjdskes.nl/tags/macro/</link>
       <pubDate>Wed, 23 Aug 2017 13:01:32 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/tags/macro/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PyGObject</title>
+      <link>https://www.hjdskes.nl/tags/pygobject/</link>
+      <pubDate>Wed, 23 Aug 2017 13:01:32 +0200</pubDate>
+      
+      <guid>https://www.hjdskes.nl/tags/pygobject/</guid>
       <description></description>
     </item>
     
@@ -301,20 +301,20 @@
     </item>
     
     <item>
-      <title>GUADEC</title>
-      <link>https://www.hjdskes.nl/tags/guadec/</link>
-      <pubDate>Fri, 04 Aug 2017 15:06:40 +0200</pubDate>
-      
-      <guid>https://www.hjdskes.nl/tags/guadec/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>buttons</title>
       <link>https://www.hjdskes.nl/tags/buttons/</link>
       <pubDate>Fri, 04 Aug 2017 15:06:40 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/tags/buttons/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GUADEC</title>
+      <link>https://www.hjdskes.nl/tags/guadec/</link>
+      <pubDate>Fri, 04 Aug 2017 15:06:40 +0200</pubDate>
+      
+      <guid>https://www.hjdskes.nl/tags/guadec/</guid>
       <description></description>
     </item>
     
@@ -445,20 +445,20 @@
     </item>
     
     <item>
-      <title>Meson</title>
-      <link>https://www.hjdskes.nl/tags/meson/</link>
-      <pubDate>Fri, 19 May 2017 16:01:04 +0200</pubDate>
-      
-      <guid>https://www.hjdskes.nl/tags/meson/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>libratbag</title>
       <link>https://www.hjdskes.nl/tags/libratbag/</link>
       <pubDate>Fri, 19 May 2017 16:01:04 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/tags/libratbag/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Meson</title>
+      <link>https://www.hjdskes.nl/tags/meson/</link>
+      <pubDate>Fri, 19 May 2017 16:01:04 +0200</pubDate>
+      
+      <guid>https://www.hjdskes.nl/tags/meson/</guid>
       <description></description>
     </item>
     
