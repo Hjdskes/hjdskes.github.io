@@ -64,5 +64,5 @@ issue](https://github.com/Hjdskes/cage/issues/new) on
 Please see [LICENSE](https://github.com/Hjdskes/cage/blob/master/LICENSE) on
 [GitHub](https://github.com/Hjdskes/cage).
 
-Copyright © 2018-2019 Jente Hidskes
+Copyright © 2018-2020 Jente Hidskes
 [dev@hjdskes.nl](mailto:dev@hjdskes.nl).
