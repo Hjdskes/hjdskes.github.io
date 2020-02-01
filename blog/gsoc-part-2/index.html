@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="GSoC blog series on rewriting Piper"/>
-  <meta name="generator" content="Hugo 0.63.2" />
+  <meta name="generator" content="Hugo 0.55.6" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -59,17 +59,23 @@
   &nbsp;• 3 minute read&nbsp;• Last modified:
     <time datetime="Feb 18, 2019">Feb 18, 2019</time></div>
 
-<p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal"></p>
+
+
+<p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal" /></p>
+
 <p>Two weeks have now passed since my <a href="/blog/gsoc-part-1">introductory blog post</a>,
 so as promised here is part two! The theme of this blog post is probably
-something along the lines of <!-- raw HTML omitted -->preparation<!-- raw HTML omitted -->, as that is what I&rsquo;ve been
+something along the lines of <q>preparation</q>, as that is what I&rsquo;ve been
 doing mostly.</p>
+
 <p>The period between that of announcing the accepted student proposals and phase
 one is called the <a href="https://googlesummerofcode.blogspot.nl/2007/04/so-what-is-this-community-bonding-all.html">community bonding period</a>. In this period students
 are supposed to get to know their mentors, their organizations, familiarize
 themselves with their projects (even more) and get everything ready to start
 off the coding period on May 30th.</p>
+
 <h2 id="community-bonding">Community bonding</h2>
+
 <p>My mentor gave me a list of IRC channels I could join and a list of mailing
 lists I may want to subscribe to. I am now subcribed to four mailing lists and I
 lurk/participate in five IRC channels. My blog has been added to <a href="https://planet.freedesktop.org/">Planet
@@ -77,12 +83,15 @@ Freedesktop</a>. I have also joined a GSoC &lsquo;17 group on Telegram, where
 currently over 600 students participate. Finally, I started watching all the
 repositories under the <a href="https://github.com/libratbag">libratbag GitHub organisation</a> so that I stay
 up to date on any issues, pull requests and commits.</p>
+
 <h2 id="preparing-the-work-on-piper">Preparing the work on Piper</h2>
+
 <p>Probably the most important thing you can do during the community bonding period
 is preparing your project. This does not just mean getting your development
 environment setup; it also means that you should familiarize yourself with your
 project and its dependencies and resolve any open issues that your project
 depends on. In my case, there were a few such issues that I tackled.</p>
+
 <p>Both libratbag and ratbagd recently switched to Meson. For ratbagd, this meant
 that its DBus and systemd service files were not installed correctly
 (<a href="https://github.com/libratbag/ratbagd/issues/18">#18</a>). This was fixed in <a href="https://github.com/libratbag/ratbagd/pull/20">#20</a>. Ratbagd&rsquo;s README also had
@@ -91,19 +100,23 @@ in <a href="https://github.com/libratbag/ratbagd/pull/21">#21</a> together with 
 missing signals for both the <code>Profile</code> and <code>Resolution</code> DBus interfaces
 (<a href="https://github.com/libratbag/ratbagd/pull/22">#22</a>). One pull request is still open, which implements a missing
 method (including DBus signal) to set a default resolution (<a href="https://github.com/libratbag/ratbagd/pull/24">#24</a>).</p>
+
 <p>As for Piper itself, my mentor suggested I look into Flatpaks as an easy way of
 deploying Piper for testing. In short, this turned out to be impossible for now
 because Flatpaks cannot bundle udev. Here I paraphrase Alexander Larsson from
 <code>#flatpak</code> on Freenode:</p>
+
 <blockquote>
 <p>You can bundle udev for the API but you can&rsquo;t rely on it <em>working</em>, because
 a) it may not have access to every device, etc and b) it will not have access to
 the system udevd database and we can&rsquo;t grant it because that is not a stable
 on-disk format (I asked upstream about it).</p>
 </blockquote>
+
 <p>Since libratbag and ratbagd rely on udev, a Flatpak will have to wait until a
 solution to this issue has been found. Nonetheless, a Flatpak manifest remains
-available in my <a href="https://github.com/Hjdskes/piper/tree/wip/flatpak">WIP branch</a> &ndash; you just can&rsquo;t run it 😉</p>
+available in my <a href="https://github.com/Hjdskes/piper/tree/wip/flatpak">WIP branch</a> &ndash; you just can&rsquo;t run it &#128521;</p>
+
 <p>Whilst working on Flatpak&rsquo;ing Piper, I got more and more convinced that Piper
 should switch to <a href="http://mesonbuild.com/">Meson</a> as opposed to <a href="https://packaging.python.org/installing/">setuptools</a>. Meson
 brings better integration with the GNOME stack through its GNOME module,
@@ -112,6 +125,7 @@ technologies without having to add support for this to setuptools ourselves. I
 have ported Piper and opened <a href="https://github.com/libratbag/piper/pull/6">#6</a> to get this implemented. This is the
 first activity in Piper&rsquo;s repository since April 6 last year, so I guess it
 officially starts GSoC for Piper!</p>
+
 <p>This blog post is part of a <a href="/series/google-summer-of-code/">series</a>. You can read the next part about the mockups
 <a href="/blog/gsoc-part-3">here</a> or the introductory, previous part <a href="/blog/gsoc-part-1">here</a>.</p>
 
@@ -215,7 +229,7 @@ officially starts GSoC for Piper!</p>
     
   </nav>
 
-  <a href="/license">Copyright © 2016-2019 Jente Hidskes</a>
+  <a href="/license">Copyright © 2016-2020 Jente Hidskes</a>
 </footer>
 
 <link rel="stylesheet" type="text/css" href="/css/syntax.css"/>

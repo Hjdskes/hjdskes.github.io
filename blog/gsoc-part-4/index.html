@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="GSoC blog series on rewriting Piper"/>
-  <meta name="generator" content="Hugo 0.63.2" />
+  <meta name="generator" content="Hugo 0.55.6" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -59,36 +59,46 @@
   &nbsp;• 17 minute read&nbsp;• Last modified:
     <time datetime="Feb 18, 2019">Feb 18, 2019</time></div>
 
-<p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal"></p>
+
+
+<p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal" /></p>
+
 <p>This is going to be a long one, so grab a drink and a snack and buckle up!
 Incidentally, the X.Org foundation has asked us, the 2017 GSoC students, to blog
 weekly so from now on I will do so; which will also mean smaller blogs in the
 future.</p>
+
 <p>I made a schedule to go with my proposal in which I divided the coding period
 into two week sprints to plan out my project. Since the coding period started on
 a Tuesday (May 30), my sprints start on Tuesdays and end on Mondays. At the
 moment, I am ahead of schedule and will likely adjust it &ndash; if I do that, I&rsquo;ll
 make sure to align sprint ends on Fridays so they align with my weekly updates.</p>
+
 <p>Anyway, what have I done in the previous sprint? How nice of you to ask! Quite a
 lot, actually (as I said, I&rsquo;m ahead of schedule!).</p>
+
 <h2 id="updating-the-mockups">Updating the mockups</h2>
+
 <p>As you know if you&rsquo;ve read the <a href="/blog/gsoc-part-3">previous blog post</a>, I began with
 designing the new Piper and making mockups to demo these designs. Last week I
 discussed these mockups with <a href="http://jimmac.musichall.cz/">Jakub Steiner</a>, one of GNOME&rsquo;s designers.</p>
-<p>Overall, Jakub thought the designs felt a lot like <!-- raw HTML omitted -->engine tuning<!-- raw HTML omitted -->, i.e.
+
+<p>Overall, Jakub thought the designs felt a lot like <q>engine tuning</q>, i.e.
 specialized operations that you need specialist knowledge for and not something
 you want to shove in front of every day users (while discussing this, he linked
 me to <a href="https://zachholman.com/posts/shit-work/">shit work</a> as recommended reading). We agreed, however, that this
 is probably OK considering that Piper is mostly targeted towards gamers or other
 enthusiasts who deliberately buy a gaming mouse for these features, and are thus
 expected to know how they work and what they can do.</p>
+
 <p>After discussing that, Jakub had the following feedback on the mockups:</p>
+
 <ol>
-<li>The <!-- raw HTML omitted -->legend<!-- raw HTML omitted --> approach (i.e. having an image with button labels, and
+<li>The <q>legend</q> approach (i.e. having an image with button labels, and
 having to search for those labels in an adjacent list to configure those
 buttons), is a nightmare (in fact, it reminded him of old school bus tables
-&ndash; I wouldn&rsquo;t know how those looked, I&rsquo;m from &lsquo;94 😉). As an
-alternative, he suggested that we introduce a <!-- raw HTML omitted -->capture button<!-- raw HTML omitted --> mode that
+&ndash; I wouldn&rsquo;t know how those looked, I&rsquo;m from &lsquo;94 &#128521;). As an
+alternative, he suggested that we introduce a <q>capture button</q> mode that
 allows the user to press a button on their physical device to highlight the
 button in the SVG and directly open the configuration dialog.  This is
 however not currently supported in libratbag, although in the future it may
@@ -99,7 +109,7 @@ arranging the markings so that they directly associate to the assigned
 action.  When the action is hovered with the cursor, the button in the SVG is
 highlighted.</li>
 <li>Profile management seems a little odd. It implies that you would switch
-profiles often, when instead they are a <!-- raw HTML omitted -->set-and-forget<!-- raw HTML omitted --> kind of thing.
+profiles often, when instead they are a <q>set-and-forget</q> kind of thing.
 While true, Peter and I felt that they are already quite hidden away and
 decided to leave it as-is &ndash; at least for the time being.</li>
 <li>The general interface depends on having nice graphics for each device. To
@@ -107,102 +117,120 @@ streamline the UI and be less dependent on good looking, functional
 illustrations, Jakub suggested we use toned down illustrations instead. He
 offered his help to make a bunch, and work is <a href="https://github.com/libratbag/libratbag/pull/182">in-progress</a>.</li>
 </ol>
+
 <p>As an example, this is how the button assignment stack page will look now:</p>
-<p><img src="/img/blog/gsoc-part-4/buttons.png" alt="Button assignment stack page"></p>
+
+<p><img src="/img/blog/gsoc-part-4/buttons.png" alt="Button assignment stack page" /></p>
+
 <p>Much better! All the updated mockups can be seen on the <a href="https://github.com/libratbag/piper/wiki/Piper-Redesign">Redesign Wiki</a>.</p>
+
 <h2 id="a-custom-gtk-container-mousemap">A custom GTK+ container: MouseMap</h2>
+
 <p>These new mockups required us to position our widgets on arbitrary x- and
 y-coordinates, relative to their markings in the SVG. The SVG image also has to
 be drawn in the background and edited dynamically to show the highlights. That&rsquo;s
 all well and good, if not for one problem (don&rsquo;t we love solving problems!):
 there is no readily made GTK+ widget that allows us to do all this.</p>
+
 <p>Because the design is similar to GNOME&rsquo;s Wacom settings, the first step was to
 <a href="https://github.com/GNOME/gnome-control-center/blob/510dc167779c0a02d4b6b06da56875ae0ae26efa/panels/wacom/wacom-stylus-page.ui#L117">check how they do it</a>: a <a href="https://developer.gnome.org/gtk3/stable/GtkGrid.html">GtkGrid</a>. This works
 for them because they have to display only a single stylus, with a static amount
 of buttons. For Piper, however, we need to display a range of devices that all
 have a different amount of buttons. Queue our problem again: there is no such
 widget.</p>
+
 <p>As any good software engineer then, we roll up our sleeves and create our own! A
-quick trip to <code>#gtk+</code> on GNOME&rsquo;s IRC taught me that I want to create <!-- raw HTML omitted -->a custom
+quick trip to <code>#gtk+</code> on GNOME&rsquo;s IRC taught me that I want to create <q>a custom
 container widget, with a custom <code>draw()</code> implementation that renders the SVG
 using librsvg and Cairo on the drawing context, and then positions the child
-widgets at the given coordinates for each SVG node<!-- raw HTML omitted -->. Sounds easy right?
-Exactly what I thought 😉</p>
+widgets at the given coordinates for each SVG node</q>. Sounds easy right?
+Exactly what I thought &#128521;</p>
+
 <p>The following few paragraphs discuss the implementation of this custom
 container. If you&rsquo;re not interested in this, just scroll past the shiny picture
 in the end towards <a href="/blog/gsoc-part-4#importing-ratbagd-s-bindings">the next section</a>.</p>
+
 <p>For those not in the know, GTK+ is an object-oriented widget toolkit built on top
 of GLib. To implement our own custom container widget we thus need to subclass
 <a href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Container.html"><code>Gtk.Container</code></a> and implement the required methods.</p>
+
 <p>Subclassing a GTK+ widget class in Python is just like subclassing a regular
 Python class; you declare the base class and you chain to its <code>__init__</code> method:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">MouseMap</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Container</span><span class="p">)</span><span class="p">:</span>
-    <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">A Gtk.Container subclass to draw a device SVG with child widgets that</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    map to the SVG. The SVG should have objects with identifiers, whose value</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    should also be set on a custom `id` property of any child added to this</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    container. See https://github.com/libratbag/libratbag/blob/master/data/README.md</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    and do_size_allocate for more information.</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    </span><span class="s2">&#34;&#34;&#34;</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">MouseMap</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Container</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;A Gtk.Container subclass to draw a device SVG with child widgets that
+</span><span class="s2">    map to the SVG. The SVG should have objects with identifiers, whose value
+</span><span class="s2">    should also be set on a custom `id` property of any child added to this
+</span><span class="s2">    container. See https://github.com/libratbag/libratbag/blob/master/data/README.md
+</span><span class="s2">    and do_size_allocate for more information.
+</span><span class="s2">    &#34;&#34;&#34;</span>
 
-    <span class="n">__gtype_name__</span> <span class="o">=</span> <span class="sa"></span><span class="s2">&#34;</span><span class="s2">MouseMap</span><span class="s2">&#34;</span>
+    <span class="n">__gtype_name__</span> <span class="o">=</span> <span class="s2">&#34;MouseMap&#34;</span>
 
     <span class="n">__gproperties__</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="sa"></span><span class="s2">&#34;</span><span class="s2">spacing</span><span class="s2">&#34;</span><span class="p">:</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span>
-                    <span class="sa"></span><span class="s2">&#34;</span><span class="s2">spacing</span><span class="s2">&#34;</span><span class="p">,</span>
-                    <span class="sa"></span><span class="s2">&#34;</span><span class="s2">The amount of space between children and the SVG leaders</span><span class="s2">&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;spacing&#34;</span><span class="p">:</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span>
+                    <span class="s2">&#34;spacing&#34;</span><span class="p">,</span>
+                    <span class="s2">&#34;The amount of space between children and the SVG leaders&#34;</span><span class="p">,</span>
                      <span class="mi">0</span><span class="p">,</span> <span class="n">GLib</span><span class="o">.</span><span class="n">MAXINT</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
-                     <span class="n">GObject</span><span class="o">.</span><span class="n">PARAM_READWRITE</span><span class="p">)</span><span class="p">,</span>
+                     <span class="n">GObject</span><span class="o">.</span><span class="n">PARAM_READWRITE</span><span class="p">),</span>
     <span class="p">}</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ratbag_device</span><span class="p">,</span> <span class="n">spacing</span><span class="p">,</span> <span class="n">layer</span><span class="p">)</span><span class="p">:</span>
-        <span class="n">Gtk</span><span class="o">.</span><span class="n">Container</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-</code></pre></div><p>This creates a new <code>GObject.GType</code>, which is connected to the new Python type.
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ratbag_device</span><span class="p">,</span> <span class="n">spacing</span><span class="p">,</span> <span class="n">layer</span><span class="p">):</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">Container</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code></pre></div>
+<p>This creates a new <code>GObject.GType</code>, which is connected to the new Python type.
 <code>__gtype_name__</code> specifies a custom GType name, but isn&rsquo;t required.</p>
+
 <p><code>__gproperties__</code> adds, well, properties to the class. They are accessible as
 any regular Python property, but because they are declared through GObject they
 are typed, get minimum, maximum and default values, can be set read-only,
 write-only or readwrite and finally, they can be watched for changes.</p>
+
 <p>In <code>__init__</code>, we initialize the MouseMap object:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ratbag_device</span><span class="p">,</span> <span class="n">spacing</span><span class="p">,</span> <span class="n">layer</span><span class="p">)</span><span class="p">:</span>
-    <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">Instantiates a new MouseMap.</span><span class="s2">
-</span><span class="s2"></span><span class="s2">
-</span><span class="s2"></span><span class="s2">    @param ratbag_device The device that should be mapped, as ratbagd.RatbagdDevice</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    @param spacing The spacing between the SVG leaders and the children, as int</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    @param layer The SVG layer whose leaders to draw.</span><span class="s2">
-</span><span class="s2"></span><span class="s2">
-</span><span class="s2"></span><span class="s2">    @raises GLib.Error when the SVG cannot be loaded.</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    </span><span class="s2">&#34;&#34;&#34;</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ratbag_device</span><span class="p">,</span> <span class="n">spacing</span><span class="p">,</span> <span class="n">layer</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Instantiates a new MouseMap.
+</span><span class="s2">
+</span><span class="s2">    @param ratbag_device The device that should be mapped, as ratbagd.RatbagdDevice
+</span><span class="s2">    @param spacing The spacing between the SVG leaders and the children, as int
+</span><span class="s2">    @param layer The SVG layer whose leaders to draw.
+</span><span class="s2">
+</span><span class="s2">    @raises GLib.Error when the SVG cannot be loaded.
+</span><span class="s2">    &#34;&#34;&#34;</span>
     <span class="n">Gtk</span><span class="o">.</span><span class="n">Container</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">set_has_window</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_children</span> <span class="o">=</span> <span class="p">[</span><span class="p">]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_children</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_device</span> <span class="o">=</span> <span class="n">ratbag_device</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">spacing</span> <span class="o">=</span> <span class="n">spacing</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_layer</span> <span class="o">=</span> <span class="n">layer</span>
 
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">ratbag_device</span><span class="o">.</span><span class="n">svg_path</span><span class="p">)</span><span class="p">:</span>
-        <span class="n">stream</span> <span class="o">=</span> <span class="n">Gio</span><span class="o">.</span><span class="n">Resource</span><span class="o">.</span><span class="n">open_stream</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">/org/freedesktop/Piper/404.svg</span><span class="s2">&#34;</span><span class="p">,</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">ratbag_device</span><span class="o">.</span><span class="n">svg_path</span><span class="p">):</span>
+        <span class="n">stream</span> <span class="o">=</span> <span class="n">Gio</span><span class="o">.</span><span class="n">Resource</span><span class="o">.</span><span class="n">open_stream</span><span class="p">(</span><span class="s2">&#34;/org/freedesktop/Piper/404.svg&#34;</span><span class="p">,</span>
                                           <span class="n">Gio</span><span class="o">.</span><span class="n">ResourceLookupFlags</span><span class="o">.</span><span class="n">NONE</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">Rsvg</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">new_from_stream</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span>
                                                    <span class="n">Rsvg</span><span class="o">.</span><span class="n">HandleFlags</span><span class="o">.</span><span class="n">FLAGS_NONE</span><span class="p">,</span>
                                                    <span class="bp">None</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">Rsvg</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">new_from_file</span><span class="p">(</span><span class="n">ratbag_device</span><span class="o">.</span><span class="n">svg_path</span>
-</code></pre></div><p>A <code>Gtk.Container</code> subclass needs to implement <code>Gtk.Container</code>'s interface
+        <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">Rsvg</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">new_from_file</span><span class="p">(</span><span class="n">ratbag_device</span><span class="o">.</span><span class="n">svg_path</span></code></pre></div>
+<p>A <code>Gtk.Container</code> subclass needs to implement <code>Gtk.Container</code>&rsquo;s interface
 methods and a few <code>Gtk.Widget</code> interface methods that deal with geometry
 management.</p>
-<h3 id="gtkcontainer-interface-methods"><code>Gtk.Container</code> interface methods</h3>
+
+<h3 id="gtk-container-interface-methods"><code>Gtk.Container</code> interface methods</h3>
+
 <p>GtkContainerClass&rsquo;s official C <a href="https://developer.gnome.org/gtk3/stable/GtkContainer.html#GtkContainerClass">documentation</a> mentions the
-virtual methods (<!-- raw HTML omitted -->interface methods<!-- raw HTML omitted -->) that each subclass has to implement.
+virtual methods (<q>interface methods</q>) that each subclass has to implement.
 The <a href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Container.html#virtual-methods">API documentation</a> for PyGObject lists them specific to
 Python:</p>
-<h4 id="do_add-widget-and-do_remove-widget"><code>do_add (widget)</code> and <code>do_remove (widget)</code></h4>
+
+<h4 id="do-add-widget-and-do-remove-widget"><code>do_add (widget)</code> and <code>do_remove (widget)</code></h4>
+
 <p>As their names imply, these functions add or remove the given widget to or from
 the container.  More complicated containers may provide alternative methods, see
 e.g. <a href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Box.html#Gtk.Box.pack_start"><code>Gtk.Box.pack_start(child, expand, fill, padding)</code></a>. A
 container containing only internal widgets (i.e. added by the container
 implementation itself and not a user of the container) need not implement these
 methods.</p>
+
 <p>The implementations are really quite straightforward:</p>
+
 <pre><code>def do_add(self, widget):
     &quot;&quot;&quot;Adds the given widget to the map. The widget must have a custom
     property named `id` with value the identifier of the SVG element with
@@ -232,35 +260,43 @@ def do_remove(self, widget):
                 self._children.remove(child)
                 child.unparent()
                 break
-</code></pre><p>We&rsquo;ll get to the <code>enter-notify-event</code> and <code>leave-notify-event</code> signals
+</code></pre>
+
+<p>We&rsquo;ll get to the <code>enter-notify-event</code> and <code>leave-notify-event</code> signals
 <a href="/blog/gsoc-part-4#interactive-highlighting-of-the-svg">later</a>.</p>
-<h4 id="do_check_resize-"><code>do_check_resize ()</code></h4>
+
+<h4 id="do-check-resize"><code>do_check_resize ()</code></h4>
+
 <p>Emits the <code>check-resize</code> signal, forcing the recalculation of the container and
 its children. The default implementation in <code>Gtk.Container</code> is fine for us.</p>
-<h4 id="do_child_type-"><code>do_child_type ()</code></h4>
+
+<h4 id="do-child-type"><code>do_child_type ()</code></h4>
+
 <p>This method returns the type of the children that this container supports. The
 MouseMap widget accepts any GTK+ widget, so we simply state as such:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_child_type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="p">:</span>
-    <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">Indicates that this container accepts any GTK+ widget.</span><span class="s2">&#34;&#34;&#34;</span>
-    <span class="k">return</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Widget</span><span class="o">.</span><span class="n">get_type</span><span class="p">(</span><span class="p">)</span>
-</code></pre></div><h4 id="do_forall-include_internals-callback-callback_data"><code>do_forall (include_internals, callback, callback_data)</code></h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_child_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Indicates that this container accepts any GTK+ widget.&#34;&#34;&#34;</span>
+    <span class="k">return</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Widget</span><span class="o">.</span><span class="n">get_type</span><span class="p">()</span></code></pre></div>
+<h4 id="do-forall-include-internals-callback-callback-data"><code>do_forall (include_internals, callback, callback_data)</code></h4>
+
 <p><code>do_forall</code> invokes <code>callback</code> on each (direct) child widget, including internal
 children iff <code>include_internals</code> is <code>True</code>, with <code>callback_data</code> as arguments.
 Implementing this method is required for every container, because it is used for
 drawing and other internal GTK+ operations.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_forall</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">include_internals</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="o">*</span><span class="n">parameters</span><span class="p">)</span><span class="p">:</span>
-    <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">Invokes the given callback on each child, with the given parameters.</span><span class="s2">
-</span><span class="s2"></span><span class="s2">
-</span><span class="s2"></span><span class="s2">    @param include_internals Whether to run on internal children as well, as</span><span class="s2">
-</span><span class="s2"></span><span class="s2">                             boolean. Ignored, as there are no internal</span><span class="s2">
-</span><span class="s2"></span><span class="s2">                             children.</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    @param callback The callback to call on each child, as Gtk.Callback</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    @param parameters The parameters to pass to the callback, as object or None</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    </span><span class="s2">&#34;&#34;&#34;</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_forall</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">include_internals</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="o">*</span><span class="n">parameters</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Invokes the given callback on each child, with the given parameters.
+</span><span class="s2">
+</span><span class="s2">    @param include_internals Whether to run on internal children as well, as
+</span><span class="s2">                             boolean. Ignored, as there are no internal
+</span><span class="s2">                             children.
+</span><span class="s2">    @param callback The callback to call on each child, as Gtk.Callback
+</span><span class="s2">    @param parameters The parameters to pass to the callback, as object or None
+</span><span class="s2">    &#34;&#34;&#34;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">callback</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">:</span>
-            <span class="n">callback</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="o">*</span><span class="n">parameters</span><span class="p">)</span>
-</code></pre></div><h4 id="do_set_child_property-child-property_id-value-pspec-and-do_get_child_property-child-property_id-value-pspec"><code>do_set_child_property (child, property_id, value, pspec)</code> and <code>do_get_child_property (child, property_id, value, pspec)</code></h4>
+            <span class="n">callback</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="o">*</span><span class="n">parameters</span><span class="p">)</span></code></pre></div>
+<h4 id="do-set-child-property-child-property-id-value-pspec-and-do-get-child-property-child-property-id-value-pspec"><code>do_set_child_property (child, property_id, value, pspec)</code> and <code>do_get_child_property (child, property_id, value, pspec)</code></h4>
+
 <p>Containers introduce child properties: object properties that are not specific
 to either the container or its child, but rather the relation between them
 (e.g., a child&rsquo;s position). Child properties are installed with
@@ -268,20 +304,27 @@ to either the container or its child, but rather the relation between them
 <code>Gtk.Container.install_child_properties(pspecs)</code> and queried through
 <code>Gtk.Container.find_child_property(property_name)</code> or
 <code>Gtk.Container.list_child_properties()</code>.</p>
+
 <p>The implementation of these two methods is the container-specific way to set and
 get these (container-specific) child properties. Currently, the MouseMap widget
 does not implement them, as there are no child properties yet. It is however
 possible that in the future there will be a MouseMapChild class that wraps a
 child widget with its x- and y-coordinates and SVG element identifier. In this
 case, these methods will have to be implemented.</p>
-<h4 id="do_get_path_for_child-child"><code>do_get_path_for_child (child)</code></h4>
+
+<h4 id="do-get-path-for-child-child"><code>do_get_path_for_child (child)</code></h4>
+
 <p>This methods returns a widget path, representing the widget hierarchy from the
 toplevel widget down to and including <code>child</code>. The default <code>Gtk.Container</code>
 implementation is fine.</p>
-<h4 id="do_set_focus_child-child"><code>do_set_focus_child (child)</code></h4>
+
+<h4 id="do-set-focus-child-child"><code>do_set_focus_child (child)</code></h4>
+
 <p>This method sets (or unsets, if child is <code>None</code>) the focused child of the
 container. The default implementation is again fine.</p>
-<h3 id="gtkwidget-interface-methods"><code>Gtk.Widget</code> interface methods</h3>
+
+<h3 id="gtk-widget-interface-methods"><code>Gtk.Widget</code> interface methods</h3>
+
 <p>Finally, MouseMap needs to implement a few <code>Gtk.Widget</code> interface methods to
 manage its geometry. GTK+ uses a height-for-width or width-for-height geometry
 system, where for example height-for-width means that a widget given an amount
@@ -291,6 +334,7 @@ will wrap to fewer (or more) lines and therefore needs less (or more) height.
 For more information, see the <a href="https://developer.gnome.org/gtk3/stable/GtkWidget.html">official GtkWidget C documentation</a>.
 But, there&rsquo;s more! For containers, <a href="https://developer.gnome.org/gtk3/stable/GtkContainer.html">special things</a> need to be
 taken into consideration:</p>
+
 <ol>
 <li>A container needs to prioritize one of its dimensions; a container can only
 have a size request mode of <code>GTK_SIZE_REQUEST_HEIGHT_FOR_WIDTH</code> or
@@ -299,21 +343,26 @@ have a size request mode of <code>GTK_SIZE_REQUEST_HEIGHT_FOR_WIDTH</code> or
 both APIs because it cannot be ensured that a widget is requested to use its
 declared preference.</li>
 </ol>
+
 <p>This way of managing geometry is implemented through a few virtual methods that
 a widget should implement:</p>
-<h4 id="do_get_request_mode"><code>do_get_request_mode()</code></h4>
+
+<h4 id="do-get-request-mode"><code>do_get_request_mode()</code></h4>
+
 <p>This method returns the <code>Gtk.SizeRequestMode</code> preferred by the container, which
 tells any parent widget whether it prefers a height-for-width or a
 width-for-height layout.</p>
+
 <p>Since the MouseMap&rsquo;s geometry is rather static and we are a custom container
 with control over the amount and placement of child widgets, we simply return
 <code>Gtk.SizeRequestMode.CONSTANT_SIZE</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_get_request_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="p">:</span>
-    <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">Gets whether the container prefers a height-for-width or a</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    width-for-height layout. We don</span><span class="s2">&#39;</span><span class="s2">t want to trade width for height or</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    height for width so we return CONSTANT_SIZE.</span><span class="s2">&#34;&#34;&#34;</span>
-    <span class="k">return</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">SizeRequestMode</span><span class="o">.</span><span class="n">CONSTANT_SIZE</span>
-</code></pre></div><h4 id="do_get_preferred_height-and-do_get_preferred_width"><code>do_get_preferred_height()</code> and <code>do_get_preferred_width()</code></h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_get_request_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Gets whether the container prefers a height-for-width or a
+</span><span class="s2">    width-for-height layout. We don&#39;t want to trade width for height or
+</span><span class="s2">    height for width so we return CONSTANT_SIZE.&#34;&#34;&#34;</span>
+    <span class="k">return</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">SizeRequestMode</span><span class="o">.</span><span class="n">CONSTANT_SIZE</span></code></pre></div>
+<h4 id="do-get-preferred-height-and-do-get-preferred-width"><code>do_get_preferred_height()</code> and <code>do_get_preferred_width()</code></h4>
+
 <p>These methods return the container&rsquo;s initial minimum and natural height and
 width. Since the MouseMap is static with regards to geometry, we don&rsquo;t have to
 do anything fancy here. For the preferred minimum and natural height, we simply
@@ -322,76 +371,80 @@ of the children, plus the border width which is also allocated on the top and
 bottom edges of the container. For the preferred minimum and natural width, we
 return the SVG&rsquo;s width plus the maximum minimum (savvy?) and natural width, the
 border width and the spacing property.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_get_preferred_height</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="p">:</span>
-    <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">Calculates the container</span><span class="s2">&#39;</span><span class="s2">s initial minimum and natural height. While</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    this call is specific to width-for-height requests (that we requested</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    not to get) we cannot be certain that our wishes are granted and hence</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    we must implement this method as well. In any case, we just return the</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    maximum of the SVG</span><span class="s2">&#39;</span><span class="s2">s height or the children</span><span class="s2">&#39;</span><span class="s2">s summed (minimum and</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    natural) height, including the border width.</span><span class="s2">&#34;&#34;&#34;</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_get_preferred_height</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Calculates the container&#39;s initial minimum and natural height. While
+</span><span class="s2">    this call is specific to width-for-height requests (that we requested
+</span><span class="s2">    not to get) we cannot be certain that our wishes are granted and hence
+</span><span class="s2">    we must implement this method as well. In any case, we just return the
+</span><span class="s2">    maximum of the SVG&#39;s height or the children&#39;s summed (minimum and
+</span><span class="s2">    natural) height, including the border width.&#34;&#34;&#34;</span>
     <span class="n">svg_height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">height</span>
     <span class="n">children_height_min</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">children_height_nat</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">:</span>
-        <span class="n">child_min</span><span class="p">,</span> <span class="n">child_nat</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">get_preferred_height</span><span class="p">(</span><span class="p">)</span>
-        <span class="n">children_height_min</span> <span class="o">+</span><span class="o">=</span> <span class="n">child_min</span>
-        <span class="n">children_height_nat</span> <span class="o">+</span><span class="o">=</span> <span class="n">child_nat</span>
+        <span class="n">child_min</span><span class="p">,</span> <span class="n">child_nat</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">get_preferred_height</span><span class="p">()</span>
+        <span class="n">children_height_min</span> <span class="o">+=</span> <span class="n">child_min</span>
+        <span class="n">children_height_nat</span> <span class="o">+=</span> <span class="n">child_nat</span>
     <span class="n">height_min</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">svg_height</span><span class="p">,</span> <span class="n">children_height_min</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">border_width</span>
     <span class="n">height_nat</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">svg_height</span><span class="p">,</span> <span class="n">children_height_nat</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">border_width</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">height_min</span><span class="p">,</span> <span class="n">height_nat</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">do_get_preferred_width</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="p">:</span>
-    <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">Calculates the container</span><span class="s2">&#39;</span><span class="s2">s initial minimum and natural width. While</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    this call is specific to height-for-width requests (that we requested</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    not to get) we cannot be certain that our wishes are granted and hence</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    we must implement this method as well. In any case, we just return the</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    SVG</span><span class="s2">&#39;</span><span class="s2">s width, including the maximum (minimum and natural) child width,</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    border width and spacing.</span><span class="s2">&#34;&#34;&#34;</span>
+<span class="k">def</span> <span class="nf">do_get_preferred_width</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Calculates the container&#39;s initial minimum and natural width. While
+</span><span class="s2">    this call is specific to height-for-width requests (that we requested
+</span><span class="s2">    not to get) we cannot be certain that our wishes are granted and hence
+</span><span class="s2">    we must implement this method as well. In any case, we just return the
+</span><span class="s2">    SVG&#39;s width, including the maximum (minimum and natural) child width,
+</span><span class="s2">    border width and spacing.&#34;&#34;&#34;</span>
     <span class="c1"># TODO: account for left-aligned children, if they exist</span>
     <span class="n">svg_width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">width</span>
     <span class="n">children_width_min</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">children_width_nat</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">:</span>
-        <span class="n">child_min</span><span class="p">,</span> <span class="n">child_nat</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">get_preferred_width</span><span class="p">(</span><span class="p">)</span>
+        <span class="n">child_min</span><span class="p">,</span> <span class="n">child_nat</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">get_preferred_width</span><span class="p">()</span>
         <span class="n">children_width_min</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">children_width_min</span><span class="p">,</span> <span class="n">child_min</span><span class="p">)</span>
         <span class="n">children_width_nat</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">children_width_nat</span><span class="p">,</span> <span class="n">child_nat</span><span class="p">)</span>
     <span class="n">width_min</span> <span class="o">=</span> <span class="n">svg_width</span> <span class="o">+</span> <span class="n">children_width_min</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">border_width</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">spacing</span>
     <span class="n">width_nat</span> <span class="o">=</span> <span class="n">svg_width</span> <span class="o">+</span> <span class="n">children_width_nat</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">border_width</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">spacing</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">width_min</span><span class="p">,</span> <span class="n">width_nat</span><span class="p">)</span>
-</code></pre></div><h4 id="do_get_preferred_height_for_widthwidth-and-do_get_preferred_width_for_heightheight"><code>do_get_preferred_height_for_width(width)</code> and <code>do_get_preferred_width_for_height(height)</code></h4>
+    <span class="k">return</span> <span class="p">(</span><span class="n">width_min</span><span class="p">,</span> <span class="n">width_nat</span><span class="p">)</span></code></pre></div>
+<h4 id="do-get-preferred-height-for-width-width-and-do-get-preferred-width-for-height-height"><code>do_get_preferred_height_for_width(width)</code> and <code>do_get_preferred_width_for_height(height)</code></h4>
+
 <p>These are the contextual methods that return the container&rsquo;s minimum and natural
 height and width given the specified width and height. Again, as the MouseMap is
 static in regards to geometry we simply return <code>do_get_preferred_height</code> and
 <code>do_get_preferred_width</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_get_preferred_height_for_width</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span><span class="p">:</span>
-    <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">Returns this container</span><span class="s2">&#39;</span><span class="s2">s minimum and natural height if it would be</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    given the specified width. While this call is specific to</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    height-for-width requests (that we requested not to get) we cannot be</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    certain that our wishes are granted and hence we must implement this</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    method as well. Since we really want to be the same size always, we</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    simply return do_get_preferred_height.</span><span class="s2">
-</span><span class="s2"></span><span class="s2">
-</span><span class="s2"></span><span class="s2">    @param width The given width, as int. Ignored.</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    </span><span class="s2">&#34;&#34;&#34;</span>
-    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_get_preferred_height</span><span class="p">(</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_get_preferred_height_for_width</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Returns this container&#39;s minimum and natural height if it would be
+</span><span class="s2">    given the specified width. While this call is specific to
+</span><span class="s2">    height-for-width requests (that we requested not to get) we cannot be
+</span><span class="s2">    certain that our wishes are granted and hence we must implement this
+</span><span class="s2">    method as well. Since we really want to be the same size always, we
+</span><span class="s2">    simply return do_get_preferred_height.
+</span><span class="s2">
+</span><span class="s2">    @param width The given width, as int. Ignored.
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_get_preferred_height</span><span class="p">()</span>
 
-<span class="k">def</span> <span class="nf">do_get_preferred_width_for_height</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span><span class="p">:</span>
-    <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">Returns this container</span><span class="s2">&#39;</span><span class="s2">s minimum and natural width if it would be</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    given the specified height. While this call is specific to</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    width-for-height requests (that we requested not to get) we cannot be</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    certain that our wishes are granted and hence we must implement this</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    method as well. Since we really want to be the same size always, we</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    simply return do_get_preferred_width.</span><span class="s2">
-</span><span class="s2"></span><span class="s2">
-</span><span class="s2"></span><span class="s2">    @param height The given height, as int. Ignored.</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    </span><span class="s2">&#34;&#34;&#34;</span>
-    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_get_preferred_width</span><span class="p">(</span><span class="p">)</span>
-</code></pre></div><h4 id="do_size_allocateallocation"><code>do_size_allocate(allocation)</code></h4>
+<span class="k">def</span> <span class="nf">do_get_preferred_width_for_height</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Returns this container&#39;s minimum and natural width if it would be
+</span><span class="s2">    given the specified height. While this call is specific to
+</span><span class="s2">    width-for-height requests (that we requested not to get) we cannot be
+</span><span class="s2">    certain that our wishes are granted and hence we must implement this
+</span><span class="s2">    method as well. Since we really want to be the same size always, we
+</span><span class="s2">    simply return do_get_preferred_width.
+</span><span class="s2">
+</span><span class="s2">    @param height The given height, as int. Ignored.
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_get_preferred_width</span><span class="p">()</span></code></pre></div>
+<h4 id="do-size-allocate-allocation"><code>do_size_allocate(allocation)</code></h4>
+
 <p>This is a <code>Gtk.Widget</code> method only used by <code>Gtk.Container</code> subclasses. It is
 used to assign a size and position to child widgets, so this is where we align
 the widgets with their markings in the SVG.</p>
+
 <p>The implementation below loops through the child widgets, and for each child
 does the following:</p>
+
 <ol>
 <li>retrieve its SVG identifier;</li>
 <li>ask the child for its preferred size;</li>
@@ -400,27 +453,28 @@ element;</li>
 <li>Position the child after the SVG element, and allocate it its preferred width
 and height.</li>
 </ol>
+
 <p>The current implementation does not yet work with device SVGs that also have
 markings extend to the left.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_size_allocate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">allocation</span><span class="p">)</span><span class="p">:</span>
-    <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">Assigns a size and position to the child widgets. Children may adjust</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    the given allocation in the adjust_size_allocation virtual method.</span><span class="s2">
-</span><span class="s2"></span><span class="s2">
-</span><span class="s2"></span><span class="s2">    This method uses a custom property on the children to position them</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    relative to their SVG counterparts. Children that you want to be</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    positioned should have an `id` property set on them, with value the SVG</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    identifier they should position themselves next to. Children without</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    this property are skipped.</span><span class="s2">
-</span><span class="s2"></span><span class="s2">
-</span><span class="s2"></span><span class="s2">    @param The position and size allocated to this container, as Gdk.Rectangle</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    </span><span class="s2">&#34;&#34;&#34;</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_size_allocate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">allocation</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Assigns a size and position to the child widgets. Children may adjust
+</span><span class="s2">    the given allocation in the adjust_size_allocation virtual method.
+</span><span class="s2">
+</span><span class="s2">    This method uses a custom property on the children to position them
+</span><span class="s2">    relative to their SVG counterparts. Children that you want to be
+</span><span class="s2">    positioned should have an `id` property set on them, with value the SVG
+</span><span class="s2">    identifier they should position themselves next to. Children without
+</span><span class="s2">    this property are skipped.
+</span><span class="s2">
+</span><span class="s2">    @param The position and size allocated to this container, as Gdk.Rectangle
+</span><span class="s2">    &#34;&#34;&#34;</span>
     <span class="c1"># TODO: account for left-aligned children, if they exist</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">set_allocation</span><span class="p">(</span><span class="n">allocation</span><span class="p">)</span>
-    <span class="n">child_allocation</span> <span class="o">=</span> <span class="n">Gdk</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span><span class="p">)</span>
+    <span class="n">child_allocation</span> <span class="o">=</span> <span class="n">Gdk</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">:</span>
-        <span class="n">svg_id</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">id</span> <span class="o">+</span> <span class="sa"></span><span class="s2">&#34;</span><span class="s2">-leader</span><span class="s2">&#34;</span>
-        <span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">get_visible</span><span class="p">(</span><span class="p">)</span><span class="p">:</span>
-            <span class="n">min_size</span><span class="p">,</span> <span class="n">nat_size</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">get_preferred_size</span><span class="p">(</span><span class="p">)</span>
+        <span class="n">svg_id</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="nb">id</span> <span class="o">+</span> <span class="s2">&#34;-leader&#34;</span>
+        <span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">get_visible</span><span class="p">():</span>
+            <span class="n">min_size</span><span class="p">,</span> <span class="n">nat_size</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">get_preferred_size</span><span class="p">()</span>
             <span class="n">child_allocation</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">nat_size</span><span class="o">.</span><span class="n">width</span>
             <span class="n">child_allocation</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">nat_size</span><span class="o">.</span><span class="n">height</span>
 
@@ -429,127 +483,130 @@ markings extend to the left.</p>
                 <span class="k">continue</span>
             <span class="n">child_allocation</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">svg_geom</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">svg_geom</span><span class="o">.</span><span class="n">width</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">spacing</span>
             <span class="n">child_allocation</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">svg_geom</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">child_allocation</span><span class="o">.</span><span class="n">height</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">child</span><span class="o">.</span><span class="n">get_has_window</span><span class="p">(</span><span class="p">)</span><span class="p">:</span>
-                <span class="n">child_allocation</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span><span class="o">=</span> <span class="n">allocation</span><span class="o">.</span><span class="n">x</span>
-                <span class="n">child_allocation</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span><span class="o">=</span> <span class="n">allocation</span><span class="o">.</span><span class="n">y</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">child</span><span class="o">.</span><span class="n">get_has_window</span><span class="p">():</span>
+                <span class="n">child_allocation</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">allocation</span><span class="o">.</span><span class="n">x</span>
+                <span class="n">child_allocation</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">allocation</span><span class="o">.</span><span class="n">y</span>
             <span class="n">child</span><span class="o">.</span><span class="n">size_allocate</span><span class="p">(</span><span class="n">child_allocation</span>
 
-<span class="k">def</span> <span class="nf">_get_svg_sub_geometry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">)</span><span class="p">:</span>
-    <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">Helper method to get an SVG element</span><span class="s2">&#39;</span><span class="s2">s x- and y-coordinates, width and</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    height.</span><span class="s2">
-</span><span class="s2"></span><span class="s2">
-</span><span class="s2"></span><span class="s2">    @param svg_id The identifier of the SVG element whose geometry to get.</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    @returns (bool, Gdk.Rectangle)</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    </span><span class="s2">&#34;&#34;&#34;</span>
-    <span class="n">ret</span> <span class="o">=</span> <span class="n">Gdk</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_get_svg_sub_geometry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Helper method to get an SVG element&#39;s x- and y-coordinates, width and
+</span><span class="s2">    height.
+</span><span class="s2">
+</span><span class="s2">    @param svg_id The identifier of the SVG element whose geometry to get.
+</span><span class="s2">    @returns (bool, Gdk.Rectangle)
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">Gdk</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">()</span>
     <span class="n">ok</span><span class="p">,</span> <span class="n">svg_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">get_position_sub</span><span class="p">(</span><span class="n">svg_id</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">ok</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">Warning: cannot retrieve element</span><span class="s2">&#39;</span><span class="s2">s position:</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Warning: cannot retrieve element&#39;s position:&#34;</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">ok</span><span class="p">,</span> <span class="n">ret</span>
     <span class="n">ok</span><span class="p">,</span> <span class="n">svg_dim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">get_dimensions_sub</span><span class="p">(</span><span class="n">svg_id</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">ok</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">Warning: cannot retrieve element</span><span class="s2">&#39;</span><span class="s2">s dimensions:</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Warning: cannot retrieve element&#39;s dimensions:&#34;</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">ok</span><span class="p">,</span> <span class="n">ret</span>
     <span class="n">ret</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">svg_pos</span><span class="o">.</span><span class="n">x</span>
     <span class="n">ret</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">svg_pos</span><span class="o">.</span><span class="n">y</span>
     <span class="n">ret</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">svg_dim</span><span class="o">.</span><span class="n">width</span>
     <span class="n">ret</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">svg_dim</span><span class="o">.</span><span class="n">height</span>
-    <span class="k">return</span> <span class="n">ok</span><span class="p">,</span> <span class="n">ret</span>
-</code></pre></div><h4 id="do_drawcr"><code>do_draw(cr)</code></h4>
+    <span class="k">return</span> <span class="n">ok</span><span class="p">,</span> <span class="n">ret</span></code></pre></div>
+<h4 id="do-draw-cr"><code>do_draw(cr)</code></h4>
+
 <p>Finally, the method that draws the SVG into the container&rsquo;s drawing context.
 It&rsquo;s rather self explanatory: ask the SVG if it has the required layers and if
 so, we draw only those. Otherwise, we draw the entire SVG. Finally, we propagate
 the draw signal to all children so they draw themselves on top of the SVG.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cr</span><span class="p">)</span><span class="p">:</span>
-    <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">Draws the container to the given Cairo context. The top left corner</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    of the widget will be drawn to the currently set origin point of the</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    context. The container needs to propagate the draw signal to its</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    children.</span><span class="s2">
-</span><span class="s2"></span><span class="s2">
-</span><span class="s2"></span><span class="s2">    @param cr The Cairo context to draw into, as cairo.Context</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    </span><span class="s2">&#34;&#34;&#34;</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cr</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Draws the container to the given Cairo context. The top left corner
+</span><span class="s2">    of the widget will be drawn to the currently set origin point of the
+</span><span class="s2">    context. The container needs to propagate the draw signal to its
+</span><span class="s2">    children.
+</span><span class="s2">
+</span><span class="s2">    @param cr The Cairo context to draw into, as cairo.Context
+</span><span class="s2">    &#34;&#34;&#34;</span>
     <span class="c1"># TODO: account for left-aligned children, if they exist</span>
-    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">has_sub</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">#Device</span><span class="s2">&#34;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">has_sub</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_layer</span><span class="p">)</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">render_cairo_sub</span><span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">#Device</span><span class="s2">&#34;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">has_sub</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&#34;#Device&#34;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">has_sub</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_layer</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">render_cairo_sub</span><span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&#34;#Device&#34;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">render_cairo_sub</span><span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_layer</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">render_cairo</span><span class="p">(</span><span class="n">cr</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">propagate_draw</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="n">cr</span><span class="p">)</span>
-</code></pre></div><h3 id="interactive-highlighting-of-the-svg">Interactive highlighting of the SVG</h3>
+        <span class="bp">self</span><span class="o">.</span><span class="n">propagate_draw</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="n">cr</span><span class="p">)</span></code></pre></div>
+<h3 id="interactive-highlighting-of-the-svg">Interactive highlighting of the SVG</h3>
+
 <p>If you&rsquo;ve made it this far, you might have forgotten that the SVG has to be
 interactive: if a widget is hovered by the cursor, that widget&rsquo;s SVG element
 should be highlighted. This requires on-the-fly editing of the SVG image, by
 inserting and removing CSS markup dynamically. Luckily, there was <a href="https://github.com/GNOME/gtk/blob/4724a89022ef1bec93b1a42d4cf2fec7191ed712/gtk/encodesymbolic.c#L43">some code</a> I
 could use in GTK+.</p>
+
 <p>Remember that in <code>do_add(widget)</code> we connected to that widget&rsquo;s
 <code>enter-notify-event</code> and <code>leave-notify-event</code> signals? These signals are fired
 when the mouse cursor enters and leaves the widget&rsquo;s window. Here&rsquo;s how we do
 that:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">_on_enter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span><span class="p">:</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">_on_enter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
     <span class="n">svg_width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">width</span>
     <span class="n">svg_height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">height</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">_</span><span class="p">,</span> <span class="n">file_data</span> <span class="o">=</span> <span class="n">GLib</span><span class="o">.</span><span class="n">file_get_contents</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="o">.</span><span class="n">svg_path</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">GLib</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">Cannot get SVG file contents: {}, cannot highlight SVG</span><span class="se">\
-</span><span class="se"></span><span class="s2">              elements</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Cannot get SVG file contents: {}, cannot highlight SVG</span><span class="se">\
+</span><span class="se"></span><span class="s2">              elements&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
         <span class="k">return</span>
     <span class="n">stream</span> <span class="o">=</span> <span class="n">Gio</span><span class="o">.</span><span class="n">MemoryInputStream</span><span class="o">.</span><span class="n">new_from_data</span><span class="p">(</span><span class="n">file_data</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
     <span class="n">escaped_file_data</span> <span class="o">=</span> <span class="n">GLib</span><span class="o">.</span><span class="n">markup_escape_text</span><span class="p">(</span><span class="n">file_data</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="n">data</span> <span class="o">=</span> <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">&lt;?xml version=</span><span class="s2">&#34;</span><span class="s2">1.0</span><span class="s2">&#34;</span><span class="s2"> encoding=</span><span class="s2">&#34;</span><span class="s2">UTF-8</span><span class="s2">&#34;</span><span class="s2"> standalone=</span><span class="s2">&#34;</span><span class="s2">no</span><span class="s2">&#34;</span><span class="s2">?&gt;</span><span class="s2">
-</span><span class="s2"></span><span class="s2">              &lt;svg version=</span><span class="s2">&#34;</span><span class="s2">1.1</span><span class="s2">&#34;</span><span class="s2">
-</span><span class="s2"></span><span class="s2">                xmlns=</span><span class="s2">&#34;</span><span class="s2">http://www.w3.org/2000/svg</span><span class="s2">&#34;</span><span class="s2">
-</span><span class="s2"></span><span class="s2">                xmlns:xi=</span><span class="s2">&#34;</span><span class="s2">http://www.w3.org/2001/XInclude</span><span class="s2">&#34;</span><span class="s2">
-</span><span class="s2"></span><span class="s2">                width=</span><span class="s2">&#34;</span><span class="si">%s</span><span class="s2">&#34;</span><span class="s2">
-</span><span class="s2"></span><span class="s2">                height=</span><span class="s2">&#34;</span><span class="si">%s</span><span class="s2">&#34;</span><span class="s2">&gt;</span><span class="s2">
-</span><span class="s2"></span><span class="s2">                &lt;style type=</span><span class="s2">&#34;</span><span class="s2">text/css</span><span class="s2">&#34;</span><span class="s2">&gt;</span><span class="s2">
-</span><span class="s2"></span><span class="s2">                  </span><span class="si">%s</span><span class="s2"> {</span><span class="s2">
-</span><span class="s2"></span><span class="s2">                    stroke: #2a76c6 !important;</span><span class="s2">
-</span><span class="s2"></span><span class="s2">                    stroke-width: 2 !important;</span><span class="s2">
-</span><span class="s2"></span><span class="s2">                  }</span><span class="s2">
-</span><span class="s2"></span><span class="s2">                &lt;/style&gt;</span><span class="s2">
-</span><span class="s2"></span><span class="s2">                &lt;xi:include href=</span><span class="s2">&#34;</span><span class="s2">data:text/xml,</span><span class="si">%s</span><span class="s2">&#34;</span><span class="s2">/&gt;</span><span class="s2">
-</span><span class="s2"></span><span class="s2">              &lt;/svg&gt;</span><span class="s2">&#34;&#34;&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">svg_width</span><span class="p">,</span> <span class="n">svg_height</span><span class="p">,</span> <span class="n">widget</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">escaped_file_data</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; standalone=&#34;no&#34;?&gt;
+</span><span class="s2">              &lt;svg version=&#34;1.1&#34;
+</span><span class="s2">                xmlns=&#34;http://www.w3.org/2000/svg&#34;
+</span><span class="s2">                xmlns:xi=&#34;http://www.w3.org/2001/XInclude&#34;
+</span><span class="s2">                width=&#34;</span><span class="si">%s</span><span class="s2">&#34;
+</span><span class="s2">                height=&#34;</span><span class="si">%s</span><span class="s2">&#34;&gt;
+</span><span class="s2">                &lt;style type=&#34;text/css&#34;&gt;
+</span><span class="s2">                  </span><span class="si">%s</span><span class="s2"> {
+</span><span class="s2">                    stroke: #2a76c6 !important;
+</span><span class="s2">                    stroke-width: 2 !important;
+</span><span class="s2">                  }
+</span><span class="s2">                &lt;/style&gt;
+</span><span class="s2">                &lt;xi:include href=&#34;data:text/xml,</span><span class="si">%s</span><span class="s2">&#34;/&gt;
+</span><span class="s2">              &lt;/svg&gt;&#34;&#34;&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">svg_width</span><span class="p">,</span> <span class="n">svg_height</span><span class="p">,</span> <span class="n">widget</span><span class="o">.</span><span class="nb">id</span><span class="p">,</span> <span class="n">escaped_file_data</span><span class="p">)</span>
 
-    <span class="n">stream</span> <span class="o">=</span> <span class="n">Gio</span><span class="o">.</span><span class="n">MemoryInputStream</span><span class="o">.</span><span class="n">new_from_data</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">UTF-8</span><span class="s1">&#39;</span><span class="p">)</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="n">stream</span> <span class="o">=</span> <span class="n">Gio</span><span class="o">.</span><span class="n">MemoryInputStream</span><span class="o">.</span><span class="n">new_from_data</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">),</span> <span class="bp">None</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">handle</span> <span class="o">=</span> <span class="n">Rsvg</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">new_from_stream_sync</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span>
                                                   <span class="n">Rsvg</span><span class="o">.</span><span class="n">HandleFlags</span><span class="o">.</span><span class="n">FLAGS_NONE</span><span class="p">,</span>
                                                   <span class="bp">None</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">GLib</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">Cannot create new SVG handle: {}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span><span class="p">,</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Cannot create new SVG handle: {}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">),</span>
               <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
         <span class="k">return</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">handle</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_redraw_svg_element</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_redraw_svg_element</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="nb">id</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">_on_leave</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span><span class="p">:</span>
-    <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">Restores the device SVG to its original state (i.e., simply reloads</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    the device</span><span class="s2">&#39;</span><span class="s2">s SVG).</span><span class="s2">
-</span><span class="s2"></span><span class="s2">
-</span><span class="s2"></span><span class="s2">    @param widget The widget that fired this signal, as Gtk.Widget</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    @param event The Gdk.EventCrossing that triggered this signal.</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    </span><span class="s2">&#34;&#34;&#34;</span>
+<span class="k">def</span> <span class="nf">_on_leave</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Restores the device SVG to its original state (i.e., simply reloads
+</span><span class="s2">    the device&#39;s SVG).
+</span><span class="s2">
+</span><span class="s2">    @param widget The widget that fired this signal, as Gtk.Widget
+</span><span class="s2">    @param event The Gdk.EventCrossing that triggered this signal.
+</span><span class="s2">    &#34;&#34;&#34;</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">handle</span> <span class="o">=</span> <span class="n">Rsvg</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">new_from_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="o">.</span><span class="n">svg_path</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">GLib</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">Cannot load SVG: {}. Restoring not possible</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span><span class="p">,</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Cannot load SVG: {}. Restoring not possible&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">),</span>
               <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
         <span class="k">return</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">handle</span>
-    <span class="n">ok</span><span class="p">,</span> <span class="n">svg_geom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_svg_sub_geometry</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_redraw_svg_element</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="n">ok</span><span class="p">,</span> <span class="n">svg_geom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_svg_sub_geometry</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="nb">id</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_redraw_svg_element</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="nb">id</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">_redraw_svg_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">)</span><span class="p">:</span>
-   <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">Helper method to redraw an element of the SVG image. Attempts to</span><span class="s2">
-</span><span class="s2"></span><span class="s2">   redraw only the element plus an offset, but will fall back to redrawing</span><span class="s2">
-</span><span class="s2"></span><span class="s2">   the complete SVG.</span><span class="s2">
-</span><span class="s2"></span><span class="s2">
-</span><span class="s2"></span><span class="s2">   @param svg_id The identifier of the SVG element to redraw.</span><span class="s2">
-</span><span class="s2"></span><span class="s2">   </span><span class="s2">&#34;&#34;&#34;</span>
+<span class="k">def</span> <span class="nf">_redraw_svg_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">):</span>
+   <span class="s2">&#34;&#34;&#34;Helper method to redraw an element of the SVG image. Attempts to
+</span><span class="s2">   redraw only the element plus an offset, but will fall back to redrawing
+</span><span class="s2">   the complete SVG.
+</span><span class="s2">
+</span><span class="s2">   @param svg_id The identifier of the SVG element to redraw.
+</span><span class="s2">   &#34;&#34;&#34;</span>
    <span class="n">ok</span><span class="p">,</span> <span class="n">svg_geom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_svg_sub_geometry</span><span class="p">(</span><span class="n">svg_id</span><span class="p">)</span>
    <span class="k">if</span> <span class="ow">not</span> <span class="n">ok</span><span class="p">:</span>
        <span class="n">svg_width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">width</span>
@@ -557,17 +614,25 @@ that:</p>
        <span class="bp">self</span><span class="o">.</span><span class="n">queue_draw_area</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">svg_width</span><span class="p">,</span> <span class="n">svg_height</span><span class="p">)</span>
    <span class="k">else</span><span class="p">:</span>
        <span class="bp">self</span><span class="o">.</span><span class="n">queue_draw_area</span><span class="p">(</span><span class="n">svg_geom</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span> <span class="n">svg_geom</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span>
-                            <span class="n">svg_geom</span><span class="o">.</span><span class="n">width</span> <span class="o">+</span> <span class="mi">20</span><span class="p">,</span> <span class="n">svg_geom</span><span class="o">.</span><span class="n">height</span> <span class="o">+</span> <span class="mi">20</span><span class="p">)</span>
-</code></pre></div><p>All that work has resulted in the following animation:</p>
-<!-- raw HTML omitted -->
+                            <span class="n">svg_geom</span><span class="o">.</span><span class="n">width</span> <span class="o">+</span> <span class="mi">20</span><span class="p">,</span> <span class="n">svg_geom</span><span class="o">.</span><span class="n">height</span> <span class="o">+</span> <span class="mi">20</span><span class="p">)</span></code></pre></div>
+<p>All that work has resulted in the following animation:</p>
+
+<video controls>
+  <source src="/img/blog/gsoc-part-4/mousemap-interactive.webm" type="video/webm">
+Your browser does not support the video tag.
+</video>
+
 <p>Pretty darn cool, if I say so myself!</p>
-<h2 id="importing-ratbagds-bindings">Importing ratbagd&rsquo;s bindings</h2>
-<p>ratbagd <a href="https://github.com/libratbag/ratbagd/pull/27">dropped</a> its Python bindings, because <!-- raw HTML omitted -->they were mostly
-boilerplate and 1:1 mapping of the DBus interface anyway<!-- raw HTML omitted -->. This was actually
+
+<h2 id="importing-ratbagd-s-bindings">Importing ratbagd&rsquo;s bindings</h2>
+
+<p>ratbagd <a href="https://github.com/libratbag/ratbagd/pull/27">dropped</a> its Python bindings, because <q>they were mostly
+boilerplate and 1:1 mapping of the DBus interface anyway</q>. This was actually
 good news for Piper, as we can now customize the bindings specifically to
 Piper&rsquo;s needs. I <a href="https://github.com/libratbag/piper/pull/8">imported</a> the removed bindings and <a href="https://github.com/libratbag/piper/pull/10">updated</a>
 them to reflect the current features of libratbag and ratbagd (for this,
 <a href="https://github.com/libratbag/ratbagd/issues/29">ratbagd</a> also had to be updated).</p>
+
 <p>In the process I GObject-ified the bindings so that they inherit from GObject.
 This allows us to emit GObject signals when we receive a signal over DBus and
 expose the DBus interfaces&rsquo; properties as GObject properties. The advantage of
@@ -575,13 +640,16 @@ this approach is that the Piper code can add signal handlers to these signals
 using <code>Ratbagd*.connect(&quot;&lt;signal&gt;&quot;, &lt;callback&gt;)</code> which are called when the
 signals are emitted, and watch for property changes  using
 <code>Ratbagd*.connect(&quot;notify::&lt;property&gt;&quot;, &lt;callback&gt;)</code>.</p>
-<h2 id="whats-next">What&rsquo;s next?</h2>
+
+<h2 id="what-s-next">What&rsquo;s next?</h2>
+
 <p>The next item on the schedule is to finish the MouseMap widget and reimplement
 Piper&rsquo;s main window following the mockups. According to the schedule, this
 window should have the same functionality as the current Piper. I now doubt this
 is a realistic goal, because so much has changed from the current design.
 However, considering that the MouseMap is almost done, I can definitely get a
 long way before this sprint is over!</p>
+
 <p>This blog post is part of a <a href="/series/google-summer-of-code/">series</a>. You can read the next part
 <a href="/blog/gsoc-part-5">here</a> or the previous part about
 designing and making the mockups <a href="/blog/gsoc-part-3">here</a>.</p>
@@ -678,7 +746,7 @@ designing and making the mockups <a href="/blog/gsoc-part-3">here</a>.</p>
     
   </nav>
 
-  <a href="/license">Copyright © 2016-2019 Jente Hidskes</a>
+  <a href="/license">Copyright © 2016-2020 Jente Hidskes</a>
 </footer>
 
 <link rel="stylesheet" type="text/css" href="/css/syntax.css"/>

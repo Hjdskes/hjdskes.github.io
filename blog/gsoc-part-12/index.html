@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="GSoC blog series on rewriting Piper"/>
-  <meta name="generator" content="Hugo 0.63.2" />
+  <meta name="generator" content="Hugo 0.55.6" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -59,59 +59,77 @@
   &nbsp;• 5 minute read&nbsp;• Last modified:
     <time datetime="Feb 18, 2019">Feb 18, 2019</time></div>
 
-<p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal"></p>
+
+
+<p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal" /></p>
+
 <p>Last week I shared the news that all large features had been implemented; all
 that was left were issues raised by GNOME contributors when my mentor demoed my
 progress over GUADEC. This week I&rsquo;ve just been chugging away on those issues;
 let me show you.</p>
+
 <h2 id="obvious-save-button-is-not-obvious">Obvious save button is.. not obvious?</h2>
+
 <p><a href="http://www.hadess.net/">Hadess</a>
 <a href="https://github.com/libratbag/piper/issues/69">noted</a> that the save button
 wasn&rsquo;t obvious when my mentor demoed Piper to him; I already mentioned this last
-week: the icon is a <!-- raw HTML omitted -->save to disk<!-- raw HTML omitted --> icon and it&rsquo;s not obvious at first
+week: the icon is a <q>save to disk</q> icon and it&rsquo;s not obvious at first
 glance that you have to press it to write the changes you made to the device. I
 discussed that we want to go for a time-based commit, where the changes are
 committed to the device automatically after certain events (e.g. switching stack
 pages) or after a certain interval of inactivity. Since that will require more
 work and is thus something for a later version, I went with the other options to
 at least solve the problem for now:</p>
-<!-- raw HTML omitted -->
+
+<video controls>
+  <source src="/img/blog/gsoc-part-12/commit.webm" type="video/webm">
+Your browser does not support the video tag.
+</video>
+
 <p>As you can see, the icon has been replaced with text and the button is now
 insensitive when there are no changes to be committed. When there are, the
 button is sensitive and the <code>suggested-action</code> CSS class is applied to the
 button, in order to draw the user&rsquo;s attention that something needs to be
 committed. You can view the pull request
 <a href="https://github.com/libratbag/piper/pull/101">here</a>.</p>
+
 <h2 id="shutdown-confirmation">Shutdown confirmation</h2>
+
 <p>Related to the above (and unsurprisingly also suggested by hadess) is asking for
 confirmation when the user attempts to close Piper with unsaved changes:</p>
-<!-- raw HTML omitted -->
+
+<video controls>
+  <source src="/img/blog/gsoc-part-12/shutdown.webm" type="video/webm">
+Your browser does not support the video tag.
+</video>
+
 <p>This shows the versatility of the perspective abstraction; all it takes is
 adding a single new property to each perspective:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">can_shutdown</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="p">:</span>
-    <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">Whether this perspective can safely shutdown.</span><span class="s2">&#34;&#34;&#34;</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">can_shutdown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Whether this perspective can safely shutdown.&#34;&#34;&#34;</span>
     <span class="k">for</span> <span class="n">profile</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="o">.</span><span class="n">profiles</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">profile</span><span class="o">.</span><span class="n">dirty</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">False</span>
-    <span class="k">return</span> <span class="bp">True</span>
-</code></pre></div><p>This property signals whether a perspective can safely shutdown. On a <a href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Widget.html#Gtk.Widget.signals.delete_event">delete
+    <span class="k">return</span> <span class="bp">True</span></code></pre></div>
+<p>This property signals whether a perspective can safely shutdown. On a <a href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Widget.html#Gtk.Widget.signals.delete_event">delete
 event</a>,
 the window checks all its perspectives&rsquo; properties and if one perspective
 signals that it cannot safely shutdown, it presents the dialog:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_delete_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">perspective</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stack_perspectives</span><span class="o">.</span><span class="n">get_children</span><span class="p">(</span><span class="p">)</span><span class="p">:</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_delete_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">perspective</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stack_perspectives</span><span class="o">.</span><span class="n">get_children</span><span class="p">():</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">perspective</span><span class="o">.</span><span class="n">can_shutdown</span><span class="p">:</span>
             <span class="n">dialog</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">MessageDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">DialogFlags</span><span class="o">.</span><span class="n">MODAL</span><span class="p">,</span>
                                        <span class="n">Gtk</span><span class="o">.</span><span class="n">MessageType</span><span class="o">.</span><span class="n">QUESTION</span><span class="p">,</span>
                                        <span class="n">Gtk</span><span class="o">.</span><span class="n">ButtonsType</span><span class="o">.</span><span class="n">YES_NO</span><span class="p">,</span>
-                                       <span class="n">_</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">There are unapplied changes. Are you sure you want to quit?</span><span class="s2">&#34;</span><span class="p">)</span><span class="p">)</span>
-            <span class="n">response</span> <span class="o">=</span> <span class="n">dialog</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="p">)</span>
-            <span class="n">dialog</span><span class="o">.</span><span class="n">destroy</span><span class="p">(</span><span class="p">)</span>
+                                       <span class="n">_</span><span class="p">(</span><span class="s2">&#34;There are unapplied changes. Are you sure you want to quit?&#34;</span><span class="p">))</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">dialog</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+            <span class="n">dialog</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
 
             <span class="k">if</span> <span class="n">response</span> <span class="o">==</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">ResponseType</span><span class="o">.</span><span class="n">NO</span> <span class="ow">or</span> <span class="n">response</span> <span class="o">==</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">ResponseType</span><span class="o">.</span><span class="n">DELETE_EVENT</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">Gdk</span><span class="o">.</span><span class="n">EVENT_STOP</span>
-    <span class="k">return</span> <span class="n">Gdk</span><span class="o">.</span><span class="n">EVENT_PROPAGATE</span>
-</code></pre></div><h2 id="device-disconnects">Device (dis)connects</h2>
+    <span class="k">return</span> <span class="n">Gdk</span><span class="o">.</span><span class="n">EVENT_PROPAGATE</span></code></pre></div>
+<h2 id="device-dis-connects">Device (dis)connects</h2>
+
 <p>This was the last unimplemented feature that my mentor and I agreed Piper had to
 have when we came up with the GSoC proposal. I saved it for last because it&rsquo;s
 quite a niche case to own (let alone use simultaneously) two devices, but it had
@@ -127,7 +145,9 @@ and <a href="https://github.com/libratbag/piper/pull/97/commits/062f881951b68122
 dots</a>.
 For the last step, it was a bit of puzzling to figure out all the scenarios but
 I believe I&rsquo;ve got them all:</p>
+
 <p>When a device is added and there:</p>
+
 <ul>
 <li>is no device connected currently → immediately configure the connected device</li>
 <li>are devices currently connected and we are in the welcome perspective → add
@@ -135,7 +155,9 @@ the new device to the list</li>
 <li>is (are) device(s) currently connected and we are the in mouse perspective →
 make the back button visible (see below)</li>
 </ul>
+
 <p>When a device is removed and:</p>
+
 <ul>
 <li>the removed device is the one currently being edited → error perspective</li>
 <li>there is (are) device(s) currently connected and we are in the welcome
@@ -144,59 +166,73 @@ error perspective</li>
 <li>there are devices currently connected and we are configuring another device in
 the mouse perspective → hide the back button if required</li>
 </ul>
+
 <p>Of course you can mix and match these, for example if you are configuring a
 device, disconnect it and then connect it again you&rsquo;ll jump straight back into
 editing it.</p>
+
 <h2 id="back-button">Back button</h2>
+
 <p>When multiple devices are connected, you might want to configure more than
 one as well. It is inconvenient to have to close and open Piper again, so for
 this scenario I have given perspectives the option to declare whether they want
 a back button to be shown, which will take the user back to the welcome
 perspective to switch between devices:</p>
-<!-- raw HTML omitted -->
+
+<video controls>
+  <source src="/img/blog/gsoc-part-12/back.webm" type="video/webm">
+Your browser does not support the video tag.
+</video>
+
 <p>Again we add another property to the perspectives interface:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@GObject.Property</span>
-<span class="k">def</span> <span class="nf">can_go_back</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="p">:</span>
-    <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">Whether this perspective wants a back button to be displayed in case</span><span class="s2">
-</span><span class="s2"></span><span class="s2">    there is more than one connected device.</span><span class="s2">&#34;&#34;&#34;</span>
-    <span class="k">return</span> <span class="bp">True</span>
-</code></pre></div><p>This allows the window class to insert a back button into the perspectives&rsquo;
+<span class="k">def</span> <span class="nf">can_go_back</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Whether this perspective wants a back button to be displayed in case
+</span><span class="s2">    there is more than one connected device.&#34;&#34;&#34;</span>
+    <span class="k">return</span> <span class="bp">True</span></code></pre></div>
+<p>This allows the window class to insert a back button into the perspectives&rsquo;
 titlebars and prevents all perspectives of having to add it themselves:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">_add_perspective</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">perspective</span><span class="p">,</span> <span class="n">ratbag</span><span class="p">)</span><span class="p">:</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">_add_perspective</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">perspective</span><span class="p">,</span> <span class="n">ratbag</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">stack_perspectives</span><span class="o">.</span><span class="n">add_named</span><span class="p">(</span><span class="n">perspective</span><span class="p">,</span> <span class="n">perspective</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">stack_titlebar</span><span class="o">.</span><span class="n">add_named</span><span class="p">(</span><span class="n">perspective</span><span class="o">.</span><span class="n">titlebar</span><span class="p">,</span> <span class="n">perspective</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">perspective</span><span class="o">.</span><span class="n">can_go_back</span><span class="p">:</span>
-        <span class="n">button_back</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Button</span><span class="o">.</span><span class="n">new_from_icon_name</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">go-previous-symbolic</span><span class="s2">&#34;</span><span class="p">,</span>
+        <span class="n">button_back</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Button</span><span class="o">.</span><span class="n">new_from_icon_name</span><span class="p">(</span><span class="s2">&#34;go-previous-symbolic&#34;</span><span class="p">,</span>
                                                     <span class="n">Gtk</span><span class="o">.</span><span class="n">IconSize</span><span class="o">.</span><span class="n">BUTTON</span><span class="p">)</span>
         <span class="n">button_back</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ratbag</span><span class="o">.</span><span class="n">devices</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="n">button_back</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">clicked</span><span class="s2">&#34;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">button</span><span class="p">,</span> <span class="n">ratbag</span><span class="p">:</span>
-                            <span class="bp">self</span><span class="o">.</span><span class="n">_present_welcome_perspective</span><span class="p">(</span><span class="n">ratbag</span><span class="o">.</span><span class="n">devices</span><span class="p">)</span><span class="p">,</span>
+        <span class="n">button_back</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&#34;clicked&#34;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">button</span><span class="p">,</span> <span class="n">ratbag</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">_present_welcome_perspective</span><span class="p">(</span><span class="n">ratbag</span><span class="o">.</span><span class="n">devices</span><span class="p">),</span>
                             <span class="n">ratbag</span><span class="p">)</span>
-        <span class="n">ratbag</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">notify::devices</span><span class="s2">&#34;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">ratbag</span><span class="p">,</span> <span class="n">pspec</span><span class="p">:</span>
-                       <span class="n">button_back</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ratbag</span><span class="o">.</span><span class="n">devices</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span><span class="p">)</span>
+        <span class="n">ratbag</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&#34;notify::devices&#34;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">ratbag</span><span class="p">,</span> <span class="n">pspec</span><span class="p">:</span>
+                       <span class="n">button_back</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ratbag</span><span class="o">.</span><span class="n">devices</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">))</span>
         <span class="n">perspective</span><span class="o">.</span><span class="n">titlebar</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">button_back</span><span class="p">)</span>
         <span class="c1"># Place the button first in the titlebar.</span>
-        <span class="n">perspective</span><span class="o">.</span><span class="n">titlebar</span><span class="o">.</span><span class="n">child_set_property</span><span class="p">(</span><span class="n">button_back</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;</span><span class="s2">position</span><span class="s2">&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</code></pre></div><p>That&rsquo;s a small amount of code for another large dose o&rsquo; polish!</p>
+        <span class="n">perspective</span><span class="o">.</span><span class="n">titlebar</span><span class="o">.</span><span class="n">child_set_property</span><span class="p">(</span><span class="n">button_back</span><span class="p">,</span> <span class="s2">&#34;position&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></code></pre></div>
+<p>That&rsquo;s a small amount of code for another large dose o&rsquo; polish!</p>
+
 <h2 id="other-smaller-changes">Other smaller changes</h2>
+
 <p>In making ratbagd use enums everywhere as opposed to strings for some
 properties, the <code>ResolutionsPage</code> was left behind and couldn&rsquo;t display which
 buttons were assigned special mappings that relate to resolutions. I
 <a href="https://github.com/libratbag/piper/pull/95">fixed</a> that this week; you can see
 it work again in the videos above.</p>
+
 <p>Last week I <a href="/blog/gsoc-part-11#GUADEC-issues">dropped indices from the UI</a>, but
 this left the resolution rows looking quite empty. The solution is to simply
 make them <a href="https://github.com/libratbag/piper/pull/94">less wide</a>, although this
 might change when we cannot fix the range of the resolution scale
 logarithmically or by simply limitting it, as discussed in the linked pull
 request and <a href="https://github.com/libratbag/piper/issues/68">this issue</a>.</p>
+
 <p>The last noteworthy change of this week is that the key capture for macros now
 also supports <a href="https://github.com/libratbag/piper/pull/106">key releases</a>, but
 this isn&rsquo;t merged yet. We decided to
 <a href="https://github.com/libratbag/piper/issues/62">drop</a> button capture for now, as
 this isn&rsquo;t (yet?) properly supported by libratbag.</p>
+
 <p>That&rsquo;s it for this week! The coming week will be more of the same: adding spit
 &lsquo;n polish where it is needed the most.</p>
+
 <p>This blog post is part of a <a href="/series/google-summer-of-code/">series</a>. You can read the next part about saving the
 planet <a href="/blog/gsoc-part-13">here</a> or the previous part about the welcome screen
 <a href="/blog/gsoc-part-11">here</a>.</p>
@@ -281,7 +317,7 @@ planet <a href="/blog/gsoc-part-13">here</a> or the previous part about the welc
     
   </nav>
 
-  <a href="/license">Copyright © 2016-2019 Jente Hidskes</a>
+  <a href="/license">Copyright © 2016-2020 Jente Hidskes</a>
 </footer>
 
 <link rel="stylesheet" type="text/css" href="/css/syntax.css"/>

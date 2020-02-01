@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>github on Jente Hidskes&#39; website</title>
@@ -6,7 +6,7 @@
     <description>Recent content in github on Jente Hidskes&#39; website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Copyright © 2016-2019 Jente Hidskes</copyright>
+    <copyright>Copyright © 2016-2020 Jente Hidskes</copyright>
     <lastBuildDate>Wed, 02 Jan 2019 11:47:43 +0100</lastBuildDate>
     
 	<atom:link href="https://www.hjdskes.nl/tags/github/index.xml" rel="self" type="application/rss+xml" />

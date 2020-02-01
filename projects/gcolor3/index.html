@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content=""/>
-  <meta name="generator" content="Hugo 0.63.2" />
+  <meta name="generator" content="Hugo 0.55.6" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -51,6 +51,8 @@
 
 <h1>Gcolor3: a color selection dialog written in GTK&#43; 3</h1>
 
+
+
 <div style="column-count: 3; column-gap: 20px;">
   
   <img src="/img/projects/gcolor3/picker.png" style="width: 100%; height: auto; display: none" data-action="zoom">
@@ -76,80 +78,113 @@
   
 </div>
 
+
 <p>Ever wanted to know the value of that color on your screen? Gcolor3
 enables you to pick the color from any pixel on your screen. It also
 offers a palette, so that you can easily mix and match a couple of
 colors together.</p>
+
 <p>When you have found the perfect combination of colors, naturally you
 want to save them. Gcolor3 allows you to conveniently save and
 retrieve colors.</p>
+
 <p><a href="https://gitlab.gnome.org/World/gcolor3">Gcolor3</a> is a color selection
 dialog written in <a href="http://www.gtk.org/">GTK+</a> 3. It is much alike
 <a href="http://gcolor2.sourceforge.net/">Gcolor2</a>, but uses the newer GTK+
 version and other modernisations to better integrate into your modern
 desktop.</p>
-<!-- raw HTML omitted -->
+
+<div  class="warning" >
+   Gcolor3 does not work on Wayland (see
+issue [#38](https://gitlab.gnome.org/World/gcolor3/issues/38)). 
+</div>
+
 <h2 id="installation">Installation</h2>
+
 <p>There are three ways to install Gcolor3: you can either compile it
 <a href="#compile-from-source">from source</a>, use a
 <a href="#distribution-packages">package</a> created for your Linux distribution,
 or use the <a href="#flatpak">Flatpak</a>.</p>
+
 <p>The most recent version of Gcolor3 is <a href="https://gitlab.gnome.org/World/gcolor3/tags/v2.3.1">version
 2.3.1</a>, which
 requires GTK+ 3.20. If your Linux distribution uses an older version,
 please see the <a href="https://gitlab.gnome.org/World/gcolor3/tags">older
 releases</a>.</p>
+
 <h3 id="flatpak">Flatpak</h3>
-<!-- raw HTML omitted -->
+
+<div class="flathub">
+  <a  title="Install Gcolor3 from Flathub" 
+    href="https://flathub.org/apps/details/nl.hjdskes.gcolor3">
+    <img src="https://www.hjdskes.nl/img/flathub.svg" alt="Download on Flathub" />
+  </a>
+</div>
+
 <p>To be able to install apps from Flathub you need to add the Flathub remote server:</p>
+
 <pre><code>$ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-</code></pre><p>Now you can install Gcolor3 with the following command:</p>
+</code></pre>
+
+<p>Now you can install Gcolor3 with the following command:</p>
+
 <pre><code>$ flatpak install flathub nl.hjdskes.gcolor3
-</code></pre><p>To run Gcolor3, use:</p>
+</code></pre>
+
+<p>To run Gcolor3, use:</p>
+
 <pre><code>$ flatpak run nl.hjdskes.gcolor3
-</code></pre><h3 id="distribution-packages">Distribution packages</h3>
+</code></pre>
+
+<h3 id="distribution-packages">Distribution packages</h3>
+
 <p>Gcolor3 is packaged for some Linux distributions:</p>
+
 <ul>
-<li>
-<p><strong>Arch Linux:</strong> Gcolor3 is packaged in <code>[community]</code>. There is an AUR package
-for the <a href="https://aur.archlinux.org/packages/gcolor3-git/">git version</a>.</p>
-</li>
-<li>
-<p><strong>Fedora:</strong> There is a <a href="https://copr.fedorainfracloud.org/coprs/fnux/gcolor3/">copr
+<li><p><strong>Arch Linux:</strong> Gcolor3 is packaged in <code>[community]</code>. There is an AUR package
+for the <a href="https://aur.archlinux.org/packages/gcolor3-git/">git version</a>.</p></li>
+
+<li><p><strong>Fedora:</strong> There is a <a href="https://copr.fedorainfracloud.org/coprs/fnux/gcolor3/">copr
 repository</a>
-to install Gcolor3. Please see the instructions there.</p>
-</li>
-<li>
-<p><strong>openSUSE:</strong> There is an <a href="https://build.opensuse.org/package/show/home:sogal/gcolor3">openSUSE
+to install Gcolor3. Please see the instructions there.</p></li>
+
+<li><p><strong>openSUSE:</strong> There is an <a href="https://build.opensuse.org/package/show/home:sogal/gcolor3">openSUSE
 package</a>
-available.</p>
-</li>
-<li>
-<p><strong>Ubuntu:</strong> There is a
+available.</p></li>
+
+<li><p><strong>Ubuntu:</strong> There is a
 <a href="https://launchpad.net/~evertiro/+archive/ubuntu/gcolor3">PPA</a>
-available.</p>
-</li>
+available.</p></li>
 </ul>
+
 <h3 id="compile-from-source">Compile from source</h3>
+
 <p>To compile Gcolor3, you need the GTK+ 3 development packages and your
 Linux distribution&rsquo;s package containing the tools to compile packages.</p>
+
 <p>You can download the tarball from the <a href="https://gitlab.gnome.org/World/gcolor3/tags/v2.3.1">current stable
 release</a>, or pull
 the latest changes from <a href="https://gitlab.gnome.org/World/gcolor3">git</a>.</p>
+
 <p>When the build- and runtime dependencies of Gcolor3 have been
 installed, run the following commands to build and install Gcolor3:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ meson build
 $ ninja -C build
-<span class="c1"># ninja -C build install</span>
-</code></pre></div><p>Optionally, the development packages can now be uninstalled.</p>
+<span class="c1"># ninja -C build install</span></code></pre></div>
+<p>Optionally, the development packages can now be uninstalled.</p>
+
 <h2 id="bugs">Bugs</h2>
+
 <p>For any bug or feature request, please <a href="https://gitlab.gnome.org/World/gcolor3/issues/new?issue%5Bassignee_id%5D=&amp;issue%5Bmilestone_id%5D=">create an
 issue</a>
 on GitLab.</p>
+
 <h2 id="license">License</h2>
+
 <p>Please see
 <a href="https://gitlab.gnome.org/World/gcolor3/blob/master/LICENSE">LICENSE</a> on
 <a href="https://gitlab.gnome.org/World/gcolor3">GNOME GitLab</a>.</p>
+
 <p>Copyright © 2013-2018 Jente Hidskes
 <a href="mailto:dev@hjdskes.nl">dev@hjdskes.nl</a>.</p>
 
@@ -191,7 +226,7 @@ on GitLab.</p>
     
   </nav>
 
-  <a href="/license">Copyright © 2016-2019 Jente Hidskes</a>
+  <a href="/license">Copyright © 2016-2020 Jente Hidskes</a>
 </footer>
 
 <link rel="stylesheet" type="text/css" href="/css/syntax.css"/>
