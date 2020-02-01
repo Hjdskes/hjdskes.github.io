@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="GSoC blog series on rewriting Piper"/>
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.63.2" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -56,68 +56,52 @@
   
   
   Posted: <time datetime="Jun 30, 2017">Jun 30, 2017</time>
-  &nbsp;• 9 minute read&nbsp;• Last modified:
+  &nbsp;• 8 minute read&nbsp;• Last modified:
     <time datetime="Feb 18, 2019">Feb 18, 2019</time></div>
 
-
-
-<p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal" /></p>
-
+<p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal"></p>
 <p>This week Piper saw some progress again! Today I opened the <a href="https://github.com/libratbag/piper/pull/20">pull request</a>
 for the MouseMap that I&rsquo;ve been working on for the past two and a half weeks
 now. I&rsquo;ll discuss the changes made since the last blog <a href="/blog/gsoc-part-6#mousemap">later</a>; first,
 I want to highlight the other work I did the past week.</p>
-
 <p>A major milestone this week is the <a href="https://github.com/libratbag/libratbag/pull/184">merging</a> of ratbagd and libratbag.
 While Piper shouldn&rsquo;t notice any of this (it talks to ratbagd over DBus), it&rsquo;s
 still a highlight I want to mention. I also passed for the first evaluation, so
-I can keep working &#9786;.</p>
-
+I can keep working ☺.</p>
 <h2 id="ratbagd-led-api">Ratbagd LED API</h2>
-
 <p>libratbag has supported configuring LEDs for a while now, but this hadn&rsquo;t been
 implemented in ratbagd yet. Piper will need the implementation in ratbagd in
 order to expose the settings to the user, so last week I sat down to add the
 missing code in ratbagd. You can see the resulting PR <a href="https://github.com/libratbag/ratbagd/pull/35">here</a>.</p>
-
-<p>Since Piper now manages its own ratbagd <q>bindings</q> (they really are just
+<p>Since Piper now manages its own ratbagd <!-- raw HTML omitted -->bindings<!-- raw HTML omitted --> (they really are just
 DBus wrappers), I added support for the newly exposed DBus interface straight
 away. This was merged <a href="https://github.com/libratbag/piper/pull/17">today</a>.</p>
-
-<h2 id="minimum-and-maximum-resolution-in-piper-s-ratbagd-bindings">Minimum and maximum resolution in Piper&rsquo;s ratbagd bindings</h2>
-
+<h2 id="minimum-and-maximum-resolution-in-pipers-ratbagd-bindings">Minimum and maximum resolution in Piper&rsquo;s ratbagd bindings</h2>
 <p>Last week, my mentor exposed a device&rsquo;s minimum and maximum resolution through
 libratbag and ratbagd. Today I quickly <a href="https://github.com/libratbag/piper/pull/21">implemented</a> this in Piper&rsquo;s
 ratbagd bindings, as well.</p>
-
 <h2 id="adhering-to-pep8-in-piper">Adhering to PEP8 in Piper</h2>
-
 <p>Adhering to a certain style is good. It makes your code consistent, which helps
 when reading it. Since code is read more often than it is written, this is a
 good thing.</p>
-
 <p>The most used convention in Python is <a href="https://www.python.org/dev/peps/pep-0008/#introduction">PEP8</a>. From this week forward,
 Piper <a href="https://github.com/libratbag/piper/pull/18">adheres</a> to PEP8. We&rsquo;re using <a href="http://flake8.pycqa.org/en/latest/">flake8</a> to check this.
 Personally I use flake8&rsquo;s <a href="http://flake8.pycqa.org/en/latest/user/using-hooks.html">Git hook</a>, but we now also have a
 <a href="https://github.com/libratbag/piper/pull/22">CircleCI build</a> running for every PR to run flake8. In the future,
 this will probably also be used to run unit tests.</p>
-
 <h2 id="adding-the-finishing-touches-to-the-mousemap">Adding the finishing touches to the MouseMap</h2>
-
 <p>The most obvious change is that the MouseMap now also works with left-aligned
 children:</p>
-
-<p><img src="/img/blog/gsoc-part-6/mousemap-left-aligned.png" alt="Left-aligned children" /></p>
-
+<p><img src="/img/blog/gsoc-part-6/mousemap-left-aligned.png" alt="Left-aligned children"></p>
 <p>Detecting where a widget should be aligned is rather straightforward, but it
 took a while to get to where we are now. At first, the leaders ended with a
-1&#215;1 pixel whose x-coordinate I queried. Coordinates with a value of zero
+1×1 pixel whose x-coordinate I queried. Coordinates with a value of zero
 would be left aligned, and others right aligned. My mentor rightfully thought
 that this wasn&rsquo;t a nice approach, because there is no meaning to this random
 value. He suggested I talk with bentiss (Benjamin), who also had to lay out
 buttons around an SVG for GNOME&rsquo;s settings daemon. Benjamin suggested that we
 add back labels into the SVG, who would be right-aligned on the left side and
-left-aligned on the right side (savvy? &#128521;). This worked, but 1) it
+left-aligned on the right side (savvy? 😉). This worked, but 1) it
 required that the drawn widgets are large enough to completely cover the labels
 and 2) it messed up the calculation of the width, as there was no way to
 determine how much the widget would overlap on the SVG. The solution here was to
@@ -126,148 +110,147 @@ there were no labels left whose coordinates to check&hellip; Of course, we could
 parse those ahead of time and remember all the coordinates, but we don&rsquo;t have
 the element identifiers until the widgets are added to the container and by this
 time the handle is already instantiated.</p>
-
 <p>So, after a quick discussion, we settled somewhere in the middle of both
-approaches. We again have all leaders end with a 1&#215;1 pixel, but we don&rsquo;t
+approaches. We again have all leaders end with a 1×1 pixel, but we don&rsquo;t
 check these pixels&rsquo; x-coordinates. Instead, they have a style attribute that we
 query for (at the moment, this is the <code>text-align</code> attribute, but this may
 change in the future). The code now looks like this:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">):</span>
-    <span class="s2">&#34;&#34;&#34;Not implemented, use `add(widget, svg_id)` instead.&#34;&#34;&#34;</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">)</span><span class="p">:</span>
+    <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">Not implemented, use `add(widget, svg_id)` instead.</span><span class="s2">&#34;&#34;&#34;</span>
     <span class="k">pass</span>
 
-<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">):</span>
-    <span class="s2">&#34;&#34;&#34;Adds the given widget to the map, bound to the given SVG element
-</span><span class="s2">    identifier. If the element identifier or its leader is not found in the
-</span><span class="s2">    SVG, the widget is not added.
-</span><span class="s2">
-</span><span class="s2">    @param widget The widget to add, as Gtk.Widget
-</span><span class="s2">    @param svg_id The identifier of the SVG element with which this widget
-</span><span class="s2">                  is to be paired, as str
-</span><span class="s2">    &#34;&#34;&#34;</span>
-    <span class="n">svg_leader</span> <span class="o">=</span> <span class="n">svg_id</span> <span class="o">+</span> <span class="s2">&#34;-leader&#34;</span>
+<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">)</span><span class="p">:</span>
+    <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">Adds the given widget to the map, bound to the given SVG element</span><span class="s2">
+</span><span class="s2"></span><span class="s2">    identifier. If the element identifier or its leader is not found in the</span><span class="s2">
+</span><span class="s2"></span><span class="s2">    SVG, the widget is not added.</span><span class="s2">
+</span><span class="s2"></span><span class="s2">
+</span><span class="s2"></span><span class="s2">    @param widget The widget to add, as Gtk.Widget</span><span class="s2">
+</span><span class="s2"></span><span class="s2">    @param svg_id The identifier of the SVG element with which this widget</span><span class="s2">
+</span><span class="s2"></span><span class="s2">                  is to be paired, as str</span><span class="s2">
+</span><span class="s2"></span><span class="s2">    </span><span class="s2">&#34;&#34;&#34;</span>
+    <span class="n">svg_leader</span> <span class="o">=</span> <span class="n">svg_id</span> <span class="o">+</span> <span class="sa"></span><span class="s2">&#34;</span><span class="s2">-leader</span><span class="s2">&#34;</span>
     <span class="k">if</span> <span class="n">widget</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">svg_id</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="ow">not</span> \
         <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">has_sub</span><span class="p">(</span><span class="n">svg_id</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> \
-            <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">has_sub</span><span class="p">(</span><span class="n">svg_leader</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">has_sub</span><span class="p">(</span><span class="n">svg_leader</span><span class="p">)</span><span class="p">:</span>
         <span class="k">return</span>
 
-    <span class="n">is_left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xpath_has_style</span><span class="p">(</span><span class="n">svg_leader</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="s2">&#34;text-align:end&#34;</span><span class="p">)</span>
+    <span class="n">is_left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xpath_has_style</span><span class="p">(</span><span class="n">svg_leader</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="p">]</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;</span><span class="s2">text-align:end</span><span class="s2">&#34;</span><span class="p">)</span>
     <span class="n">child</span> <span class="o">=</span> <span class="n">_MouseMapChild</span><span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">is_left</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
-    <span class="n">widget</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&#34;enter-notify-event&#34;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_enter</span><span class="p">,</span> <span class="n">child</span><span class="p">)</span>
-    <span class="n">widget</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&#34;leave-notify-event&#34;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_leave</span><span class="p">)</span>
-    <span class="n">widget</span><span class="o">.</span><span class="n">set_parent</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code></pre></div>
-<p>As you can see, we use <a href="https://www.w3schools.com/xml/xpath_intro.asp">XPath</a> to query the XML tree for style
+    <span class="n">widget</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">enter-notify-event</span><span class="s2">&#34;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_enter</span><span class="p">,</span> <span class="n">child</span><span class="p">)</span>
+    <span class="n">widget</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">leave-notify-event</span><span class="s2">&#34;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_leave</span><span class="p">)</span>
+    <span class="n">widget</span><span class="o">.</span><span class="n">set_parent</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</code></pre></div><p>As you can see, we use <a href="https://www.w3schools.com/xml/xpath_intro.asp">XPath</a> to query the XML tree for style
 attributes. It&rsquo;s implemented like this:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">_xpath_has_style</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">,</span> <span class="n">style</span><span class="p">):</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">_xpath_has_style</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">,</span> <span class="n">style</span><span class="p">)</span><span class="p">:</span>
     <span class="c1"># Checks if the SVG element with the given identifier has the given</span>
     <span class="c1"># style attribute set.</span>
     <span class="n">namespaces</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;sodipodi&#39;</span><span class="p">:</span> <span class="s1">&#39;http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;cc&#39;</span><span class="p">:</span> <span class="s1">&#39;http://web.resource.org/cc/&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;svg&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.w3.org/2000/svg&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;dc&#39;</span><span class="p">:</span> <span class="s1">&#39;http://purl.org/dc/elements/1.1/&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;xlink&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.w3.org/1999/xlink&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;rdf&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.w3.org/1999/02/22-rdf-syntax-ns#&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;inkscape&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.inkscape.org/namespaces/inkscape&#39;</span>
+        <span class="sa"></span><span class="s1">&#39;</span><span class="s1">sodipodi</span><span class="s1">&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="sa"></span><span class="s1">&#39;</span><span class="s1">cc</span><span class="s1">&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">http://web.resource.org/cc/</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="sa"></span><span class="s1">&#39;</span><span class="s1">svg</span><span class="s1">&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">http://www.w3.org/2000/svg</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="sa"></span><span class="s1">&#39;</span><span class="s1">dc</span><span class="s1">&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">http://purl.org/dc/elements/1.1/</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="sa"></span><span class="s1">&#39;</span><span class="s1">xlink</span><span class="s1">&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">http://www.w3.org/1999/xlink</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="sa"></span><span class="s1">&#39;</span><span class="s1">rdf</span><span class="s1">&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">http://www.w3.org/1999/02/22-rdf-syntax-ns#</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="sa"></span><span class="s1">&#39;</span><span class="s1">inkscape</span><span class="s1">&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">http://www.inkscape.org/namespaces/inkscape</span><span class="s1">&#39;</span>
     <span class="p">}</span>
-    <span class="n">query</span> <span class="o">=</span> <span class="s2">&#34;//svg:rect[@id=</span><span class="se">\&#34;</span><span class="s2">{}</span><span class="se">\&#34;</span><span class="s2">][contains(@style, </span><span class="se">\&#34;</span><span class="s2">{}</span><span class="se">\&#34;</span><span class="s2">)]&#34;</span><span class="o">.</span>\
+    <span class="n">query</span> <span class="o">=</span> <span class="sa"></span><span class="s2">&#34;</span><span class="s2">//svg:rect[@id=</span><span class="se">\&#34;</span><span class="s2">{}</span><span class="se">\&#34;</span><span class="s2">][contains(@style, </span><span class="se">\&#34;</span><span class="s2">{}</span><span class="se">\&#34;</span><span class="s2">)]</span><span class="s2">&#34;</span><span class="o">.</span>\
             <span class="n">format</span><span class="p">(</span><span class="n">svg_id</span><span class="p">,</span> <span class="n">style</span><span class="p">)</span>
     <span class="n">element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_svg_data</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">namespaces</span><span class="o">=</span><span class="n">namespaces</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">element</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">element</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span></code></pre></div>
-<p>The attentive reader may have noticed the <code>_MouseMapChild</code> class. This is an
+    <span class="k">return</span> <span class="n">element</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">element</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+</code></pre></div><p>The attentive reader may have noticed the <code>_MouseMapChild</code> class. This is an
 implementation detail (hence it is private) to capture all data related to
 children:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">_MouseMapChild</span><span class="p">:</span>
     <span class="c1"># A helper class to manage children and their properties.</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">,</span> <span class="n">is_left</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">,</span> <span class="n">is_left</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">)</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_widget</span> <span class="o">=</span> <span class="n">widget</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_is_left</span> <span class="o">=</span> <span class="n">is_left</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_svg_id</span> <span class="o">=</span> <span class="n">svg_id</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_svg_leader</span> <span class="o">=</span> <span class="n">svg_id</span> <span class="o">+</span> <span class="s2">&#34;-leader&#34;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_svg_leader</span> <span class="o">=</span> <span class="n">svg_id</span> <span class="o">+</span> <span class="sa"></span><span class="s2">&#34;</span><span class="s2">-leader</span><span class="s2">&#34;</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">widget</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">widget</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="p">:</span>
         <span class="c1"># The widget belonging to this child.</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_widget</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">svg_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">svg_id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="p">:</span>
         <span class="c1"># The identifier of the SVG element with which this child&#39;s widget is</span>
         <span class="c1"># paired.</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_svg_id</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">svg_leader</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">svg_leader</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="p">:</span>
         <span class="c1"># The identifier of the leader SVG element with which this child&#39;s</span>
         <span class="c1"># widget is paired.</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_svg_leader</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">is_left</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">is_left</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="p">:</span>
         <span class="c1"># True iff this child&#39;s widget is allocated to the left of the SVG.</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_left</span></code></pre></div>
-<p>To calculate the preferred width with left and right aligned children, we simply
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_left</span>
+</code></pre></div><p>To calculate the preferred width with left and right aligned children, we simply
 iterate over the children and take for each side the maximum width:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_get_preferred_width</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="s2">&#34;&#34;&#34;Calculates the container&#39;s initial minimum and natural width. While
-</span><span class="s2">    this call is specific to height-for-width requests (that we requested
-</span><span class="s2">    not to get) we cannot be certain that our wishes are granted and hence
-</span><span class="s2">    we must implement this method as well. We return the sum of the SVG&#39;s
-</span><span class="s2">    width, the natural child widths (left and right), spacing and border
-</span><span class="s2">    width.
-</span><span class="s2">    &#34;&#34;&#34;</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_get_preferred_width</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="p">:</span>
+    <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">Calculates the container</span><span class="s2">&#39;</span><span class="s2">s initial minimum and natural width. While</span><span class="s2">
+</span><span class="s2"></span><span class="s2">    this call is specific to height-for-width requests (that we requested</span><span class="s2">
+</span><span class="s2"></span><span class="s2">    not to get) we cannot be certain that our wishes are granted and hence</span><span class="s2">
+</span><span class="s2"></span><span class="s2">    we must implement this method as well. We return the sum of the SVG</span><span class="s2">&#39;</span><span class="s2">s</span><span class="s2">
+</span><span class="s2"></span><span class="s2">    width, the natural child widths (left and right), spacing and border</span><span class="s2">
+</span><span class="s2"></span><span class="s2">    width.</span><span class="s2">
+</span><span class="s2"></span><span class="s2">    </span><span class="s2">&#34;&#34;&#34;</span>
     <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">border_width</span>
     <span class="n">width_svg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">width</span>
-    <span class="n">width_left</span> <span class="o">=</span> <span class="nb">max</span><span class="p">((</span><span class="n">child</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">get_preferred_width</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span>
-                      <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span> <span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">is_left</span><span class="p">),</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">width_right</span> <span class="o">=</span> <span class="nb">max</span><span class="p">((</span><span class="n">child</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">get_preferred_width</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span>
-                      <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">child</span><span class="o">.</span><span class="n">is_left</span><span class="p">),</span>
+    <span class="n">width_left</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">get_preferred_width</span><span class="p">(</span><span class="p">)</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span>
+                      <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span> <span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">is_left</span><span class="p">)</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">width_right</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">get_preferred_width</span><span class="p">(</span><span class="p">)</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span>
+                      <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">child</span><span class="o">.</span><span class="n">is_left</span><span class="p">)</span><span class="p">,</span>
                       <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">width</span> <span class="o">+=</span> <span class="n">width_left</span> <span class="o">+</span> <span class="n">width_svg</span> <span class="o">+</span> <span class="n">width_right</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">spacing</span>
+    <span class="n">width</span> <span class="o">+</span><span class="o">=</span> <span class="n">width_left</span> <span class="o">+</span> <span class="n">width_svg</span> <span class="o">+</span> <span class="n">width_right</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">spacing</span>
     <span class="k">if</span> <span class="n">width_left</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">width</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spacing</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span></code></pre></div>
-<p>Because we cannot reliably calculate whether children are positioned above or
+        <span class="n">width</span> <span class="o">+</span><span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spacing</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>
+</code></pre></div><p>Because we cannot reliably calculate whether children are positioned above or
 below the SVG (the SVG elements may have arbitrary coordinates), we simply
 assume that the SVG is tall enough to fit all children (which works because we
 have control over the SVGs):</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_get_preferred_height</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="s2">&#34;&#34;&#34;Calculates the container&#39;s initial minimum and natural height. While
-</span><span class="s2">    this call is specific to width-for-height requests (that we requested
-</span><span class="s2">    not to get) we cannot be certain that our wishes are granted and hence
-</span><span class="s2">    we must implement this method as well. We just return the SVG&#39;s height
-</span><span class="s2">    plus the border widths.
-</span><span class="s2">    &#34;&#34;&#34;</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_get_preferred_height</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="p">:</span>
+    <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">Calculates the container</span><span class="s2">&#39;</span><span class="s2">s initial minimum and natural height. While</span><span class="s2">
+</span><span class="s2"></span><span class="s2">    this call is specific to width-for-height requests (that we requested</span><span class="s2">
+</span><span class="s2"></span><span class="s2">    not to get) we cannot be certain that our wishes are granted and hence</span><span class="s2">
+</span><span class="s2"></span><span class="s2">    we must implement this method as well. We just return the SVG</span><span class="s2">&#39;</span><span class="s2">s height</span><span class="s2">
+</span><span class="s2"></span><span class="s2">    plus the border widths.</span><span class="s2">
+</span><span class="s2"></span><span class="s2">    </span><span class="s2">&#34;&#34;&#34;</span>
     <span class="c1"># TODO: account for children sticking out under or above the SVG, if</span>
     <span class="c1"># they exist. At the moment we cannot reliably do so because the</span>
     <span class="c1"># y-coordinates of the leaders can have any arbitrary value. For now,</span>
     <span class="c1"># we assume that the SVG is high enough to fit all children and do not</span>
     <span class="c1"># worry about setups beyond the default GNOME Adwaita.</span>
     <span class="n">height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">height</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">border_width</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span></code></pre></div>
-<p>Finally, the coordinate system is now centric to the SVG with its origin to the
+    <span class="k">return</span> <span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+</code></pre></div><p>Finally, the coordinate system is now centric to the SVG with its origin to the
 top left of the SVG such that the MouseMap will be drawn in the center of its
 allocated width (this also shows how the highlighting is now done using masks,
 as discussed in the previous blog entry):</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_size_allocate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">allocation</span><span class="p">):</span>
-    <span class="s2">&#34;&#34;&#34;Assigns a size and position to the child widgets. Children may
-</span><span class="s2">    adjust the given allocation in their adjust_size_allocation virtual
-</span><span class="s2">    method implementation.
-</span><span class="s2">
-</span><span class="s2">    @param allocation The position and size allocated to this container, as
-</span><span class="s2">                      Gdk.Rectangle
-</span><span class="s2">    &#34;&#34;&#34;</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_size_allocate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">allocation</span><span class="p">)</span><span class="p">:</span>
+    <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">Assigns a size and position to the child widgets. Children may</span><span class="s2">
+</span><span class="s2"></span><span class="s2">    adjust the given allocation in their adjust_size_allocation virtual</span><span class="s2">
+</span><span class="s2"></span><span class="s2">    method implementation.</span><span class="s2">
+</span><span class="s2"></span><span class="s2">
+</span><span class="s2"></span><span class="s2">    @param allocation The position and size allocated to this container, as</span><span class="s2">
+</span><span class="s2"></span><span class="s2">                      Gdk.Rectangle</span><span class="s2">
+</span><span class="s2"></span><span class="s2">    </span><span class="s2">&#34;&#34;&#34;</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">set_allocation</span><span class="p">(</span><span class="n">allocation</span><span class="p">)</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_translate_to_origin</span><span class="p">()</span>
-    <span class="n">child_allocation</span> <span class="o">=</span> <span class="n">Gdk</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">()</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_translate_to_origin</span><span class="p">(</span><span class="p">)</span>
+    <span class="n">child_allocation</span> <span class="o">=</span> <span class="n">Gdk</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">:</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">child</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">get_visible</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">child</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">get_visible</span><span class="p">(</span><span class="p">)</span><span class="p">:</span>
             <span class="k">continue</span>
-        <span class="n">svg_geom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_svg_sub_geometry</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">svg_leader</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">nat_size</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">get_preferred_size</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">svg_geom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_svg_sub_geometry</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">svg_leader</span><span class="p">)</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">nat_size</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">get_preferred_size</span><span class="p">(</span><span class="p">)</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">is_left</span><span class="p">:</span>
             <span class="n">child_allocation</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">svg_geom</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">spacing</span> <span class="o">-</span> <span class="n">nat_size</span><span class="o">.</span><span class="n">width</span>
         <span class="k">else</span><span class="p">:</span>
@@ -275,54 +258,54 @@ as discussed in the previous blog entry):</p>
         <span class="n">child_allocation</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">svg_geom</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">svg_geom</span><span class="o">.</span><span class="n">height</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">nat_size</span><span class="o">.</span><span class="n">height</span>
         <span class="n">child_allocation</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">nat_size</span><span class="o">.</span><span class="n">width</span>
         <span class="n">child_allocation</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">nat_size</span><span class="o">.</span><span class="n">height</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">child</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">get_has_window</span><span class="p">():</span>
-            <span class="n">child_allocation</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">allocation</span><span class="o">.</span><span class="n">x</span>
-            <span class="n">child_allocation</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">allocation</span><span class="o">.</span><span class="n">y</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">child</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">get_has_window</span><span class="p">(</span><span class="p">)</span><span class="p">:</span>
+            <span class="n">child_allocation</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span><span class="o">=</span> <span class="n">allocation</span><span class="o">.</span><span class="n">x</span>
+            <span class="n">child_allocation</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span><span class="o">=</span> <span class="n">allocation</span><span class="o">.</span><span class="n">y</span>
         <span class="n">child</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">size_allocate</span><span class="p">(</span><span class="n">child_allocation</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">do_draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cr</span><span class="p">):</span>
-    <span class="s2">&#34;&#34;&#34;Draws the container to the given Cairo context. The top left corner
-</span><span class="s2">    of the widget will be drawn to the currently set origin point of the
-</span><span class="s2">    context. The container needs to propagate the draw signal to its
-</span><span class="s2">    children.
-</span><span class="s2">
-</span><span class="s2">    @param cr The Cairo context to draw into, as cairo.Context
-</span><span class="s2">    &#34;&#34;&#34;</span>
-    <span class="n">cr</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_translate_to_origin</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">do_draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cr</span><span class="p">)</span><span class="p">:</span>
+    <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">Draws the container to the given Cairo context. The top left corner</span><span class="s2">
+</span><span class="s2"></span><span class="s2">    of the widget will be drawn to the currently set origin point of the</span><span class="s2">
+</span><span class="s2"></span><span class="s2">    context. The container needs to propagate the draw signal to its</span><span class="s2">
+</span><span class="s2"></span><span class="s2">    children.</span><span class="s2">
+</span><span class="s2"></span><span class="s2">
+</span><span class="s2"></span><span class="s2">    @param cr The Cairo context to draw into, as cairo.Context</span><span class="s2">
+</span><span class="s2"></span><span class="s2">    </span><span class="s2">&#34;&#34;&#34;</span>
+    <span class="n">cr</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_translate_to_origin</span><span class="p">(</span><span class="p">)</span>
     <span class="n">cr</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_draw_device</span><span class="p">(</span><span class="n">cr</span><span class="p">)</span>
-    <span class="n">cr</span><span class="o">.</span><span class="n">restore</span><span class="p">()</span>
+    <span class="n">cr</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">propagate_draw</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">widget</span><span class="p">,</span> <span class="n">cr</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">_translate_to_origin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">_translate_to_origin</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="p">:</span>
     <span class="c1"># Translates the coordinate system such that the SVG and its buttons</span>
     <span class="c1"># will be drawn in the center of the allocated space. The returned x-</span>
     <span class="c1"># and y-coordinates will be the top left corner of the centered SVG.</span>
-    <span class="n">allocation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_allocation</span><span class="p">()</span>
-    <span class="n">width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_preferred_width</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_preferred_height</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">allocation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_allocation</span><span class="p">(</span><span class="p">)</span>
+    <span class="n">width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_preferred_width</span><span class="p">(</span><span class="p">)</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_preferred_height</span><span class="p">(</span><span class="p">)</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
-    <span class="n">width_left</span> <span class="o">=</span> <span class="nb">max</span><span class="p">((</span><span class="n">child</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">get_preferred_width</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span>
-                      <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span> <span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">is_left</span><span class="p">),</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">width_left</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">get_preferred_width</span><span class="p">(</span><span class="p">)</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span>
+                      <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span> <span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">is_left</span><span class="p">)</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">width_left</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">width_left</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spacing</span>
+        <span class="n">width_left</span> <span class="o">+</span><span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spacing</span>
 
     <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">allocation</span><span class="o">.</span><span class="n">width</span> <span class="o">-</span> <span class="n">width</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">border_width</span> <span class="o">+</span> <span class="n">width_left</span>
     <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">allocation</span><span class="o">.</span><span class="n">height</span> <span class="o">-</span> <span class="n">height</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">border_width</span>
-    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">_draw_device</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cr</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">_draw_device</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cr</span><span class="p">)</span><span class="p">:</span>
     <span class="c1"># Draws the SVG into the Cairo context. If there is an element to be</span>
     <span class="c1"># highlighted, it will do as such in a separate surface which will be</span>
     <span class="c1"># used as a mask over the device surface.</span>
-    <span class="n">color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_style_context</span><span class="p">()</span><span class="o">.</span><span class="n">get_color</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">StateFlags</span><span class="o">.</span><span class="n">LINK</span><span class="p">)</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_style_context</span><span class="p">(</span><span class="p">)</span><span class="o">.</span><span class="n">get_color</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">StateFlags</span><span class="o">.</span><span class="n">LINK</span><span class="p">)</span>
     <span class="n">cr</span><span class="o">.</span><span class="n">set_source_rgba</span><span class="p">(</span><span class="n">color</span><span class="o">.</span><span class="n">red</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">green</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">blue</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 
-    <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">render_cairo_sub</span><span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&#34;#Device&#34;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">render_cairo_sub</span><span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">#Device</span><span class="s2">&#34;</span><span class="p">)</span>
     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_highlight_element</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="n">svg_surface</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">get_target</span><span class="p">()</span>
+        <span class="n">svg_surface</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">get_target</span><span class="p">(</span><span class="p">)</span>
         <span class="n">highlight_surface</span> <span class="o">=</span> <span class="n">svg_surface</span><span class="o">.</span><span class="n">create_similar</span><span class="p">(</span><span class="n">cairo</span><span class="o">.</span><span class="n">Content</span><span class="o">.</span><span class="n">COLOR_ALPHA</span><span class="p">,</span>
                                                        <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">width</span><span class="p">,</span>
                                                        <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
@@ -330,28 +313,16 @@ as discussed in the previous blog entry):</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">render_cairo_sub</span><span class="p">(</span><span class="n">highlight_context</span><span class="p">,</span>
                                       <span class="bp">self</span><span class="o">.</span><span class="n">_highlight_element</span><span class="p">)</span>
         <span class="n">cr</span><span class="o">.</span><span class="n">mask_surface</span><span class="p">(</span><span class="n">highlight_surface</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">render_cairo_sub</span><span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_layer</span><span class="p">)</span></code></pre></div>
-<p>All this work leads to the below video. You can find the pull request
+    <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">render_cairo_sub</span><span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_layer</span><span class="p">)</span>
+</code></pre></div><p>All this work leads to the below video. You can find the pull request
 <a href="https://github.com/libratbag/piper/pull/20">here</a>.</p>
-
-<video controls>
-  <source src="/img/blog/gsoc-part-6/mousemap.webm" type="video/webm">
-Your browser does not support the video tag.
-</video>
-
+<!-- raw HTML omitted -->
 <h2 id="in-progress-reimplementing-piper-according-to-the-new-mockups">In progress: reimplementing Piper according to the new mockups</h2>
-
 <p>As you can see from the video, I have started with a rough implementation of the
 new window:</p>
-
-<video controls>
-  <source src="/img/blog/gsoc-part-6/window.webm" type="video/webm">
-Your browser does not support the video tag.
-</video>
-
+<!-- raw HTML omitted -->
 <p>Next week I will attempt to implement the resolutions and begin with the
 buttons!</p>
-
 <p>This blog post is part of a <a href="/series/google-summer-of-code/">series</a>. You can read the next part about the
 resolutions stack page <a href="/blog/gsoc-part-7">here</a> or the previous part
 <a href="/blog/gsoc-part-5">here</a>.</p>

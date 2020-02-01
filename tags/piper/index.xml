@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Piper on Jente Hidskes&#39; website</title>
@@ -58,7 +58,7 @@ Solving global warming Probably the most fun issue to resolve this week was the 
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-12/</guid>
       <description>Last week I shared the news that all large features had been implemented; all that was left were issues raised by GNOME contributors when my mentor demoed my progress over GUADEC. This week I&amp;rsquo;ve just been chugging away on those issues; let me show you.
-Obvious save button is.. not obvious? Hadess noted that the save button wasn&amp;rsquo;t obvious when my mentor demoed Piper to him; I already mentioned this last week: the icon is a save to disk icon and it&amp;rsquo;s not obvious at first glance that you have to press it to write the changes you made to the device.</description>
+Obvious save button is.. not obvious? Hadess noted that the save button wasn&amp;rsquo;t obvious when my mentor demoed Piper to him; I already mentioned this last week: the icon is a save to diskicon and it&amp;rsquo;s not obvious at first glance that you have to press it to write the changes you made to the device.</description>
     </item>
     
     <item>
@@ -68,7 +68,7 @@ Obvious save button is.. not obvious? Hadess noted that the save button wasn&amp
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-11/</guid>
       <description>When I proposed the project with my mentor, we worked out a bunch of features that the new Piper should have. These are listed in the Redesign Wiki, but here&amp;rsquo;s a high-level summary:
- A welcome screen, presenting a list of connected and supported devices. An error screen, presenting any problems in a user-friendly manner. The main screen, presenting the configuration pages:  A page to configure resolutions (see part 7) A page to configure button mappings (see parts 9 and 10) A page to configure LEDs (see part 8)  Support for device profiles (see part 9 for the start on this).</description>
+ A welcome screen, presenting a list of connected and supported devices. An error screen, presenting any problems in a user-friendly manner. The main screen, presenting the configuration pages: A page to configure resolutions (see part 7) A page to configure button mappings (see parts 9 and 10) A page to configure LEDs (see part 8) Support for device profiles (see part 9 for the start on this).</description>
     </item>
     
     <item>
@@ -87,7 +87,7 @@ Yes; you&amp;rsquo;ve read that correctly: I didn&amp;rsquo;t mention the button
       <pubDate>Fri, 21 Jul 2017 17:35:55 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-9/</guid>
-      <description>When I discussed this project with my mentor before GSoC, he told me that the button mappings were going to be the most complicated piece. This week I&amp;rsquo;ve been working on precisely that and, well, let&amp;rsquo;s just say he wasn&amp;rsquo;t wrong &amp;#128521;
+      <description>When I discussed this project with my mentor before GSoC, he told me that the button mappings were going to be the most complicated piece. This week I&amp;rsquo;ve been working on precisely that and, well, let&amp;rsquo;s just say he wasn&amp;rsquo;t wrong 😉
 If you&amp;rsquo;ve been following along on GitHub, you&amp;rsquo;re probably thinking that it was a slow week. Indeed, there hasn&amp;rsquo;t been that much activity this week as in previous weeks.</description>
     </item>
     

@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="GSoC blog series on rewriting Piper"/>
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.63.2" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -59,14 +59,10 @@
   &nbsp;• 5 minute read&nbsp;• Last modified:
     <time datetime="Feb 18, 2019">Feb 18, 2019</time></div>
 
-
-
-<p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal" /></p>
-
+<p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal"></p>
 <p>I can start this blog post by sharing the news that I have passed for my second
 evaluation! This means that I&rsquo;m now on the last sprint towards the finish line,
 with ahead of me profile support and the welcome screen.</p>
-
 <p>Yes; you&rsquo;ve read that correctly: I didn&rsquo;t mention the button page. I managed to
 fix that this week and it&rsquo;s now pending review and some final issues (more about
 that below). Last week I explained that the biggest issue is the restriction
@@ -79,19 +75,13 @@ commit</a>,
 it&rsquo;s quite the cleanup. I also quickly added some code to print the proper
 labels in the button stack page so that you see at a quick glance which button
 does what. The end result, is this:</p>
-
-<video controls>
-  <source src="/img/blog/gsoc-part-10/buttons.webm" type="video/webm">
-Your browser does not support the video tag.
-</video>
-
+<!-- raw HTML omitted -->
 <p>Macros aren&rsquo;t entirely implemented just yet; they still need support for <a href="https://github.com/libratbag/piper/issues/56">button
 releases</a>,
 <a href="https://github.com/libratbag/piper/issues/57">timeouts</a> and <a href="https://github.com/libratbag/piper/issues/62">both key presses
 and releases</a>. However, the basics
 are in and the PR was getting large, so it&rsquo;s good to get it merged and do those
 features separate.</p>
-
 <p>Last week also saw the point where the <code>rewrite</code> branch got
 <a href="https://github.com/libratbag/piper/pull/63">merged</a> into the master branch.
 This means that all of the code I&rsquo;ve been writing is now officially in use, and
@@ -101,9 +91,8 @@ was time because there have been quite a few
 and the DBus interface it presents so the old Piper didn&rsquo;t work anymore and it
 makes no sense to update two versions; especially not when the rewritten version
 supports <em>almost</em> everything the old one does.</p>
-
 <p>The changes to the DBus interface resulted in an interesting scenario: Piper
-maintains its own ratbagd <q>bindings</q> (glorified Python DBus wrappers to
+maintains its own ratbagd <!-- raw HTML omitted -->bindings<!-- raw HTML omitted --> (glorified Python DBus wrappers to
 talk with libratbag over DBus), but these are copied back into libratbag for its
 <code>ratbagctl</code> tool. When ratbagd is changed, the bindings in that repository are
 updated, and when Piper needs updates to its bindings, it updates the bindings
@@ -119,9 +108,7 @@ hadn&rsquo;t seen before which made the task significantly easier. The issues I
 mentioned for the button page are related syncing the bindings and the ratbagd&rsquo;s
 rewritten DBus interface. These aren&rsquo;t hard; I just haven&rsquo;t gotten around to
 rebasing the buttons branch yet.</p>
-
 <h2 id="beginning-the-work-on-profiles">Beginning the work on profiles</h2>
-
 <p>My mentor lives on the other side of the globe (Down Under), so we normally have
 only a few hours overlap a day. This is enough to sync and get some work done
 together, so this isn&rsquo;t a problem. This week, however, he was travelling to
@@ -133,12 +120,7 @@ macro support, both of which I required to finish the buttons page. I did most
 of this work based on his WIP branch, but I couldn&rsquo;t finish it before that PR
 got merged. Instead of waiting around doing nothing, I started to work on the
 profile support:</p>
-
-<video controls>
-  <source src="/img/blog/gsoc-part-10/profiles.webm" type="video/webm">
-Your browser does not support the video tag.
-</video>
-
+<!-- raw HTML omitted -->
 <p>Whilst working on these, I noticed an issue in the bindings: the
 <code>notify::enabled</code> signal (which notifies any subscribers of a change to this
 property) would be emitted when disabling a profile, but not when
@@ -148,31 +130,28 @@ profiles, a new Python list is returned. Since Piper is only connected to the ol
 list&rsquo;s profile objects, it never received the signal on those. The solution is to
 simply <a href="https://github.com/libratbag/piper/pull/64">cache</a> the lists to make
 sure the bindings always return the same object.</p>
-
 <h2 id="piper-development-version">Piper development version</h2>
-
 <p>Up until now I had just been running <code>./piper.in</code> from the top level source
 directory to test my changes. This is less than ideal, especially because it
 still requires a compiled resources file. My solution was to generate that
 through Meson (<code>ninja -C build</code>) and then manually copy that into place with
 <code>cp build/data/piper.gresource data/</code>, but clearly this wasn&rsquo;t the way forward.</p>
-
 <p>In <a href="https://github.com/libratbag/piper/pull/58">this pull request</a> I fixed that.
 Meson now takes <code>piper.in</code> and coughs out two versions: <code>piper</code> and
 <code>piper.devel</code>. The latter has some code injected that modifies Python&rsquo;s search
 path so that it loads Piper&rsquo;s modules from the source tree:</p>
-<div class="highlight"><pre class="chroma"><code class="language-meson" data-lang="meson">config_piper_devel = configuration_data()
-config_piper_devel.set(&#39;pkgdatadir&#39;, join_paths(meson.build_root(), &#39;data&#39;))
-config_piper_devel.set(&#39;localedir&#39;, join_paths(meson.build_root(), &#39;po&#39;))
-config_piper_devel.set(&#39;devel&#39;, &#39;
-sys.path.insert(1, \&#39;@0@\&#39;)
-print(\&#39;Running from source tree, using local files\&#39;)
-&#39;.format(meson.source_root()))
+<pre><code class="language-meson" data-lang="meson">config_piper_devel = configuration_data()
+config_piper_devel.set('pkgdatadir', join_paths(meson.build_root(), 'data'))
+config_piper_devel.set('localedir', join_paths(meson.build_root(), 'po'))
+config_piper_devel.set('devel', '
+sys.path.insert(1, \'@0@\')
+print(\'Running from source tree, using local files\')
+'.format(meson.source_root()))
 
-configure_file(input: &#39;piper.in&#39;,
-	       output: &#39;piper.devel&#39;,
-	       configuration: config_piper_devel)</code></pre></div>
-<p>This removes any development code from <code>piper.in</code> and, by extension, <code>piper</code>,
+configure_file(input: 'piper.in',
+	       output: 'piper.devel',
+	       configuration: config_piper_devel)
+</code></pre><p>This removes any development code from <code>piper.in</code> and, by extension, <code>piper</code>,
 which is arguably cleaner. On the other hand, it does add <a href="https://github.com/libratbag/piper/pull/58/files#diff-07d882117a676ac39c6d2cee78a8876aR14">invalid Python
 code</a>
 to <code>piper.in</code> so it has to be ignored by flake8. This resulted in an interesting
@@ -180,13 +159,11 @@ discussion between bentiss and myself, about whether it&rsquo;s worth to have a 
 source file versus this, well, hack. We settled on merging the PR, because both
 generated versions are still checked by flake8, and so by extension so is
 <code>piper.in</code>.</p>
-
 <p>Skipping over a few smaller, less visible pull requests, that&rsquo;s it for this
 week! Next week I&rsquo;ll focus on rebasing the buttons branch and architecting the
 profile support. I expect to spend more time than usual on architecture for
 that, while the code should then be relatively simpler. Let&rsquo;s see how I&rsquo;ll
 manage to thread this out through the existing codebase!</p>
-
 <p>This blog post is part of a <a href="/series/google-summer-of-code/">series</a>. You can read the next part about
 implementing profile support and the welcome screen <a href="/blog/gsoc-part-11">here</a>
 or the previous part about the button page <a href="/blog/gsoc-part-9">here</a>.</p>

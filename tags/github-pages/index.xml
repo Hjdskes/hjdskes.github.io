@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>github pages on Jente Hidskes&#39; website</title>
+    <title>GitHub Pages on Jente Hidskes&#39; website</title>
     <link>https://www.hjdskes.nl/tags/github-pages/</link>
-    <description>Recent content in github pages on Jente Hidskes&#39; website</description>
+    <description>Recent content in GitHub Pages on Jente Hidskes&#39; website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2019 Jente Hidskes</copyright>
@@ -28,8 +28,8 @@ In May, the certificate for my website expired. Expecting GitHub to be on top of
       <pubDate>Wed, 02 May 2018 11:41:05 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/https/</guid>
-      <description>From today, my website enforces HTTPS again! Github Pages have been supporting HTTPS since June 2016, so when my website was reachable only through hjdskes.github.io I got all of that for free. In fact, because HTTPS is the future&amp;trade;, I enabled Github Pages&amp;rsquo; enforce HTTPS feature in my website&amp;rsquo;s settings.
-Since June 28 2019, I have removed the apex domain (`https://hjdskes.nl`) from my DNS records. [It turns out that GitHub does not support HTTPS for both the apex domain and the www subdomain](https://help.</description>
+      <description>From today, my website enforces HTTPS again! Github Pages have been supporting HTTPS since June 2016, so when my website was reachable only through hjdskes.github.io I got all of that for free. In fact, because HTTPS is the future(tm), I enabled Github Pages&amp;rsquo; enforce HTTPS feature in my website&amp;rsquo;s settings.
+Since March, my website is also reachable through (www.)hjdskes.nl. When I set this up, I knew I would lose the ability to enforce HTTPS because up until yesterday, Github Pages did not support HTTPS for custom domains.</description>
     </item>
     
     <item>
@@ -48,8 +48,9 @@ This week I attempted to update the theme of this website. To pull in the theme&
       <pubDate>Tue, 16 Aug 2016 22:07:21 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/deploying-hugo-on-personal-gh-pages/</guid>
-      <description>The method described here is obsolete. The introduction still provides a nice overview of the problem, but please see my [updated post](/blog/update-deploying-hugo-on-personal-gh-pages) for the actual steps and scripts!  Hello, World!
-As this is the first blog post on this website (and indeed, by myself), the introduction had to be done. I&amp;rsquo;ll leave it at this, though. If you want to know more about me, you can do that here.</description>
+      <description>Hello, World!
+As this is the first blog post on this website (and indeed, by myself), the introduction had to be done. I&amp;rsquo;ll leave it at this, though. If you want to know more about me, you can do that here.
+This website is created using the Hugo static website generator. You define the layout of your pages using regular HTML (combined with Hugo&amp;rsquo;s templates), CSS and JavaScript and you write your pages&amp;rsquo; contents using Markdown.</description>
     </item>
     
   </channel>

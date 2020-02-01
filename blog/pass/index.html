@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="How I manage my passwords with pass on multiple devices"/>
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.63.2" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -59,8 +59,6 @@
   &nbsp;• 5 minute read&nbsp;• Last modified:
     <time datetime="Feb 18, 2019">Feb 18, 2019</time></div>
 
-
-
 <p>Last week, I received an email from Ticketmaster that <a href="https://veiligheid.ticketmaster.nl/en-us/">my account
 details may have been
 leaked</a> through an external
@@ -71,12 +69,9 @@ time, even, as this has been on my to-do list for way too long. I have
 been preaching proper password hygiene to my family and friends whilst
 not yet practicing it myself! It was finally time to put my money
 where my mouth is. To walk the walk&hellip; you get it.</p>
-
 <h2 id="what-is-proper-password-hygiene">What is proper password hygiene?</h2>
-
 <p>You&rsquo;ve probably heard it a thousand times already, but let me refresh
 your memory. Proper password hygience consists of the following:</p>
-
 <ol>
 <li>Use unique passwords, or at the very least use unique passwords for
 important accounts.</li>
@@ -90,18 +85,14 @@ Nah. Hotel? Trivago.</li>
 <li>This isn&rsquo;t stricly related to passwords, but if possible, also use
 two factor authentication.</li>
 </ol>
-
 <p>My threat model here is simply curious people (think snooping family
 and friends) and criminals on the internet (phishing, hacking, et
 cetera). Nation state actors or big-time criminals are out of the
 question, so that file in your safe is probably fine.</p>
-
 <p>Of course, you also shouldn&rsquo;t use <em>too easy</em> passwords. This is one
 place where password managers shine: they can generate random
 (<em>actually</em> random) passwords for you.</p>
-
 <h2 id="pass">Pass</h2>
-
 <p><a href="https://passwordstore.org">Pass</a> is <em>&ldquo;the standard Unix password
 manager&rdquo;</em>. Pass is simple: each password is stored in a GPG encrypted
 file, whose filename is the title of the website or account that
@@ -109,7 +100,6 @@ requires the password. The directory structure is completely up to
 you, and can be copied to multiple devices and manipulated with your
 favorite file management tools, be it the command line or a graphical
 tool like Nautilus.</p>
-
 <p>It is this transparency and use-of-use that I appreciate. There is no
 new file format or paradigm to learn, no new mental model to create
 and work with. I am in control of how and where the password store is
@@ -119,14 +109,11 @@ it is <em>simple</em>, and I can rely on the strenght of GPG instead of a
 home-grown encryption implementation. I am not trying to discredit
 other password managers, but to me these are very important factors to
 consider: I don&rsquo;t have to rely on trust; I can verify.</p>
-
 <p>I won&rsquo;t explain how to set up and use pass, as both its website and
 man page are excellent resources. You do need a GPG key pair; if you
 don&rsquo;t have one yet I recommend reading <a href="https://keyring.debian.org/creating-key.html">Debian&rsquo;s
 how-to</a>.</p>
-
 <h2 id="syncing-your-password-store-between-multiple-devices">Syncing your password store between multiple devices</h2>
-
 <p>So now you have a super secure password store on your PC. Memorizing
 every password is impossible, let alone not the point of a password
 manager. How do you sync it to your phone, or your work device?
@@ -136,7 +123,6 @@ repository is initialized, pass automatically creates a commit every
 time the password store is manipulated through the invocation of
 <code>pass</code>. You only need to add a remote and manually push your changes
 to it.</p>
-
 <p>To sync this Git repository, <a href="/blog/server/">my server</a> hosts a Git
 server accessible only within my local network. In theory this isn&rsquo;t
 required, because your files are encrypted (and I&rsquo;m sure there are
@@ -145,14 +131,12 @@ like the extra assurance that my (encrypted) passwords are stored
 somewhere private and under my own control. To see how to set up a Git
 server, see the <a href="https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols">Git
 book</a>.</p>
-
 <p>To manage this repository on my Android phone, I use <a href="https://github.com/zeapo/Android-Password-Store">Android Password
 Store</a>. It has
 built-in Git and GPG support. It can access your Git repository either
 through SSH or HTTP. For my server, I only allow SSH connections
 through SSH key pairs, so I set up a new pair using the Android
 Password Store app and added the public key to my server.</p>
-
 <p>As for the GPG key, you don&rsquo;t want to use your master key pair. This
 would require you to copy that to your phone. In case your phone gets
 stolen, lost or broken into, your private key is compromised and you
@@ -169,11 +153,9 @@ application which is used by Android Password Store to manage GPG
 keys. Now you only have to point Android Password Store to your Git
 repository and you are <em>almost</em> good to go! Your passwords are
 encrypted with your master key, which means your phone cannot decrypt
-them using your subkey. To solve this, simply run <code>pass init
-$MASTERKEYID $SUBKEYID</code> to encrypt your passwords with both keys (yes,
+them using your subkey. To solve this, simply run <code>pass init $MASTERKEYID $SUBKEYID</code> to encrypt your passwords with both keys (yes,
 this is safe to do in an existing password store). Don&rsquo;t forget to
 sync this change between your devices.</p>
-
 <p>There you go! Now you can transparently manage your passwords and have
 full control over how and where they are stored.</p>
 

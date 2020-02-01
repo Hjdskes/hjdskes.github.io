@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="GSoC blog series on rewriting Piper"/>
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.63.2" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -59,26 +59,20 @@
   &nbsp;• 9 minute read&nbsp;• Last modified:
     <time datetime="Feb 18, 2019">Feb 18, 2019</time></div>
 
-
-
-<p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal" /></p>
-
+<p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal"></p>
 <p>This week I have been solving more issues to make sure that Piper offers a
 pleasent user experience, doesn&rsquo;t crash and runs smoothly. My mentor and
 cvuchener from the libratbag project have been testing Piper the last week, and
 together with a handful of users attracted to Piper they have opened a bunch of
 issues for me to solve. Let&rsquo;s run through the most visible ones!</p>
-
 <h2 id="solving-global-warming">Solving global warming</h2>
-
 <p>Probably the most fun issue to resolve this week was the one reported by my
 mentor: <a href="https://github.com/libratbag/piper/issues/133">Piper contributes to global
-warming</a> (<q>you won&rsquo;t believe
-what happened next!</q>). The issue here was that when the MouseMap is partially
+warming</a> (<!-- raw HTML omitted -->you won&rsquo;t believe
+what happened next!<!-- raw HTML omitted -->). The issue here was that when the MouseMap is partially
 or fully obscured by another window, Piper&rsquo;s CPU usage would touch the 100% and
 hence, contribute to global warming. Since global warming is bad (and yes, it
-<em>is</em> real &#128521;), obviously I had to fix it.</p>
-
+<em>is</em> real 😉), obviously I had to fix it.</p>
 <p>The report already contained a hint as to what was happening: the MouseMap&rsquo;s
 <code>do_draw</code> method was being called <em>a lot</em> (with some imprecise measurements, I
 got it to roughly every 30 milliseconds). Through some more debugging I found
@@ -90,13 +84,11 @@ report</a> that explains what&rsquo;s
 going on. What follows here is my summary of the <a href="https://blogs.gnome.org/mclasen/2015/11/20/a-gtk-update/">linked blog
 post</a>, that goes into
 more detail than the bug report:</p>
-
 <p>Since Gtk 3.18, passing a state other than the current state to
 <code>Gtk.StyleContext::get_color</code> isn&rsquo;t recommended and can, apparently, lead to
 hogging the CPU due to triggering a loop: requesting the style context&rsquo;s color
 triggers a pixel cache refresh, which triggers <code>do_draw</code>, which requests the
 style context&rsquo;s color, et cetera.</p>
-
 <p>The fix, then, is straightforward: save and restore the style context around
 requesting a color, so that it won&rsquo;t be invalidated and won&rsquo;t trigger a pixel
 cache refresh. Indeed, this is the suggested (temporary) workaround given in the
@@ -104,9 +96,7 @@ linked blog post; the given permanent solution is to use the <code>gtk_render_*<
 However, this doesn&rsquo;t apply for the MouseMap and as such, I <a href="https://github.com/libratbag/piper/pull/135/files">used the
 workaround</a> to do my share of
 saving the planet.</p>
-
 <h2 id="preventing-the-user-from-shooting-themselves-in-the-foot">Preventing the user from shooting themselves in the foot</h2>
-
 <p>During GUADEC my mentor opened the issue that <a href="https://github.com/libratbag/piper/issues/82">we shouldn&rsquo;t allow a user to
 unset the left mouse button</a>,
 because if they do without mapping another button to a left mouse click they
@@ -117,7 +107,6 @@ we also shouldn&rsquo;t outright disallow remapping the (physical) left mouse bu
 as there are perfectly valid scenarios to do so. Think, for example, of left
 handed users (yours truly) that swap the left- and right mouse buttons to use
 the mouse with their left hand (not yours truly).</p>
-
 <p>My first attempt then was to pop up a dialog that asks the user if they know
 what they&rsquo;re doing <em>when we detect there isn&rsquo;t another button mapped to a left
 mouse click</em> when they are attempting to remap the only/last button that is
@@ -127,24 +116,17 @@ good compromise between protecting the user while still giving them all the
 options. (As a sidenote, an undo button wouldn&rsquo;t work either because when the
 last left mouse click has been unmapped, there is no left mouse click to press
 undo with anymore).</p>
-
 <p>I quickly implemented a <a href="https://github.com/libratbag/piper/pull/113">proof of
 concept</a>, but my mentor was
 stronger than I was and didn&rsquo;t give in to the dialog. Instead, he said we should
 for now <strong>only</strong> allow to swap the left- and right mouse buttons; we&rsquo;ll hear it
 from the users when they want more options. After two design iterations, this is
 what I&rsquo;ve settled on:</p>
-
-<video controls>
-  <source src="/img/blog/gsoc-part-13/swap.webm" type="video/webm">
-Your browser does not support the video tag.
-</video>
-
+<!-- raw HTML omitted -->
 <p>The relevant pull requests are
 <a href="https://github.com/libratbag/piper/pull/117">#117</a> for the initial
 implementation and <a href="https://github.com/libratbag/piper/pull/143">#143</a>
 (unmerged) for the UI rework.</p>
-
 <p>Another way to shoot yourself in the foot is by assigning a button in one
 profile to cycle through profiles but not in another: eventually, you&rsquo;ll get
 stuck in that profile with no way out but to open Piper. In the heat of battle
@@ -153,21 +135,16 @@ exactly why my mentor <a href="https://github.com/libratbag/piper/issues/78">rep
 issue</a>, again over GUADEC, and,
 <a href="https://github.com/libratbag/piper/pull/112">as of last week</a>, this won&rsquo;t
 happen and Piper is just that bit smarter!</p>
-
 <h2 id="preventing-piper-from-crashing">Preventing Piper from crashing</h2>
-
 <p>Libratbag contributor cvuchener reported <a href="https://github.com/libratbag/piper/issues?q=is%3Aissue+author%3Acvuchener">a bunch of
 issues</a>
 last week, in all of which Piper was crashing.</p>
-
 <p>First of all, <a href="https://github.com/libratbag/piper/issues/120">Piper was crashing when opening devices with weird
 profiles</a>:</p>
-
 <ol>
 <li>A profile containing an unsupported special button mapping crashed Piper, and</li>
 <li>A device with profiles that did not have an active resolution set.</li>
 </ol>
-
 <p>With Piper being a graphical user interface to libratbag it naturally cannot
 support anything that libratbag doesn&rsquo;t, but it also shouldn&rsquo;t crash when it
 <em>does</em> see something that isn&rsquo;t supported. In this case, the solution is to
@@ -175,7 +152,6 @@ recognize that there <em>are</em> unsupported actions and to simply <a href="htt
 <code>RatbagdButton.ACTION_SPECIAL_UNKNOWN</code> entry to the
 map</a> in the bindings that maps
 special button mappings to their human readable representation.</p>
-
 <p>While testing this, my device suddenly got a special button mapping with value
 4294967295 (you&rsquo;ll have to take my word for this value not having any
 significance within libratbag). As it turns out, libratbag (or ratbagd) doesn&rsquo;t
@@ -185,29 +161,24 @@ for all unknown values. This can be solved in Piper by catching any <code>KeyErr
 when looking up a mapping&rsquo;s human readable representation, but it&rsquo;s better to
 fix this in libratbag itself; which is why I opened <a href="https://github.com/libratbag/libratbag/issues/281">this
 issue</a>.</p>
-
 <p>As for the second crash mentioned above, apparently there are some misconfigured
 libratbag drivers that do not set an active resolution. In this case, Piper now
 prints a message informing the user of a buggy driver and simply returns the
 first resolution (or profile) it finds
 (<a href="https://github.com/libratbag/piper/pull/122">#122</a>).</p>
-
 <p>Cvuchener also found that the apply button was <a href="https://github.com/libratbag/piper/issues/123">switching state when going back
 to and from the welcome screen</a>.
 This was simply a case of me trying to be too smart for my own good, as you can
 see <a href="https://github.com/libratbag/piper/pull/127">in the one line fix</a>.</p>
-
 <p>I also <a href="https://github.com/libratbag/piper/pull/126">forgot to destroy old profiles when reusing the
 MousePerspective</a> which led to
 <a href="https://github.com/libratbag/piper/issues/124">duplicate profile entries that crashed Piper when
 clicked</a>.</p>
-
 <p>Finally, cvuchener ran into timeouts when committing changes to his device,
 which has been a reoccurring issue for myself as well. My mentor and I had
 discussed async commits before, but <a href="https://github.com/libratbag/libratbag/issues/269">until libratbag supports
 this</a> there isn&rsquo;t much that
 Piper can do. Deciding on a proper timeout is difficult, as we</p>
-
 <ol>
 <li>do not know what happens when a user changes settings while old changes are
 being committed (so we should strive to make it as small as possible?), and</li>
@@ -216,15 +187,12 @@ both on the device (including whether it&rsquo;s wireless or not, as for example
 G403 wired does not lead to timeouts but wireless it does) and the box
 running Piper.</li>
 </ol>
-
 <p>We assume that DBus will cache any changes for us, and indeed it seems to work
 just fine, so as a stop-gap until we get async commits the <a href="https://github.com/libratbag/piper/pull/129">timeout is now 2
 seconds instead of half a second</a>.</p>
-
 <p>This week we&rsquo;ve seen a bunch of users trying to run Piper. This is exciting
 because it means we&rsquo;re doing work that people need! It is also good because they
-run into issues that need fixing before we tag a release &#9786;</p>
-
+run into issues that need fixing before we tag a release ☺</p>
 <p>One such case is a user that <a href="https://github.com/libratbag/piper/issues/111">tried to run Piper with a too old Gtk
 version</a>. This resulted in us
 <a href="https://github.com/libratbag/piper/pull/118">adding a check to Piper for the required Gtk
@@ -234,54 +202,35 @@ supply libratbag with a device SVG. Piper should have displayed the error
 perspective in such a scenario, but it turned out that we <a href="https://github.com/libratbag/piper/pull/125">cannot raise
 exceptions from GObject
 properties</a>. After making this a
-<q>real</q> setter method, the error perspective is now presented as it should.</p>
-
+<!-- raw HTML omitted -->real<!-- raw HTML omitted --> setter method, the error perspective is now presented as it should.</p>
 <h2 id="work-in-progress">Work-in-progress</h2>
-
 <p>I&rsquo;m still working on a bunch of other issues that I can hopefully get merged
 before the 21st of August, which marks the end of my Google Summer of Code. I
 intend to keep working on Piper after the summer, but these are features I would
 like to get in before we tag a release.</p>
-
 <p>First, jimmac <a href="https://github.com/libratbag/piper/issues/77">requested</a> a search
 field for the button mapping dialog. Today I opened the <a href="https://github.com/libratbag/piper/pull/143">pull
 request</a> that adds this and makes
 the dialog in general look just that bit nicer (compared with what I showed
 <a href="/blog/gsoc-part-10">part 10</a>):</p>
-
-<video controls>
-  <source src="/img/blog/gsoc-part-13/search.webm" type="video/webm">
-Your browser does not support the video tag.
-</video>
-
+<!-- raw HTML omitted -->
 <p>Another GUADEC issue was to <a href="https://github.com/libratbag/piper/issues/80">highlight the active
 resolution</a> in the resolutions
 page. This was a <a href="https://github.com/libratbag/piper/pull/132">straightforward
 change</a>, after having fixing
 ratbagd (<a href="https://github.com/libratbag/libratbag/pull/284">#284</a>). Here you can
 see it in action:</p>
-
-<video controls>
-  <source src="/img/blog/gsoc-part-13/active-resolutions.webm" type="video/webm">
-Your browser does not support the video tag.
-</video>
-
+<!-- raw HTML omitted -->
 <p>As you can see, this activates the clicked resolution and thereby also fixes
 <a href="https://github.com/libratbag/piper/issues/81">that issue</a> (but ignores issue
 <a href="https://github.com/libratbag/piper/issues/72">#72</a>). This approach should also
 work towards being able to display and set the default resolution, <a href="https://github.com/libratbag/piper/pull/36">a pull
 request</a> that has been WIP since
 July 11.</p>
-
 <p>Last, but definitely not least, is that Piper can now be
 <a href="https://github.com/libratbag/piper/pull/137">translated</a> into your native (or
 not!) language! Here you can see Piper in Dutch:</p>
-
-<video controls>
-  <source src="/img/blog/gsoc-part-13/piper-dutch.webm" type="video/webm">
-Your browser does not support the video tag.
-</video>
-
+<!-- raw HTML omitted -->
 <p>As you can see, not everything is translated yet. There is something weird going
 on with all strings that are translated and retrieved from a map; I have yet to
 figure this one out. We also cannot yet run with local translations: for now
@@ -289,13 +238,11 @@ you&rsquo;ll have to install Piper in order to test your translations. I also in
 to add more context for translators so it is easier to see how to translate some
 strings, and I intend to get this merged only after all the UI work is done so
 we are sure to catch all strings.</p>
-
 <p>Barring any newly discovered crashes, there are only three more issues to solve
 before my deadline: <a href="https://github.com/libratbag/piper/issues/140">a crash resulting from libratbag returning its error code
 1001</a>, <a href="https://github.com/libratbag/piper/issues/141">correctly restoring the
 macro preview label</a> and <a href="https://github.com/libratbag/piper/issues/142">fixing
 the initial window size</a>.</p>
-
 <p>This blog post is part of a <a href="/series/google-summer-of-code/">series</a>. You can read the next part about the final
 changes <a href="/blog/gsoc-part-14">here</a> or the previous part about the finishing
 touches <a href="/blog/gsoc-part-12">here</a>.</p>

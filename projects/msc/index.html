@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content=""/>
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.63.2" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -55,7 +55,6 @@ group</a>
 of the TU Delft under the supervision of <a href="http://www.erdweg.org">Dr.
 S.T. Erdweg</a> and <a href="https://svenkeidel.de">Sven
 Keidel</a>.</p>
-
 <p>Program transformations translate code of an input language to code of
 an output language. Examples of program transformations are
 desugarings, optimizations and refactorings. Developers of program
@@ -67,7 +66,6 @@ means that the output programs of a transformation are syntactically
 well-formed in the output language. However, this property is not
 precise enough to for example guarantee the removal of all sugar
 constructs after a desugaring transformation.</p>
-
 <p>In my thesis, I developed two static analyses by means of abstract
 interpretation for the Stratego program transformation language. The
 first analysis implements a sort analysis, which we use as a baseline
@@ -76,14 +74,12 @@ domain, namely that of regular tree grammars. This domain allows the
 analysis to approximate the syntactic shape of code, which results in
 more precise results. I proved soundness of the most important parts
 of these two analyses.</p>
-
 <p>I did not write a regular thesis report; rather, I wrote a &ldquo;thesis
 paper&rdquo; which we are preparing to submit. The version I handed in for
 my thesis defence is
 <a href="http://resolver.tudelft.nl/uuid:f634ef6a-68d1-4d38-9474-db8cdb12425f">available</a>
 in the repository of the TU Delft. The abstract is reproduced below:</p>
-
-<p><strong><em>Abstract:</em></strong> <em>Many program transformation languages simplify the
+<p><em><strong>Abstract:</strong></em> <em>Many program transformation languages simplify the
 implementation of program transformations. However, they give only
 weak static guarantees about the generated code such as
 well-sortedness. Well-sortedness guarantees that a program
@@ -97,18 +93,8 @@ approximates the syntactic shape of transformed code using regular
 tree grammars. As a baseline, we also present an abstract interpreter
 that guarantees well-sortedness. We prove parts of both abstract
 interpreters sound.</em></p>
-
 <p>You can browse the slides of my defence below:</p>
-
-<iframe
-  src="https://docs.google.com/presentation/d/e/2PACX-1vSFMcpRCVEHRT7rTmMxwC2wHCsK3XQneYOVv3u3AroGr88K9gkg-x72ImMmvBjhjUpNqvh1GRIul_t3/embed?start=false&amp;loop=false&amp;delayms=3000"
-  width="864"
-  height="512"
-  frameborder="0"
-  allowfullscreen="true"
-  mozallowfullscreen="true"
-  webkitallowfullscreen="true">
-</iframe>
+<!-- raw HTML omitted -->
 
 <footer>
   <nav>
