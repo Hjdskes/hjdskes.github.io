@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2020 Jente Hidskes</copyright>
-    <lastBuildDate>Mon, 08 Aug 2016 13:18:21 +0200</lastBuildDate><atom:link href="https://www.hjdskes.nl/projects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Aug 2016 13:18:21 +0200</lastBuildDate>
+    
+	<atom:link href="https://www.hjdskes.nl/projects/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>A purpose-built Linux OS for my Raspberry Pi 3B&#43; home automation system</title>
       <link>https://www.hjdskes.nl/projects/rpi-linux/</link>
@@ -16,7 +20,7 @@
       <guid>https://www.hjdskes.nl/projects/rpi-linux/</guid>
       <description>For my home automation system I developed a purpose-built (minimal, embedded) Linux-based operating system.
 This embedded Linux distribution is built using Buildroot. To house my configuration, I forked Buildroot on GitHub. I added a custom defconfig (configs/hjdskes_rpi3_defconfig) that holds my image&amp;rsquo;s configuration, and there is a subdirectory in board/hjdskes/rpi3/ to hold configuration files and a rootsfs overlay.
-The system is very minimal and modern: on top of the Linux kernel, it installs systemd (only the required parts and logind), util-linux&#39; agetty and login, bash, Raspberry Pi firmware, wpa_supplicant, mesa (Gallium VC4 driver, OpenGL ES and EGL), GTK+ 3, my Wayland compositor Cage, the Cantarell font and the Adwaita icon theme.</description>
+The system is very minimal and modern: on top of the Linux kernel, it installs systemd (only the required parts and logind), util-linux&amp;rsquo; agetty and login, bash, Raspberry Pi firmware, wpa_supplicant, mesa (Gallium VC4 driver, OpenGL ES and EGL), GTK+ 3, my Wayland compositor Cage, the Cantarell font and the Adwaita icon theme.</description>
     </item>
     
     <item>
@@ -167,7 +171,7 @@ Our contributions resulted in several small fixes to both Neovim and Vim, namely
       
       <guid>https://www.hjdskes.nl/projects/gtimeutils/</guid>
       <description>GTimeUtils is a collection of simple and small time utilities, namely a stopwatch and a (countdown) timer.
-From version 2.0 onwards, both the timer and the stopwatch are of from GNOME Clocks&#39; respective stack pages. Prior to version 2.0, both utilities served more as a practice than anything else. Since I like the modern look of GNOME Clocks, but dislike the fact that all its functionality is combined into one application, I have re-purposed GNOME Clocks&#39; ui files into standalone utilities.</description>
+From version 2.0 onwards, both the timer and the stopwatch are of from GNOME Clocks&amp;rsquo; respective stack pages. Prior to version 2.0, both utilities served more as a practice than anything else. Since I like the modern look of GNOME Clocks, but dislike the fact that all its functionality is combined into one application, I have re-purposed GNOME Clocks&amp;rsquo; ui files into standalone utilities.</description>
     </item>
     
     <item>

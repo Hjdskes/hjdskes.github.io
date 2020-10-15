@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="GSoC blog series on rewriting Piper"/>
-  <meta name="generator" content="Hugo 0.76.5" />
+  <meta name="generator" content="Hugo 0.72.0" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -162,7 +162,7 @@ so <a href="https://github.com/libratbag/libratbag/pull/290">I made these proper
 setters</a>. After this it was
 simply a matter <a href="https://github.com/libratbag/piper/pull/148">updating the bindings
 accordingly</a>, and voilà, issue
-solved. Oh, and <a href="https://github.com/libratbag/piper/pull/145">the bindings' setter methods also don&rsquo;t return values
+solved. Oh, and <a href="https://github.com/libratbag/piper/pull/145">the bindings&rsquo; setter methods also don&rsquo;t return values
 anymore</a>, as this never worked in
 the first place because the <code>GObject.Property</code> always returns the set value.</p>
 <h2 id="macro-rework">Macro rework</h2>
@@ -188,7 +188,7 @@ that results in unnecessary duplication. To solve this, I initially moved the
 </code></pre></div><p>My mentor then rightfully pointed out that using a <code>*_str</code> method (in Python, at
 least) is an indication that you should be using a proper class instead. This
 was the catalyst to a large refactoring, where I removed the <code>KeyStroke</code> class
-and introduced a <code>RatbagdMacro</code> class in the bindings instead. This class'
+and introduced a <code>RatbagdMacro</code> class in the bindings instead. This class&rsquo;
 responsibility is to abstract macros instead of the <code>KeyStroke</code> class, that
 never really had a good place in the architecture to begin with: it abstracted
 macros, but was also responsible for processing key events (and thus has

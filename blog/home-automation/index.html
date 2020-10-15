@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="An introduction to my home automation system"/>
-  <meta name="generator" content="Hugo 0.76.5" />
+  <meta name="generator" content="Hugo 0.72.0" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -70,8 +70,8 @@ low-level. For these reasons, I opted to build my own home automation
 system.</p>
 <p>The heart of the system is a Raspberry Pi 3B+ (unlike I wrote
 previously, the UDOO remains a NAS and local git server), attached to
-which is the official 7&quot; touchscreen. All of this is encased in the
-official 7&quot; touch screen stand, so that it can stand by itself while
+which is the official 7&rdquo; touchscreen. All of this is encased in the
+official 7&rdquo; touch screen stand, so that it can stand by itself while
 looking not too shabby.</p>
 
 <div style="column-count: 3; column-gap: 20px;">
@@ -168,11 +168,11 @@ default systemd target to <code>graphical</code> and enabling the service, I now
 have a flawless boot into Cage!</p>
 <p>The resulting system is very minimal and modern: on top of the Linux
 kernel, it installs systemd (only the required parts and <code>logind</code>),
-util-linux' <code>agetty</code> and <code>login</code>, bash, Raspberry Pi firmware,
+util-linux&rsquo; <code>agetty</code> and <code>login</code>, bash, Raspberry Pi firmware,
 <code>wpa_supplicant</code>, mesa (Gallium VC4 driver, OpenGL ES and EGL), GTK+
 3, my Wayland compositor Cage (<a href="#a-kiosk-for-wayland">see below</a>), the
 Cantarell font and the Adwaita icon theme. Of course this also
-includes these packages' dependencies, but with the finished
+includes these packages&rsquo; dependencies, but with the finished
 filesystem using only 155 MB I think this qualifies as a minimal
 system. I do still have to develop the actual home automation
 application, which will add a few more dependencies to the system. For
@@ -181,7 +181,7 @@ working properly.</p>
 <!-- raw HTML omitted -->
 <p>I know, <em><!-- raw HTML omitted -->is that all?<!-- raw HTML omitted --></em>, but to me this is exciting 😁</p>
 <h2 id="a-kiosk-for-wayland">A kiosk for Wayland</h2>
-<p>With the screen being only 7&quot;, I don&rsquo;t want to have to move windows
+<p>With the screen being only 7&rdquo;, I don&rsquo;t want to have to move windows
 and have different applications for different automation
 scenarios. Instead, I envision this to be a kiosk, with a single
 application that interfaces with all the smart products in my

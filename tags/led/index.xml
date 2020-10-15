@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2020 Jente Hidskes</copyright>
-    <lastBuildDate>Fri, 14 Jul 2017 10:03:55 +0200</lastBuildDate><atom:link href="https://www.hjdskes.nl/tags/led/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 Jul 2017 10:03:55 +0200</lastBuildDate>
+    
+	<atom:link href="https://www.hjdskes.nl/tags/led/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>GSoC part 8: the LED stack page</title>
       <link>https://www.hjdskes.nl/blog/gsoc-part-8/</link>

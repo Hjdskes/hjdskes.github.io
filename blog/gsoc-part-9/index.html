@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="GSoC blog series on rewriting Piper"/>
-  <meta name="generator" content="Hugo 0.76.5" />
+  <meta name="generator" content="Hugo 0.72.0" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -155,7 +155,7 @@ modifier keypresses: it contains the modifiers that apply before the key press
 happens, and when we press e.g. <!-- raw HTML omitted -->Control<!-- raw HTML omitted -->, it isn&rsquo;t pressed before we
 press it.</p>
 <p>My current solution is to &ldquo;fix&rdquo; the <code>is_modifier</code> field in <code>Gdk.EventKey</code> by
-checking the <code>Gdk.EventKey</code>&rsquo;s <code>keyval</code> field against a static list of known
+checking the <code>Gdk.EventKey</code>'s <code>keyval</code> field against a static list of known
 modifier keyvals. I can do this because I also &ldquo;fix&rdquo; the <code>state</code> bit-mask by
 masking out all modifiers keys except for the defaults used by Gtk. These
 default modifiers keys depend on the Gdk backend in use, but will typically

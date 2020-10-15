@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="GSoC blog series on rewriting Piper"/>
-  <meta name="generator" content="Hugo 0.76.5" />
+  <meta name="generator" content="Hugo 0.72.0" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -96,7 +96,7 @@ adding a single new property to each perspective:</p>
     <span class="k">return</span> <span class="bp">True</span>
 </code></pre></div><p>This property signals whether a perspective can safely shutdown. On a <a href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Widget.html#Gtk.Widget.signals.delete_event">delete
 event</a>,
-the window checks all its perspectives' properties and if one perspective
+the window checks all its perspectives&rsquo; properties and if one perspective
 signals that it cannot safely shutdown, it presents the dialog:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">do_delete_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">perspective</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stack_perspectives</span><span class="o">.</span><span class="n">get_children</span><span class="p">():</span>
@@ -160,7 +160,7 @@ perspective to switch between devices:</p>
     <span class="s2">&#34;&#34;&#34;Whether this perspective wants a back button to be displayed in case
 </span><span class="s2">    there is more than one connected device.&#34;&#34;&#34;</span>
     <span class="k">return</span> <span class="bp">True</span>
-</code></pre></div><p>This allows the window class to insert a back button into the perspectives'
+</code></pre></div><p>This allows the window class to insert a back button into the perspectives&rsquo;
 titlebars and prevents all perspectives of having to add it themselves:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">_add_perspective</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">perspective</span><span class="p">,</span> <span class="n">ratbag</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">stack_perspectives</span><span class="o">.</span><span class="n">add_named</span><span class="p">(</span><span class="n">perspective</span><span class="p">,</span> <span class="n">perspective</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
@@ -177,7 +177,7 @@ titlebars and prevents all perspectives of having to add it themselves:</p>
         <span class="n">perspective</span><span class="o">.</span><span class="n">titlebar</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">button_back</span><span class="p">)</span>
         <span class="c1"># Place the button first in the titlebar.</span>
         <span class="n">perspective</span><span class="o">.</span><span class="n">titlebar</span><span class="o">.</span><span class="n">child_set_property</span><span class="p">(</span><span class="n">button_back</span><span class="p">,</span> <span class="s2">&#34;position&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</code></pre></div><p>That&rsquo;s a small amount of code for another large dose o' polish!</p>
+</code></pre></div><p>That&rsquo;s a small amount of code for another large dose o&rsquo; polish!</p>
 <h2 id="other-smaller-changes">Other smaller changes</h2>
 <p>In making ratbagd use enums everywhere as opposed to strings for some
 properties, the <code>ResolutionsPage</code> was left behind and couldn&rsquo;t display which

@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="A minimal Linux OS for my home automation system"/>
-  <meta name="generator" content="Hugo 0.76.5" />
+  <meta name="generator" content="Hugo 0.72.0" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -61,11 +61,11 @@ image&rsquo;s configuration, and there is a subdirectory in
 <code>board/hjdskes/rpi3/</code> to hold configuration files and a rootsfs
 overlay.</p>
 <p>The system is very minimal and modern: on top of the Linux kernel, it
-installs systemd (only the required parts and <code>logind</code>), util-linux'
+installs systemd (only the required parts and <code>logind</code>), util-linux&rsquo;
 <code>agetty</code> and <code>login</code>, bash, Raspberry Pi firmware, <code>wpa_supplicant</code>,
 mesa (Gallium VC4 driver, OpenGL ES and EGL), GTK+ 3, my Wayland
 compositor <a href="/projects/cage">Cage</a>, the Cantarell font and the Adwaita
-icon theme. Of course this also includes these packages' dependencies,
+icon theme. Of course this also includes these packages&rsquo; dependencies,
 but with the finished filesystem using only 155 MB I think this
 qualifies as a minimal system. I do still have to develop the actual
 home automation application, which will add a few more dependencies to

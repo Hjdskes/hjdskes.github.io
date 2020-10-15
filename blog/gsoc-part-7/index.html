@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="GSoC blog series on rewriting Piper"/>
-  <meta name="generator" content="Hugo 0.76.5" />
+  <meta name="generator" content="Hugo 0.72.0" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -90,7 +90,7 @@ mention there is much less of it as well.</p>
 <p>There was only one issue with <code>gi_composite</code> when I tried it: it wouldn&rsquo;t find
 Piper&rsquo;s <code>.ui</code> file, even though it was declared in <code>piper.gresource.xml</code> which
 gets added to <a href="https://github.com/libratbag/piper/blob/master/piper.in#L48">Gio&rsquo;s resources</a>. I contacted Dustin,
-<code>gi_composite</code>&rsquo;s author, who kindly responded:</p>
+<code>gi_composite</code>'s author, who kindly responded:</p>
 <blockquote>
 <p>One thing you might try is ensuring that your resource is registered <em>before</em>
 your ui class type is created &ndash; note that I said type, not instance. If I
@@ -179,7 +179,7 @@ block the signal on the scale:</p>
 </code></pre></div><h3 id="obstacle-7-adjusting-the-scale-in-multiples-of-50-dpi">Obstacle 7: adjusting the scale in multiples of 50 DPI</h3>
 <p>Most mice only support a resolution in multiples of 50 DPI; anything less than
 that doesn&rsquo;t make much sense. The <code>Gtk.Scale</code> wouldn&rsquo;t adhere to its
-<code>Gtk.Adjustment</code>&rsquo;s <code>step-increment</code> property, even though it was set. Weirdly,
+<code>Gtk.Adjustment</code>'s <code>step-increment</code> property, even though it was set. Weirdly,
 it does adhere to the <code>page-increment</code> property. After asking around on <code>#gtk+</code>,
 I ended up connecting to the <code>change-value</code> signal, which is emitted when a
 scroll action is performed on a range (a <a href="https://lazka.github.io/pgi-docs/#Gtk-3.0/enums.html#Gtk.ScrollType">scroll action</a> can be

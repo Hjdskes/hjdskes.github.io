@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2020 Jente Hidskes</copyright>
-    <lastBuildDate>Tue, 21 Feb 2017 14:43:43 +0200</lastBuildDate><atom:link href="https://www.hjdskes.nl/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Feb 2017 14:43:43 +0200</lastBuildDate>
+    
+	<atom:link href="https://www.hjdskes.nl/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Giving up maintainership of Piper and Gcolor3</title>
       <link>https://www.hjdskes.nl/blog/giving-up-piper-gcolor3/</link>
@@ -86,7 +90,7 @@ I developed Cage as part of my home automation project. This is a hobby and lear
       <guid>https://www.hjdskes.nl/projects/rpi-linux/</guid>
       <description>For my home automation system I developed a purpose-built (minimal, embedded) Linux-based operating system.
 This embedded Linux distribution is built using Buildroot. To house my configuration, I forked Buildroot on GitHub. I added a custom defconfig (configs/hjdskes_rpi3_defconfig) that holds my image&amp;rsquo;s configuration, and there is a subdirectory in board/hjdskes/rpi3/ to hold configuration files and a rootsfs overlay.
-The system is very minimal and modern: on top of the Linux kernel, it installs systemd (only the required parts and logind), util-linux&#39; agetty and login, bash, Raspberry Pi firmware, wpa_supplicant, mesa (Gallium VC4 driver, OpenGL ES and EGL), GTK+ 3, my Wayland compositor Cage, the Cantarell font and the Adwaita icon theme.</description>
+The system is very minimal and modern: on top of the Linux kernel, it installs systemd (only the required parts and logind), util-linux&amp;rsquo; agetty and login, bash, Raspberry Pi firmware, wpa_supplicant, mesa (Gallium VC4 driver, OpenGL ES and EGL), GTK+ 3, my Wayland compositor Cage, the Cantarell font and the Adwaita icon theme.</description>
     </item>
     
     <item>
@@ -181,7 +185,7 @@ Being on GNOME&amp;rsquo;s GitLab is awesome, because Gcolor3 is now surrounded 
       <pubDate>Wed, 02 May 2018 11:41:05 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/https/</guid>
-      <description>From today, my website enforces HTTPS again! Github Pages have been supporting HTTPS since June 2016, so when my website was reachable only through hjdskes.github.io I got all of that for free. In fact, because HTTPS is the future(tm), I enabled Github Pages&#39; enforce HTTPS feature in my website&amp;rsquo;s settings.
+      <description>From today, my website enforces HTTPS again! Github Pages have been supporting HTTPS since June 2016, so when my website was reachable only through hjdskes.github.io I got all of that for free. In fact, because HTTPS is the future(tm), I enabled Github Pages&amp;rsquo; enforce HTTPS feature in my website&amp;rsquo;s settings.
 Since March, my website is also reachable through (www.)hjdskes.nl. When I set this up, I knew I would lose the ability to enforce HTTPS because up until yesterday, Github Pages did not support HTTPS for custom domains.</description>
     </item>
     
@@ -437,7 +441,7 @@ Our contributions resulted in several small fixes to both Neovim and Vim, namely
       <guid>https://www.hjdskes.nl/blog/deploying-hugo-on-personal-gh-pages/</guid>
       <description>Hello, World!
 As this is the first blog post on this website (and indeed, by myself), the introduction had to be done. I&amp;rsquo;ll leave it at this, though. If you want to know more about me, you can do that here.
-This website is created using the Hugo static website generator. You define the layout of your pages using regular HTML (combined with Hugo&amp;rsquo;s templates), CSS and JavaScript and you write your pages&#39; contents using Markdown.</description>
+This website is created using the Hugo static website generator. You define the layout of your pages using regular HTML (combined with Hugo&amp;rsquo;s templates), CSS and JavaScript and you write your pages&amp;rsquo; contents using Markdown.</description>
     </item>
     
     <item>
@@ -485,7 +489,7 @@ All registered trademarks mentioned on this website belong to their rightful own
       
       <guid>https://www.hjdskes.nl/projects/gtimeutils/</guid>
       <description>GTimeUtils is a collection of simple and small time utilities, namely a stopwatch and a (countdown) timer.
-From version 2.0 onwards, both the timer and the stopwatch are of from GNOME Clocks&#39; respective stack pages. Prior to version 2.0, both utilities served more as a practice than anything else. Since I like the modern look of GNOME Clocks, but dislike the fact that all its functionality is combined into one application, I have re-purposed GNOME Clocks&#39; ui files into standalone utilities.</description>
+From version 2.0 onwards, both the timer and the stopwatch are of from GNOME Clocks&amp;rsquo; respective stack pages. Prior to version 2.0, both utilities served more as a practice than anything else. Since I like the modern look of GNOME Clocks, but dislike the fact that all its functionality is combined into one application, I have re-purposed GNOME Clocks&amp;rsquo; ui files into standalone utilities.</description>
     </item>
     
     <item>

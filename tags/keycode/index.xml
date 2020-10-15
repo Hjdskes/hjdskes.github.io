@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2020 Jente Hidskes</copyright>
-    <lastBuildDate>Fri, 21 Jul 2017 17:35:55 +0200</lastBuildDate><atom:link href="https://www.hjdskes.nl/tags/keycode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 Jul 2017 17:35:55 +0200</lastBuildDate>
+    
+	<atom:link href="https://www.hjdskes.nl/tags/keycode/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>GSoC part 9: the button stack page</title>
       <link>https://www.hjdskes.nl/blog/gsoc-part-9/</link>

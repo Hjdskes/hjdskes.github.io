@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="GSoC blog series on rewriting Piper"/>
-  <meta name="generator" content="Hugo 0.76.5" />
+  <meta name="generator" content="Hugo 0.72.0" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -131,7 +131,7 @@ object;</li>
 <li>We query the DBus LED mode, which returns the old mode because that&rsquo;s what
 the <a href="https://lazka.github.io/pgi-docs/Gio-2.0/classes/DBusProxy.html"><code>Gio.DBusProxy</code></a> has;</li>
 <li>Time passes, and we return to GLib&rsquo;s main loop which monitors DBus;</li>
-<li>DBus' property changed signal arrives;</li>
+<li>DBus&rsquo; property changed signal arrives;</li>
 <li>If we query the DBus LED mode now, it has the correct value.</li>
 </ol>
 <p>Because there is no time between steps 1 and 2, the signal hasn&rsquo;t yet arrived
@@ -210,7 +210,7 @@ knows it isn&rsquo;t anymore.</p>
 <li>Move the <code>DefaultResolutionChanged</code> (and <code>ActiveResolutionChanged</code>) signal up
 into the profile, or</li>
 <li>Have a boolean property of <code>IsDefault</code> in the resolution objects.  This way
-we get to use DBus' <code>PropertyChanged</code> signals as they happen anyway, without
+we get to use DBus&rsquo; <code>PropertyChanged</code> signals as they happen anyway, without
 the need for extra signals on our behalf.</li>
 </ol>
 <p>The latter would mean that each class in Piper that has a <code>Ratbagd*</code> instance

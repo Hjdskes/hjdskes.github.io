@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="GSoC blog series on rewriting Piper"/>
-  <meta name="generator" content="Hugo 0.76.5" />
+  <meta name="generator" content="Hugo 0.72.0" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -187,7 +187,7 @@ write-only or readwrite and finally, they can be watched for changes.</p>
                                                    <span class="bp">None</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">Rsvg</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">new_from_file</span><span class="p">(</span><span class="n">ratbag_device</span><span class="o">.</span><span class="n">svg_path</span>
-</code></pre></div><p>A <code>Gtk.Container</code> subclass needs to implement <code>Gtk.Container</code>&rsquo;s interface
+</code></pre></div><p>A <code>Gtk.Container</code> subclass needs to implement <code>Gtk.Container</code>'s interface
 methods and a few <code>Gtk.Widget</code> interface methods that deal with geometry
 management.</p>
 <h3 id="gtkcontainer-interface-methods"><code>Gtk.Container</code> interface methods</h3>
@@ -570,7 +570,7 @@ them to reflect the current features of libratbag and ratbagd (for this,
 <a href="https://github.com/libratbag/ratbagd/issues/29">ratbagd</a> also had to be updated).</p>
 <p>In the process I GObject-ified the bindings so that they inherit from GObject.
 This allows us to emit GObject signals when we receive a signal over DBus and
-expose the DBus interfaces' properties as GObject properties. The advantage of
+expose the DBus interfaces&rsquo; properties as GObject properties. The advantage of
 this approach is that the Piper code can add signal handlers to these signals
 using <code>Ratbagd*.connect(&quot;&lt;signal&gt;&quot;, &lt;callback&gt;)</code> which are called when the
 signals are emitted, and watch for property changes  using

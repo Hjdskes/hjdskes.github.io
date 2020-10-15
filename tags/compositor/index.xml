@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2020 Jente Hidskes</copyright>
-    <lastBuildDate>Mon, 03 Jun 2019 20:12:29 +0200</lastBuildDate><atom:link href="https://www.hjdskes.nl/tags/compositor/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Jun 2019 20:12:29 +0200</lastBuildDate>
+    
+	<atom:link href="https://www.hjdskes.nl/tags/compositor/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Cage 0.1.1 is out</title>
       <link>https://www.hjdskes.nl/blog/cage-0.1.1/</link>
