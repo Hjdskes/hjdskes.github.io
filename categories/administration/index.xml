@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Administration on Jente Hidskes&#39; website</title>
@@ -18,8 +18,8 @@
       <pubDate>Fri, 28 Jun 2019 21:54:19 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/https-update/</guid>
-      <description>For a little over a year now, this website has been enforcing HTTPS over both its www subdomain and the hjdskes.nl apex domain. These certificates are kindly provided automagically by GitHub in a partnership with Let&#39;s Encrypt.
-In May, the certificate for my website expired. Expecting GitHub to be on top of this, at first I did not take any action. Some of you have reached out to me about the issue, which prompted me to contact GitHub to figure out why my certficate wasn&#39;t being renewed.</description>
+      <description>For a little over a year now, this website has been enforcing HTTPS over both its www subdomain and the hjdskes.nl apex domain. These certificates are kindly provided automagically by GitHub in a partnership with Let&amp;rsquo;s Encrypt.
+In May, the certificate for my website expired. Expecting GitHub to be on top of this, at first I did not take any action. Some of you have reached out to me about the issue, which prompted me to contact GitHub to figure out why my certficate wasn&amp;rsquo;t being renewed.</description>
     </item>
     
     <item>
@@ -30,7 +30,7 @@ In May, the certificate for my website expired. Expecting GitHub to be on top of
       <guid>https://www.hjdskes.nl/blog/github-pgp-response/</guid>
       <description>A few weeks ago I wrote about adding a new PGP subkey to your GitHub account. I reported this issue to GitHub when I discovered it. Today, I have gotten a response from GitHub:
  When a new subkey is added to an existing PGP key on an account, it currently has to be removed and added back to the account to update it on our side.
-This is expected behaviour for now but I agree it isn&#39;t the most elegant solution!</description>
+This is expected behaviour for now but I agree it isn&amp;rsquo;t the most elegant solution!</description>
     </item>
     
     <item>
@@ -39,8 +39,8 @@ This is expected behaviour for now but I agree it isn&#39;t the most elegant sol
       <pubDate>Thu, 13 Dec 2018 15:23:39 +0100</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/psa-github-gpg/</guid>
-      <description>I not so recently started using subkeys to do my normal PGP work. I made a new subkey specifically for signing things, and naturally wanted to use this new key to sign my commits with git&#39;s builtin GPG support. I picked up my subkey&#39;s ID with gpg --list-keys --keyid-format LONG and set it with git config --global user.signingKey &amp;lt;id&amp;gt;. That&#39;d be it, right?
-Since you&#39;re reading this, you&#39;ve found out the answer is &amp;ldquo;no&amp;rdquo;.</description>
+      <description>I not so recently started using subkeys to do my normal PGP work. I made a new subkey specifically for signing things, and naturally wanted to use this new key to sign my commits with git&amp;rsquo;s builtin GPG support. I picked up my subkey&amp;rsquo;s ID with gpg --list-keys --keyid-format LONG and set it with git config --global user.signingKey &amp;lt;id&amp;gt;. That&amp;rsquo;d be it, right?
+Since you&amp;rsquo;re reading this, you&amp;rsquo;ve found out the answer is &amp;ldquo;no&amp;rdquo;.</description>
     </item>
     
     <item>
@@ -49,7 +49,7 @@ Since you&#39;re reading this, you&#39;ve found out the answer is &amp;ldquo;no&
       <pubDate>Wed, 04 Jul 2018 20:47:00 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/pass/</guid>
-      <description>Last week, I received an email from Ticketmaster that my account details may have been leaked through an external supplier. Whilst I did not get notified through Troy Hunt&#39;s excellent Have I Been Pwned?, now was a good a time as any to finally apply some proper password hygiene. A great time, even, as this has been on my to-do list for way too long. I have been preaching proper password hygiene to my family and friends whilst not yet practicing it myself!</description>
+      <description>Last week, I received an email from Ticketmaster that my account details may have been leaked through an external supplier. Whilst I did not get notified through Troy Hunt&amp;rsquo;s excellent Have I Been Pwned?, now was a good a time as any to finally apply some proper password hygiene. A great time, even, as this has been on my to-do list for way too long. I have been preaching proper password hygiene to my family and friends whilst not yet practicing it myself!</description>
     </item>
     
     <item>
@@ -58,8 +58,8 @@ Since you&#39;re reading this, you&#39;ve found out the answer is &amp;ldquo;no&
       <pubDate>Wed, 02 May 2018 11:41:05 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/https/</guid>
-      <description>From today, my website enforces HTTPS again! Github Pages have been supporting HTTPS since June 2016, so when my website was reachable only through hjdskes.github.io I got all of that for free. In fact, because HTTPS is the future(tm), I enabled Github Pages&amp;rsquo; enforce HTTPS feature in my website&#39;s settings.
-Since March, my website is also reachable through (www.)hjdskes.nl. When I set this up, I knew I would lose the ability to enforce HTTPS because up until yesterday, Github Pages did not support HTTPS for custom domains.</description>
+      <description>From today, my website enforces HTTPS again! Github Pages have been supporting HTTPS since June 2016, so when my website was reachable only through hjdskes.github.io I got all of that for free. In fact, because HTTPS is the future&amp;trade;, I enabled Github Pages&amp;rsquo; enforce HTTPS feature in my website&amp;rsquo;s settings.
+Since June 28 2019, I have removed the apex domain (`https://hjdskes.nl`) from my DNS records. [It turns out that GitHub does not support HTTPS for both the apex domain and the www subdomain](https://help.</description>
     </item>
     
     <item>
@@ -69,7 +69,7 @@ Since March, my website is also reachable through (www.)hjdskes.nl. When I set t
       
       <guid>https://www.hjdskes.nl/blog/update-deploying-hugo-on-personal-gh-pages/</guid>
       <description>In my previous post I explained the workflow I use to update this website. It has never been particularly stable, and the process seemed far more complicated than it needed to be.
-This week I attempted to update the theme of this website. To pull in the theme&#39;s files, I use git submodules. Apparently, this completely break git&#39;s subtrees. I had enough of trying to maintain this complicated setup, so I started looking around for better ways.</description>
+This week I attempted to update the theme of this website. To pull in the theme&amp;rsquo;s files, I use git submodules. Apparently, this completely break git&amp;rsquo;s subtrees. I had enough of trying to maintain this complicated setup, so I started looking around for better ways.</description>
     </item>
     
     <item>
@@ -78,9 +78,8 @@ This week I attempted to update the theme of this website. To pull in the theme&
       <pubDate>Tue, 16 Aug 2016 22:07:21 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/deploying-hugo-on-personal-gh-pages/</guid>
-      <description>Hello, World!
-As this is the first blog post on this website (and indeed, by myself), the introduction had to be done. I&#39;ll leave it at this, though. If you want to know more about me, you can do that here.
-This website is created using the Hugo static website generator. You define the layout of your pages using regular HTML (combined with Hugo&#39;s templates), CSS and JavaScript and you write your pages&amp;rsquo; contents using Markdown.</description>
+      <description>The method described here is obsolete. The introduction still provides a nice overview of the problem, but please see my [updated post](/blog/update-deploying-hugo-on-personal-gh-pages) for the actual steps and scripts!  Hello, World!
+As this is the first blog post on this website (and indeed, by myself), the introduction had to be done. I&amp;rsquo;ll leave it at this, though. If you want to know more about me, you can do that here.</description>
     </item>
     
   </channel>

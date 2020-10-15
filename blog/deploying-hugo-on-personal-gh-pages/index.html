@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="How I deploy my Hugo generated website to GitHub Pages"/>
-  <meta name="generator" content="Hugo 0.60.1" />
+  <meta name="generator" content="Hugo 0.55.6" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -56,36 +56,53 @@
   
   
   Posted: <time datetime="Aug 16, 2016">Aug 16, 2016</time>
-  &nbsp;• 5 minute read&nbsp;• Last modified:
+  &nbsp;• 6 minute read&nbsp;• Last modified:
     <time datetime="Jul 9, 2019">Jul 9, 2019</time></div>
 
-<!-- raw HTML omitted -->
-<p><em><!-- raw HTML omitted -->Hello, World!<!-- raw HTML omitted --></em></p>
+
+
+<div  class="info" >
+   The method described here is obsolete. The
+introduction still provides a nice overview of the problem, but please see my
+[updated post](/blog/update-deploying-hugo-on-personal-gh-pages) for the actual
+steps and scripts! 
+</div>
+
+<p><em><q>Hello, World!</q></em></p>
+
 <p>As this is the first blog post on this website (and indeed, by myself), the
-introduction had to be done. I'll leave it at this, though. If you want to know
+introduction had to be done. I&rsquo;ll leave it at this, though. If you want to know
 more about me, you can do that <a href="/about/">here</a>.</p>
+
 <p>This website is created using the <a href="https://gohugo.io/">Hugo</a> static website
 generator. You define the layout of your pages using regular HTML (combined with
-Hugo's <a href="https://gohugo.io/templates/overview/">templates</a>), CSS and JavaScript
+Hugo&rsquo;s <a href="https://gohugo.io/templates/overview/">templates</a>), CSS and JavaScript
 and you write your pages&rsquo; contents using Markdown. Hugo takes these source files
 and generates the HTML files for you. All you have to do afterwards is deploy
 these files on your server.</p>
+
 <p><a href="https://pages.github.com">GitHub Pages</a> is a service by GitHub allowing you to
 create websites for yourself, your organization and your projects. These
 websites are hosted directly in a GitHub repository under your control; simply
 pushing changes to these repositories updates the website.</p>
-<p>This blog post explains how I combined the two: the website's contents are
+
+<p>This blog post explains how I combined the two: the website&rsquo;s contents are
 created using Hugo and are deployed through GitHub Pages.</p>
-<h2 id="deploying-your-hugogenerated-website-on-github-pages">Deploying your Hugo-generated website on GitHub Pages</h2>
+
+<h2 id="deploying-your-hugo-generated-website-on-github-pages">Deploying your Hugo-generated website on GitHub Pages</h2>
+
 <p>There is a <a href="https://gohugo.io/tutorials/github-pages-blog/">good tutorial</a> on
 deploying your Hugo-generated website on GitHub Pages on the Hugo website. The
 scenario described there, however, does not really fit my use-case.</p>
+
 <p>The tutorial applies to a GitHub Pages website belonging to a project. This
 means that the website needs to be pushed into the <code>gh-pages</code> branch under
-said project's GitHub repository.</p>
-<p>In my case, I'm using Hugo to generate a personal website. This means that I
-have a <code>$USERNAME.github.io</code> repository, and consequently that my website's
-contents need to be pushed into that repository's <code>master</code> branch.</p>
+said project&rsquo;s GitHub repository.</p>
+
+<p>In my case, I&rsquo;m using Hugo to generate a personal website. This means that I
+have a <code>$USERNAME.github.io</code> repository, and consequently that my website&rsquo;s
+contents need to be pushed into that repository&rsquo;s <code>master</code> branch.</p>
+
 <p>The above mentioned tutorial does have a small section on hosting the website on
 personal GitHub Pages, but I find their solution to use two repositories (one
 for the sources and another for the generated website) to be sub-par. A Google
@@ -93,15 +110,18 @@ search led me to
 <a href="http://life.beyondrails.com/blog/2014/12/14/setting-up-and-automating-my-hugo-blog-deployment-to-github-pages/">this</a>
 blog post where the author struggled with the same issue. What follows
 is my solution, combining both tutorials.</p>
-<p>As mentioned, I have a <code>$USERNAME.github.io</code> repository. My website's content
+
+<p>As mentioned, I have a <code>$USERNAME.github.io</code> repository. My website&rsquo;s content
 should be deployed into the <code>master</code> branch, starting with a valid <code>index.html</code>
-in this branch's root. Not wanting to mix source- and generated files, I
-intended to keep Hugo's default setting to generate the website into a separate
+in this branch&rsquo;s root. Not wanting to mix source- and generated files, I
+intended to keep Hugo&rsquo;s default setting to generate the website into a separate
 directory called <code>public/</code>. As you can see, these two options are at odds.</p>
+
 <p>I therefore adopted the <code>git subtree</code> approach as initially suggested in the
 Hugo tutorial: have a &ldquo;source&rdquo; branch for the source files, which contains a
 <code>public/</code> folder mirroring the root of the <code>master</code> branch containing only the
 generated website. The workflow, then, would be something like this:</p>
+
 <ol>
 <li>Make a change to the website;</li>
 <li>Commit those changes;</li>
@@ -110,6 +130,7 @@ generated website. The workflow, then, would be something like this:</p>
 <li>Push the contents of the new  <code>public/</code> folder to the <code>master</code> branch using
 <code>git subtree</code>.</li>
 </ol>
+
 <p>This would allow me to have one branch for my source files, and to use the
 <code>master</code> branch for the generated website only, resolving my issue. Steps two
 to five can be automated, although personally I prefer to do step two myself.
@@ -130,9 +151,9 @@ However, for steps three to five I have written a small script, <code>deploy.sh<
 <span class="c1"># Name of the branch containing the Hugo source files.</span>
 <span class="nv">SOURCE</span><span class="o">=</span>hugo
 <span class="c1"># The commit message.</span>
-<span class="nv">MESSAGE</span><span class="o">=</span><span class="s2">&#34;</span><span class="s2">Site rebuild </span><span class="k">$(</span>date<span class="k">)</span><span class="s2">&#34;</span>
+<span class="nv">MESSAGE</span><span class="o">=</span><span class="s2">&#34;Site rebuild </span><span class="k">$(</span>date<span class="k">)</span><span class="s2">&#34;</span>
 
-msg<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+msg<span class="o">()</span> <span class="o">{</span>
     <span class="nb">printf</span> <span class="s2">&#34;\033[1;32m :: %s\n\033[0m&#34;</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span>
 <span class="o">}</span>
 
@@ -143,15 +164,15 @@ git subtree pull --prefix<span class="o">=</span>public <span class="se">\
 msg <span class="s2">&#34;Building the website&#34;</span>
 hugo
 
-msg <span class="s2">&#34;</span><span class="s2">Pushing the updated \`public\` folder to the \`</span><span class="nv">$SOURCE</span><span class="s2">\` branch</span><span class="s2">&#34;</span>
+msg <span class="s2">&#34;Pushing the updated \`public\` folder to the \`</span><span class="nv">$SOURCE</span><span class="s2">\` branch&#34;</span>
 git add public
 git commit -m <span class="s2">&#34;</span><span class="nv">$MESSAGE</span><span class="s2">&#34;</span>
 git push origin <span class="s2">&#34;</span><span class="nv">$SOURCE</span><span class="s2">&#34;</span>
 
 msg <span class="s2">&#34;Pushing the updated \`public\` folder to the \`master\` branch&#34;</span>
 git subtree push --prefix<span class="o">=</span>public <span class="se">\
-</span><span class="se"></span>	git@github.com:<span class="nv">$USERNAME</span>/<span class="nv">$USERNAME</span>.github.io.git master
-</code></pre></div><p>I have written a second script to take care of the setup, in case I ever need
+</span><span class="se"></span>	git@github.com:<span class="nv">$USERNAME</span>/<span class="nv">$USERNAME</span>.github.io.git master</code></pre></div>
+<p>I have written a second script to take care of the setup, in case I ever need
 to repeat the steps for another website. This script needs to be run only once;
 afterwards, <code>deploy.sh</code> does all the work. The script will create an empty,
 orphaned <code>master</code> branch, which from then on is not supposed to be touched
@@ -162,7 +183,11 @@ you to delete the default branch, which, by default (pun intended) is the
 branch to the &ldquo;source&rdquo; branch, allowing me to delete the <code>master</code> branch. To
 change the default branch, open your GitHub repository and go to Settings →
 Branches.</p>
-<!-- raw HTML omitted -->
+
+<div  class="warning" >
+   This script will delete the `public/` directory.
+Make sure any files you want to keep are backed up! 
+</div>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/usr/bin/env bash
 </span><span class="cp"></span>
 <span class="c1"># This script does the required work to set up your personal GitHub Pages</span>
@@ -177,7 +202,7 @@ Branches.</p>
 <span class="c1"># Name of the branch containing the Hugo source files.</span>
 <span class="nv">SOURCE</span><span class="o">=</span>hugo
 
-msg<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+msg<span class="o">()</span> <span class="o">{</span>
     <span class="nb">printf</span> <span class="s2">&#34;\033[1;32m :: %s\n\033[0m&#34;</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span>
 <span class="o">}</span>
 
@@ -189,12 +214,12 @@ msg <span class="s2">&#34;Creating an empty, orphaned \`master\` branch&#34;</sp
 git checkout --orphan master
 git rm --cached <span class="k">$(</span>git ls-files<span class="k">)</span>
 
-msg <span class="s2">&#34;</span><span class="s2">Grabbing one file from the \`</span><span class="nv">$SOURCE</span><span class="s2">\` branch so that a commit can be made</span><span class="s2">&#34;</span>
+msg <span class="s2">&#34;Grabbing one file from the \`</span><span class="nv">$SOURCE</span><span class="s2">\` branch so that a commit can be made&#34;</span>
 git checkout <span class="s2">&#34;</span><span class="nv">$SOURCE</span><span class="s2">&#34;</span> README.md
 git commit -m <span class="s2">&#34;Initial commit on master branch&#34;</span>
 git push origin master
 
-msg <span class="s2">&#34;</span><span class="s2">Returning to the \`</span><span class="nv">$SOURCE</span><span class="s2">\` branch</span><span class="s2">&#34;</span>
+msg <span class="s2">&#34;Returning to the \`</span><span class="nv">$SOURCE</span><span class="s2">\` branch&#34;</span>
 git checkout -f <span class="s2">&#34;</span><span class="nv">$SOURCE</span><span class="s2">&#34;</span>
 
 msg <span class="s2">&#34;Removing the \`public\` folder to make room for the \`master\` subtree&#34;</span>
@@ -208,10 +233,10 @@ git subtree add --prefix<span class="o">=</span>public <span class="se">\
 
 msg <span class="s2">&#34;Pulling down the just committed file to help avoid merge conflicts&#34;</span>
 git subtree pull --prefix<span class="o">=</span>public <span class="se">\
-</span><span class="se"></span>	git@github.com:<span class="nv">$USERNAME</span>/<span class="nv">$USERNAME</span>.github.io.git master
-</code></pre></div><p>You can find the structure and setup in use in <a href="https://github.com/Hjdskes/hjdskes.github.io">this website's
+</span><span class="se"></span>	git@github.com:<span class="nv">$USERNAME</span>/<span class="nv">$USERNAME</span>.github.io.git master</code></pre></div>
+<p>You can find the structure and setup in use in <a href="https://github.com/Hjdskes/hjdskes.github.io">this website&rsquo;s
 repository</a>. If any of the above is
-unclear, feel free to send me an <a href="mailto:dev@hjdskes.nl">email</a> and I'll try
+unclear, feel free to send me an <a href="mailto:dev@hjdskes.nl">email</a> and I&rsquo;ll try
 my best to update this post.</p>
 
 

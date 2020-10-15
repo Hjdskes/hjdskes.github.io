@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gcolor3 on Jente Hidskes&#39; website</title>
@@ -19,7 +19,7 @@
       
       <guid>https://www.hjdskes.nl/blog/giving-up-piper-gcolor3/</guid>
       <description>Today, I handed over the maintainership of Gcolor3 to Christopher Davis, also known as Brainblasted. As you may have noticed, I have little time (and to be honest, little interest) to keep Gcolor3 up to date.
-Gcolor3 was my first project and still a project I&#39;m proud of, but it is time for me to move on. It&#39;s not easy to give over the maintainership, but it&#39;s the best thing to do for both the project and myself: users shouldn&#39;t have to wait days or weeks for me to respond, and I shouldn&#39;t have to feel guilty and pressured whenever I get a notification.</description>
+Gcolor3 was my first project and still a project I&amp;rsquo;m proud of, but it is time for me to move on. It&amp;rsquo;s not easy to give over the maintainership, but it&amp;rsquo;s the best thing to do for both the project and myself: users shouldn&amp;rsquo;t have to wait days or weeks for me to respond, and I shouldn&amp;rsquo;t have to feel guilty and pressured whenever I get a notification.</description>
     </item>
     
     <item>
@@ -28,8 +28,8 @@ Gcolor3 was my first project and still a project I&#39;m proud of, but it is tim
       <pubDate>Sun, 02 Sep 2018 00:00:21 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/gcolor3-gitlab/</guid>
-      <description>Gcolor3 has moved from GitHub to GNOME&#39;s GitLab instance! You can now find the repository at https://gitlab.gnome.org/World/gcolor3. This was suggested by GNOME developer Jeremy Bicha and finalized very quickly by Carlos Soriano, thanks both!
-Being on GNOME&#39;s GitLab is awesome, because Gcolor3 is now surrounded by other GNOME projects. This should make it easier to find for many people, but there are other benefits too. Since the move yesterday, I have already received nine merge requests!</description>
+      <description>Gcolor3 has moved from GitHub to GNOME&amp;rsquo;s GitLab instance! You can now find the repository at https://gitlab.gnome.org/World/gcolor3. This was suggested by GNOME developer Jeremy Bicha and finalized very quickly by Carlos Soriano, thanks both!
+Being on GNOME&amp;rsquo;s GitLab is awesome, because Gcolor3 is now surrounded by other GNOME projects. This should make it easier to find for many people, but there are other benefits too. Since the move yesterday, I have already received nine merge requests!</description>
     </item>
     
     <item>

@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="A minimal Linux OS for my home automation system"/>
-  <meta name="generator" content="Hugo 0.60.1" />
+  <meta name="generator" content="Hugo 0.55.6" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -52,14 +52,16 @@
 <h1>A purpose-built Linux OS for my Raspberry Pi 3B&#43; home automation system</h1>
 <p>For my <a href="/blog/home-automation">home automation system</a> I developed a
 purpose-built (minimal, embedded) Linux-based operating system.</p>
+
 <p>This embedded Linux distribution is built using
 <a href="https://buildroot.org/">Buildroot</a>. To house my configuration, I
 forked <a href="https://github.com/Hjdskes/buildroot/tree/hjdskes">Buildroot on
 GitHub</a>. I added a
 custom defconfig (<code>configs/hjdskes_rpi3_defconfig</code>) that holds my
-image's configuration, and there is a subdirectory in
+image&rsquo;s configuration, and there is a subdirectory in
 <code>board/hjdskes/rpi3/</code> to hold configuration files and a rootsfs
 overlay.</p>
+
 <p>The system is very minimal and modern: on top of the Linux kernel, it
 installs systemd (only the required parts and <code>logind</code>), util-linux&rsquo;
 <code>agetty</code> and <code>login</code>, bash, Raspberry Pi firmware, <code>wpa_supplicant</code>,
@@ -70,6 +72,7 @@ but with the finished filesystem using only 155 MB I think this
 qualifies as a minimal system. I do still have to develop the actual
 home automation application, which will add a few more dependencies to
 the system.</p>
+
 <p>Cage is started automatically on boot. I have <a href="https://github.com/Hjdskes/buildroot/blob/hjdskes/board/hjdskes/rpi3/rootfs_overlay/etc/systemd/system/cage%40.service">written a systemd
 service</a>
 for this, which logs in as the specified user after boot and then

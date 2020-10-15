@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PyGObject on Jente Hidskes&#39; website</title>
@@ -19,7 +19,7 @@
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-14/</guid>
       <description>Well, this really is the last week of my Summer of Code! This will be a short update on the final changes made since my last update on Friday, which will be followed by a proper blog post for my final submission later this week.
-Last week I mentioned a few items that were work-in-progress. The search field for the button mapping dialog has been merged, including its revamp of the dialog&#39;s UI.</description>
+Last week I mentioned a few items that were work-in-progress. The search field for the button mapping dialog has been merged, including its revamp of the dialog&amp;rsquo;s UI.</description>
     </item>
     
   </channel>

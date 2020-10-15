@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MouseMap on Jente Hidskes&#39; website</title>
@@ -18,7 +18,7 @@
       <pubDate>Fri, 07 Jul 2017 14:58:33 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-7/</guid>
-      <description>This week was a good week with loads of progress. I&#39;ll just go through each item one by one, as usual.
+      <description>This week was a good week with loads of progress. I&amp;rsquo;ll just go through each item one by one, as usual.
 MouseMap merged Last Friday I opened the pull request to merge the MouseMap widget. After a bit of a discussion around preferences, my mentor and I decided to merge ongoing work in a rewrite branch. This keeps the master branch functional (while still receiving improvements, such as adding new functionality to the ratbagd bindings or a Gtk.</description>
     </item>
     
@@ -28,8 +28,8 @@ MouseMap merged Last Friday I opened the pull request to merge the MouseMap widg
       <pubDate>Fri, 30 Jun 2017 16:11:24 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-6/</guid>
-      <description>This week Piper saw some progress again! Today I opened the pull request for the MouseMap that I&#39;ve been working on for the past two and a half weeks now. I&#39;ll discuss the changes made since the last blog later; first, I want to highlight the other work I did the past week.
-A major milestone this week is the merging of ratbagd and libratbag. While Piper shouldn&#39;t notice any of this (it talks to ratbagd over DBus), it&#39;s still a highlight I want to mention.</description>
+      <description>This week Piper saw some progress again! Today I opened the pull request for the MouseMap that I&amp;rsquo;ve been working on for the past two and a half weeks now. I&amp;rsquo;ll discuss the changes made since the last blog later; first, I want to highlight the other work I did the past week.
+A major milestone this week is the merging of ratbagd and libratbag. While Piper shouldn&amp;rsquo;t notice any of this (it talks to ratbagd over DBus), it&amp;rsquo;s still a highlight I want to mention.</description>
     </item>
     
     <item>
@@ -38,8 +38,8 @@ A major milestone this week is the merging of ratbagd and libratbag. While Piper
       <pubDate>Fri, 23 Jun 2017 16:52:20 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-5/</guid>
-      <description>As mentioned in my previous blog, the X.Org Foundation now wants us to blog every week. Whilst that means shorter blogs (last week&#39;s was a tad long), it also means that there isn&#39;t much to blog about if I didn&#39;t do much in a week.
-Such is the case for this week, sadly. It&#39;s the last week of university, and so there are a few assignment deadlines that I needed to complete; I haven&#39;t been able to invest as much time into my project as I would have wanted.</description>
+      <description>As mentioned in my previous blog, the X.Org Foundation now wants us to blog every week. Whilst that means shorter blogs (last week&amp;rsquo;s was a tad long), it also means that there isn&amp;rsquo;t much to blog about if I didn&amp;rsquo;t do much in a week.
+Such is the case for this week, sadly. It&amp;rsquo;s the last week of university, and so there are a few assignment deadlines that I needed to complete; I haven&amp;rsquo;t been able to invest as much time into my project as I would have wanted.</description>
     </item>
     
     <item>

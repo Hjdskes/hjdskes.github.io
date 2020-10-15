@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="A new release of Gcolor3"/>
-  <meta name="generator" content="Hugo 0.60.1" />
+  <meta name="generator" content="Hugo 0.55.6" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -59,8 +59,11 @@
   &nbsp;• 7 minute read&nbsp;• Last modified:
     <time datetime="Feb 18, 2019">Feb 18, 2019</time></div>
 
+
+
 <p>Finally, after a long period of sporadic commits, I released Gcolor3
 version 2.3 out into the wild!</p>
+
 
 <div style="column-count: 3; column-gap: 20px;">
   
@@ -87,34 +90,40 @@ version 2.3 out into the wild!</p>
   
 </div>
 
+
 <p>This release was two years in the making (two years and twelve days,
 to be precise). It features 67 commits, resulting in a redesigned
 saved colors page, a redesigned headerbar and loads of under-the-hood
 changes. In this post, I want to go into a little more detail on the
 development and what led up to Gcolor 2.3. If you are here just to
-install, head over to the install instructions on <a href="/projects/gcolor3">Gcolor3's project
+install, head over to the install instructions on <a href="/projects/gcolor3">Gcolor3&rsquo;s project
 page</a>. If you wish to view the release notes only,
 those are at the <a href="#release-notes">bottom of this page</a>.</p>
+
 <h3 id="redesigning-gcolor3">Redesigning Gcolor3</h3>
+
 <p>I never did like the tree view that was used in previous versions of
 Gcolor3 for its saved colors. The code was fine, but the UI looked
 outdated and empty. There were no buttons in the tree view items, it
-wasn't obvious that by clicking an item you could rename the color, et
+wasn&rsquo;t obvious that by clicking an item you could rename the color, et
 cetera.</p>
-<p>When a reported bug about <!-- raw HTML omitted -->Ctrl<!-- raw HTML omitted -->-<!-- raw HTML omitted -->c<!-- raw HTML omitted --> <a href="https://github.com/Hjdskes/gcolor3/issues/64">not working in
+
+<p>When a reported bug about <kbd>Ctrl</kbd>-<kbd>c</kbd> <a href="https://github.com/Hjdskes/gcolor3/issues/64">not working in
 the tree view</a> got
 picked up by <a href="https://github.com/jtojnar">Jan Tojnar</a>, it opened up a
 rabbit hole of edge cases. I decided to scrap the whole thing and
-redesign this page to better fit in with <a href="https://developer.gnome.org/hig/stable/">GNOME's
+redesign this page to better fit in with <a href="https://developer.gnome.org/hig/stable/">GNOME&rsquo;s
 HIG</a>.</p>
+
 <p>I made two mockups. Both used a
 <a href="https://developer.gnome.org/gtk3/stable/GtkListBox.html">GtkListBox</a>,
 a widget that is used often in GNOME applications for content such as
 saved colors. The first one has each row colored with the color it
 belongs to. This worked nice with matching colors, but clashed hard
-when the colors didn't go together well. The second design row simply
+when the colors didn&rsquo;t go together well. The second design row simply
 had a small thumbnail to show the color. This left a lot of
 whitespace.</p>
+
 
 <div style="column-count: 2; column-gap: 20px;">
   
@@ -134,6 +143,7 @@ whitespace.</p>
   
 </div>
 
+
 <p>When I <a href="https://github.com/Hjdskes/gcolor3/pull/92#issuecomment-414073545">asked for
 feedback</a>,
 <a href="https://github.com/julianrichen">Julian Richen</a> mentioned that I
@@ -141,13 +151,14 @@ could simply make the rows smaller and centered on the page, as is
 common in many GNOME applications. I opted to go with this solution
 (and thus design #2), as it not only fit better with the HIG but also
 is generally a better design. In the first mockup, for example, what
-color would a row be when it is selected? It can't simply be the
-theme's selected color, because then the user cannot see what color
+color would a row be when it is selected? It can&rsquo;t simply be the
+theme&rsquo;s selected color, because then the user cannot see what color
 they selected. We can make it another color with some custom CSS, but
 this would still be the same problem. Going completely custom with our
 own effect would detract from one of the main reasons to redesign the
 page in the first place: to integrate better with the GNOME
-desktop. The idea was nice, but it didn't work out in practice.</p>
+desktop. The idea was nice, but it didn&rsquo;t work out in practice.</p>
+
 <p>In the process of development, I refactored the color store (where
 Gcolor3 centrally keeps track of saved colors, even between different
 instances running simultaneously) to do away with its custom <a href="https://developer.gnome.org/gobject/stable/gobject-Signals.html">GObject
@@ -160,23 +171,28 @@ need to do now is add, remove or rename colors in the store and the
 rest will be done for us. This significantly simplifies the codebase,
 where we had to do all this ourselves based on the signals emitted by
 the store.</p>
+
 <p>I also added a proper empty state for when there are no saved
 colors. Following more feedback on the design, I also made the
 thumbnails have a border radius (following the current GTK+ theme) and
 I added a button to copy the color as well (as opposed to having only
 a keyboard shortcut for this). And of course, the bug leading to this
 whole redesign was fixed in the process, as well 😉.</p>
+
 <p>Thanks Jan and Julian for your cooperation on this issue!</p>
+
 <h3 id="wayland-support-past-present-and-future">Wayland support: past, present and future</h3>
+
 <p>Early 2016 I got a bug report that Gcolor3 does not work on
-Wayland: picking a color had no effect. This wasn't surprising, as the
+Wayland: picking a color had no effect. This wasn&rsquo;t surprising, as the
 <a href="https://developer.gnome.org/gtk3/stable/GtkColorSelection.html">GtkColorSelection</a>
 widget I was using was a deprecated widget, after all. Nonetheless,
-this is an issue that needs to be fixed. A color picker isn't much of
+this is an issue that needs to be fixed. A color picker isn&rsquo;t much of
 a color picker when it cannot pick colors, is it?</p>
+
 <p>In late 2017, users reported Gcolor3 crashing GNOME Shell when trying
 to pick a color under Wayland. This was obviously a bigger problem
-that couldn't wait for a solution from the Wayland camp. With the
+that couldn&rsquo;t wait for a solution from the Wayland camp. With the
 color selection widget being deprecated and indeed already removed
 from what will be GTK+ 4, I <a href="https://github.com/Hjdskes/gcolor3/pull/67">imported
 it</a> (and its dependency,
@@ -185,23 +201,26 @@ Gcolor3. The aptly named <code>Gcolor3ColorSelection</code> widget now checks
 whether it is running on Wayland, and if so, makes the picker button
 insensitive. This is the best I could do, until a general solution for
 picking a color was available on Wayland.</p>
+
 <p>Meanwhile, I opened a <a href="https://bugzilla.gnome.org/show_bug.cgi?id=789756">bug
 report</a> on GNOME
 Shell to discuss the addition of a color picking interface. The
 outcome of this discussion was to add an interface to the XDG desktop
 portals. All of those bits are now in-place (<a href="https://github.com/flatpak/xdg-desktop-portal/pull/202">XDG desktop portal
 interface</a>,
-<a href="https://github.com/flatpak/xdg-desktop-portal-gtk/pull/134">GNOME's desktop portal
+<a href="https://github.com/flatpak/xdg-desktop-portal-gtk/pull/134">GNOME&rsquo;s desktop portal
 implementation</a>,
 <a href="https://gitlab.gnome.org/GNOME/gnome-shell/merge_requests/171">GNOME Shell
 implementation</a>,
-<a href="https://github.com/KDE/xdg-desktop-portal-kde/commit/ee590b2242257f6b96edda6a784b3972ee272387">KDE's desktop portal
+<a href="https://github.com/KDE/xdg-desktop-portal-kde/commit/ee590b2242257f6b96edda6a784b3972ee272387">KDE&rsquo;s desktop portal
 implementation</a>
-and finally, <a href="https://phabricator.kde.org/D3481">KWin's
+and finally, <a href="https://phabricator.kde.org/D3481">KWin&rsquo;s
 implementation</a>). With version 2.3
 out the door, I will now be focusing on implementing this interface
 and getting color picking working again on Wayland!</p>
+
 <h3 id="other-changes">Other changes</h3>
+
 <p>The GNOME desktop has been steadily advancing over the last two
 years. Two recent technologies that have modernized GNOME are the
 <a href="http://mesonbuild.com">Meson build system</a> and
@@ -209,16 +228,20 @@ years. Two recent technologies that have modernized GNOME are the
 now building with Meson and packages as a Flatpak! The <a href="https://github.com/flathub/flathub/pull/601">pull
 request</a> to add it to
 Flathub, the Flatpak store, is open!</p>
+
 <p>If you are more a fan of the traditional package manager approach,
 this release should excite you as well. Gcolor3 was already being
 packaged unofficially for Fedora, but it is now in the process of
 being included officially! If you are more of an Ubuntu guy (or gal),
 there is now an unofficial PPA for
 <a href="https://launchpad.net/~evertiro/+archive/ubuntu/gcolor3">Ubuntu</a>!</p>
+
 <h3 id="future-work">Future work</h3>
+
 <p>The biggest pain point right now is obviously Wayland (note: this is
-<em><strong>not</strong></em> a complaint towards Wayland itself &ndash; in fact, I believe
+<strong><em>not</em></strong> a complaint towards Wayland itself &ndash; in fact, I believe
 Wayland is the future), so this is what I will work on first.</p>
+
 <p>After this, I want to modernize the imported <code>Gcolor3ColorSelection</code>
 and <code>Gcolor3HSV</code> widgets. There are some chances to use modern APIs
 there that will reduce the amount of boilerplate code. Furthermore, I
@@ -226,38 +249,43 @@ have already made some progress on porting them to use <code>GdkRGBA</code> when
 I imported them, but there are some places left to apply this change
 to. I hope this will result in less overall conversion between
 different formats.</p>
-<p>Now that those widgets are under our control, I also think it's time
-for a redesign of those widgets. I'm not sure yet where I want to go,
+
+<p>Now that those widgets are under our control, I also think it&rsquo;s time
+for a redesign of those widgets. I&rsquo;m not sure yet where I want to go,
 but I have opened an
 <a href="https://github.com/Hjdskes/gcolor3/issues/96">issue</a> to gather
 ideas. If you have any, please do let me know!</p>
+
 <p>Finally, I want to make the saved colors sortable. Right now, the list
 is static and colors are sorted in order of insertion. Obviously,
 users might want to sort colors to group them together or some such.</p>
+
 <p>As you can see, there is plenty left to improve Gcolor3. Besides these
 changes, <a href="https://github.com/Hjdskes/gcolor3/issues/88">GTK+ 4 is on the horizon as
 well</a>. The future is
 exciting!</p>
+
 <h3 id="release-notes">Release notes</h3>
+
 <ul>
 <li>Fix AppData for inclusion in Fedora, Flatpak (<a href="https://github.com/Hjdskes/gcolor3/issues/60">#60</a>)</li>
 <li>Import deprecated GtkColorSelection and GtkHSV (<a href="https://github.com/Hjdskes/gcolor3/pull/67">#67</a>)</li>
 <li>Fix crashing GNOME Shell on Wayland (<a href="https://github.com/Hjdskes/gcolor3/pull/67">#67</a>)</li>
 <li>Package Gcolor3 as Flatpak (<a href="https://github.com/Hjdskes/gcolor3/pull/72">#72</a>)</li>
 <li>Port Gcolor3 to the Meson build system (<a href="https://github.com/Hjdskes/gcolor3/pull/83">#83</a>)
+
 <ul>
 <li>This removes a dependency on intltool.</li>
-</ul>
-</li>
+</ul></li>
 <li>Gcolor3ColorStore: mention that warnings are harmless on first run (<a href="https://github.com/Hjdskes/gcolor3/issues/84">#84</a>)</li>
 <li>Fix CTRL-C and other keyboard shortcuts (<a href="https://github.com/Hjdskes/gcolor3/issues/64">#64</a>)</li>
 <li>Redesigned saved color page (<a href="https://github.com/Hjdskes/gcolor3/pull/92">#92</a>)</li>
 <li>Redesigned header bar (<a href="https://github.com/Hjdskes/gcolor3/pull/92">#92</a>)</li>
 <li>Add a GtkShortcutswindow (<a href="https://github.com/Hjdskes/gcolor3/pull/93">#93</a>)
+
 <ul>
 <li>This bumps the required version of GTK+ 3 to 3.20.</li>
-</ul>
-</li>
+</ul></li>
 <li>Add a manual page (<a href="https://github.com/Hjdskes/gcolor3/pull/99">#99</a>)</li>
 <li>Publish Gcolor3 on Flathub (<a href="https://github.com/Hjdskes/gcolor3/issues/87">#87</a>)</li>
 <li>There is now a PPA to install Gcolor3 on Ubuntu (<a href="https://launchpad.net/~evertiro/+archive/ubuntu/gcolor3">#21</a>)</li>

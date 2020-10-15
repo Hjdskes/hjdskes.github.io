@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="An update to my previous blog on deploying my Hugo generated website with GitHub Pages"/>
-  <meta name="generator" content="Hugo 0.60.1" />
+  <meta name="generator" content="Hugo 0.55.6" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -62,24 +62,33 @@
 <p>In my <a href="/blog/deploying-hugo-on-personal-gh-pages">previous post</a> I explained the
 workflow I use to update this website. It has never been particularly stable,
 and the process seemed far more complicated than it needed to be.</p>
+
 <p>This week I attempted to update the theme of this website. To pull in
-the theme's files, I use <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">git
+the theme&rsquo;s files, I use <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">git
 submodules</a>. Apparently,
-this completely break git's subtrees. I had enough of trying to
+this completely break git&rsquo;s subtrees. I had enough of trying to
 maintain this complicated setup, so I started looking around for
 better ways.</p>
-<p>Fortunately, Hugo's &ldquo;Hosting on GitHub&rdquo; tutorial has been updated to include
+
+<p>Fortunately, Hugo&rsquo;s &ldquo;Hosting on GitHub&rdquo; tutorial has been updated to include
 instructions on <a href="https://gohugo.io/tutorials/github-pages-blog/#deployment-via-gh-pages-branch">deploying via a <code>gh-pages</code>
 branch</a>.
 The instructions are easily modified to work with the setup that personal pages
 require! If you want to know how it works, read that tutorial; what follows
 below are my updated <code>setup.sh</code> and <code>deploy.sh</code> scripts.</p>
-<p>You can find the updated structure and setup in use in <a href="https://github.com/Hjdskes/hjdskes.github.io">this website's
+
+<p>You can find the updated structure and setup in use in <a href="https://github.com/Hjdskes/hjdskes.github.io">this website&rsquo;s
 repository</a>. If any of the above
-is unclear, feel free to send me an <a href="mailto:dev@hjdskes.nl">email</a> and I'll
+is unclear, feel free to send me an <a href="mailto:dev@hjdskes.nl">email</a> and I&rsquo;ll
 try my best to help you.</p>
+
 <p><code>setup.sh</code>:</p>
-<!-- raw HTML omitted -->
+
+<div  class="warning" >
+   This script will delete an existing `master`
+branch and an existing `public/` directory. Make sure any files you want to keep
+are backed up! 
+</div>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/usr/bin/env bash
 </span><span class="cp"></span>
 <span class="c1"># This script does the required work to set up your personal GitHub Pages</span>
@@ -92,7 +101,7 @@ try my best to help you.</p>
 <span class="c1"># Name of the branch containing the Hugo source files.</span>
 <span class="nv">SOURCE</span><span class="o">=</span>hugo
 
-msg<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+msg<span class="o">()</span> <span class="o">{</span>
     <span class="nb">printf</span> <span class="s2">&#34;\033[1;32m :: %s\n\033[0m&#34;</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span>
 <span class="o">}</span>
 
@@ -112,8 +121,15 @@ git checkout <span class="nv">$SOURCE</span>
 
 msg <span class="s2">&#34;Adding the master branch into the \`public\` folder&#34;</span>
 rm -rf public
-git worktree add -B master public origin/master
-</code></pre></div><!-- raw HTML omitted -->
+git worktree add -B master public origin/master</code></pre></div>
+<div  class="info" >
+   If you need to deploy a CNAME file as well, copy
+the file into the `public/` folder after the `hugo` line in the script below.
+You can see [the
+script](https://github.com/Hjdskes/hjdskes.github.io/blob/hugo/deploy.sh) in
+this website's repository to see how.  
+</div>
+
 <p><code>deploy.sh</code></p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/usr/bin/env bash
 </span><span class="cp"></span>
@@ -127,15 +143,15 @@ git worktree add -B master public origin/master
 <span class="nb">export</span> <span class="nv">LC_TIME</span><span class="o">=</span>en_US.UTF-8
 
 <span class="c1"># The commit message.</span>
-<span class="nv">MESSAGE</span><span class="o">=</span><span class="s2">&#34;</span><span class="s2">Site rebuild </span><span class="k">$(</span>date<span class="k">)</span><span class="s2">&#34;</span>
+<span class="nv">MESSAGE</span><span class="o">=</span><span class="s2">&#34;Site rebuild </span><span class="k">$(</span>date<span class="k">)</span><span class="s2">&#34;</span>
 
-msg<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+msg<span class="o">()</span> <span class="o">{</span>
     <span class="nb">printf</span> <span class="s2">&#34;\033[1;32m :: %s\n\033[0m&#34;</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span>
 <span class="o">}</span>
 
-<span class="k">if</span> <span class="o">[</span><span class="o">[</span> <span class="k">$(</span>git status -s<span class="k">)</span> <span class="o">]</span><span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="k">$(</span>git status -s<span class="k">)</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
     msg <span class="s2">&#34;The working directory is dirty, please commit or stash any pending changes&#34;</span>
-    <span class="nb">exit</span> 1<span class="p">;</span>
+    <span class="nb">exit</span> <span class="m">1</span><span class="p">;</span>
 <span class="k">fi</span>
 
 msg <span class="s2">&#34;Removing the old website&#34;</span>
@@ -151,8 +167,7 @@ msg <span class="s2">&#34;Pushing the updated \`public\` folder to the \`master\
 git add *
 git commit -m <span class="s2">&#34;</span><span class="nv">$MESSAGE</span><span class="s2">&#34;</span>
 <span class="nb">popd</span>
-git push origin master
-</code></pre></div>
+git push origin master</code></pre></div>
 
 
   <div>

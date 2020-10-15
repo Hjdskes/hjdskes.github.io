@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Development on Jente Hidskes&#39; website</title>
@@ -19,7 +19,7 @@
       
       <guid>https://www.hjdskes.nl/blog/giving-up-piper-gcolor3/</guid>
       <description>Today, I handed over the maintainership of Gcolor3 to Christopher Davis, also known as Brainblasted. As you may have noticed, I have little time (and to be honest, little interest) to keep Gcolor3 up to date.
-Gcolor3 was my first project and still a project I&#39;m proud of, but it is time for me to move on. It&#39;s not easy to give over the maintainership, but it&#39;s the best thing to do for both the project and myself: users shouldn&#39;t have to wait days or weeks for me to respond, and I shouldn&#39;t have to feel guilty and pressured whenever I get a notification.</description>
+Gcolor3 was my first project and still a project I&amp;rsquo;m proud of, but it is time for me to move on. It&amp;rsquo;s not easy to give over the maintainership, but it&amp;rsquo;s the best thing to do for both the project and myself: users shouldn&amp;rsquo;t have to wait days or weeks for me to respond, and I shouldn&amp;rsquo;t have to feel guilty and pressured whenever I get a notification.</description>
     </item>
     
   </channel>

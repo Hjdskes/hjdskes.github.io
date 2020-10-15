@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>XPath on Jente Hidskes&#39; website</title>
@@ -18,8 +18,8 @@
       <pubDate>Fri, 30 Jun 2017 16:11:24 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-6/</guid>
-      <description>This week Piper saw some progress again! Today I opened the pull request for the MouseMap that I&#39;ve been working on for the past two and a half weeks now. I&#39;ll discuss the changes made since the last blog later; first, I want to highlight the other work I did the past week.
-A major milestone this week is the merging of ratbagd and libratbag. While Piper shouldn&#39;t notice any of this (it talks to ratbagd over DBus), it&#39;s still a highlight I want to mention.</description>
+      <description>This week Piper saw some progress again! Today I opened the pull request for the MouseMap that I&amp;rsquo;ve been working on for the past two and a half weeks now. I&amp;rsquo;ll discuss the changes made since the last blog later; first, I want to highlight the other work I did the past week.
+A major milestone this week is the merging of ratbagd and libratbag. While Piper shouldn&amp;rsquo;t notice any of this (it talks to ratbagd over DBus), it&amp;rsquo;s still a highlight I want to mention.</description>
     </item>
     
   </channel>

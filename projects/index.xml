@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects &amp; Contributions on Jente Hidskes&#39; website</title>
@@ -19,7 +19,7 @@
       
       <guid>https://www.hjdskes.nl/projects/rpi-linux/</guid>
       <description>For my home automation system I developed a purpose-built (minimal, embedded) Linux-based operating system.
-This embedded Linux distribution is built using Buildroot. To house my configuration, I forked Buildroot on GitHub. I added a custom defconfig (configs/hjdskes_rpi3_defconfig) that holds my image&#39;s configuration, and there is a subdirectory in board/hjdskes/rpi3/ to hold configuration files and a rootsfs overlay.
+This embedded Linux distribution is built using Buildroot. To house my configuration, I forked Buildroot on GitHub. I added a custom defconfig (configs/hjdskes_rpi3_defconfig) that holds my image&amp;rsquo;s configuration, and there is a subdirectory in board/hjdskes/rpi3/ to hold configuration files and a rootsfs overlay.
 The system is very minimal and modern: on top of the Linux kernel, it installs systemd (only the required parts and logind), util-linux&amp;rsquo; agetty and login, bash, Raspberry Pi firmware, wpa_supplicant, mesa (Gallium VC4 driver, OpenGL ES and EGL), GTK+ 3, my Wayland compositor Cage, the Cantarell font and the Adwaita icon theme.</description>
     </item>
     
@@ -198,7 +198,7 @@ From version 2.0 onwards, both the timer and the stopwatch are of from GNOME Clo
       <pubDate>Sat, 21 Mar 2015 21:29:00 +0100</pubDate>
       
       <guid>https://www.hjdskes.nl/projects/arek/</guid>
-      <description>Arek Window Manager is a plugin to Mutter in an (ambitious) attempt to create a tiling window manager with eye-candy. Due to several limitations on Mutter&#39;s side, a moving Wayland target and a lack of time on my side, this project is not actively maintained at the moment.</description>
+      <description>Arek Window Manager is a plugin to Mutter in an (ambitious) attempt to create a tiling window manager with eye-candy. Due to several limitations on Mutter&amp;rsquo;s side, a moving Wayland target and a lack of time on my side, this project is not actively maintained at the moment.</description>
     </item>
     
     <item>

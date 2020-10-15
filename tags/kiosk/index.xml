@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>kiosk on Jente Hidskes&#39; website</title>
@@ -29,7 +29,7 @@ As such, not too much has changed between 0.1 and 0.1.1:
       <pubDate>Tue, 23 Apr 2019 20:24:11 +0100</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/cage-01/</guid>
-      <description>Almost exactly four months ago I announced Cage, my Wayland compositor for a kiosk-like environment. To the uninitiated: a kiosk is designed for running a single, maximized application and preventing the user from interacting with any other part of the system. You&#39;ve probably seen many in your life in malls, stores or even the dentist (how satisfied are you with your service?). Kiosks can also be used for much cooler things, though, such as running home automation systems.</description>
+      <description>Almost exactly four months ago I announced Cage, my Wayland compositor for a kiosk-like environment. To the uninitiated: a kiosk is designed for running a single, maximized application and preventing the user from interacting with any other part of the system. You&amp;rsquo;ve probably seen many in your life in malls, stores or even the dentist (how satisfied are you with your service?). Kiosks can also be used for much cooler things, though, such as running home automation systems.</description>
     </item>
     
     <item>

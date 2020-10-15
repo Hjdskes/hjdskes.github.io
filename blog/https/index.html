@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="GitHub enabled HTTPS support for custom domains"/>
-  <meta name="generator" content="Hugo 0.60.1" />
+  <meta name="generator" content="Hugo 0.55.6" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -56,7 +56,7 @@
   
   
   Posted: <time datetime="May 2, 2018">May 2, 2018</time>
-  &nbsp;• 1 minute read&nbsp;• Last modified:
+  &nbsp;• 2 minute read&nbsp;• Last modified:
     <time datetime="Jun 28, 2019">Jun 28, 2019</time></div>
 
 <p>From today, my website enforces HTTPS again! Github Pages have been supporting
@@ -64,17 +64,27 @@ HTTPS <a href="https://blog.github.com/2016-06-08-https-for-github-pages/">since
 2016</a>, so when my
 website was reachable only through
 <a href="https://hjdskes.github.io">hjdskes.github.io</a> I got all of that for free. In
-fact, because HTTPS is the future(tm), I enabled Github Pages&rsquo; <em>enforce HTTPS</em>
-feature in my website's settings.</p>
-<!-- raw HTML omitted -->
+fact, because HTTPS is the future&trade;, I enabled Github Pages&rsquo; <em>enforce HTTPS</em>
+feature in my website&rsquo;s settings.</p>
+
+<div  class="info" >
+   Since June 28 2019, I have removed the apex domain
+(`https://hjdskes.nl`) from my DNS records.  [It turns out that GitHub does not support
+HTTPS for both the apex domain and the www
+subdomain](https://help.github.com/en/articles/setting-up-an-apex-domain-and-www-subdomain).
+See [this small announcement](https://www.hjdskes.nl/blog/https-update) for
+more information.  
+</div>
+
 <p>Since March, my website is also reachable through
 <a href="https://www.hjdskes.nl">(www.)hjdskes.nl</a>.  When I set this up, I knew I would
 lose the ability to enforce HTTPS because up until yesterday, Github Pages did
-not support HTTPS for custom domains. I thought this wouldn't be a big issue
-for a low traffic (I assume; I am not using any analytics but let's be
+not support HTTPS for custom domains. I thought this wouldn&rsquo;t be a big issue
+for a low traffic (I assume; I am not using any analytics but let&rsquo;s be
 realistic) blog like mine with only static content. Plus, <a href="https://github.com/isaacs/github/issues/156">I
 knew</a> that HTTPS support for
 custom domains would eventually come, so I went ahead and set things up.</p>
+
 <p>I forgot all about this until yesterday, when I saw a broadcast on GitHub
 informing the world about <a href="https://blog.github.com/2018-05-01-github-pages-custom-domains-https/">HTTPS support for custom
 domains</a>.

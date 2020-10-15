@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>fdo on Jente Hidskes&#39; website</title>
@@ -18,7 +18,7 @@
       <pubDate>Wed, 23 Aug 2017 16:19:04 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-15/</guid>
-      <description>This is the last entry in the Google Summer of Code series that I have been writing weekly for the last three months. It is different from the usual updates in that I won&#39;t be discussing development progress: rather, this will be the submission report for the project as a whole. I&#39;ll be discussing the why? behind the project, the plan that my mentor and I came up with to execute the project, the work I have done over the summer including a video of the result, the things that are left to work on, what I&#39;ve learned during the project and finally, the links to the code that I have written for the actual submission.</description>
+      <description>This is the last entry in the Google Summer of Code series that I have been writing weekly for the last three months. It is different from the usual updates in that I won&amp;rsquo;t be discussing development progress: rather, this will be the submission report for the project as a whole. I&amp;rsquo;ll be discussing the why? behind the project, the plan that my mentor and I came up with to execute the project, the work I have done over the summer including a video of the result, the things that are left to work on, what I&amp;rsquo;ve learned during the project and finally, the links to the code that I have written for the actual submission.</description>
     </item>
     
     <item>
@@ -28,7 +28,7 @@
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-14/</guid>
       <description>Well, this really is the last week of my Summer of Code! This will be a short update on the final changes made since my last update on Friday, which will be followed by a proper blog post for my final submission later this week.
-Last week I mentioned a few items that were work-in-progress. The search field for the button mapping dialog has been merged, including its revamp of the dialog&#39;s UI.</description>
+Last week I mentioned a few items that were work-in-progress. The search field for the button mapping dialog has been merged, including its revamp of the dialog&amp;rsquo;s UI.</description>
     </item>
     
     <item>
@@ -37,8 +37,8 @@ Last week I mentioned a few items that were work-in-progress. The search field f
       <pubDate>Fri, 18 Aug 2017 19:47:27 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-13/</guid>
-      <description>This week I have been solving more issues to make sure that Piper offers a pleasent user experience, doesn&#39;t crash and runs smoothly. My mentor and cvuchener from the libratbag project have been testing Piper the last week, and together with a handful of users attracted to Piper they have opened a bunch of issues for me to solve. Let&#39;s run through the most visible ones!
-Solving global warming Probably the most fun issue to resolve this week was the one reported by my mentor: Piper contributes to global warming (you won&#39;t believe what happened next!</description>
+      <description>This week I have been solving more issues to make sure that Piper offers a pleasent user experience, doesn&amp;rsquo;t crash and runs smoothly. My mentor and cvuchener from the libratbag project have been testing Piper the last week, and together with a handful of users attracted to Piper they have opened a bunch of issues for me to solve. Let&amp;rsquo;s run through the most visible ones!
+Solving global warming Probably the most fun issue to resolve this week was the one reported by my mentor: Piper contributes to global warming (you won&amp;rsquo;t believe what happened next!</description>
     </item>
     
     <item>
@@ -47,8 +47,8 @@ Solving global warming Probably the most fun issue to resolve this week was the 
       <pubDate>Fri, 11 Aug 2017 15:35:37 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-12/</guid>
-      <description>Last week I shared the news that all large features had been implemented; all that was left were issues raised by GNOME contributors when my mentor demoed my progress over GUADEC. This week I&#39;ve just been chugging away on those issues; let me show you.
-Obvious save button is.. not obvious? Hadess noted that the save button wasn&#39;t obvious when my mentor demoed Piper to him; I already mentioned this last week: the icon is a save to diskicon and it&#39;s not obvious at first glance that you have to press it to write the changes you made to the device.</description>
+      <description>Last week I shared the news that all large features had been implemented; all that was left were issues raised by GNOME contributors when my mentor demoed my progress over GUADEC. This week I&amp;rsquo;ve just been chugging away on those issues; let me show you.
+Obvious save button is.. not obvious? Hadess noted that the save button wasn&amp;rsquo;t obvious when my mentor demoed Piper to him; I already mentioned this last week: the icon is a save to disk icon and it&amp;rsquo;s not obvious at first glance that you have to press it to write the changes you made to the device.</description>
     </item>
     
     <item>
@@ -57,8 +57,8 @@ Obvious save button is.. not obvious? Hadess noted that the save button wasn&#39
       <pubDate>Fri, 04 Aug 2017 15:06:40 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-11/</guid>
-      <description>When I proposed the project with my mentor, we worked out a bunch of features that the new Piper should have. These are listed in the Redesign Wiki, but here&#39;s a high-level summary:
- A welcome screen, presenting a list of connected and supported devices. An error screen, presenting any problems in a user-friendly manner. The main screen, presenting the configuration pages: A page to configure resolutions (see part 7) A page to configure button mappings (see parts 9 and 10) A page to configure LEDs (see part 8) Support for device profiles (see part 9 for the start on this).</description>
+      <description>When I proposed the project with my mentor, we worked out a bunch of features that the new Piper should have. These are listed in the Redesign Wiki, but here&amp;rsquo;s a high-level summary:
+ A welcome screen, presenting a list of connected and supported devices. An error screen, presenting any problems in a user-friendly manner. The main screen, presenting the configuration pages:  A page to configure resolutions (see part 7) A page to configure button mappings (see parts 9 and 10) A page to configure LEDs (see part 8)  Support for device profiles (see part 9 for the start on this).</description>
     </item>
     
     <item>
@@ -67,8 +67,8 @@ Obvious save button is.. not obvious? Hadess noted that the save button wasn&#39
       <pubDate>Fri, 28 Jul 2017 15:10:26 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-10/</guid>
-      <description>I can start this blog post by sharing the news that I have passed for my second evaluation! This means that I&#39;m now on the last sprint towards the finish line, with ahead of me profile support and the welcome screen.
-Yes; you&#39;ve read that correctly: I didn&#39;t mention the button page. I managed to fix that this week and it&#39;s now pending review and some final issues (more about that below).</description>
+      <description>I can start this blog post by sharing the news that I have passed for my second evaluation! This means that I&amp;rsquo;m now on the last sprint towards the finish line, with ahead of me profile support and the welcome screen.
+Yes; you&amp;rsquo;ve read that correctly: I didn&amp;rsquo;t mention the button page. I managed to fix that this week and it&amp;rsquo;s now pending review and some final issues (more about that below).</description>
     </item>
     
     <item>
@@ -77,8 +77,8 @@ Yes; you&#39;ve read that correctly: I didn&#39;t mention the button page. I man
       <pubDate>Fri, 21 Jul 2017 17:35:55 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-9/</guid>
-      <description>When I discussed this project with my mentor before GSoC, he told me that the button mappings were going to be the most complicated piece. This week I&#39;ve been working on precisely that and, well, let&#39;s just say he wasn&#39;t wrong 😉
-If you&#39;ve been following along on GitHub, you&#39;re probably thinking that it was a slow week. Indeed, there hasn&#39;t been that much activity this week as in previous weeks.</description>
+      <description>When I discussed this project with my mentor before GSoC, he told me that the button mappings were going to be the most complicated piece. This week I&amp;rsquo;ve been working on precisely that and, well, let&amp;rsquo;s just say he wasn&amp;rsquo;t wrong &amp;#128521;
+If you&amp;rsquo;ve been following along on GitHub, you&amp;rsquo;re probably thinking that it was a slow week. Indeed, there hasn&amp;rsquo;t been that much activity this week as in previous weeks.</description>
     </item>
     
     <item>
@@ -87,7 +87,7 @@ If you&#39;ve been following along on GitHub, you&#39;re probably thinking that 
       <pubDate>Fri, 14 Jul 2017 10:03:55 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-8/</guid>
-      <description>Originally the plan for this week was to start working on the button mappings, however together with my mentor I decided that it&#39;s better to do the LEDs first. This is because I was sure I could finish this in a few days, and button mappings is definitely going to take much longer than that. So, this week I&#39;ll run you through the implementation of the LED stack page, and the coming weeks I&#39;ll be working on button mappings, profile support and a proper welcome screen, in that order.</description>
+      <description>Originally the plan for this week was to start working on the button mappings, however together with my mentor I decided that it&amp;rsquo;s better to do the LEDs first. This is because I was sure I could finish this in a few days, and button mappings is definitely going to take much longer than that. So, this week I&amp;rsquo;ll run you through the implementation of the LED stack page, and the coming weeks I&amp;rsquo;ll be working on button mappings, profile support and a proper welcome screen, in that order.</description>
     </item>
     
     <item>
@@ -96,7 +96,7 @@ If you&#39;ve been following along on GitHub, you&#39;re probably thinking that 
       <pubDate>Fri, 07 Jul 2017 14:58:33 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-7/</guid>
-      <description>This week was a good week with loads of progress. I&#39;ll just go through each item one by one, as usual.
+      <description>This week was a good week with loads of progress. I&amp;rsquo;ll just go through each item one by one, as usual.
 MouseMap merged Last Friday I opened the pull request to merge the MouseMap widget. After a bit of a discussion around preferences, my mentor and I decided to merge ongoing work in a rewrite branch. This keeps the master branch functional (while still receiving improvements, such as adding new functionality to the ratbagd bindings or a Gtk.</description>
     </item>
     
@@ -106,8 +106,8 @@ MouseMap merged Last Friday I opened the pull request to merge the MouseMap widg
       <pubDate>Fri, 30 Jun 2017 16:11:24 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-6/</guid>
-      <description>This week Piper saw some progress again! Today I opened the pull request for the MouseMap that I&#39;ve been working on for the past two and a half weeks now. I&#39;ll discuss the changes made since the last blog later; first, I want to highlight the other work I did the past week.
-A major milestone this week is the merging of ratbagd and libratbag. While Piper shouldn&#39;t notice any of this (it talks to ratbagd over DBus), it&#39;s still a highlight I want to mention.</description>
+      <description>This week Piper saw some progress again! Today I opened the pull request for the MouseMap that I&amp;rsquo;ve been working on for the past two and a half weeks now. I&amp;rsquo;ll discuss the changes made since the last blog later; first, I want to highlight the other work I did the past week.
+A major milestone this week is the merging of ratbagd and libratbag. While Piper shouldn&amp;rsquo;t notice any of this (it talks to ratbagd over DBus), it&amp;rsquo;s still a highlight I want to mention.</description>
     </item>
     
     <item>
@@ -116,8 +116,8 @@ A major milestone this week is the merging of ratbagd and libratbag. While Piper
       <pubDate>Fri, 23 Jun 2017 16:52:20 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-5/</guid>
-      <description>As mentioned in my previous blog, the X.Org Foundation now wants us to blog every week. Whilst that means shorter blogs (last week&#39;s was a tad long), it also means that there isn&#39;t much to blog about if I didn&#39;t do much in a week.
-Such is the case for this week, sadly. It&#39;s the last week of university, and so there are a few assignment deadlines that I needed to complete; I haven&#39;t been able to invest as much time into my project as I would have wanted.</description>
+      <description>As mentioned in my previous blog, the X.Org Foundation now wants us to blog every week. Whilst that means shorter blogs (last week&amp;rsquo;s was a tad long), it also means that there isn&amp;rsquo;t much to blog about if I didn&amp;rsquo;t do much in a week.
+Such is the case for this week, sadly. It&amp;rsquo;s the last week of university, and so there are a few assignment deadlines that I needed to complete; I haven&amp;rsquo;t been able to invest as much time into my project as I would have wanted.</description>
     </item>
     
     <item>
@@ -147,7 +147,7 @@ On the second week, I thought I would get a few days head start on my schedule b
       <pubDate>Fri, 19 May 2017 16:01:04 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-2/</guid>
-      <description>Two weeks have now passed since my introductory blog post, so as promised here is part two! The theme of this blog post is probably something along the lines of preparation, as that is what I&#39;ve been doing mostly.
+      <description>Two weeks have now passed since my introductory blog post, so as promised here is part two! The theme of this blog post is probably something along the lines of preparation, as that is what I&amp;rsquo;ve been doing mostly.
 The period between that of announcing the accepted student proposals and phase one is called the community bonding period. In this period students are supposed to get to know their mentors, their organizations, familiarize themselves with their projects (even more) and get everything ready to start off the coding period on May 30th.</description>
     </item>
     
