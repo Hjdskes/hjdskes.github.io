@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gtk on Jente Hidskes&#39; website</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2020 Jente Hidskes</copyright>
-    <lastBuildDate>Fri, 18 Aug 2017 19:47:27 +0200</lastBuildDate>
-    
-	<atom:link href="https://www.hjdskes.nl/tags/gtk/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 18 Aug 2017 19:47:27 +0200</lastBuildDate><atom:link href="https://www.hjdskes.nl/tags/gtk/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GSoC part 13: I solved global warming!</title>
       <link>https://www.hjdskes.nl/blog/gsoc-part-13/</link>

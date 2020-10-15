@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GUADEC on Jente Hidskes&#39; website</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2020 Jente Hidskes</copyright>
-    <lastBuildDate>Fri, 04 Aug 2017 15:06:40 +0200</lastBuildDate>
-    
-	<atom:link href="https://www.hjdskes.nl/tags/guadec/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 04 Aug 2017 15:06:40 +0200</lastBuildDate><atom:link href="https://www.hjdskes.nl/tags/guadec/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GSoC part 11: all large features are done!</title>
       <link>https://www.hjdskes.nl/blog/gsoc-part-11/</link>
@@ -19,7 +15,7 @@
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-11/</guid>
       <description>When I proposed the project with my mentor, we worked out a bunch of features that the new Piper should have. These are listed in the Redesign Wiki, but here&amp;rsquo;s a high-level summary:
- A welcome screen, presenting a list of connected and supported devices. An error screen, presenting any problems in a user-friendly manner. The main screen, presenting the configuration pages:  A page to configure resolutions (see part 7) A page to configure button mappings (see parts 9 and 10) A page to configure LEDs (see part 8)  Support for device profiles (see part 9 for the start on this).</description>
+ A welcome screen, presenting a list of connected and supported devices. An error screen, presenting any problems in a user-friendly manner. The main screen, presenting the configuration pages: A page to configure resolutions (see part 7) A page to configure button mappings (see parts 9 and 10) A page to configure LEDs (see part 8) Support for device profiles (see part 9 for the start on this).</description>
     </item>
     
   </channel>

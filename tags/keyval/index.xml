@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>keyval on Jente Hidskes&#39; website</title>
@@ -7,18 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2020 Jente Hidskes</copyright>
-    <lastBuildDate>Fri, 21 Jul 2017 17:35:55 +0200</lastBuildDate>
-    
-	<atom:link href="https://www.hjdskes.nl/tags/keyval/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 21 Jul 2017 17:35:55 +0200</lastBuildDate><atom:link href="https://www.hjdskes.nl/tags/keyval/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GSoC part 9: the button stack page</title>
       <link>https://www.hjdskes.nl/blog/gsoc-part-9/</link>
       <pubDate>Fri, 21 Jul 2017 17:35:55 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-9/</guid>
-      <description>When I discussed this project with my mentor before GSoC, he told me that the button mappings were going to be the most complicated piece. This week I&amp;rsquo;ve been working on precisely that and, well, let&amp;rsquo;s just say he wasn&amp;rsquo;t wrong &amp;#128521;
+      <description>When I discussed this project with my mentor before GSoC, he told me that the button mappings were going to be the most complicated piece. This week I&amp;rsquo;ve been working on precisely that and, well, let&amp;rsquo;s just say he wasn&amp;rsquo;t wrong 😉
 If you&amp;rsquo;ve been following along on GitHub, you&amp;rsquo;re probably thinking that it was a slow week. Indeed, there hasn&amp;rsquo;t been that much activity this week as in previous weeks.</description>
     </item>
     

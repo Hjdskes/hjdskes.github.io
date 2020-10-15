@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="An introduction to my home automation system"/>
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.76.5" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -59,8 +59,6 @@
   &nbsp;• 6 minute read&nbsp;• Last modified:
     <time datetime="Feb 18, 2019">Feb 18, 2019</time></div>
 
-
-
 <p>Back in May I <a href="/blog/server/#the-server">wrote</a> that I was thinking of
 some home automation projects. However, what fun would it be to buy
 readily made products? And, more importantly, what would the quality
@@ -70,13 +68,11 @@ updates. Finally, home automation is an excellent learning project. It
 encompasses so many different technologies, both high- and
 low-level. For these reasons, I opted to build my own home automation
 system.</p>
-
 <p>The heart of the system is a Raspberry Pi 3B+ (unlike I wrote
 previously, the UDOO remains a NAS and local git server), attached to
-which is the official 7&rdquo; touchscreen. All of this is encased in the
-official 7&rdquo; touch screen stand, so that it can stand by itself while
+which is the official 7&quot; touchscreen. All of this is encased in the
+official 7&quot; touch screen stand, so that it can stand by itself while
 looking not too shabby.</p>
-
 
 <div style="column-count: 3; column-gap: 20px;">
   
@@ -103,7 +99,6 @@ looking not too shabby.</p>
   
 </div>
 
-
 <p>On top of this beauty, the control system should run software that
 allows you to for example control the smart lighting. For the reasons
 outlined in the introduction, I won&rsquo;t use an off-the-shelf solution
@@ -111,13 +106,10 @@ such as <a href="https://www.home-assistant.io">Home Assistant</a>. No, I want t
 do everything myself. This way, I can tailor the system exactly to my
 needs. This not only results in a minimal system, but also one that I
 can fully trust to run inside my home. And I should learn a ton!</p>
-
 <p>To start, I developed my own purpose-built embedded Linux distribution
 for my home automation system. After all, what is cooler and teaches
 you more than developing your own Linux-based operating system?</p>
-
 <h2 id="building-an-embedded-linux-distribution">Building an embedded Linux distribution</h2>
-
 <p>In the space of building custom embedded Linux distributions, there
 are two projects to help you set everything up:
 <a href="https://www.yoctoproject.org/">Yocto</a> and
@@ -131,7 +123,6 @@ system was something of a pain-point during the development (see
 below), but the easier learning curve and simplicity of the system
 still won me over. Also, now that the image is complete and I know
 what I need to install, I won&rsquo;t have to do as frequent rebuilds.</p>
-
 <p>To house my configuration, I forked <a href="https://github.com/Hjdskes/buildroot/tree/hjdskes">Buildroot on
 GitHub</a>. I added a
 custom defconfig (<code>configs/hjdskes_rpi3_defconfig</code>) that holds my
@@ -152,8 +143,7 @@ standard), the system booted fine. However, it wouldn&rsquo;t spawn a getty
 to log in on, despite Buildroot&rsquo;s <code>BR2_TARGET_GENERIC_GETTY</code> option
 being set to <em>yes</em>. As it turns out, you need to explicitly install
 agetty.</p>
-
-<p><em><q>Great! Now I got a getty and a login prompt.</q></em>, I thought. This
+<p><em><!-- raw HTML omitted -->Great! Now I got a getty and a login prompt.<!-- raw HTML omitted --></em>, I thought. This
 victory was short-lived, as the getty would respawn after entering the
 username, before I was prompted for my pasword. This is how I learned
 how user login works on Linux; there is another binary in util-linux,
@@ -164,7 +154,6 @@ rebuild, quite frustrated. Building your own embedded Linux system is
 truly a wave of ups and downs, but the end result is very
 satisfactory. To top it of, this is stuff that you don&rsquo;t learn from
 even the minimal &ldquo;user-facing&rdquo; distributions such as Arch Linux!</p>
-
 <p>Another example of things I hadn&rsquo;t worked with before was
 <a href="http://linux-pam.org/">PAM</a>. I wanted to start
 <a href="/projects/cage/">Cage</a>, my Wayland kiosk, automatically on boot. I
@@ -177,35 +166,26 @@ stack.  This stack does the usual login handling through pam_unix and
 then launches a user session with pam_systemd. After changing the
 default systemd target to <code>graphical</code> and enabling the service, I now
 have a flawless boot into Cage!</p>
-
 <p>The resulting system is very minimal and modern: on top of the Linux
 kernel, it installs systemd (only the required parts and <code>logind</code>),
-util-linux&rsquo; <code>agetty</code> and <code>login</code>, bash, Raspberry Pi firmware,
+util-linux' <code>agetty</code> and <code>login</code>, bash, Raspberry Pi firmware,
 <code>wpa_supplicant</code>, mesa (Gallium VC4 driver, OpenGL ES and EGL), GTK+
 3, my Wayland compositor Cage (<a href="#a-kiosk-for-wayland">see below</a>), the
 Cantarell font and the Adwaita icon theme. Of course this also
-includes these packages&rsquo; dependencies, but with the finished
+includes these packages' dependencies, but with the finished
 filesystem using only 155 MB I think this qualifies as a minimal
 system. I do still have to develop the actual home automation
 application, which will add a few more dependencies to the system. For
 now, it simply launches <code>gtk3-widget-factory</code> to test if everything is
 working properly.</p>
-
-<video controls>
-  <source src="/img/blog/home-automation/boot.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-
-<p>I know, <em><q>is that all?</q></em>, but to me this is exciting 😁</p>
-
+<!-- raw HTML omitted -->
+<p>I know, <em><!-- raw HTML omitted -->is that all?<!-- raw HTML omitted --></em>, but to me this is exciting 😁</p>
 <h2 id="a-kiosk-for-wayland">A kiosk for Wayland</h2>
-
-<p>With the screen being only 7&rdquo;, I don&rsquo;t want to have to move windows
+<p>With the screen being only 7&quot;, I don&rsquo;t want to have to move windows
 and have different applications for different automation
 scenarios. Instead, I envision this to be a kiosk, with a single
 application that interfaces with all the smart products in my
 appartment.</p>
-
 <p>I want my home automation project to use modern Linux standards, hence
 systemd and Wayland. However, there is no existing kiosk solution
 available for Wayland. I could use a minimal compositor such as
@@ -216,7 +196,6 @@ and inevitably risk there is a way out after all. Hence, I set out to
 build my own Wayland kiosk. I have developed X11 window managers
 before but never a Wayland compositor, so this was again an excellent
 learning opportunity.</p>
-
 <p>The fruits (or rather, fruit) of this labor is
 <a href="/blog/cage">Cage</a>. As described, Cage is a kiosk for Wayland. It
 is quite minimal for now, supporting only the xdg-shell
