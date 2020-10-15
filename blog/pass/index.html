@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="How I manage my passwords with pass on multiple devices"/>
-  <meta name="generator" content="Hugo 0.72.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -62,7 +62,7 @@
 <p>Last week, I received an email from Ticketmaster that <a href="https://veiligheid.ticketmaster.nl/en-us/">my account
 details may have been
 leaked</a> through an external
-supplier. Whilst I did not get notified through Troy Hunt&rsquo;s excellent
+supplier. Whilst I did not get notified through Troy Hunt's excellent
 <a href="https://haveibeenpwned.com">Have I Been Pwned?</a>, now was a good a
 time as any to finally apply some proper password hygiene. A great
 time, even, as this has been on my to-do list for way too long. I have
@@ -70,7 +70,7 @@ been preaching proper password hygiene to my family and friends whilst
 not yet practicing it myself! It was finally time to put my money
 where my mouth is. To walk the walk&hellip; you get it.</p>
 <h2 id="what-is-proper-password-hygiene">What is proper password hygiene?</h2>
-<p>You&rsquo;ve probably heard it a thousand times already, but let me refresh
+<p>You've probably heard it a thousand times already, but let me refresh
 your memory. Proper password hygience consists of the following:</p>
 <ol>
 <li>Use unique passwords, or at the very least use unique passwords for
@@ -82,14 +82,14 @@ password manager.</li>
 <li>Do not write your passwords down where other people can see them. A
 paper in your safe? Fine. A sticky note on your desktop?
 Nah. Hotel? Trivago.</li>
-<li>This isn&rsquo;t stricly related to passwords, but if possible, also use
+<li>This isn't stricly related to passwords, but if possible, also use
 two factor authentication.</li>
 </ol>
 <p>My threat model here is simply curious people (think snooping family
 and friends) and criminals on the internet (phishing, hacking, et
 cetera). Nation state actors or big-time criminals are out of the
 question, so that file in your safe is probably fine.</p>
-<p>Of course, you also shouldn&rsquo;t use <em>too easy</em> passwords. This is one
+<p>Of course, you also shouldn't use <em>too easy</em> passwords. This is one
 place where password managers shine: they can generate random
 (<em>actually</em> random) passwords for you.</p>
 <h2 id="pass">Pass</h2>
@@ -108,10 +108,10 @@ cloud service managed by someone else. I can inspect the code because
 it is <em>simple</em>, and I can rely on the strenght of GPG instead of a
 home-grown encryption implementation. I am not trying to discredit
 other password managers, but to me these are very important factors to
-consider: I don&rsquo;t have to rely on trust; I can verify.</p>
-<p>I won&rsquo;t explain how to set up and use pass, as both its website and
+consider: I don't have to rely on trust; I can verify.</p>
+<p>I won't explain how to set up and use pass, as both its website and
 man page are excellent resources. You do need a GPG key pair; if you
-don&rsquo;t have one yet I recommend reading <a href="https://keyring.debian.org/creating-key.html">Debian&rsquo;s
+don't have one yet I recommend reading <a href="https://keyring.debian.org/creating-key.html">Debian's
 how-to</a>.</p>
 <h2 id="syncing-your-password-store-between-multiple-devices">Syncing your password store between multiple devices</h2>
 <p>So now you have a super secure password store on your PC. Memorizing
@@ -124,8 +124,8 @@ time the password store is manipulated through the invocation of
 <code>pass</code>. You only need to add a remote and manually push your changes
 to it.</p>
 <p>To sync this Git repository, <a href="/blog/server/">my server</a> hosts a Git
-server accessible only within my local network. In theory this isn&rsquo;t
-required, because your files are encrypted (and I&rsquo;m sure there are
+server accessible only within my local network. In theory this isn't
+required, because your files are encrypted (and I'm sure there are
 people out there syncing to a public GitHub repository). However, I do
 like the extra assurance that my (encrypted) passwords are stored
 somewhere private and under my own control. To see how to set up a Git
@@ -137,14 +137,14 @@ built-in Git and GPG support. It can access your Git repository either
 through SSH or HTTP. For my server, I only allow SSH connections
 through SSH key pairs, so I set up a new pair using the Android
 Password Store app and added the public key to my server.</p>
-<p>As for the GPG key, you don&rsquo;t want to use your master key pair. This
+<p>As for the GPG key, you don't want to use your master key pair. This
 would require you to copy that to your phone. In case your phone gets
 stolen, lost or broken into, your private key is compromised and you
 lose your complete online identity. To remedy this, GPG supports
 subkeys. A subkey is like a normal encryption key, except it is bound
 to your master key pair. It can be used for signing and encrypting
 only, but the real useful part is that it can be revoked and stored
-independently of your master key. See <a href="https://wiki.debian.org/Subkeys">Debian&rsquo;s
+independently of your master key. See <a href="https://wiki.debian.org/Subkeys">Debian's
 subkey</a> article on how to create and
 manage subkeys. When you have created your subkeys, copy one of them
 to your Android device, load it into the
@@ -154,7 +154,7 @@ keys. Now you only have to point Android Password Store to your Git
 repository and you are <em>almost</em> good to go! Your passwords are
 encrypted with your master key, which means your phone cannot decrypt
 them using your subkey. To solve this, simply run <code>pass init $MASTERKEYID $SUBKEYID</code> to encrypt your passwords with both keys (yes,
-this is safe to do in an existing password store). Don&rsquo;t forget to
+this is safe to do in an existing password store). Don't forget to
 sync this change between your devices.</p>
 <p>There you go! Now you can transparently manage your passwords and have
 full control over how and where they are stored.</p>

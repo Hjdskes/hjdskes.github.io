@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="GSoC blog series on rewriting Piper"/>
-  <meta name="generator" content="Hugo 0.72.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -61,10 +61,10 @@
 
 <p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal"></p>
 <p>I can start this blog post by sharing the news that I have passed for my second
-evaluation! This means that I&rsquo;m now on the last sprint towards the finish line,
+evaluation! This means that I'm now on the last sprint towards the finish line,
 with ahead of me profile support and the welcome screen.</p>
-<p>Yes; you&rsquo;ve read that correctly: I didn&rsquo;t mention the button page. I managed to
-fix that this week and it&rsquo;s now pending review and some final issues (more about
+<p>Yes; you've read that correctly: I didn't mention the button page. I managed to
+fix that this week and it's now pending review and some final issues (more about
 that below). Last week I explained that the biggest issue is the restriction
 that ratbag places on its key mapping signature. My mentor <a href="https://github.com/libratbag/libratbag/pull/248">added macro
 support</a> to libratbag and
@@ -72,23 +72,23 @@ ratbagd, so that I could implement the proposed solution to merge the key
 mapping and macros into one setting, as macros are a superset of key mappings
 anyway. As you can see in <a href="https://github.com/libratbag/piper/pull/47/commits/7001904447cad84a13a8852b4487f976156e238f">the
 commit</a>,
-it&rsquo;s quite the cleanup. I also quickly added some code to print the proper
+it's quite the cleanup. I also quickly added some code to print the proper
 labels in the button stack page so that you see at a quick glance which button
 does what. The end result, is this:</p>
 <!-- raw HTML omitted -->
-<p>Macros aren&rsquo;t entirely implemented just yet; they still need support for <a href="https://github.com/libratbag/piper/issues/56">button
+<p>Macros aren't entirely implemented just yet; they still need support for <a href="https://github.com/libratbag/piper/issues/56">button
 releases</a>,
 <a href="https://github.com/libratbag/piper/issues/57">timeouts</a> and <a href="https://github.com/libratbag/piper/issues/62">both key presses
 and releases</a>. However, the basics
-are in and the PR was getting large, so it&rsquo;s good to get it merged and do those
+are in and the PR was getting large, so it's good to get it merged and do those
 features separate.</p>
 <p>Last week also saw the point where the <code>rewrite</code> branch got
 <a href="https://github.com/libratbag/piper/pull/63">merged</a> into the master branch.
-This means that all of the code I&rsquo;ve been writing is now officially in use, and
+This means that all of the code I've been writing is now officially in use, and
 if you pull from GitHub you too can now use the new Piper! My mentor decided it
 was time because there have been quite a few
 <a href="https://github.com/libratbag/libratbag/pull/242">changes</a> in libratbag
-and the DBus interface it presents so the old Piper didn&rsquo;t work anymore and it
+and the DBus interface it presents so the old Piper didn't work anymore and it
 makes no sense to update two versions; especially not when the rewritten version
 supports <em>almost</em> everything the old one does.</p>
 <p>The changes to the DBus interface resulted in an interesting scenario: Piper
@@ -97,27 +97,27 @@ talk with libratbag over DBus), but these are copied back into libratbag for its
 <code>ratbagctl</code> tool. When ratbagd is changed, the bindings in that repository are
 updated, and when Piper needs updates to its bindings, it updates the bindings
 in its own repository. Because both happened simultaneously last week (and in
-Piper&rsquo;s case, in a bunch of different branches as well), syncing the changes
+Piper's case, in a bunch of different branches as well), syncing the changes
 back and forth was an interesting task
 (<a href="https://github.com/libratbag/piper/pull/59">1</a>,
 <a href="https://github.com/libratbag/piper/pull/61">2</a>,
 <a href="https://github.com/libratbag/libratbag/pull/250">3</a> and
 <a href="https://github.com/libratbag/libratbag/pull/254">4</a>). Luckily my mentor told me
 about <a href="https://git-scm.com/docs/git-add#git-add--p"><code>git add -p</code></a>, a flag I
-hadn&rsquo;t seen before which made the task significantly easier. The issues I
-mentioned for the button page are related syncing the bindings and the ratbagd&rsquo;s
-rewritten DBus interface. These aren&rsquo;t hard; I just haven&rsquo;t gotten around to
+hadn't seen before which made the task significantly easier. The issues I
+mentioned for the button page are related syncing the bindings and the ratbagd's
+rewritten DBus interface. These aren't hard; I just haven't gotten around to
 rebasing the buttons branch yet.</p>
 <h2 id="beginning-the-work-on-profiles">Beginning the work on profiles</h2>
 <p>My mentor lives on the other side of the globe (Down Under), so we normally have
 only a few hours overlap a day. This is enough to sync and get some work done
-together, so this isn&rsquo;t a problem. This week, however, he was travelling to
+together, so this isn't a problem. This week, however, he was travelling to
 visit <a href="https://2017.guadec.org/">GUADEC</a> (update: the recording of his talk with
 some background on libratbag is now
-<a href="https://www.youtube.com/watch?v=Xv_VQJI7-UY">available</a>) so I wasn&rsquo;t able to
+<a href="https://www.youtube.com/watch?v=Xv_VQJI7-UY">available</a>) so I wasn't able to
 reach him for quite a bit longer. This was in the middle of the DBus changes and
 macro support, both of which I required to finish the buttons page. I did most
-of this work based on his WIP branch, but I couldn&rsquo;t finish it before that PR
+of this work based on his WIP branch, but I couldn't finish it before that PR
 got merged. Instead of waiting around doing nothing, I started to work on the
 profile support:</p>
 <!-- raw HTML omitted -->
@@ -125,9 +125,9 @@ profile support:</p>
 <code>notify::enabled</code> signal (which notifies any subscribers of a change to this
 property) would be emitted when disabling a profile, but not when
 enabling it again. After some debugging with my mentor (who fortunately was back
-online from Manchester), we found that when Piper asks ratbagd for a device&rsquo;s
+online from Manchester), we found that when Piper asks ratbagd for a device's
 profiles, a new Python list is returned. Since Piper is only connected to the old
-list&rsquo;s profile objects, it never received the signal on those. The solution is to
+list's profile objects, it never received the signal on those. The solution is to
 simply <a href="https://github.com/libratbag/piper/pull/64">cache</a> the lists to make
 sure the bindings always return the same object.</p>
 <h2 id="piper-development-version">Piper development version</h2>
@@ -135,11 +135,11 @@ sure the bindings always return the same object.</p>
 directory to test my changes. This is less than ideal, especially because it
 still requires a compiled resources file. My solution was to generate that
 through Meson (<code>ninja -C build</code>) and then manually copy that into place with
-<code>cp build/data/piper.gresource data/</code>, but clearly this wasn&rsquo;t the way forward.</p>
+<code>cp build/data/piper.gresource data/</code>, but clearly this wasn't the way forward.</p>
 <p>In <a href="https://github.com/libratbag/piper/pull/58">this pull request</a> I fixed that.
 Meson now takes <code>piper.in</code> and coughs out two versions: <code>piper</code> and
-<code>piper.devel</code>. The latter has some code injected that modifies Python&rsquo;s search
-path so that it loads Piper&rsquo;s modules from the source tree:</p>
+<code>piper.devel</code>. The latter has some code injected that modifies Python's search
+path so that it loads Piper's modules from the source tree:</p>
 <pre><code class="language-meson" data-lang="meson">config_piper_devel = configuration_data()
 config_piper_devel.set('pkgdatadir', join_paths(meson.build_root(), 'data'))
 config_piper_devel.set('localedir', join_paths(meson.build_root(), 'po'))
@@ -155,14 +155,14 @@ configure_file(input: 'piper.in',
 which is arguably cleaner. On the other hand, it does add <a href="https://github.com/libratbag/piper/pull/58/files#diff-07d882117a676ac39c6d2cee78a8876aR14">invalid Python
 code</a>
 to <code>piper.in</code> so it has to be ignored by flake8. This resulted in an interesting
-discussion between bentiss and myself, about whether it&rsquo;s worth to have a new
+discussion between bentiss and myself, about whether it's worth to have a new
 source file versus this, well, hack. We settled on merging the PR, because both
 generated versions are still checked by flake8, and so by extension so is
 <code>piper.in</code>.</p>
-<p>Skipping over a few smaller, less visible pull requests, that&rsquo;s it for this
-week! Next week I&rsquo;ll focus on rebasing the buttons branch and architecting the
+<p>Skipping over a few smaller, less visible pull requests, that's it for this
+week! Next week I'll focus on rebasing the buttons branch and architecting the
 profile support. I expect to spend more time than usual on architecture for
-that, while the code should then be relatively simpler. Let&rsquo;s see how I&rsquo;ll
+that, while the code should then be relatively simpler. Let's see how I'll
 manage to thread this out through the existing codebase!</p>
 <p>This blog post is part of a <a href="/series/google-summer-of-code/">series</a>. You can read the next part about
 implementing profile support and the welcome screen <a href="/blog/gsoc-part-11">here</a>

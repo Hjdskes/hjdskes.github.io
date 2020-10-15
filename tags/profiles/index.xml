@@ -18,7 +18,7 @@
       <pubDate>Fri, 04 Aug 2017 15:06:40 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-11/</guid>
-      <description>When I proposed the project with my mentor, we worked out a bunch of features that the new Piper should have. These are listed in the Redesign Wiki, but here&amp;rsquo;s a high-level summary:
+      <description>When I proposed the project with my mentor, we worked out a bunch of features that the new Piper should have. These are listed in the Redesign Wiki, but here&#39;s a high-level summary:
  A welcome screen, presenting a list of connected and supported devices. An error screen, presenting any problems in a user-friendly manner. The main screen, presenting the configuration pages: A page to configure resolutions (see part 7) A page to configure button mappings (see parts 9 and 10) A page to configure LEDs (see part 8) Support for device profiles (see part 9 for the start on this).</description>
     </item>
     
@@ -28,8 +28,8 @@
       <pubDate>Fri, 28 Jul 2017 15:10:26 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-10/</guid>
-      <description>I can start this blog post by sharing the news that I have passed for my second evaluation! This means that I&amp;rsquo;m now on the last sprint towards the finish line, with ahead of me profile support and the welcome screen.
-Yes; you&amp;rsquo;ve read that correctly: I didn&amp;rsquo;t mention the button page. I managed to fix that this week and it&amp;rsquo;s now pending review and some final issues (more about that below).</description>
+      <description>I can start this blog post by sharing the news that I have passed for my second evaluation! This means that I&#39;m now on the last sprint towards the finish line, with ahead of me profile support and the welcome screen.
+Yes; you&#39;ve read that correctly: I didn&#39;t mention the button page. I managed to fix that this week and it&#39;s now pending review and some final issues (more about that below).</description>
     </item>
     
   </channel>

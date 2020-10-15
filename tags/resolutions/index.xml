@@ -18,7 +18,7 @@
       <pubDate>Fri, 14 Jul 2017 10:03:55 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-8/</guid>
-      <description>Originally the plan for this week was to start working on the button mappings, however together with my mentor I decided that it&amp;rsquo;s better to do the LEDs first. This is because I was sure I could finish this in a few days, and button mappings is definitely going to take much longer than that. So, this week I&amp;rsquo;ll run you through the implementation of the LED stack page, and the coming weeks I&amp;rsquo;ll be working on button mappings, profile support and a proper welcome screen, in that order.</description>
+      <description>Originally the plan for this week was to start working on the button mappings, however together with my mentor I decided that it&#39;s better to do the LEDs first. This is because I was sure I could finish this in a few days, and button mappings is definitely going to take much longer than that. So, this week I&#39;ll run you through the implementation of the LED stack page, and the coming weeks I&#39;ll be working on button mappings, profile support and a proper welcome screen, in that order.</description>
     </item>
     
     <item>
@@ -27,7 +27,7 @@
       <pubDate>Fri, 07 Jul 2017 14:58:33 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-7/</guid>
-      <description>This week was a good week with loads of progress. I&amp;rsquo;ll just go through each item one by one, as usual.
+      <description>This week was a good week with loads of progress. I&#39;ll just go through each item one by one, as usual.
 MouseMap merged Last Friday I opened the pull request to merge the MouseMap widget. After a bit of a discussion around preferences, my mentor and I decided to merge ongoing work in a rewrite branch. This keeps the master branch functional (while still receiving improvements, such as adding new functionality to the ratbagd bindings or a Gtk.</description>
     </item>
     

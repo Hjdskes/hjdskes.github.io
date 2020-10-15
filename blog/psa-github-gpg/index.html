@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="Here&#39;s what to do to get it picked up by GitHub &amp; GitLab"/>
-  <meta name="generator" content="Hugo 0.72.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -62,26 +62,26 @@
 <p>I <a href="/blog/pass/"><del>not so</del></a> recently started
 using <a href="https://wiki.debian.org/Subkeys">subkeys</a> to do my normal PGP
 work. I made a new subkey specifically for signing things, and
-naturally wanted to use this new key to sign my commits with git&rsquo;s
-builtin GPG support. I picked up my subkey&rsquo;s ID with <code>gpg --list-keys --keyid-format LONG</code> and set it with <code>git config --global user.signingKey &lt;id&gt;</code>. That&rsquo;d be it, right?</p>
-<p>Since you&rsquo;re reading this, you&rsquo;ve found out the answer is
+naturally wanted to use this new key to sign my commits with git's
+builtin GPG support. I picked up my subkey's ID with <code>gpg --list-keys --keyid-format LONG</code> and set it with <code>git config --global user.signingKey &lt;id&gt;</code>. That'd be it, right?</p>
+<p>Since you're reading this, you've found out the answer is
 <em>&ldquo;no&rdquo;</em>. First, GPG by default uses the last created subkey for
 signing. If this is your problem, you need to <a href="https://public-inbox.org/git/20180113002221.GQ29313@zaya.teonanacatl.net/">append an exclamation
-mark to your key&rsquo;s
+mark to your key's
 ID</a>,
 i.e., use <code>git config --global user.signingKey &lt;id&gt;\!</code>.</p>
-<p>However, if this <em>isn&rsquo;t</em> your problem (i.e., if you want to use a new
+<p>However, if this <em>isn't</em> your problem (i.e., if you want to use a new
 and hence last created subkey to sign your commits), what do you do?
 If you go to your GitHub (or GitLab)
-<a href="https://github.com/settings/keys">settings</a>, you&rsquo;ll see your current
-GPG key with a list of subkeys. Your new subkey probably isn&rsquo;t there
-(or you wouldn&rsquo;t be reading this article). How do we get it there?</p>
+<a href="https://github.com/settings/keys">settings</a>, you'll see your current
+GPG key with a list of subkeys. Your new subkey probably isn't there
+(or you wouldn't be reading this article). How do we get it there?</p>
 <p>If you try to re-add your GPG key, you get a red warning that this key
-already exists. Bummer. Apparently GitHub doesn&rsquo;t pick up the fact
+already exists. Bummer. Apparently GitHub doesn't pick up the fact
 that there are new subkeys. The solution to this problem is to remove
 your current GPG key and then add it again. This may look scary,
 especially given the warning that &ldquo;<em><strong>any commits you signed with this
-key will become unverified after removing it</strong></em>&rdquo;. However, don&rsquo;t
+key will become unverified after removing it</strong></em>&quot;. However, don't
 worry: as we are adding this same key back, those commits will all
 become verified again. In fact, even the commits I made since starting
 to use subkeys suddenly became verified as well. This same trick works

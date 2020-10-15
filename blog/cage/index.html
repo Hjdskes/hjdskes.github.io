@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="Cage: the Wayland kiosk"/>
-  <meta name="generator" content="Hugo 0.72.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -80,18 +80,18 @@ solution available, and although I could use
 e.g. <a href="https://swaywm.org/">sway</a> and configure that, I went with the
 learning and do-it-myself approach. I have developed X11 window
 managers before but had never touched a Wayland compositor. Also, I
-want to &ldquo;do it right&quot;™ and don&rsquo;t want to lock something down and
+want to &ldquo;do it right&quot;™ and don't want to lock something down and
 inevitably risk there is a way out after all, even if this is in the
 friendly environment of my own appartment.</p>
-<p>Cage isn&rsquo;t done yet; my Raspberry Pi (that runs the whole system) is
+<p>Cage isn't done yet; my Raspberry Pi (that runs the whole system) is
 connected to the official 7&rdquo; touch screen, but Cage does not yet
 support touch input. There are also some things to refine, such as not
 displaying a cursor if there is no pointer and to darken the primary
 window when a dialog is open. I also want to optimize the power usage
 by implementing damage tracking and activity tracking to turn the
 screen off automatically after inactivity. All of these features are
-provided by wlroots, it&rsquo;s simply a matter of building it into Cage.</p>
-<p>If a Wayland kiosk is something you&rsquo;ve been waiting for, or if you
+provided by wlroots, it's simply a matter of building it into Cage.</p>
+<p>If a Wayland kiosk is something you've been waiting for, or if you
 want a simple project to get your feet wet with wlroots and/or
 Wayland, please feel free to jump in and help out!</p>
 <p>For questions, comments or feedback you can reach me on

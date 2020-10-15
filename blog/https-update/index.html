@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="The certificate has been renewed and HTTPS should once again work"/>
-  <meta name="generator" content="Hugo 0.72.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -60,15 +60,15 @@
 
 <p>For a little over a year now, this website has been enforcing HTTPS over both
 its <code>www</code> subdomain and the <code>hjdskes.nl</code> apex domain. These certificates are
-kindly provided automagically by GitHub in a partnership with <a href="https://letsencrypt.org/">Let&rsquo;s
+kindly provided automagically by GitHub in a partnership with <a href="https://letsencrypt.org/">Let's
 Encrypt</a>.</p>
 <p>In May, the certificate for my website expired. Expecting GitHub to be on top
 of this, at first I did not take any action. Some of you have reached out to me
 about the issue, which prompted me to contact GitHub to figure out why my
-certficate wasn&rsquo;t being renewed.</p>
+certficate wasn't being renewed.</p>
 <p>They replied very quickly (thanks!), and at first my <code>AAAA</code> records seemed to
-be the issue as GitHub Pages currently doesn&rsquo;t support IPv6 (I thought I
-followed GitHub&rsquo;s instructions to the letter when I set up HTTPS a year ago,
+be the issue as GitHub Pages currently doesn't support IPv6 (I thought I
+followed GitHub's instructions to the letter when I set up HTTPS a year ago,
 but I may remember wrong). This worked and my certificate was renewed. Yay!</p>
 <p>However, I was still getting the expired certificate warning when browsing to
 <code>https://hjdskes.nl</code>. A round trip with GitHub support later, it turns out that
@@ -76,7 +76,7 @@ but I may remember wrong). This worked and my certificate was renewed. Yay!</p>
 domain and your <code>www</code>
 subdomain</a>.
 I do remember my website working just fine over both domains for the last year,
-so how this worked (or didn&rsquo;t!) is a mystery to me. In any case, I have removed
+so how this worked (or didn't!) is a mystery to me. In any case, I have removed
 the <code>A</code> records from my DNS settings (thus removing my apex domain,
 <code>https://hjdskes.nl</code>) and now everything is fine and dandy again. With the
 publishing of this blog post, all internal references should go over the <code>www</code>
@@ -84,7 +84,7 @@ subdomain.</p>
 <p>The timing of this was a bit unfortunate, since I was away on vacation for two
 weeks. This is one of the reasons that fixing this took over a month. I
 apologise for any inconvenience and I thank those of you that have reached out
-to me. It&rsquo;s always nice to know that people read what I have to say and care
+to me. It's always nice to know that people read what I have to say and care
 enough to reach out!</p>
 
 

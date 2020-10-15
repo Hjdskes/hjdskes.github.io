@@ -18,7 +18,7 @@
       <pubDate>Fri, 07 Jul 2017 14:58:33 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/gsoc-part-7/</guid>
-      <description>This week was a good week with loads of progress. I&amp;rsquo;ll just go through each item one by one, as usual.
+      <description>This week was a good week with loads of progress. I&#39;ll just go through each item one by one, as usual.
 MouseMap merged Last Friday I opened the pull request to merge the MouseMap widget. After a bit of a discussion around preferences, my mentor and I decided to merge ongoing work in a rewrite branch. This keeps the master branch functional (while still receiving improvements, such as adding new functionality to the ratbagd bindings or a Gtk.</description>
     </item>
     

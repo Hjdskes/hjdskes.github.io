@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="GSoC blog series on rewriting Piper"/>
-  <meta name="generator" content="Hugo 0.72.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -62,7 +62,7 @@
 <p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal"></p>
 <p>Two weeks have now passed since my <a href="/blog/gsoc-part-1">introductory blog post</a>,
 so as promised here is part two! The theme of this blog post is probably
-something along the lines of <!-- raw HTML omitted -->preparation<!-- raw HTML omitted -->, as that is what I&rsquo;ve been
+something along the lines of <!-- raw HTML omitted -->preparation<!-- raw HTML omitted -->, as that is what I've been
 doing mostly.</p>
 <p>The period between that of announcing the accepted student proposals and phase
 one is called the <a href="https://googlesummerofcode.blogspot.nl/2007/04/so-what-is-this-community-bonding-all.html">community bonding period</a>. In this period students
@@ -85,8 +85,8 @@ project and its dependencies and resolve any open issues that your project
 depends on. In my case, there were a few such issues that I tackled.</p>
 <p>Both libratbag and ratbagd recently switched to Meson. For ratbagd, this meant
 that its DBus and systemd service files were not installed correctly
-(<a href="https://github.com/libratbag/ratbagd/issues/18">#18</a>). This was fixed in <a href="https://github.com/libratbag/ratbagd/pull/20">#20</a>. Ratbagd&rsquo;s README also had
-not been updated to reflect Meson&rsquo;s way of configuring the build. I fixed this
+(<a href="https://github.com/libratbag/ratbagd/issues/18">#18</a>). This was fixed in <a href="https://github.com/libratbag/ratbagd/pull/20">#20</a>. Ratbagd's README also had
+not been updated to reflect Meson's way of configuring the build. I fixed this
 in <a href="https://github.com/libratbag/ratbagd/pull/21">#21</a> together with some formatting. Finally, I implemented
 missing signals for both the <code>Profile</code> and <code>Resolution</code> DBus interfaces
 (<a href="https://github.com/libratbag/ratbagd/pull/22">#22</a>). One pull request is still open, which implements a missing
@@ -96,21 +96,21 @@ deploying Piper for testing. In short, this turned out to be impossible for now
 because Flatpaks cannot bundle udev. Here I paraphrase Alexander Larsson from
 <code>#flatpak</code> on Freenode:</p>
 <blockquote>
-<p>You can bundle udev for the API but you can&rsquo;t rely on it <em>working</em>, because
+<p>You can bundle udev for the API but you can't rely on it <em>working</em>, because
 a) it may not have access to every device, etc and b) it will not have access to
-the system udevd database and we can&rsquo;t grant it because that is not a stable
+the system udevd database and we can't grant it because that is not a stable
 on-disk format (I asked upstream about it).</p>
 </blockquote>
 <p>Since libratbag and ratbagd rely on udev, a Flatpak will have to wait until a
 solution to this issue has been found. Nonetheless, a Flatpak manifest remains
-available in my <a href="https://github.com/Hjdskes/piper/tree/wip/flatpak">WIP branch</a> &ndash; you just can&rsquo;t run it 😉</p>
-<p>Whilst working on Flatpak&rsquo;ing Piper, I got more and more convinced that Piper
+available in my <a href="https://github.com/Hjdskes/piper/tree/wip/flatpak">WIP branch</a> &ndash; you just can't run it 😉</p>
+<p>Whilst working on Flatpak'ing Piper, I got more and more convinced that Piper
 should switch to <a href="http://mesonbuild.com/">Meson</a> as opposed to <a href="https://packaging.python.org/installing/">setuptools</a>. Meson
 brings better integration with the GNOME stack through its GNOME module,
 allowing us to use <a href="https://developer.gnome.org/gio/stable/GSettings.html">GSettings</a>, <a href="https://developer.gnome.org/gio/stable/GResource.html">GResource</a> and other
 technologies without having to add support for this to setuptools ourselves. I
 have ported Piper and opened <a href="https://github.com/libratbag/piper/pull/6">#6</a> to get this implemented. This is the
-first activity in Piper&rsquo;s repository since April 6 last year, so I guess it
+first activity in Piper's repository since April 6 last year, so I guess it
 officially starts GSoC for Piper!</p>
 <p>This blog post is part of a <a href="/series/google-summer-of-code/">series</a>. You can read the next part about the mockups
 <a href="/blog/gsoc-part-3">here</a> or the introductory, previous part <a href="/blog/gsoc-part-1">here</a>.</p>

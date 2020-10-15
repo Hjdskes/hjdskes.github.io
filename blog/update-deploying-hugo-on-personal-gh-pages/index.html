@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="An update to my previous blog on deploying my Hugo generated website with GitHub Pages"/>
-  <meta name="generator" content="Hugo 0.72.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -63,20 +63,20 @@
 workflow I use to update this website. It has never been particularly stable,
 and the process seemed far more complicated than it needed to be.</p>
 <p>This week I attempted to update the theme of this website. To pull in
-the theme&rsquo;s files, I use <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">git
+the theme's files, I use <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">git
 submodules</a>. Apparently,
-this completely break git&rsquo;s subtrees. I had enough of trying to
+this completely break git's subtrees. I had enough of trying to
 maintain this complicated setup, so I started looking around for
 better ways.</p>
-<p>Fortunately, Hugo&rsquo;s &ldquo;Hosting on GitHub&rdquo; tutorial has been updated to include
+<p>Fortunately, Hugo's &ldquo;Hosting on GitHub&rdquo; tutorial has been updated to include
 instructions on <a href="https://gohugo.io/tutorials/github-pages-blog/#deployment-via-gh-pages-branch">deploying via a <code>gh-pages</code>
 branch</a>.
 The instructions are easily modified to work with the setup that personal pages
 require! If you want to know how it works, read that tutorial; what follows
 below are my updated <code>setup.sh</code> and <code>deploy.sh</code> scripts.</p>
-<p>You can find the updated structure and setup in use in <a href="https://github.com/Hjdskes/hjdskes.github.io">this website&rsquo;s
+<p>You can find the updated structure and setup in use in <a href="https://github.com/Hjdskes/hjdskes.github.io">this website's
 repository</a>. If any of the above
-is unclear, feel free to send me an <a href="mailto:dev@hjdskes.nl">email</a> and I&rsquo;ll
+is unclear, feel free to send me an <a href="mailto:dev@hjdskes.nl">email</a> and I'll
 try my best to help you.</p>
 <p><code>setup.sh</code>:</p>
 <!-- raw HTML omitted -->
@@ -92,7 +92,7 @@ try my best to help you.</p>
 <span class="c1"># Name of the branch containing the Hugo source files.</span>
 <span class="nv">SOURCE</span><span class="o">=</span>hugo
 
-msg<span class="o">()</span> <span class="o">{</span>
+msg<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
     <span class="nb">printf</span> <span class="s2">&#34;\033[1;32m :: %s\n\033[0m&#34;</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span>
 <span class="o">}</span>
 
@@ -127,13 +127,13 @@ git worktree add -B master public origin/master
 <span class="nb">export</span> <span class="nv">LC_TIME</span><span class="o">=</span>en_US.UTF-8
 
 <span class="c1"># The commit message.</span>
-<span class="nv">MESSAGE</span><span class="o">=</span><span class="s2">&#34;Site rebuild </span><span class="k">$(</span>date<span class="k">)</span><span class="s2">&#34;</span>
+<span class="nv">MESSAGE</span><span class="o">=</span><span class="s2">&#34;</span><span class="s2">Site rebuild </span><span class="k">$(</span>date<span class="k">)</span><span class="s2">&#34;</span>
 
-msg<span class="o">()</span> <span class="o">{</span>
+msg<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
     <span class="nb">printf</span> <span class="s2">&#34;\033[1;32m :: %s\n\033[0m&#34;</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span>
 <span class="o">}</span>
 
-<span class="k">if</span> <span class="o">[[</span> <span class="k">$(</span>git status -s<span class="k">)</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+<span class="k">if</span> <span class="o">[</span><span class="o">[</span> <span class="k">$(</span>git status -s<span class="k">)</span> <span class="o">]</span><span class="o">]</span><span class="p">;</span> <span class="k">then</span>
     msg <span class="s2">&#34;The working directory is dirty, please commit or stash any pending changes&#34;</span>
     <span class="nb">exit</span> 1<span class="p">;</span>
 <span class="k">fi</span>

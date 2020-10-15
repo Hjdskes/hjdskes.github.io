@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="A build log of my home made server"/>
-  <meta name="generator" content="Hugo 0.72.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -66,13 +66,13 @@ day, I wanted a project that was <em><strong>not</strong></em> programming to re
 mind after a long day. I decided to try my hand at something I had
 never done before and create my own 3D printed case.</p>
 <h2 id="the-server">The server</h2>
-<p>Before we dive into the old and new cases, I&rsquo;ll list the server
+<p>Before we dive into the old and new cases, I'll list the server
 components so you have a basic idea what I was dealing with. The
 server is a <a href="https://shop.udoo.org/eu/quad-dual/udoo-quad.html">UDOO
 Quad</a>, kindly sent
 to me for free by a very friendly Norwegian guy who had no more need
 for it himself. He insisted he paid for shipping too, and even
-included the power cable and a 64GB mini SD card. If you&rsquo;re reading
+included the power cable and a 64GB mini SD card. If you're reading
 this, Ole, thanks!</p>
 <p>The server is currently functioning as a NAS and an IRC bouncer
 through <a href="https://wiki.znc.in/ZNC">ZNC</a>. In the future, it will also
@@ -95,7 +95,7 @@ monitor the drive. I have it set up to notify me of any pending
 failures and when the temperature gets too high.</p>
 <p>I followed
 <a href="https://www.udoo.org/tutorial/diy-nas-with-openmediavault-and-udoo-pt-1-hardware/">this</a>
-tutorial to wire the drive up to the UDOO. I don&rsquo;t solder often, but
+tutorial to wire the drive up to the UDOO. I don't solder often, but
 even for me it was an easy process. As discussed below, the old case
 ran a little hot so I decided to add a fan later. At the time, the
 server was running from my bedroom and hence, I opted for a small and
@@ -107,21 +107,21 @@ configuration, feel free to send me an <a href="mailto:dev@hjdskes.nl">email</a>
 <p>This case is made from an old wooden box; see the photos at the bottom
 of this page. This was all I could get my hands on for free, and the
 only thing I could work with since I had only done wood working
-before. It wasn&rsquo;t bad and fulfilled its job well for a year, but I was
+before. It wasn't bad and fulfilled its job well for a year, but I was
 never completely satisfied.</p>
 <p>Firstly, it had the power converter on the inside and there was little
 to no air flow. This made the server and the attached hard drive idle
-at 35 to 40 degrees Celcius. While this wasn&rsquo;t too high, it could
-certainly be lower. You&rsquo;re right when you think the fan is not
-well-placed, but cooling the drive had priority and lower wasn&rsquo;t an
+at 35 to 40 degrees Celcius. While this wasn't too high, it could
+certainly be lower. You're right when you think the fan is not
+well-placed, but cooling the drive had priority and lower wasn't an
 option.</p>
 <p>Secondly, I just never really liked the design.  Now you may ask
 yourself why this matters for a server that is hidden away in some
 dark corner, but the simple truth is that I am doing these things for
-fun and I&rsquo;ll be damned if I am not satisfied with it 😉.</p>
+fun and I'll be damned if I am not satisfied with it 😉.</p>
 <p>Finally, it was a pain to carve out ports, and every port I added was
 an increased chance of completely butchering the box. Hence, I only
-added what I really needed at the time, which obviously isn&rsquo;t good
+added what I really needed at the time, which obviously isn't good
 from a modifiability perspective.</p>
 
 <div style="column-count: 3; column-gap: 20px;">
@@ -186,22 +186,22 @@ my requirements:</p>
 <p>As you can see, it has ports for each connector on the UDOO, except
 the microphone jack because I <em><strong>really</strong></em> do not see myself using
 that anytime soon. There is also no SD card slot, because 1) the slot
-on the UDOO does not align with any wall and 2) I won&rsquo;t be switching
-it anyway. Similarly for the power button: once it&rsquo;s on, it&rsquo;s
+on the UDOO does not align with any wall and 2) I won't be switching
+it anyway. Similarly for the power button: once it's on, it's
 on. There is also a proper air flow now, and the power convertor is
 now placed outside of the case.</p>
 <p>Since I do not own a 3D printer <!-- raw HTML omitted -->(<em>something something poor
 student</em>)<!-- raw HTML omitted -->, I had to find someone to print it for me. <a href="https://www.3dhubs.com">3D
 Hubs</a> is awesome for this, and much cheaper
 than the alternatives. One company even gave me a price of €275! Since
-quality wasn&rsquo;t that important, I opted (of course) for the
+quality wasn't that important, I opted (of course) for the
 cheapest. The printing took 20 hours for the case, and some more hours
 for the lid.</p>
 <p>There is one problem with my design, which is that the space between
 the columns in the back is just too narrow to fit the hard
 drive. Indeed, when you look at the model, they are a little fatter
 than the supports on the sides; I am not sure how I did not notice
-this. In any case, this is easily solved with a dremel, and it&rsquo;s on
+this. In any case, this is easily solved with a dremel, and it's on
 the inside anyway. I tried to fix this in my model after I noticed it
 in my case, but for some strange reason all but one columns disappear
 as soon as I change even one of them. If you know how to fix this,
