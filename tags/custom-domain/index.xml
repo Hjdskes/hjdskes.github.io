@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>custom domain on Jente Hidskes&#39; website</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2020 Jente Hidskes</copyright>
-    <lastBuildDate>Fri, 28 Jun 2019 21:54:19 +0200</lastBuildDate>
-    
-	<atom:link href="https://www.hjdskes.nl/tags/custom-domain/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 28 Jun 2019 21:54:19 +0200</lastBuildDate><atom:link href="https://www.hjdskes.nl/tags/custom-domain/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>An update on HTTPS certificate issues</title>
       <link>https://www.hjdskes.nl/blog/https-update/</link>
@@ -28,8 +24,8 @@ In May, the certificate for my website expired. Expecting GitHub to be on top of
       <pubDate>Wed, 02 May 2018 11:41:05 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/https/</guid>
-      <description>From today, my website enforces HTTPS again! Github Pages have been supporting HTTPS since June 2016, so when my website was reachable only through hjdskes.github.io I got all of that for free. In fact, because HTTPS is the future&amp;trade;, I enabled Github Pages&amp;rsquo; enforce HTTPS feature in my website&amp;rsquo;s settings.
-Since June 28 2019, I have removed the apex domain (`https://hjdskes.nl`) from my DNS records. [It turns out that GitHub does not support HTTPS for both the apex domain and the www subdomain](https://help.</description>
+      <description>From today, my website enforces HTTPS again! Github Pages have been supporting HTTPS since June 2016, so when my website was reachable only through hjdskes.github.io I got all of that for free. In fact, because HTTPS is the future(tm), I enabled Github Pages&#39; enforce HTTPS feature in my website&amp;rsquo;s settings.
+Since March, my website is also reachable through (www.)hjdskes.nl. When I set this up, I knew I would lose the ability to enforce HTTPS because up until yesterday, Github Pages did not support HTTPS for custom domains.</description>
     </item>
     
   </channel>

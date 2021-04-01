@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="GSoC blog series on rewriting Piper"/>
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.82.0" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -59,44 +59,31 @@
   &nbsp;• 8 minute read&nbsp;• Last modified:
     <time datetime="Feb 18, 2019">Feb 18, 2019</time></div>
 
-
-
-<p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal" /></p>
-
+<p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal"></p>
 <p>When I discussed this project with my mentor before GSoC, he told me that the
 button mappings were going to be the most complicated piece. This week I&rsquo;ve been
-working on precisely that and, well, let&rsquo;s just say he wasn&rsquo;t wrong &#128521;</p>
-
+working on precisely that and, well, let&rsquo;s just say he wasn&rsquo;t wrong 😉</p>
 <p>If you&rsquo;ve been following along on GitHub, you&rsquo;re probably thinking that it was a
 slow week. Indeed, there hasn&rsquo;t been that much activity this week as in
 previous weeks. I&rsquo;ve mostly just been stuck in my own little branch iterating
 and debugging away to get these pesky buttons into shape.</p>
-
 <h2 id="the-button-stack-page">The button stack page</h2>
-
 <p>As usual I&rsquo;ll discuss the various obstacles I&rsquo;ve hit this past week. All of that
 work has resulted in the following work-in-progress:</p>
-
-<video controls>
-  <source src="/img/blog/gsoc-part-9/progress.webm" type="video/webm">
-Your browser does not support the video tag.
-</video>
-
+<!-- raw HTML omitted -->
 <p>The <a href="https://github.com/libratbag/piper/raw/wiki/redesign/buttons.png">mockup</a> intentionally left the button configuration dialog
 empty: too much was unclear to me at the time of making the mockups and I wanted
 the freedom to experiment for a bit to iterate towards the best design.</p>
-
 <p>At first, I tried a dialog with a different stack page for each configuration
 (for lack of a better word) that you can set on a button. Ratbag has, at the
 moment, four such configurations:</p>
-
 <ol>
 <li>button mapping, where a physical button is mapped to another, logical button.
 This way you can for example make the right mouse button emit a left mouse
 button click when clicked;</li>
 <li>key mapping, where a physical button is mapped to a series of key presses on
 the keyboard. This way you can for example make a thumb button emit
-<kbd>:</kbd>+<kbd>q</kbd> to always have a way out of Vim &#128521;;</li>
+<!-- raw HTML omitted -->:<!-- raw HTML omitted -->+<!-- raw HTML omitted -->q<!-- raw HTML omitted --> to always have a way out of Vim 😉;</li>
 <li>special mappings, where a physical button is mapped to a special,
 mouse-specific function. This way you can for example make the right mouse
 button switch profiles;</li>
@@ -104,13 +91,10 @@ button switch profiles;</li>
 waiting periods. This way you can for example make a thumb button press two
 different keys with a certain interval in between.</li>
 </ol>
-
 <p>This first iteration looked like this:</p>
-
-<p><img src="/img/blog/gsoc-part-9/first-iteration.png" alt="First iteration" /></p>
-
-<p>Those numbers should be button descriptions such as <q>Left mouse button
-click</q>, but because my device doesn&rsquo;t return those (<a href="https://github.com/libratbag/libratbag/issues/233">yet</a>) it
+<p><img src="/img/blog/gsoc-part-9/first-iteration.png" alt="First iteration"></p>
+<p>Those numbers should be button descriptions such as <!-- raw HTML omitted -->Left mouse button
+click<!-- raw HTML omitted -->, but because my device doesn&rsquo;t return those (<a href="https://github.com/libratbag/libratbag/issues/233">yet</a>) it
 falls back to just button numbers. However, as you&rsquo;ve probably already concluded
 yourself, many of the different button options are quite similar. In fact, I bet
 that as a user you won&rsquo;t notice the difference between a button mapping and a
@@ -118,27 +102,22 @@ special mapping. Similarly, macros are just a superset of key mappings: in
 addition to only key presses, a macro can also work with key releases and time
 intervals. There is talk among libratbag developers to merge the key mapping and
 macro functionality into one for precisely this reason.</p>
-
 <p>Because the options are very much alike I&rsquo;ve slowly been doing away with the
 individual stack pages, to what you&rsquo;ve just seen in the video. I&rsquo;m not sure if
 this is the final design; I might switch it around to something like <a href="https://github.com/gnome-design-team/gnome-mockups/raw/master/system-settings/tablets/button-mapping.png">GNOME
 Control Center&rsquo;s Wacom panel</a>. In any case, it needs more work, as
 you&rsquo;ve probably also concluded already from the visual bug showing!</p>
-
 <h2 id="technical-details">Technical details</h2>
-
 <p>As mentioned, the button page is the most complex part of Piper. This week has
-had a somewhat larger amount of head &rarr; wall than usual; let me explain.</p>
-
+had a somewhat larger amount of head → wall than usual; let me explain.</p>
 <p>To capture keys as shown in the video, the button dialog needs to first grab the
 keyboard and then process the key events in its <code>do_key_press_event</code> function.
 This function gets a <a href="https://lazka.github.io/pgi-docs/Gdk-3.0/classes/EventKey.html"><code>Gdk.EventKey</code></a> that has several fields related
 to the event. Of use to us are the following:</p>
-
 <ul>
 <li>a <code>hardware_keycode</code> field that gives the raw keycode of the pressed or
 released key. This keycode is the number of the physical key on the keyboard.</li>
-<li>a <code>keyval</code> field as a <q>name</q> of the logical <em>symbol</em> that was pressed or
+<li>a <code>keyval</code> field as a <!-- raw HTML omitted -->name<!-- raw HTML omitted --> of the logical <em>symbol</em> that was pressed or
 released. This keyval is decided by the <em>level</em>, which indicates in a vertical
 direction which symbol is used (for example, pressing the key with number 1 on
 it has keyval 1 for level 0 and keyval ! for level 1), and the <em>group</em>, which,
@@ -147,12 +126,11 @@ group) indicates in a horizontal direction which symbol is used. For example,
 on a typical <a href="https://datordax.se/info_sheets/das_keyboard_nordic_layout.jpg">Scandinavian keyboard</a> there are several symbols on
 the same key in a horizontal direction.</li>
 <li>an <code>is_modifier</code> field that tells whether the pressed or released key is a
-modifier key. Modifier keys are for example <kbd>Control</kbd> or
-<kbd>Alt</kbd>.</li>
+modifier key. Modifier keys are for example <!-- raw HTML omitted -->Control<!-- raw HTML omitted --> or
+<!-- raw HTML omitted -->Alt<!-- raw HTML omitted -->.</li>
 <li>finally, a <code>state</code> field that gives a bit-mask representing the state of the
 modifier keys.</li>
 </ul>
-
 <p>Before we continue, it&rsquo;s important to note that at the moment ratbag expects a
 keymap signature of a list, with the first item the keycode of the regular key
 followed by zero or more keycodes of modifiers. Now you might think that we can
@@ -160,24 +138,22 @@ just capture a key press, take the <code>keycode</code> and the <code>state</cod
 from the state mask the keycodes of the modifiers. That&rsquo;s exactly what my first
 approach was, and it failed for the following reason: converting actual modifier
 keypresses into a bit-mask is lossy. If you look at your keyboard, you&rsquo;ll see
-for example a left and a right <kbd>Control</kbd> key; no matter which one is
-pressed, there is a single bit in the bit-mask representing <kbd>Control</kbd>.
+for example a left and a right <!-- raw HTML omitted -->Control<!-- raw HTML omitted --> key; no matter which one is
+pressed, there is a single bit in the bit-mask representing <!-- raw HTML omitted -->Control<!-- raw HTML omitted -->.
 There is thus no way to accurately determine from the bit-mask which modifier
 keycodes were pressed.</p>
-
 <p>The next attempt is then to capture the key events of the modifier keys
 individually, instead of collectively with the key event of a regular key. To do
 so, we need to cache individual key presses if they are modifier keys, and apply
 the whole bunch as soon as a regular key is pressed.  Remember the <code>is_modifier</code>
 field of <code>Gdk.EventKey</code>? Yea, <a href="https://bugzilla.gnome.org/show_bug.cgi?id=752784">that&rsquo;s not going to work</a>: this
-field is not exposed from C through PyGObject because it <em><q>is a bit of a
-misnomer. What you want is the <code>state</code> field</q></em>. Hm, I guess they didn&rsquo;t think
-of this use-case. <em><q>Well</q></em>, I hear you think, <em><q>why don&rsquo;t you just check
-the <code>state</code> bit-mask then?</q></em>. Because that is always 0 for individual
+field is not exposed from C through PyGObject because it <em><!-- raw HTML omitted -->is a bit of a
+misnomer. What you want is the <code>state</code> field<!-- raw HTML omitted --></em>. Hm, I guess they didn&rsquo;t think
+of this use-case. <em><!-- raw HTML omitted -->Well<!-- raw HTML omitted --></em>, I hear you think, <em><!-- raw HTML omitted -->why don&rsquo;t you just check
+the <code>state</code> bit-mask then?<!-- raw HTML omitted --></em>. Because that is always 0 for individual
 modifier keypresses: it contains the modifiers that apply before the key press
-happens, and when we press e.g. <kbd>Control</kbd>, it isn&rsquo;t pressed before we
+happens, and when we press e.g. <!-- raw HTML omitted -->Control<!-- raw HTML omitted -->, it isn&rsquo;t pressed before we
 press it.</p>
-
 <p>My current solution is to &ldquo;fix&rdquo; the <code>is_modifier</code> field in <code>Gdk.EventKey</code> by
 checking the <code>Gdk.EventKey</code>&rsquo;s <code>keyval</code> field against a static list of known
 modifier keyvals. I can do this because I also &ldquo;fix&rdquo; the <code>state</code> bit-mask by
@@ -201,8 +177,8 @@ include those in the list.</p>
 <span class="p">]</span>
 
 <span class="n">event</span><span class="o">.</span><span class="n">is_modifier</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">keyval</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_MODIFIERS</span>
-<span class="n">event</span><span class="o">.</span><span class="n">state</span> <span class="o">&amp;=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">accelerator_get_default_mod_mask</span><span class="p">()</span></code></pre></div>
-<p>There is another such workaround to display the correct modifiers in the
+<span class="n">event</span><span class="o">.</span><span class="n">state</span> <span class="o">&amp;=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">accelerator_get_default_mod_mask</span><span class="p">()</span>
+</code></pre></div><p>There is another such workaround to display the correct modifiers in the
 <a href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/ShortcutLabel.html"><code>Gtk.ShortcutLabel</code></a>: we need to reconstruct a <code>state</code> bit-mask
 from a list of keyvals. Again, we only check for those same default modifiers
 and simply flag the correct bit:</p>
@@ -219,15 +195,14 @@ and simply flag the correct bit:</p>
     <span class="k">elif</span> <span class="n">keyval</span> <span class="o">==</span> <span class="n">Gdk</span><span class="o">.</span><span class="n">KEY_Super_L</span> <span class="ow">or</span> <span class="n">keyval</span> <span class="o">==</span> <span class="n">Gdk</span><span class="o">.</span><span class="n">KEY_Super_R</span><span class="p">:</span>
         <span class="n">mask</span> <span class="o">|=</span> <span class="n">Gdk</span><span class="o">.</span><span class="n">ModifierType</span><span class="o">.</span><span class="n">SUPER_MASK</span>
     <span class="k">elif</span> <span class="n">keyval</span> <span class="o">==</span> <span class="n">Gdk</span><span class="o">.</span><span class="n">KEY_Alt_L</span> <span class="ow">or</span> <span class="n">keyval</span> <span class="o">==</span> <span class="n">Gdk</span><span class="o">.</span><span class="n">KEY_Alt_R</span><span class="p">:</span>
-        <span class="n">mask</span> <span class="o">|=</span> <span class="n">Gdk</span><span class="o">.</span><span class="n">ModifierType</span><span class="o">.</span><span class="n">MOD1_MASK</span></code></pre></div>
-<p>Masking the modifier bit-mask means that at least for now, these workarounds
+        <span class="n">mask</span> <span class="o">|=</span> <span class="n">Gdk</span><span class="o">.</span><span class="n">ModifierType</span><span class="o">.</span><span class="n">MOD1_MASK</span>
+</code></pre></div><p>Masking the modifier bit-mask means that at least for now, these workarounds
 should be fine. The solution that we want to work towards is to make ratbag not
 care about the signature of its keymap, so that Piper doesn&rsquo;t have to either. In
 this case we can just capture every key press in the same manner, without having
 to differ modifiers from regular keys. Another possible solution is to merge key
 mappings and macros, as macros already do not have a specific signature unlike
 the key mappings. Until then, workarounds it is.</p>
-
 <p>The other big problem I encountered this week is the reverse of the above,
 basically. When the button dialog opens, we want to display the current key
 mapping, if any. Keycodes are stored on the device as defined in <code>linux/input.h</code>
@@ -246,18 +221,14 @@ This will at the very least give the correct physical key; only the symbol might
 be off. At least you&rsquo;ll only notice this in the initial state of the dialog, and
 only if you 1) have a keyboard with groups and 2) have actually set such a
 special key.</p>
-
 <p>All of this work can be followed in the <a href="https://github.com/libratbag/piper/pull/47">pull request</a>, where you
 will also find the discussion that I gave an overview of here. If you&rsquo;re
 interested and have a better idea to fix these problems, please do chime in and
 tell us!</p>
-
 <h2 id="smaller-changes">Smaller changes</h2>
-
 <p>In other news, support for enabling and disabling profiles is <a href="https://github.com/libratbag/libratbag/pull/238">just around the
 corner</a>. This is required for the next step, in which I&rsquo;ll be adding
 support for profiles to Piper.</p>
-
 <p>This blog post is part of a <a href="/series/google-summer-of-code/">series</a>. You can read the next part about finishing
 the button page <a href="/blog/gsoc-part-10">here</a> or the previous part about the LED
 stack page <a href="/blog/gsoc-part-8">here</a>.</p>

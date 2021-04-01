@@ -1,676 +1,371 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://www.hjdskes.nl/categories/</loc>
     <lastmod>2019-11-02T21:56:36+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/categories/development/</loc>
     <lastmod>2019-11-02T21:56:36+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/gcolor3/</loc>
     <lastmod>2019-11-02T21:56:36+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/giving-up-piper-gcolor3/</loc>
     <lastmod>2019-11-02T21:56:36+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/piper/</loc>
     <lastmod>2019-11-02T21:56:36+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/</loc>
     <lastmod>2019-11-02T21:56:36+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/categories/administration/</loc>
     <lastmod>2019-07-09T14:23:39+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/https-update/</loc>
     <lastmod>2019-06-28T22:16:49+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.hjdskes.nl/tags/github-pages/</loc>
-    <lastmod>2019-07-09T14:23:39+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/custom-domain/</loc>
     <lastmod>2019-06-28T22:16:49+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://www.hjdskes.nl/tags/github-pages/</loc>
+    <lastmod>2019-07-09T14:23:39+02:00</lastmod>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/https/</loc>
     <lastmod>2019-06-28T22:16:49+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.hjdskes.nl/blog/cage-0.1.1/</loc>
-    <lastmod>2019-07-09T14:23:39+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.hjdskes.nl/categories/projects/</loc>
-    <lastmod>2019-07-09T14:23:39+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/cage/</loc>
     <lastmod>2019-07-09T14:23:39+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://www.hjdskes.nl/blog/cage-0.1.1/</loc>
+    <lastmod>2019-07-09T14:23:39+02:00</lastmod>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/compositor/</loc>
     <lastmod>2019-07-09T14:23:39+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/kiosk/</loc>
     <lastmod>2019-07-09T14:23:39+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://www.hjdskes.nl/categories/projects/</loc>
+    <lastmod>2019-07-09T14:23:39+02:00</lastmod>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/wayland/</loc>
     <lastmod>2019-07-09T14:23:39+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/cage-01/</loc>
     <lastmod>2019-07-09T14:23:39+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/github-pgp-response/</loc>
     <lastmod>2019-02-18T15:20:29+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.hjdskes.nl/tags/gitlab/</loc>
-    <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/github/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://www.hjdskes.nl/tags/gitlab/</loc>
+    <lastmod>2019-02-18T15:53:55+01:00</lastmod>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/gnupg/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/pgp/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/subkey/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.hjdskes.nl/categories/home-automation/</loc>
-    <lastmod>2019-07-09T14:23:39+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.hjdskes.nl/blog/home-automation/</loc>
-    <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/buildroot/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/embedded/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://www.hjdskes.nl/categories/home-automation/</loc>
+    <lastmod>2019-07-09T14:23:39+02:00</lastmod>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/linux/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://www.hjdskes.nl/blog/home-automation/</loc>
+    <lastmod>2019-02-18T15:53:55+01:00</lastmod>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/raspberry-pi/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/cage/</loc>
     <lastmod>2019-07-09T14:23:39+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/wlroots/</loc>
     <lastmod>2019-07-09T14:23:39+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/rpi-linux/</loc>
     <lastmod>2019-02-18T14:54:31+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/wlroots/</loc>
     <lastmod>2019-02-14T14:58:39+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/psa-github-gpg/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/cage/</loc>
     <lastmod>2020-02-01T18:19:58+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/msc/</loc>
     <lastmod>2019-02-18T19:21:16+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/gnome-screenshot-2/</loc>
     <lastmod>2019-02-14T14:58:39+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.hjdskes.nl/tags/gnome/</loc>
-    <lastmod>2019-02-18T15:20:29+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/gcolor3-gitlab/</loc>
     <lastmod>2019-02-18T15:20:29+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://www.hjdskes.nl/tags/gnome/</loc>
+    <lastmod>2019-02-18T15:20:29+01:00</lastmod>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/flatpak/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.hjdskes.nl/tags/gtk&#43;/</loc>
-    <lastmod>2019-02-18T15:20:29+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/gcolor3-2.3/</loc>
     <lastmod>2019-02-18T15:20:29+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://www.hjdskes.nl/tags/gtk&#43;/</loc>
+    <lastmod>2019-02-18T15:20:29+01:00</lastmod>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/gitg/</loc>
     <lastmod>2019-02-14T14:58:39+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/</loc>
     <lastmod>2019-07-09T20:52:16+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.hjdskes.nl/blog/pass/</loc>
-    <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.hjdskes.nl/categories/server/</loc>
-    <lastmod>2019-07-09T14:23:39+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/git/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/gpg/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://www.hjdskes.nl/blog/pass/</loc>
+    <lastmod>2019-02-18T15:53:55+01:00</lastmod>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/pass/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://www.hjdskes.nl/categories/server/</loc>
+    <lastmod>2019-07-09T14:23:39+02:00</lastmod>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/https/</loc>
     <lastmod>2019-06-28T22:16:49+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/3d-printing/</loc>
     <lastmod>2019-07-09T14:23:39+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/server/</loc>
     <lastmod>2019-07-09T14:23:39+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/diy/</loc>
     <lastmod>2019-07-09T14:23:39+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/piper/</loc>
     <lastmod>2019-02-19T15:29:55+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/piper-gsoc/</loc>
     <lastmod>2019-02-19T15:29:55+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/about/</loc>
     <lastmod>2019-11-02T21:56:36+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.hjdskes.nl/blog/gsoc-part-15/</loc>
-    <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.hjdskes.nl/series/google-summer-of-code/</loc>
-    <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.hjdskes.nl/series/</loc>
-    <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/fdo/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://www.hjdskes.nl/series/google-summer-of-code/</loc>
+    <lastmod>2019-02-18T15:53:55+01:00</lastmod>
+  </url><url>
+    <loc>https://www.hjdskes.nl/blog/gsoc-part-15/</loc>
+    <lastmod>2019-02-18T15:53:55+01:00</lastmod>
+  </url><url>
+    <loc>https://www.hjdskes.nl/series/</loc>
+    <lastmod>2019-02-18T15:53:55+01:00</lastmod>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/submission/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/gsoc-part-14/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.hjdskes.nl/tags/pygobject/</loc>
-    <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/macro/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://www.hjdskes.nl/tags/pygobject/</loc>
+    <lastmod>2019-02-18T15:53:55+01:00</lastmod>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/gsoc-part-13/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/gtk/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/gsoc-part-12/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.hjdskes.nl/blog/gsoc-part-11/</loc>
-    <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.hjdskes.nl/tags/guadec/</loc>
-    <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/buttons/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://www.hjdskes.nl/blog/gsoc-part-11/</loc>
+    <lastmod>2019-02-18T15:53:55+01:00</lastmod>
+  </url><url>
+    <loc>https://www.hjdskes.nl/tags/guadec/</loc>
+    <lastmod>2019-02-18T15:53:55+01:00</lastmod>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/profiles/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/gsoc-part-10/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/gsoc-part-9/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/keycode/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/keyval/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/dbus/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/gsoc-part-8/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/led/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/race-condition/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/resolutions/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/gsoc-part-7/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/mousemap/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/pygi/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/gsoc-part-6/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/xml/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/xpath/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/gsoc-part-5/</loc>
     <lastmod>2019-02-18T15:20:29+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/gsoc-part-4/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/ratbagd/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/gsoc-part-3/</loc>
     <lastmod>2019-02-18T15:20:29+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/inkscape/</loc>
     <lastmod>2019-02-18T15:20:29+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/mockup/</loc>
     <lastmod>2019-02-18T15:20:29+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/gopacket/</loc>
     <lastmod>2019-02-14T14:58:39+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/gsoc-part-2/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.hjdskes.nl/tags/meson/</loc>
-    <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/libratbag/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://www.hjdskes.nl/tags/meson/</loc>
+    <lastmod>2019-02-18T15:53:55+01:00</lastmod>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/udev/</loc>
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/gsoc-part-1/</loc>
     <lastmod>2019-02-18T15:20:29+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/gsoc-proposals/</loc>
     <lastmod>2019-02-18T14:43:58+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/tags/hugo/</loc>
     <lastmod>2019-07-09T14:23:39+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/update-deploying-hugo-on-personal-gh-pages/</loc>
     <lastmod>2019-07-09T14:23:39+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/cocoa-eh/</loc>
     <lastmod>2019-02-14T14:58:39+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/</loc>
     <lastmod>2019-02-14T14:58:39+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/neovim-vim/</loc>
     <lastmod>2019-02-18T14:43:58+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/playerctl/</loc>
     <lastmod>2019-02-14T14:58:39+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/blog/deploying-hugo-on-personal-gh-pages/</loc>
     <lastmod>2019-07-09T14:23:39+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/license/</loc>
     <lastmod>2020-02-01T18:19:58+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/</loc>
     <lastmod>2019-02-18T14:46:56+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/haskell-x11/</loc>
     <lastmod>2019-02-14T14:58:39+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/arch-diff/</loc>
     <lastmod>2019-02-14T14:58:39+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/gnome-screenshot/</loc>
     <lastmod>2019-02-14T14:58:39+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/gtimeutils/</loc>
     <lastmod>2019-02-19T19:31:32+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/bgs/</loc>
     <lastmod>2019-02-14T14:58:39+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/budgie/</loc>
     <lastmod>2019-02-14T14:58:39+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/arek/</loc>
     <lastmod>2018-10-03T21:53:54+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/bunsen/</loc>
     <lastmod>2019-02-14T14:58:39+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/eog/</loc>
     <lastmod>2019-02-14T14:58:39+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/phosphorus/</loc>
     <lastmod>2019-02-19T15:51:24+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/sxiv/</loc>
     <lastmod>2019-02-14T14:58:39+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/gcolor3/</loc>
     <lastmod>2019-07-09T14:23:39+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hjdskes.nl/projects/powersave/</loc>
     <lastmod>2018-10-03T21:53:54+02:00</lastmod>
   </url>
-  
 </urlset>

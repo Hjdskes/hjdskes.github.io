@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="The certificate has been renewed and HTTPS should once again work"/>
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.82.0" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -62,17 +62,14 @@
 its <code>www</code> subdomain and the <code>hjdskes.nl</code> apex domain. These certificates are
 kindly provided automagically by GitHub in a partnership with <a href="https://letsencrypt.org/">Let&rsquo;s
 Encrypt</a>.</p>
-
 <p>In May, the certificate for my website expired. Expecting GitHub to be on top
 of this, at first I did not take any action. Some of you have reached out to me
 about the issue, which prompted me to contact GitHub to figure out why my
 certficate wasn&rsquo;t being renewed.</p>
-
 <p>They replied very quickly (thanks!), and at first my <code>AAAA</code> records seemed to
 be the issue as GitHub Pages currently doesn&rsquo;t support IPv6 (I thought I
 followed GitHub&rsquo;s instructions to the letter when I set up HTTPS a year ago,
 but I may remember wrong). This worked and my certificate was renewed. Yay!</p>
-
 <p>However, I was still getting the expired certificate warning when browsing to
 <code>https://hjdskes.nl</code>. A round trip with GitHub support later, it turns out that
 <a href="https://github.community/t5/GitHub-Pages/Does-GitHub-Pages-Support-HTTPS-for-www-and-subdomains/m-p/7202#M495">GitHub does not support creating a certificate that covers both your root
@@ -84,7 +81,6 @@ the <code>A</code> records from my DNS settings (thus removing my apex domain,
 <code>https://hjdskes.nl</code>) and now everything is fine and dandy again. With the
 publishing of this blog post, all internal references should go over the <code>www</code>
 subdomain.</p>
-
 <p>The timing of this was a bit unfortunate, since I was away on vacation for two
 weeks. This is one of the reasons that fixing this took over a month. I
 apologise for any inconvenience and I thank those of you that have reached out

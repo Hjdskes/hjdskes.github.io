@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="GSoC blog series on rewriting Piper"/>
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.82.0" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -59,36 +59,24 @@
   &nbsp;• 7 minute read&nbsp;• Last modified:
     <time datetime="Feb 18, 2019">Feb 18, 2019</time></div>
 
-
-
-<p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal" /></p>
-
+<p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal"></p>
 <p>Well, this really is the last week of my Summer of Code! This will be a short
 update on the final changes made since my <a href="/blog/gsoc-part-13">last update</a> on
 Friday, which will be followed by a proper blog post for my final submission
 later this week.</p>
-
 <p>Last week I mentioned a few items that were
 <a href="/blog/gsoc-part-13#work-in-progress">work-in-progress</a>. The search field for
 the button mapping dialog has been merged, including its revamp of the dialog&rsquo;s
 UI. The resolutions stack page now highlights the active resolution within the
 list, and, most importantly, Piper can now be translated completely into your
 native language! Here&rsquo;s Piper fully translated in Dutch:</p>
-
-<video controls>
-  <source src="/img/blog/gsoc-part-14/dutch.webm" type="video/webm">
-Your browser does not support the video tag.
-</video>
-
+<!-- raw HTML omitted -->
 <p>I also reported on the work that was still to be done, which we&rsquo;ll get to now.</p>
-
-<h2 id="piper-shouldn-t-crash-when-libratbag-returns-an-error">Piper shouldn&rsquo;t crash when libratbag returns an error</h2>
-
+<h2 id="piper-shouldnt-crash-when-libratbag-returns-an-error">Piper shouldn&rsquo;t crash when libratbag returns an error</h2>
 <p>Libratbag returns error codes to clients over DBus, it can for example return
-<code>RATBAG_ERROR_CAPABILITY</code> that has a value of -1001 (a <q>random</q> number so
+<code>RATBAG_ERROR_CAPABILITY</code> that has a value of -1001 (a <!-- raw HTML omitted -->random<!-- raw HTML omitted --> number so
 as to not conflict with <code>errno</code>) to indicate that a requested change is beyond a
 device&rsquo;s capabilities.</p>
-
 <p>The bindings check for these error codes, and in case one other than
 <code>RATBAG_SUCCESS</code> is returned it will raise the appropriate exception:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">RatbagErrorCode</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
@@ -149,12 +137,11 @@ device&rsquo;s capabilities.</p>
             <span class="c1"># Unrecognized error code; print the message to stderr and raise</span>
             <span class="c1"># the GLib.Error.</span>
             <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
-            <span class="k">raise</span></code></pre></div>
-<p>There&rsquo;s nothing wrong with this approach and it does in fact work fine. The
+            <span class="k">raise</span>
+</code></pre></div><p>There&rsquo;s nothing wrong with this approach and it does in fact work fine. The
 problem occurs when the <code>_dbus_call</code> method is used within a <code>GObject.Property</code>
 setter method, because the <code>GObject.Property</code> decorator <a href="https://stackoverflow.com/questions/19639089/no-exceptions-from-gobject-properties-in-pygobject">doesn&rsquo;t raise
 exceptions</a>.</p>
-
 <p>This means that the exceptions raised from <code>_dbus_call</code> have to be caught within
 these setter methods and cannot be left up to the clients to resolve. The only
 way out of this then would be to return values from the setters, but then we
@@ -164,7 +151,6 @@ usage of <em>any</em> setter method to check for return codes. Even if we wanted
 the <code>GObject.Property</code> decorator doesn&rsquo;t allow you to return any values, either.
 An alternative would be to set a sensible value upon error, or simply do nothing
 at all. As you can see, neither solution is, well, a solution.</p>
-
 <p>The only sane alternative is to do away with using <code>_dbus_call</code> from within
 setter methods. After a quick inspection, there were only four such methods (<a href="https://github.com/libratbag/libratbag/issues/243">one
 of which will be removed in due
@@ -176,12 +162,10 @@ so <a href="https://github.com/libratbag/libratbag/pull/290">I made these proper
 setters</a>. After this it was
 simply a matter <a href="https://github.com/libratbag/piper/pull/148">updating the bindings
 accordingly</a>, and voilà, issue
-solved. Oh, and <a href="https://github.com/libratbag/piper/pull/145">the bindings&rsquo; setter methods also don&rsquo;t return values
+solved. Oh, and <a href="https://github.com/libratbag/piper/pull/145">the bindings' setter methods also don&rsquo;t return values
 anymore</a>, as this never worked in
 the first place because the <code>GObject.Property</code> always returns the set value.</p>
-
 <h2 id="macro-rework">Macro rework</h2>
-
 <p>Last week I mentioned an issue with <a href="https://github.com/libratbag/piper/issues/141">correctly restoring the macro preview label
 upon cancel</a>. There was another
 issue that I forgot to mention: <a href="https://github.com/libratbag/piper/issues/100">the macro was displayed using its integer
@@ -200,17 +184,16 @@ that results in unnecessary duplication. To solve this, I initially moved the
             <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&#34;↑{}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ecodes</span><span class="o">.</span><span class="n">KEY</span><span class="p">[</span><span class="n">val</span><span class="p">]))</span>
         <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="n">RatbagdButton</span><span class="o">.</span><span class="n">MACRO_WAIT</span><span class="p">:</span>
             <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&#34;{:.2f}s&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">val</span> <span class="o">/</span> <span class="mf">1000.0</span><span class="p">))</span>
-    <span class="k">return</span> <span class="s2">&#34; &#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span></code></pre></div>
-<p>My mentor then rightfully pointed out that using a <code>*_str</code> method (in Python, at
+    <span class="k">return</span> <span class="s2">&#34; &#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span>
+</code></pre></div><p>My mentor then rightfully pointed out that using a <code>*_str</code> method (in Python, at
 least) is an indication that you should be using a proper class instead. This
 was the catalyst to a large refactoring, where I removed the <code>KeyStroke</code> class
-and introduced a <code>RatbagdMacro</code> class in the bindings instead. This class&rsquo;
+and introduced a <code>RatbagdMacro</code> class in the bindings instead. This class'
 responsibility is to abstract macros instead of the <code>KeyStroke</code> class, that
 never really had a good place in the architecture to begin with: it abstracted
 macros, but was also responsible for processing key events (and thus has
 knowledge of both evdev and Gdk keycodes) and its lifetime was tied to that of a
 button mapping dialog.</p>
-
 <p>Intead, we now have a <code>RatbagdMacro</code> to abstract over macros, needing to know
 only evdev keycodes. It uses <code>__str__</code> to give a string representation of the
 macro it represents, and is not tied to the lifetime of the button dialog nor
@@ -221,35 +204,27 @@ instantiating a new <code>RatbagdMacro</code> for every capture-phase, correctly
 the macro preview labels upon cancel. I&rsquo;m sure that all of this is much better
 explained by <a href="https://github.com/libratbag/piper/pull/136/commits/38e6843084d4bc58e921d3a877e9e9fbe9b675fd">the actual
 diff</a>.</p>
-
 <p>After this refactoring, actually displaying the macros in the buttons stack page
 was <a href="https://github.com/libratbag/piper/pull/136/commits/6dd64f661e2f51ae41d12e08ff76a18f5b708490"><em>extremely</em>
 straightforward</a>.
 I also removed the checking for modifiers for Enter and Escape, as for example
 pressing Enter with NumLock wouldn&rsquo;t accept a macro. Finally, you can now press
 the Apply button directly from capturing a macro in order to apply it.</p>
-
 <p>An issue with the way that macros were printed in Piper could lead to the
 following, obviously unwanted, situation:</p>
-
-<p><img src="/img/blog/gsoc-part-14/long_macro.png" alt="A long macro extending the UI" /></p>
-
+<p><img src="/img/blog/gsoc-part-14/long_macro.png" alt="A long macro extending the UI"></p>
 <p>We therefore automatically break the line after 30 characters, resulting in a
 much better behavior:</p>
-
-<p><img src="/img/blog/gsoc-part-14/long_macro_fixed.png" alt="A long macro no longer extending the UI" /></p>
-
+<p><img src="/img/blog/gsoc-part-14/long_macro_fixed.png" alt="A long macro no longer extending the UI"></p>
 <p>We made the same change for the preview label inside the button mapping dialog&rsquo;s
 list and the buttons displayed in the configuration stack pages. We also removed
 the <code>KEY_</code> prefix in front of every key, and we use <code>↓</code>, <code>↑</code> and <code>↕</code> to denote a
 key press, a key release and a key press immediately followed by an identical
 key release, respectively.</p>
-
 <p>With these changes, the programming part of my Summer of Code is now over. In
 the next few days I&rsquo;ll publish a final blog post that will form my final
 submission, and with that I&rsquo;ll officially finish Google Summer of Code. Until
 then!</p>
-
 <p>This blog post is part of a <a href="/series/google-summer-of-code/">series</a>. You can read the last part about the code
 submission <a href="/blog/gsoc-part-15">here</a> or the previous part about saving the
 planet <a href="/blog/gsoc-part-13">here</a>.</p>
