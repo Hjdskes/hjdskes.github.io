@@ -18,12 +18,12 @@ msg() {
 
 if [[ $(git status -s) ]]; then
     msg "The working directory is dirty, please commit or stash any pending changes"
-    exit 1;
+    exit 1
 fi
 
 msg "Removing the old website"
 pushd public
-git rm -rf *
+git rm -rf ./*
 popd
 
 msg "Building the website"
@@ -34,7 +34,7 @@ cp CNAME public/
 
 msg "Pushing the updated \`public\` folder to the \`master\` branch"
 pushd public
-git add *
+git add ./*
 git commit -m "$MESSAGE"
 popd
 git push origin master
