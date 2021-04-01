@@ -6,4 +6,8 @@ website, run `deploy.sh`. See [this blog
 post](https://www.hjdskes.nl/blog/deploying-hugo-on-personal-gh-pages/index.html)
 for more information.
 
+I'm using [Nix](https://nixos.org/explore.html) to manage the tooling for this
+website. Run `nix-shell` to enter a deterministic environment with all the
+required tooling installed.
+
 See [the website](http://www.hjdskes.nl/license/) for licensing information.
