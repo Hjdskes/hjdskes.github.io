@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="author" content="Jente Hidskes"/>
+  <meta name="description" content="Or how I de-Nixified a binary"/>
+  <meta name="generator" content="Hugo 0.82.0" />
+  <meta name="referrer" content="no-referrer"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta property="og:description" content="Or how I de-Nixified a binary"/>
+  <meta property="og:locale" content="en-us"/>
+  <meta property="og:site_name" content="Jente Hidskes&#39; website"/>
+  <meta property="og:title" content="Deploying a Nixified Haskell binary on AWS Lambda"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://www.hjdskes.nl/blog/haskell-nix-aws-lambda/"/>
+  <meta property="og:image" content="https://www.hjdskes.nl/img/avatar.svg"/>
+
+  <meta name="twitter:card" content="summary"/>
+  
+  <meta name="twitter:site" content="Hjdskes"/>
+  
+  <meta name="twitter:image:alt" content="Logo"/>
+
+  <title>Jente Hidskes&#39; website - Deploying a Nixified Haskell binary on AWS Lambda</title>
+
+  <link rel="canonical" href="https://www.hjdskes.nl/blog/haskell-nix-aws-lambda/"/>
+  
+  <link rel="shortcut icon" href="https://www.hjdskes.nl/img/favicon.ico"/>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito|Roboto+Mono"/>
+  <link rel="stylesheet" type="text/css" href="/css/stylesheet.css"/>
+</head>
+
+<body>
+  <div class="banner">
+    <a href="https://www.hjdskes.nl/"><img src="https://www.hjdskes.nl/img/avatar.svg" alt="logo" /></a>
+    <div>
+      <a id="name" href="https://www.hjdskes.nl/"><h1>Jente Hidskes&#39; website</h1></a>
+      <nav>
+        
+          <a href="https://www.hjdskes.nl/blog">Blog</a>
+        
+          <a href="https://www.hjdskes.nl/projects">Projects &amp; contributions</a>
+        
+        
+          <a href="https://www.hjdskes.nl/about/">About me</a>
+        
+      </nav>
+    </div>
+  </div>
+
+
+<h1>Deploying a Nixified Haskell binary on AWS Lambda</h1>
+
+<div class="post-meta">
+  
+  
+  Posted: <time datetime="Apr 6, 2021">Apr 6, 2021</time>
+  &nbsp;• 10 minute read</div>
+
+<p>For a current project (which I will be writing about soon!), I need to deploy a Haskell binary to AWS Lambda. Since Haskell is <a href="https://aws.amazon.com/lambda/faqs/">not officially supported</a>, I needed to jump through some hoops in order to run my code. Thankfully, there is a <a href="https://theam.github.io/aws-lambda-haskell-runtime/">great library</a> out there that allows Haskell code to interface with AWS Lambda, so that part of the problem is solved. The problem that remains is to get AWS Lambda to run my Haskell binary. In this post I describe the process I followed to make this work. I tried to assume as little Haskell and Nix knowledge as possible for the generic problem description and the solution, but inevitably when I show the code some things might not make sense if you&rsquo;re not familiar with Nix. I&rsquo;ll try to explain things best I can, but if anything is unclear reach out to me on my Twitter or send me an e-mail (links are in this page&rsquo;s footer) and I&rsquo;ll try to clarify. That said, let&rsquo;s dive in!</p>
+<h2 id="custom-runtimes-on-aws-lambda">Custom runtimes on AWS Lambda</h2>
+<p>As I mentioned above, AWS Lambda officially supports a number of runtimes. A runtime is a program that runs the Lambda&rsquo;s <code>handler</code> function when the Lambda function is invoked, all per the AWS Lambda service contract. A <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-custom.html">custom runtime</a> then is nothing more than a binary named <code>bootstrap</code> that exposes such a function. Hence, what I need to run my code is a Haskell binary named <code>bootstrap</code>.</p>
+<p>But it doesn&rsquo;t stop just there: Haskell compiles to native code. While this is beneficial for multiple reasons, it has one drawback when deploying code on AWS Lambda (or other platforms in general): <a href="https://en.wikipedia.org/wiki/Linker_(computing)">linking</a> shared object files between different platforms. With compiled code, one can either include all the dependencies in the binary (static linking) or have the operating system supply them and link them at runtime (dynamic linking). By default, Haskell code  compiled with GHC is dynamically linked. That means that GHC, during compilation, uses the libraries of the host system as the linking target. This results in a binary dependent on the host&rsquo;s library versions and paths. Hence, a binary that I compile on my machine only runs on AWS Lambda if the libraries on my system are compatible with those of AWS Lambda. A solution to this problem would be to compile a statically linked binary, but unfortunately this is notoriously difficult to do with GHC Haskell.</p>
+<p>This is aggravated further due to the fact that I am building my project with Nix. In order to be fully deterministic and reproducible, Nix deviates from the <a href="https://refspecs.linuxfoundation.org/fhs.shtml">Filesystem Hierarchy Standard</a> and instead relies on what is called the &ldquo;Nix store&rdquo; under <code>/nix/store</code><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. To make this work Nix has to patch any binary it produces to point to shared objects and ELF interpreters in its store. Simply packaging the entire Nix store with my binary is not an acceptable solution, because it is far too large<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
+<p>Nix packagers have often run into this problem and have developed a number of tools that allows them to patch binaries. There is even a dedicated resource that describes <a href="https://nixos.wiki/wiki/Packaging/Binaries">how to patch binaries</a> to work with Nix for which the source code is unavailable. But if one can patch a binary to work <em>with</em> Nix and the Nix store, can one also reverse this process and patch a binary to work <em>without</em> Nix? Spoiler alert: you can!</p>
+<h2 id="de-nixifying-a-binary">De-nixifying a binary</h2>
+<p>After compiling my Haskell code with Nix I have a binary that is dynamically linked against shared object files that are available in the Nix store:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"> λ ldd result/bootstrap 
+        linux-vdso.so.1 <span class="o">(</span>0x00007fff4e3d9000<span class="o">)</span>
+        libpthread.so.0 <span class="o">=</span>&gt; /nix/store/33idnvrkvfgd5lsx2pwgwwi955adl6sk-glibc-2.31/lib/libpthread.so.0 <span class="o">(</span>0x00007fe4798a5000<span class="o">)</span>
+        libz.so.1 <span class="o">=</span>&gt; /nix/store/z39zr65hrbimzh40mxmdbpz64ma4b5vy-zlib-1.2.11/lib/libz.so.1 <span class="o">(</span>0x00007fe479888000<span class="o">)</span>
+        librt.so.1 <span class="o">=</span>&gt; /nix/store/33idnvrkvfgd5lsx2pwgwwi955adl6sk-glibc-2.31/lib/librt.so.1 <span class="o">(</span>0x00007fe47987e000<span class="o">)</span>
+        libutil.so.1 <span class="o">=</span>&gt; /nix/store/33idnvrkvfgd5lsx2pwgwwi955adl6sk-glibc-2.31/lib/libutil.so.1 <span class="o">(</span>0x00007fe479879000<span class="o">)</span>
+        libdl.so.2 <span class="o">=</span>&gt; /nix/store/33idnvrkvfgd5lsx2pwgwwi955adl6sk-glibc-2.31/lib/libdl.so.2 <span class="o">(</span>0x00007fe479872000<span class="o">)</span>
+        libgmp.so.10 <span class="o">=</span>&gt; /nix/store/ks724y9k5skmsr5y4gii28nfqrb1r5bj-gmp-6.2.0/lib/libgmp.so.10 <span class="o">(</span>0x00007fe4797d0000<span class="o">)</span>
+        libc.so.6 <span class="o">=</span>&gt; /nix/store/33idnvrkvfgd5lsx2pwgwwi955adl6sk-glibc-2.31/lib/libc.so.6 <span class="o">(</span>0x00007fe479611000<span class="o">)</span>
+        libm.so.6 <span class="o">=</span>&gt; /nix/store/33idnvrkvfgd5lsx2pwgwwi955adl6sk-glibc-2.31/lib/libm.so.6 <span class="o">(</span>0x00007fe4794d0000<span class="o">)</span>
+        libffi.so.7 <span class="o">=</span>&gt; /nix/store/mqr1hbh7jmgpmdfd7bb0yr54brb1b9xy-libffi-3.3/lib/libffi.so.7 <span class="o">(</span>0x00007fe4794c3000<span class="o">)</span>
+        libnuma.so.1 <span class="o">=</span>&gt; /nix/store/dgb0w5fsdym9k2hazvnbhsknrbmbi8a2-numactl-2.0.13/lib/libnuma.so.1 <span class="o">(</span>0x00007fe4794b4000<span class="o">)</span>
+        /nix/store/33idnvrkvfgd5lsx2pwgwwi955adl6sk-glibc-2.31/lib/ld-linux-x86-64.so.2 <span class="o">=</span>&gt; /nix/store/33idnvrkvfgd5lsx2pwgwwi955adl6sk-glibc-2.31/lib64/ld-linux-x86-64.so.2 <span class="o">(</span>0x00007fe4798c8000<span class="o">)</span>
+</code></pre></div><p>You can see in that output that the <code>bootstrap</code> binary depends on shared objects such as <code>libpthread.so.0</code> (<code>.so</code> stands for &ldquo;shared object&rdquo;) and that this dependency is currently satisfied by <code>/nix/store/33idnvrkvfgd5lsx2pwgwwi955adl6sk-glibc-2.31/lib/libpthread.so.0</code>. That&rsquo;s not the only thing, however. The binary file also instructs the operating system which dynamic loader (&ldquo;ELF interpreter&rdquo;) to use to load the shared objects. When the binary is to be executed, the operating system looks up the interpreter and the interpreter loads the shared object files. This interpreter&rsquo;s path is hardcoded in the binary and also points to the Nix store:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"> λ patchelf --print-interpreter result/bootstrap 
+/nix/store/33idnvrkvfgd5lsx2pwgwwi955adl6sk-glibc-2.31/lib/ld-linux-x86-64.so.2
+</code></pre></div><p>Hence, in order for my binary to be able to run on AWS Lambda, I need to:</p>
+<ol>
+<li>Package the shared object files (including the dynamic loader) from the Nix store that the binary depends on with the binary in the zip file that I upload to AWS Lambda, and</li>
+<li>Patch the binary to point to the dynamic loader that I provided.</li>
+</ol>
+<p><code>patchelf</code> is one of those tools developed by the Nix community that makes it easy to patch binary files. I can change the dynamic loader using <code>patchelf --set-interpreter /absolute/path/to/interpreter result/bootstrap</code>. I can fetch all the shared object files that the binary depends on with this short line: <code>cp $(ldd result/bootstrap | grep -F '=&gt; /' | awk '{print $3}') .</code>. If I were to package this (assuming I did indeed set the correct path to the interpreter), my Lambda would segfault.</p>
+<p>As per usual, <em>there is one more thing</em>: ensuring that the packaged shared objects are resolved <em>first</em>. Shared object files can be installed in a number of places. These directories are tried in certain order and as soon as a shared object file is found directories further down the list are not tried. This is synonymous to how your <code>$PATH</code> environment variable describes a list of directories that contain executables. The environment variable that controls the list of directories that are scanned for shared libraries is <a href="https://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html"><code>LD_LIBRARY_PATH</code></a>.</p>
+<p>On AWS Lambda, the default value for <code>LD_LIBRARY_PATH</code> is <code>/lib64:/usr/lib64:$LAMBDA_RUNTIME_DIR:$LAMBDA_RUNTIME_DIR/lib:$LAMBDA_TASK_ROOT:$LAMBDA_TASK_ROOT/lib:/opt/lib</code>, where <code>$LAMBDA_TASK_ROOT</code> is the path to your Lambda function code (i.e., where your zip file will be unpacked). At the time of writing the default value is <code>/var/task</code>. <code>$LAMBDA_RUNTIME_DIR</code> is the path to runtime libraries, which at the time of writing is <code>/var/runtime</code>.</p>
+<p>As this default value of <code>LD_LIBRARY_PATH</code> shows, the standard directories for shared object files (<code>/lib64</code> and <code>/usr/lib64</code>) have precedence. Since the shared object files packaged with my Haskell binary are those for common system libraries such as glibc, unfortunately the system shared object files will be found first. This leads to incompatible library versions, no bueno.</p>
+<h2 id="getting-aws-lambda-to-find-and-load-our-shared-object-files">Getting AWS Lambda to find and load our shared object files</h2>
+<p>The solution is simple: just like we can override <code>$PATH</code>, we can also override <code>$LD_LIBRARY_PATH</code>! If we were to e.g. use <code>export LD_LIBRARY_PATH=$LAMBDA_TASK_ROOT:$LD_LIBRARY_PATH</code>, we would give our libraries (that are unpacked to <code>$LAMBDA_TASK_ROOT</code>) precedence, muy bueno! There is just a <em>slight</em> problem: where do we export this new value for <code>$LD_LIBRARY_PATH</code>? We cannot do it programmatically in our binary, because that leads to a chicken/egg problem: to load the binary, we need to override the library path. But to override the library path, we need to run our binary!</p>
+<p>Everything can be solved with another layer of indirection. Fortunately for me, &ldquo;everything&rdquo; includes this problem, too! I can wrap my binary with a small shell script that sets the library path and then loads my Haskell binary:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/usr/bin/env bash
+</span><span class="cp"></span><span class="nb">cd</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">0</span><span class="p">%/*</span><span class="si">}</span><span class="s2">&#34;</span>
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LAMBDA_TASK_ROOT</span>:<span class="nv">$LD_LIBRARY_PATH</span>
+<span class="nb">exec</span> -a <span class="s2">&#34;</span><span class="nv">$0</span><span class="s2">&#34;</span> <span class="s2">&#34;./haskell-binary&#34;</span> <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span>
+</code></pre></div><p>This script first changes directory to the one holding the invoked script. The script then overrides the library path to give <code>$LAMBDA_TASK_ROOT</code> precedence, before replacing itself with the Haskell binary. With this, the Haskell binary now runs on AWS Lambda! <em>&ldquo;But Jente&rdquo;</em>, you ask, <em>&ldquo;if you&rsquo;re done now, then why am I only halfway through this post?&quot;</em>. Well, dear reader, you&rsquo;re about to find out!</p>
+<p>While the above works just fine, it is inelegant and encodes system-specific behaviour. I now need a wrapper script with a dependency on Bash and I override an environment variable that affects the behaviour of the system. There is a more elegant way that is completely self-contained: the library path is a <em>runtime</em> mechanism; we can also encode the search paths for shared object files into the binary!</p>
+<p>The so-called <code>rpath</code> is an entry in the binary file that lists directories to search for shared object files. <code>rpath</code> is searched <em>before</em> <code>$LD_LIBRARY_PATH</code> (and hence cannot be influenced at runtime) which means that if I point the <code>rpath</code> of the binary to the folder containing the packaged shared object files, those will <em>always</em> take precedence. I can set the <code>rpath</code> with (you guessed it) Nix&rsquo;s <code>patchelf</code>. Let&rsquo;s say I copied all the shared object files into <code>./lib</code>, then I&rsquo;d set the <code>rpath</code> of the bootstrap binary like so: <code>patchelf --set-rpath lib/ result/bootstrap</code>. So long as there is a <code>lib</code> directory next to the binary (wherever it may be on the filesystem, it is location independent!) containing the object files, AWS Lambda will load them. Or does it?</p>
+<p>Of course not, it&rsquo;d be silly to assume that things worked on the first try! It turns out that there are <em>two</em> values one can set to encode runtime paths in a binary file: <code>DT_RUNPATH</code> and the obsolete <code>DT_RPATH</code>. They are alike in behaviour, except for their priority: while <code>rpath</code> is scanned <em>before</em> <code>$LD_LIBRARY_PATH</code>, <code>runpath</code> is loaded <em>after</em>. Since <code>rpath</code> is obsolete, by default <code>patchelf --set-rpath</code> sets the <code>runpath</code> value. Fortunately for me, <code>patchelf</code> has a <code>--force-rpath</code> option that changes this behaviour and sets <code>rpath</code> instead. The correct <code>patchelf</code> invocation thus becomes <code>patchelf --set-rpath ./lib --force-rpath</code>.</p>
+<p><em>Now</em> it works 🍾</p>
+<h2 id="packaging-all-this-into-a-nix-derivation">Packaging all this into a Nix derivation</h2>
+<p>I have now described the problem and the solution. What rests me now is to write a Nix derivation that takes as input a Haskell binary and produces as output a zip file that is ready to be uploaded to AWS Lambda. A piece of code says more than a thousand words, so here you go:</p>
+<div class="highlight"><pre class="chroma"><code class="language-nix" data-lang="nix"><span class="p">{</span> <span class="n">pkgs</span> <span class="o">?</span> <span class="kn">import</span> <span class="sr">./haskell.nix</span>
+<span class="o">,</span> <span class="n">hsPkgs</span> <span class="o">?</span> <span class="kn">import</span> <span class="sr">./default.nix</span> <span class="p">{}</span> <span class="p">}:</span>
+
+<span class="k">let</span>
+  <span class="n">buildLambda</span> <span class="o">=</span> <span class="n">cabalProject</span><span class="p">:</span> <span class="n">executable</span><span class="p">:</span>
+    <span class="k">let</span>
+      <span class="n">exeComponent</span> <span class="o">=</span> <span class="n">hsPkgs</span><span class="o">.</span><span class="si">${</span><span class="n">cabalProject</span><span class="si">}</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">exes</span><span class="o">.</span><span class="si">${</span><span class="n">executable</span><span class="si">}</span><span class="p">;</span>
+    <span class="k">in</span>
+      <span class="n">pkgs</span><span class="o">.</span><span class="n">stdenv</span><span class="o">.</span><span class="n">mkDerivation</span> <span class="p">{</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">executable</span><span class="p">;</span>
+        <span class="n">buildInputs</span> <span class="o">=</span> <span class="k">with</span> <span class="n">pkgs</span><span class="p">;</span> <span class="p">[</span> <span class="n">exeComponent</span> <span class="n">patchelf</span> <span class="n">zip</span> <span class="p">];</span>
+        <span class="n">src</span> <span class="o">=</span> <span class="sr">./.</span><span class="p">;</span>
+        <span class="n">phases</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&#34;installPhase&#34;</span> <span class="p">];</span>
+
+        <span class="n">installPhase</span> <span class="o">=</span> <span class="s1">&#39;&#39;
+</span><span class="s1">          mkdir $out/
+</span><span class="s1">          pushd $out/
+</span><span class="s1">
+</span><span class="s1">          # Copy the binary to `bootstrap`, which is what AWS Lambda expects:
+</span><span class="s1">          # https://docs.aws.amazon.com/lambda/latest/dg/runtimes-custom.html
+</span><span class="s1">          cp </span><span class="si">${</span><span class="n">exeComponent</span><span class="si">}</span><span class="s1">/bin/</span><span class="si">${</span><span class="n">executable</span><span class="si">}</span><span class="s1"> bootstrap
+</span><span class="s1">
+</span><span class="s1">          # Copy the shared objects that our binary depends on to a subfolder `lib/`.
+</span><span class="s1">          mkdir lib
+</span><span class="s1">          cp $(ldd bootstrap | grep -F &#39;=&gt; /&#39; | awk &#39;{print $3}&#39;) lib/
+</span><span class="s1">
+</span><span class="s1">          # Patch the binary to point the ELF interpreter and the run-time search
+</span><span class="s1">          # path to the shared objects we provide. Note that these paths are location
+</span><span class="s1">          # independent: as long as the binary is in the same directory as the folder
+</span><span class="s1">          # containing our shared objects, this will work.
+</span><span class="s1">          chmod +w bootstrap
+</span><span class="s1">          patchelf --set-interpreter ./lib/ld-linux-x86-64.so.2 --set-rpath ./lib --force-rpath bootstrap
+</span><span class="s1">          chmod -w bootstrap
+</span><span class="s1">
+</span><span class="s1">          # Finally, we can zip up our binary and the subfolder holding our shared objects.
+</span><span class="s1">          # This zip file is the output artefact of this derivation and can be uploaded to AWS
+</span><span class="s1">          # Lambda as-is.
+</span><span class="s1">          zip -qr </span><span class="si">${</span><span class="n">executable</span><span class="si">}</span><span class="s1">.zip .
+</span><span class="s1">
+</span><span class="s1">          rm -r lib bootstrap
+</span><span class="s1">          popd
+</span><span class="s1">        &#39;&#39;</span><span class="p">;</span>
+      <span class="p">};</span>
+<span class="k">in</span>
+  <span class="n">buildLambda</span> <span class="s2">&#34;shiba&#34;</span> <span class="s2">&#34;shiba-scraper&#34;</span>
+</code></pre></div><p>The files haskell.nix and default.nix are standard <a href="https://github.com/input-output-hk/haskell.nix">haskell.nix</a> definitions, but for the sake of completion I&rsquo;ll paste them below<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>With the above you should have all that you need to deploy your Haskell binary that is built with Nix to AWS Lambda. If you&rsquo;ve found this helpful, I&rsquo;d love to know! If there&rsquo;s anything that is unclear or if you&rsquo;ve spotted a bug, I&rsquo;d love to know that too! You can reach out to me on Twitter or over e-mail, the links are in this page&rsquo;s footer. If you want to read up more on shared libraries, I found Amir Rachum&rsquo;s <a href="https://amir.rachum.com/blog/2016/09/17/shared-libraries/">Shared Libraries: Understanding Dynamic Loading</a> an inspiring read. Thanks to <a href="https://ren.zone/">Renzo Carbonara</a> for <a href="https://github.com/k0001/aws-lambda-nix-haskell/blob/master/default.nix">the <code>ldd</code> trick</a> to fetch a binary&rsquo;s dependencies.</p>
+<p>And yes, those are teasers as to my current project. I&rsquo;ll write about that when I have something to show! 🐕</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>For a good read on this I suggest <a href="https://serokell.io/blog/what-is-nix">Serokell&rsquo;s What Is Nix</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>I could copy only those store paths that I need, but then I&rsquo;d still have to modify <code>LD_LIBRARY_PATH</code> so that those libraries get precedence. Alternatively I&rsquo;d have to have a list of all packages that provide those store paths to use <code>patchelf --set-rpath ${lib.makeLibraryPath [ &lt;packages&gt; ]}</code>. That is more tedious than my current solution. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p>default.nix:</p>
+<div class="highlight"><pre class="chroma"><code class="language-nix" data-lang="nix"><span class="p">{</span> <span class="n">pkgs</span> <span class="o">?</span> <span class="kn">import</span> <span class="sr">./haskell.nix</span> <span class="p">}:</span>
+
+<span class="n">pkgs</span><span class="o">.</span><span class="n">haskell-nix</span><span class="o">.</span><span class="n">project</span> <span class="p">{</span>
+  <span class="n">src</span> <span class="o">=</span> <span class="n">pkgs</span><span class="o">.</span><span class="n">haskell-nix</span><span class="o">.</span><span class="n">haskellLib</span><span class="o">.</span><span class="n">cleanGit</span> <span class="p">{</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;shiba&#34;</span><span class="p">;</span>
+    <span class="n">src</span> <span class="o">=</span> <span class="sr">./.</span><span class="p">;</span>
+  <span class="p">};</span>
+  <span class="n">compiler-nix-name</span> <span class="o">=</span> <span class="s2">&#34;ghc8104&#34;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>haskell.nix:</p>
+<div class="highlight"><pre class="chroma"><code class="language-nix" data-lang="nix"><span class="k">let</span>
+  <span class="n">haskellNix</span> <span class="o">=</span> <span class="kn">import</span> <span class="p">(</span><span class="nb">builtins</span><span class="o">.</span><span class="nb">fetchTarball</span> <span class="s2">&#34;https://github.com/input-output-hk/haskell.nix/archive/e7961eee7bbaaa195b3255258f40d5536574eb74.tar.gz&#34;</span><span class="p">)</span> <span class="p">{};</span>
+  <span class="n">nixpkgsSrc</span> <span class="o">=</span> <span class="n">haskellNix</span><span class="o">.</span><span class="n">sources</span><span class="o">.</span><span class="n">nixpkgs-2009</span><span class="p">;</span>
+  <span class="n">nixpkgsArgs</span> <span class="o">=</span> <span class="n">haskellNix</span><span class="o">.</span><span class="n">nixpkgsArgs</span><span class="p">;</span>
+<span class="k">in</span>
+  <span class="kn">import</span> <span class="n">nixpkgsSrc</span> <span class="n">nixpkgsArgs</span>
+</code></pre></div> <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></li>
+</ol>
+</section>
+
+
+
+  <div>
+    <div class="align">
+      
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+        <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"></path>
+      </svg>
+    </div>
+    <ul class="list">
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/categories/projects/">Projects</a></li>
+      
+    </ul>
+  </div>
+
+
+
+  <div>
+    <div class="align">
+      
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+        <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"></path>
+        <line x1="7" y1="7" x2="7" y2="7"></line>
+      </svg>
+    </div>
+    <ul class="list">
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/aws/">aws</a></li>
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/lambda/">lambda</a></li>
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/haskell/">haskell</a></li>
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/nix/">nix</a></li>
+      
+    </ul>
+  </div>
+
+
+<footer>
+  <nav>
+     
+      <a href="mailto:personal@hjdskes.nl" title="Send a mail to personal@hjdskes.nl">
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://twitter.com/Hjdskes" title="Hjdskes on Twitter" rel=me>
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://github.com/Hjdskes" title="Hjdskes on GitHub" rel=me>
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://gitlab.gnome.org/Hjdskes" title="Hjdskes on GNOME GitLab" rel=me>
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M 10.788594,21.536734 C 7.1281588,20.923645 3.4317212,17.61669 3.8926704,13.669554 5.0660949,10.030121 9.4084325,9.002481 12.797722,9.0110661 c 3.127309,-0.7108099 5.300956,3.1584089 2.079944,4.7634329 -1.481971,1.481121 -6.562787,2.039887 -4.51544,4.8592 2.462629,2.050335 2.533426,-3.290017 5.338069,-2.15334 2.796365,0.976146 -0.163921,4.247454 -1.950641,4.696159 -0.921233,0.406032 -1.969188,0.530203 -2.96106,0.360216 z m 1.794295,-0.08356 c 2.705909,0.255118 6.301544,-4.993159 1.916049,-4.963018 -1.21743,1.167328 -3.784248,4.539961 -4.6998222,1.26491 0.2709802,-2.794652 3.8307952,-2.615115 5.4170302,-4.401817 2.651498,-1.633928 0.402305,-4.7420327 -2.166648,-4.246326 -3.3777465,-0.078097 -7.6444164,0.902415 -9.0000509,4.382807 -0.7054739,4.120455 3.3766681,7.576214 7.1722609,7.993766 0.453028,0.03846 0.910413,0.03039 1.361181,-0.03032 z M 3.9341566,10.427154 C 1.0490542,10.268445 3.2537383,5.1108327 4.7476099,8.3812657 5.0657664,9.1042431 5.0182823,10.460582 3.9341566,10.427154 Z M 4.4699344,10.30542 C 6.4977819,8.6779325 1.9003316,5.8776241 2.5877993,9.0260669 2.867495,9.7751822 3.6284369,10.422289 4.4699344,10.30542 Z M 6.7053902,8.5039933 C 3.6297286,7.8857682 6.6102452,2.4753402 7.9003551,6.1902266 8.0932518,7.0711831 7.829542,8.4523085 6.7053902,8.5039933 Z M 7.2746339,8.3298088 C 9.5332904,6.6816546 5.5180564,3.0049367 5.420685,6.6249745 5.5254822,7.5087681 6.2635101,8.5559472 7.2746339,8.3298088 Z M 14.642553,8.2311668 C 12.2283,6.5368719 14.541155,2.985536 16.840519,2.5219305 20.261447,1.9328509 20.0109,6.206991 17.399643,7.2088589 16.626868,7.8315576 15.666748,8.3385955 14.642553,8.2311668 Z M 15.768655,8.050831 c 2.864892,-0.3134359 5.553252,-6.0915541 0.966528,-5.299797 -2.55054,0.123197 -4.819128,5.8325044 -0.966528,5.299797 z M 10.185719,7.5115241 c -3.3583369,-1.5986324 1.671427,-6.90260758 1.965159,-2.311667 -0.105682,1.0279546 -0.733901,2.3978164 -1.965159,2.311667 z m 0.606495,-0.09287 C 13.232178,6.592527 11.605766,1.4635609 9.4839173,4.2607729 8.9204646,5.3532178 9.2561462,7.4217666 10.792214,7.4186541 Z"/>
+        </svg>
+      </a>
+    
+
+    
+  </nav>
+
+  <a href="/license">Copyright © 2016-2021 Jente Hidskes</a>
+</footer>
+
+<link rel="stylesheet" type="text/css" href="/css/syntax.css"/>
+<link rel="stylesheet" type="text/css" href="/css/zoom.css"/>
+<script defer type="text/javascript" src="/js/zoom-vanilla.js"></script>
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    images = document.querySelectorAll("img[data-action=\"zoom\"]");
+    images.forEach(function(image) {
+      image.style.display = "block";
+    })
+  }, false);
+</script>
+
+</body>
+</html>
+
