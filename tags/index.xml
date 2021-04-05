@@ -7,43 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2021 Jente Hidskes</copyright>
-    <lastBuildDate>Mon, 05 Apr 2021 19:54:18 +0100</lastBuildDate><atom:link href="https://www.hjdskes.nl/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>aws</title>
-      <link>https://www.hjdskes.nl/tags/aws/</link>
-      <pubDate>Mon, 05 Apr 2021 19:54:18 +0100</pubDate>
-      
-      <guid>https://www.hjdskes.nl/tags/aws/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>haskell</title>
-      <link>https://www.hjdskes.nl/tags/haskell/</link>
-      <pubDate>Mon, 05 Apr 2021 19:54:18 +0100</pubDate>
-      
-      <guid>https://www.hjdskes.nl/tags/haskell/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>lambda</title>
-      <link>https://www.hjdskes.nl/tags/lambda/</link>
-      <pubDate>Mon, 05 Apr 2021 19:54:18 +0100</pubDate>
-      
-      <guid>https://www.hjdskes.nl/tags/lambda/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>nix</title>
-      <link>https://www.hjdskes.nl/tags/nix/</link>
-      <pubDate>Mon, 05 Apr 2021 19:54:18 +0100</pubDate>
-      
-      <guid>https://www.hjdskes.nl/tags/nix/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Fri, 02 Apr 2021 19:54:18 +0100</lastBuildDate><atom:link href="https://www.hjdskes.nl/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>digitalocean</title>
       <link>https://www.hjdskes.nl/tags/digitalocean/</link>
