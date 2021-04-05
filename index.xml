@@ -6,8 +6,17 @@
     <description>Recent content on Jente Hidskes&#39; website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Copyright © 2016-2020 Jente Hidskes</copyright>
+    <copyright>Copyright © 2016-2021 Jente Hidskes</copyright>
     <lastBuildDate>Tue, 21 Feb 2017 14:43:43 +0200</lastBuildDate><atom:link href="https://www.hjdskes.nl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deploying a Nixified Haskell binary on AWS Lambda</title>
+      <link>https://www.hjdskes.nl/blog/haskell-nix-aws-lambda/</link>
+      <pubDate>Mon, 05 Apr 2021 19:54:18 +0100</pubDate>
+      
+      <guid>https://www.hjdskes.nl/blog/haskell-nix-aws-lambda/</guid>
+      <description>For a current project (which I will be writing about soon!), I need to deploy a Haskell binary to AWS Lambda. Since Haskell is not officially supported, I needed to jump through some hoops in order to run my code. Thankfully, there is a great library out there that allows Haskell code to interface with AWS Lambda, so that part of the problem is solved. The problem that remains is to get AWS Lambda to run my Haskell binary.</description>
+    </item>
+    
     <item>
       <title>Automating wedding invitations &amp; RSVPs</title>
       <link>https://www.hjdskes.nl/blog/wedding/</link>
@@ -455,8 +464,8 @@ This website is created using the Hugo static website generator. You define the 
       <pubDate>Thu, 11 Aug 2016 19:43:09 +0200</pubDate>
       
       <guid>https://www.hjdskes.nl/license/</guid>
-      <description>All content on this website, unless otherwise noted, is copyright © 2016-2020 Jente Hidskes and licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
-All code on this website, unless otherwise noted, is copyright © 2016-2020 Jente Hidskes and licensed under the MIT license.
+      <description>All content on this website, unless otherwise noted, is copyright © 2016-2021 Jente Hidskes and licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+All code on this website, unless otherwise noted, is copyright © 2016-2021 Jente Hidskes and licensed under the MIT license.
 All registered trademarks mentioned on this website belong to their rightful owners.</description>
     </item>
     

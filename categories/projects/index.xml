@@ -6,8 +6,17 @@
     <description>Recent content in Projects on Jente Hidskes&#39; website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Copyright © 2016-2020 Jente Hidskes</copyright>
-    <lastBuildDate>Fri, 02 Apr 2021 19:54:18 +0100</lastBuildDate><atom:link href="https://www.hjdskes.nl/categories/projects/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2016-2021 Jente Hidskes</copyright>
+    <lastBuildDate>Mon, 05 Apr 2021 19:54:18 +0100</lastBuildDate><atom:link href="https://www.hjdskes.nl/categories/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deploying a Nixified Haskell binary on AWS Lambda</title>
+      <link>https://www.hjdskes.nl/blog/haskell-nix-aws-lambda/</link>
+      <pubDate>Mon, 05 Apr 2021 19:54:18 +0100</pubDate>
+      
+      <guid>https://www.hjdskes.nl/blog/haskell-nix-aws-lambda/</guid>
+      <description>For a current project (which I will be writing about soon!), I need to deploy a Haskell binary to AWS Lambda. Since Haskell is not officially supported, I needed to jump through some hoops in order to run my code. Thankfully, there is a great library out there that allows Haskell code to interface with AWS Lambda, so that part of the problem is solved. The problem that remains is to get AWS Lambda to run my Haskell binary.</description>
+    </item>
+    
     <item>
       <title>Automating wedding invitations &amp; RSVPs</title>
       <link>https://www.hjdskes.nl/blog/wedding/</link>

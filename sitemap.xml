@@ -2,22 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.hjdskes.nl/blog/wedding/</loc>
-    <lastmod>2021-04-02T21:41:57+02:00</lastmod>
+    <loc>https://www.hjdskes.nl/tags/aws/</loc>
+    <lastmod>2021-04-06T01:26:40+02:00</lastmod>
   </url><url>
     <loc>https://www.hjdskes.nl/categories/</loc>
+    <lastmod>2021-04-06T01:26:40+02:00</lastmod>
+  </url><url>
+    <loc>https://www.hjdskes.nl/blog/haskell-nix-aws-lambda/</loc>
+    <lastmod>2021-04-06T01:26:40+02:00</lastmod>
+  </url><url>
+    <loc>https://www.hjdskes.nl/tags/haskell/</loc>
+    <lastmod>2021-04-06T01:26:40+02:00</lastmod>
+  </url><url>
+    <loc>https://www.hjdskes.nl/tags/lambda/</loc>
+    <lastmod>2021-04-06T01:26:40+02:00</lastmod>
+  </url><url>
+    <loc>https://www.hjdskes.nl/tags/nix/</loc>
+    <lastmod>2021-04-06T01:26:40+02:00</lastmod>
+  </url><url>
+    <loc>https://www.hjdskes.nl/categories/projects/</loc>
+    <lastmod>2021-04-06T01:26:40+02:00</lastmod>
+  </url><url>
+    <loc>https://www.hjdskes.nl/tags/</loc>
+    <lastmod>2021-04-06T01:26:40+02:00</lastmod>
+  </url><url>
+    <loc>https://www.hjdskes.nl/blog/wedding/</loc>
     <lastmod>2021-04-02T21:41:57+02:00</lastmod>
   </url><url>
     <loc>https://www.hjdskes.nl/tags/digitalocean/</loc>
     <lastmod>2021-04-02T21:41:57+02:00</lastmod>
   </url><url>
     <loc>https://www.hjdskes.nl/tags/go/</loc>
-    <lastmod>2021-04-02T21:41:57+02:00</lastmod>
-  </url><url>
-    <loc>https://www.hjdskes.nl/categories/projects/</loc>
-    <lastmod>2021-04-02T21:41:57+02:00</lastmod>
-  </url><url>
-    <loc>https://www.hjdskes.nl/tags/</loc>
     <lastmod>2021-04-02T21:41:57+02:00</lastmod>
   </url><url>
     <loc>https://www.hjdskes.nl/tags/terraform/</loc>
@@ -339,7 +354,7 @@
     <lastmod>2019-07-09T14:23:39+02:00</lastmod>
   </url><url>
     <loc>https://www.hjdskes.nl/license/</loc>
-    <lastmod>2020-02-01T18:19:58+01:00</lastmod>
+    <lastmod>2021-04-06T01:26:20+02:00</lastmod>
   </url><url>
     <loc>https://www.hjdskes.nl/projects/</loc>
     <lastmod>2019-02-18T14:46:56+01:00</lastmod>
