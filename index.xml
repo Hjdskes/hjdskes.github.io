@@ -14,7 +14,8 @@
       <pubDate>Tue, 06 Apr 2021 00:28:18 +0100</pubDate>
       
       <guid>https://www.hjdskes.nl/blog/haskell-nix-aws-lambda/</guid>
-      <description>For a current project (which I will be writing about soon!), I need to deploy a Haskell binary to AWS Lambda. Since Haskell is not officially supported, I needed to jump through some hoops in order to run my code. Thankfully, there is a great library out there that allows Haskell code to interface with AWS Lambda, so that part of the problem is solved. The problem that remains is to get AWS Lambda to run my Haskell binary.</description>
+      <description>For a current project (which I will be writing about soon!), I need to deploy a Haskell binary to AWS Lambda. Thankfully, there is a great library out there that allows Haskell code to interface with AWS Lambda. Unfortunately, Haskell is not officially supported so I needed to jump through some hoops in order to run my code.
+In this post I describe the process I followed to make this work.</description>
     </item>
     
     <item>
