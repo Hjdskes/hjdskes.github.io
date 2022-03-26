@@ -125,8 +125,8 @@ now placed outside of the case.
 
 Since I do not own a 3D printer <span
 style="font-size:xx-small">(*something something poor
-student*)</span>, I had to find someone to print it for me. [3D
-Hubs](https://www.3dhubs.com) is awesome for this, and much cheaper
+student*)</span>, I had to find someone to print it for me.
+[Hubs](https://www.hubs.com) is awesome for this, and much cheaper
 than the alternatives. One company even gave me a price of €275! Since
 quality wasn't that important, I opted (of course) for the
 cheapest. The printing took 20 hours for the case, and some more hours
