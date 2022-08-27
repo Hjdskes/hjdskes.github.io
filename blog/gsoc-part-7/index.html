@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="GSoC blog series on rewriting Piper"/>
-  <meta name="generator" content="Hugo 0.82.0" />
+  <meta name="generator" content="Hugo 0.85.0" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -165,17 +165,17 @@ and the MouseMap&rsquo;s <code>_draw_device</code> method is adjusted:</p>
 <span class="k">for</span> <span class="n">button</span> <span class="ow">in</span> <span class="n">profile</span><span class="o">.</span><span class="n">buttons</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">button</span><span class="o">.</span><span class="n">action_type</span> <span class="o">==</span> <span class="s2">&#34;special&#34;</span> <span class="ow">and</span> <span class="n">button</span><span class="o">.</span><span class="n">special</span> <span class="o">==</span> <span class="s2">&#34;resolution-default&#34;</span><span class="p">:</span>
         <span class="n">label</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&#34;Switch resolution&#34;</span><span class="p">))</span>
-        <span class="n">mousemap</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="s2">&#34;#button{}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">button</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+        <span class="n">mousemap</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="s2">&#34;#button</span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">button</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
 </code></pre></div><h3 id="obstacle-6-keep-scrolling-the-list-when-the-cursor-hovers-a-scale">Obstacle 6: keep scrolling the list when the cursor hovers a scale</h3>
 <p>As you can see in the video, the list contains scales (<!-- raw HTML omitted -->sliders<!-- raw HTML omitted -->). If, when
 scrolling the list, the cursor hovers a scale, the scale would consume the
 scroll event. Not nice. To work around this, we capture the scroll event and
 block the signal on the scale:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@GtkTemplate.Callback</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@GtkTemplate</span><span class="o">.</span><span class="n">Callback</span>
 <span class="k">def</span> <span class="nf">_on_scroll_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
     <span class="c1"># Prevent a scroll in the list to get caught by the scale</span>
     <span class="n">GObject</span><span class="o">.</span><span class="n">signal_stop_emission_by_name</span><span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="s2">&#34;scroll-event&#34;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="kc">False</span>
 </code></pre></div><h3 id="obstacle-7-adjusting-the-scale-in-multiples-of-50-dpi">Obstacle 7: adjusting the scale in multiples of 50 DPI</h3>
 <p>Most mice only support a resolution in multiples of 50 DPI; anything less than
 that doesn&rsquo;t make much sense. The <code>Gtk.Scale</code> wouldn&rsquo;t adhere to its
@@ -185,13 +185,13 @@ I ended up connecting to the <code>change-value</code> signal, which is emitted 
 scroll action is performed on a range (a <a href="https://lazka.github.io/pgi-docs/#Gtk-3.0/enums.html#Gtk.ScrollType">scroll action</a> can be
 anything, really). The signal handler receives the new value, which we can round
 to the nearest multiple of 50 before setting it on the scale:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@GtkTemplate.Callback</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@GtkTemplate</span><span class="o">.</span><span class="n">Callback</span>
 <span class="k">def</span> <span class="nf">_on_change_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">scroll</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
     <span class="c1"># Round the value resulting from a scroll event to the nearest multiple</span>
     <span class="c1"># of 50. This is to work around the Gtk.Scale not snapping to its</span>
     <span class="c1"># Gtk.Adjustment&#39;s step_increment.</span>
     <span class="n">scale</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">value</span> <span class="o">-</span> <span class="p">(</span><span class="n">value</span> <span class="o">%</span> <span class="mi">50</span><span class="p">)))</span>
-    <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">return</span> <span class="kc">True</span>
 </code></pre></div><h2 id="theming-in-ratbagd">Theming in ratbagd</h2>
 <p>This week ratbagd <a href="https://github.com/libratbag/libratbag/pull/209">got</a> support for different SVG themes. The
 reasoning behind this is that Piper, an application intended to integrate with
@@ -336,7 +336,7 @@ stack page <a href="/blog/gsoc-part-8">here</a> or the previous part
     
   </nav>
 
-  <a href="/license">Copyright © 2016-2021 Jente Hidskes</a>
+  <a href="/license">Copyright © 2016-2022 Jente Hidskes</a>
 </footer>
 
 <link rel="stylesheet" type="text/css" href="/css/syntax.css"/>

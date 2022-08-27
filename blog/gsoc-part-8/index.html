@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="GSoC blog series on rewriting Piper"/>
-  <meta name="generator" content="Hugo 0.82.0" />
+  <meta name="generator" content="Hugo 0.85.0" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -109,7 +109,7 @@ crazy just yet!<!-- raw HTML omitted --></em>); this does exactly what you&rsquo
   <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
 
-  <span class="nd">@x.setter</span>
+  <span class="nd">@x</span><span class="o">.</span><span class="n">setter</span>
   <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xx</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">xx</span>
 
@@ -117,9 +117,9 @@ crazy just yet!<!-- raw HTML omitted --></em>); this does exactly what you&rsquo
   <span class="n">foo</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 
 <span class="n">foo</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">foo</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">foo</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
 <span class="n">modify</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">foo</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">foo</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div><p>With some more thinking, even a pass by value versus a pass by reference would
 be weird, since the changes <em>are</em> being applied correctly and the callback that
 is called when an LED&rsquo;s mode changes was being called on the correct LED object.
@@ -170,7 +170,7 @@ changed this to a <a href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Chec
 <p>This does mean that we now need to manually enforce that there is only exactly
 one default resolution at any given time, but fortunately this isn&rsquo;t that
 difficult:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@GtkTemplate.Callback</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@GtkTemplate</span><span class="o">.</span><span class="n">Callback</span>
 <span class="k">def</span> <span class="nf">_on_default_toggled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">check</span><span class="p">):</span>
     <span class="c1"># The user toggled us; set ourselves as the default.</span>
     <span class="k">if</span> <span class="n">check</span><span class="o">.</span><span class="n">get_active</span><span class="p">():</span>
@@ -180,12 +180,12 @@ difficult:</p>
     <span class="k">if</span> <span class="n">default_index</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resolution</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
         <span class="c1"># It&#39;s us; set ourselves insensitive so that the user cannot have</span>
         <span class="c1"># zero default resolutions.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">default_check</span><span class="o">.</span><span class="n">set_sensitive</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">default_check</span><span class="o">.</span><span class="n">set_sensitive</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
     <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">check</span><span class="o">.</span><span class="n">get_active</span><span class="p">():</span>
         <span class="c1"># We were the old default; unset ourselves and make ourselves</span>
         <span class="c1"># sensitive again.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">default_check</span><span class="o">.</span><span class="n">set_sensitive</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">default_check</span><span class="o">.</span><span class="n">set_active</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">default_check</span><span class="o">.</span><span class="n">set_sensitive</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">default_check</span><span class="o">.</span><span class="n">set_active</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div><p>All of this would work nicely, if only the <code>DefaultResolutionChanged</code> signal
 would be received by the <code>RatbagdResolution</code> objects. As it turns out, this
 isn&rsquo;t happening because there is one such object for each resolution, with
@@ -381,7 +381,7 @@ resolutions stack page <a href="/blog/gsoc-part-7">here</a>.</p>
     
   </nav>
 
-  <a href="/license">Copyright © 2016-2021 Jente Hidskes</a>
+  <a href="/license">Copyright © 2016-2022 Jente Hidskes</a>
 </footer>
 
 <link rel="stylesheet" type="text/css" href="/css/syntax.css"/>

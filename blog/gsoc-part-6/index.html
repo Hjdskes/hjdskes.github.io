@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="GSoC blog series on rewriting Piper"/>
-  <meta name="generator" content="Hugo 0.82.0" />
+  <meta name="generator" content="Hugo 0.85.0" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -129,7 +129,7 @@ change in the future). The code now looks like this:</p>
 </span><span class="s2">                  is to be paired, as str
 </span><span class="s2">    &#34;&#34;&#34;</span>
     <span class="n">svg_leader</span> <span class="o">=</span> <span class="n">svg_id</span> <span class="o">+</span> <span class="s2">&#34;-leader&#34;</span>
-    <span class="k">if</span> <span class="n">widget</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">svg_id</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="ow">not</span> \
+    <span class="k">if</span> <span class="n">widget</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">svg_id</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> \
         <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">has_sub</span><span class="p">(</span><span class="n">svg_id</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> \
             <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">has_sub</span><span class="p">(</span><span class="n">svg_leader</span><span class="p">):</span>
         <span class="k">return</span>
@@ -154,10 +154,10 @@ attributes. It&rsquo;s implemented like this:</p>
         <span class="s1">&#39;rdf&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.w3.org/1999/02/22-rdf-syntax-ns#&#39;</span><span class="p">,</span>
         <span class="s1">&#39;inkscape&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.inkscape.org/namespaces/inkscape&#39;</span>
     <span class="p">}</span>
-    <span class="n">query</span> <span class="o">=</span> <span class="s2">&#34;//svg:rect[@id=</span><span class="se">\&#34;</span><span class="s2">{}</span><span class="se">\&#34;</span><span class="s2">][contains(@style, </span><span class="se">\&#34;</span><span class="s2">{}</span><span class="se">\&#34;</span><span class="s2">)]&#34;</span><span class="o">.</span>\
-            <span class="n">format</span><span class="p">(</span><span class="n">svg_id</span><span class="p">,</span> <span class="n">style</span><span class="p">)</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&#34;//svg:rect[@id=</span><span class="se">\&#34;</span><span class="si">{}</span><span class="se">\&#34;</span><span class="s2">][contains(@style, </span><span class="se">\&#34;</span><span class="si">{}</span><span class="se">\&#34;</span><span class="s2">)]&#34;</span><span class="o">.</span>\
+            <span class="nb">format</span><span class="p">(</span><span class="n">svg_id</span><span class="p">,</span> <span class="n">style</span><span class="p">)</span>
     <span class="n">element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_svg_data</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">namespaces</span><span class="o">=</span><span class="n">namespaces</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">element</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">element</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+    <span class="k">return</span> <span class="n">element</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">element</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
 </code></pre></div><p>The attentive reader may have noticed the <code>_MouseMapChild</code> class. This is an
 implementation detail (hence it is private) to capture all data related to
 children:</p>
@@ -304,7 +304,7 @@ as discussed in the previous blog entry):</p>
     <span class="n">cr</span><span class="o">.</span><span class="n">set_source_rgba</span><span class="p">(</span><span class="n">color</span><span class="o">.</span><span class="n">red</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">green</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">blue</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">render_cairo_sub</span><span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&#34;#Device&#34;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_highlight_element</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_highlight_element</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">svg_surface</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">get_target</span><span class="p">()</span>
         <span class="n">highlight_surface</span> <span class="o">=</span> <span class="n">svg_surface</span><span class="o">.</span><span class="n">create_similar</span><span class="p">(</span><span class="n">cairo</span><span class="o">.</span><span class="n">Content</span><span class="o">.</span><span class="n">COLOR_ALPHA</span><span class="p">,</span>
                                                        <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">width</span><span class="p">,</span>
@@ -419,7 +419,7 @@ resolutions stack page <a href="/blog/gsoc-part-7">here</a> or the previous part
     
   </nav>
 
-  <a href="/license">Copyright © 2016-2021 Jente Hidskes</a>
+  <a href="/license">Copyright © 2016-2022 Jente Hidskes</a>
 </footer>
 
 <link rel="stylesheet" type="text/css" href="/css/syntax.css"/>

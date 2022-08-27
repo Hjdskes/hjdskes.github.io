@@ -3,27 +3,30 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.hjdskes.nl/tags/aws/</loc>
-    <lastmod>2021-04-06T01:26:40+02:00</lastmod>
+    <lastmod>2022-08-27T22:40:49+02:00</lastmod>
   </url><url>
     <loc>https://www.hjdskes.nl/categories/</loc>
-    <lastmod>2021-04-06T01:26:40+02:00</lastmod>
-  </url><url>
-    <loc>https://www.hjdskes.nl/blog/haskell-nix-aws-lambda/</loc>
-    <lastmod>2021-04-06T01:26:40+02:00</lastmod>
+    <lastmod>2022-08-27T22:40:49+02:00</lastmod>
   </url><url>
     <loc>https://www.hjdskes.nl/tags/haskell/</loc>
+    <lastmod>2022-08-27T22:40:49+02:00</lastmod>
+  </url><url>
+    <loc>https://www.hjdskes.nl/categories/projects/</loc>
+    <lastmod>2022-08-27T22:40:49+02:00</lastmod>
+  </url><url>
+    <loc>https://www.hjdskes.nl/tags/</loc>
+    <lastmod>2022-08-27T22:40:49+02:00</lastmod>
+  </url><url>
+    <loc>https://www.hjdskes.nl/blog/shiba/</loc>
+    <lastmod>2022-08-27T22:40:49+02:00</lastmod>
+  </url><url>
+    <loc>https://www.hjdskes.nl/blog/haskell-nix-aws-lambda/</loc>
     <lastmod>2021-04-06T01:26:40+02:00</lastmod>
   </url><url>
     <loc>https://www.hjdskes.nl/tags/lambda/</loc>
     <lastmod>2021-04-06T01:26:40+02:00</lastmod>
   </url><url>
     <loc>https://www.hjdskes.nl/tags/nix/</loc>
-    <lastmod>2021-04-06T01:26:40+02:00</lastmod>
-  </url><url>
-    <loc>https://www.hjdskes.nl/categories/projects/</loc>
-    <lastmod>2021-04-06T01:26:40+02:00</lastmod>
-  </url><url>
-    <loc>https://www.hjdskes.nl/tags/</loc>
     <lastmod>2021-04-06T01:26:40+02:00</lastmod>
   </url><url>
     <loc>https://www.hjdskes.nl/blog/wedding/</loc>
@@ -180,19 +183,19 @@
     <lastmod>2019-02-18T15:53:55+01:00</lastmod>
   </url><url>
     <loc>https://www.hjdskes.nl/categories/server/</loc>
-    <lastmod>2019-07-09T14:23:39+02:00</lastmod>
+    <lastmod>2022-03-26T17:48:30+01:00</lastmod>
   </url><url>
     <loc>https://www.hjdskes.nl/blog/https/</loc>
     <lastmod>2019-06-28T22:16:49+02:00</lastmod>
   </url><url>
     <loc>https://www.hjdskes.nl/tags/3d-printing/</loc>
-    <lastmod>2019-07-09T14:23:39+02:00</lastmod>
+    <lastmod>2022-03-26T17:48:30+01:00</lastmod>
   </url><url>
     <loc>https://www.hjdskes.nl/blog/server/</loc>
-    <lastmod>2019-07-09T14:23:39+02:00</lastmod>
+    <lastmod>2022-03-26T17:48:30+01:00</lastmod>
   </url><url>
     <loc>https://www.hjdskes.nl/tags/diy/</loc>
-    <lastmod>2019-07-09T14:23:39+02:00</lastmod>
+    <lastmod>2022-03-26T17:48:30+01:00</lastmod>
   </url><url>
     <loc>https://www.hjdskes.nl/projects/piper/</loc>
     <lastmod>2019-02-19T15:29:55+01:00</lastmod>
@@ -354,7 +357,7 @@
     <lastmod>2019-07-09T14:23:39+02:00</lastmod>
   </url><url>
     <loc>https://www.hjdskes.nl/license/</loc>
-    <lastmod>2021-04-06T01:26:20+02:00</lastmod>
+    <lastmod>2022-08-27T21:43:46+02:00</lastmod>
   </url><url>
     <loc>https://www.hjdskes.nl/projects/</loc>
     <lastmod>2019-02-18T14:46:56+01:00</lastmod>

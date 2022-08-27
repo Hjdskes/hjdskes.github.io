@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="GSoC blog series on rewriting Piper"/>
-  <meta name="generator" content="Hugo 0.82.0" />
+  <meta name="generator" content="Hugo 0.85.0" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -92,8 +92,8 @@ adding a single new property to each perspective:</p>
     <span class="s2">&#34;&#34;&#34;Whether this perspective can safely shutdown.&#34;&#34;&#34;</span>
     <span class="k">for</span> <span class="n">profile</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="o">.</span><span class="n">profiles</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">profile</span><span class="o">.</span><span class="n">dirty</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">False</span>
-    <span class="k">return</span> <span class="bp">True</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span>
 </code></pre></div><p>This property signals whether a perspective can safely shutdown. On a <a href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Widget.html#Gtk.Widget.signals.delete_event">delete
 event</a>,
 the window checks all its perspectives' properties and if one perspective
@@ -155,11 +155,11 @@ a back button to be shown, which will take the user back to the welcome
 perspective to switch between devices:</p>
 <!-- raw HTML omitted -->
 <p>Again we add another property to the perspectives interface:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@GObject.Property</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@GObject</span><span class="o">.</span><span class="n">Property</span>
 <span class="k">def</span> <span class="nf">can_go_back</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="s2">&#34;&#34;&#34;Whether this perspective wants a back button to be displayed in case
 </span><span class="s2">    there is more than one connected device.&#34;&#34;&#34;</span>
-    <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">return</span> <span class="kc">True</span>
 </code></pre></div><p>This allows the window class to insert a back button into the perspectives'
 titlebars and prevents all perspectives of having to add it themselves:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">_add_perspective</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">perspective</span><span class="p">,</span> <span class="n">ratbag</span><span class="p">):</span>
@@ -281,7 +281,7 @@ planet <a href="/blog/gsoc-part-13">here</a> or the previous part about the welc
     
   </nav>
 
-  <a href="/license">Copyright © 2016-2021 Jente Hidskes</a>
+  <a href="/license">Copyright © 2016-2022 Jente Hidskes</a>
 </footer>
 
 <link rel="stylesheet" type="text/css" href="/css/syntax.css"/>

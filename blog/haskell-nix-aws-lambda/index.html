@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="Or how I de-Nixified a binary"/>
-  <meta name="generator" content="Hugo 0.82.0" />
+  <meta name="generator" content="Hugo 0.85.0" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -160,10 +160,10 @@
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p>For a good read on this I suggest <a href="https://serokell.io/blog/what-is-nix">Serokell&rsquo;s What Is Nix</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>For a good read on this I suggest <a href="https://serokell.io/blog/what-is-nix">Serokell&rsquo;s What Is Nix</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
-<p>I could copy only those store paths that I need, but then I&rsquo;d still have to modify <code>LD_LIBRARY_PATH</code> so that those libraries get precedence. Alternatively I&rsquo;d have to have a list of all packages that provide those store paths to use <code>patchelf --set-rpath ${lib.makeLibraryPath [ &lt;packages&gt; ]}</code>. That is more tedious than my current solution. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>I could copy only those store paths that I need, but then I&rsquo;d still have to modify <code>LD_LIBRARY_PATH</code> so that those libraries get precedence. Alternatively I&rsquo;d have to have a list of all packages that provide those store paths to use <code>patchelf --set-rpath ${lib.makeLibraryPath [ &lt;packages&gt; ]}</code>. That is more tedious than my current solution.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:3" role="doc-endnote">
 <p>default.nix:</p>
@@ -183,7 +183,7 @@
   <span class="n">nixpkgsArgs</span> <span class="o">=</span> <span class="n">haskellNix</span><span class="o">.</span><span class="n">nixpkgsArgs</span><span class="p">;</span>
 <span class="k">in</span>
   <span class="kn">import</span> <span class="n">nixpkgsSrc</span> <span class="n">nixpkgsArgs</span>
-</code></pre></div> <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></li>
+</code></pre></div>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></li>
 </ol>
 </section>
 
@@ -275,7 +275,7 @@
     
   </nav>
 
-  <a href="/license">Copyright © 2016-2021 Jente Hidskes</a>
+  <a href="/license">Copyright © 2016-2022 Jente Hidskes</a>
 </footer>
 
 <link rel="stylesheet" type="text/css" href="/css/syntax.css"/>

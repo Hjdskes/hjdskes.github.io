@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta name="author" content="Jente Hidskes"/>
   <meta name="description" content="GSoC blog series on rewriting Piper"/>
-  <meta name="generator" content="Hugo 0.82.0" />
+  <meta name="generator" content="Hugo 0.85.0" />
   <meta name="referrer" content="no-referrer"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -173,7 +173,7 @@ write-only or readwrite and finally, they can be watched for changes.</p>
 </span><span class="s2">    @raises GLib.Error when the SVG cannot be loaded.
 </span><span class="s2">    &#34;&#34;&#34;</span>
     <span class="n">Gtk</span><span class="o">.</span><span class="n">Container</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">set_has_window</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">set_has_window</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_children</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_device</span> <span class="o">=</span> <span class="n">ratbag_device</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">spacing</span> <span class="o">=</span> <span class="n">spacing</span>
@@ -182,9 +182,9 @@ write-only or readwrite and finally, they can be watched for changes.</p>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">ratbag_device</span><span class="o">.</span><span class="n">svg_path</span><span class="p">):</span>
         <span class="n">stream</span> <span class="o">=</span> <span class="n">Gio</span><span class="o">.</span><span class="n">Resource</span><span class="o">.</span><span class="n">open_stream</span><span class="p">(</span><span class="s2">&#34;/org/freedesktop/Piper/404.svg&#34;</span><span class="p">,</span>
                                           <span class="n">Gio</span><span class="o">.</span><span class="n">ResourceLookupFlags</span><span class="o">.</span><span class="n">NONE</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">Rsvg</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">new_from_stream</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">Rsvg</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">new_from_stream</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span>
                                                    <span class="n">Rsvg</span><span class="o">.</span><span class="n">HandleFlags</span><span class="o">.</span><span class="n">FLAGS_NONE</span><span class="p">,</span>
-                                                   <span class="bp">None</span><span class="p">)</span>
+                                                   <span class="kc">None</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">Rsvg</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">new_from_file</span><span class="p">(</span><span class="n">ratbag_device</span><span class="o">.</span><span class="n">svg_path</span>
 </code></pre></div><p>A <code>Gtk.Container</code> subclass needs to implement <code>Gtk.Container</code>&rsquo;s interface
@@ -257,7 +257,7 @@ drawing and other internal GTK+ operations.</p>
 </span><span class="s2">    @param callback The callback to call on each child, as Gtk.Callback
 </span><span class="s2">    @param parameters The parameters to pass to the callback, as object or None
 </span><span class="s2">    &#34;&#34;&#34;</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">callback</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">callback</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">:</span>
             <span class="n">callback</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="o">*</span><span class="n">parameters</span><span class="p">)</span>
 </code></pre></div><h4 id="do_set_child_property-child-property_id-value-pspec-and-do_get_child_property-child-property_id-value-pspec"><code>do_set_child_property (child, property_id, value, pspec)</code> and <code>do_get_child_property (child, property_id, value, pspec)</code></h4>
@@ -444,11 +444,11 @@ markings extend to the left.</p>
     <span class="n">ret</span> <span class="o">=</span> <span class="n">Gdk</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">()</span>
     <span class="n">ok</span><span class="p">,</span> <span class="n">svg_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">get_position_sub</span><span class="p">(</span><span class="n">svg_id</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">ok</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Warning: cannot retrieve element&#39;s position:&#34;</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Warning: cannot retrieve element&#39;s position:&#34;</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">ok</span><span class="p">,</span> <span class="n">ret</span>
     <span class="n">ok</span><span class="p">,</span> <span class="n">svg_dim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="o">.</span><span class="n">get_dimensions_sub</span><span class="p">(</span><span class="n">svg_id</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">ok</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Warning: cannot retrieve element&#39;s dimensions:&#34;</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Warning: cannot retrieve element&#39;s dimensions:&#34;</span><span class="p">,</span> <span class="n">svg_id</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">ok</span><span class="p">,</span> <span class="n">ret</span>
     <span class="n">ret</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">svg_pos</span><span class="o">.</span><span class="n">x</span>
     <span class="n">ret</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">svg_pos</span><span class="o">.</span><span class="n">y</span>
@@ -493,10 +493,10 @@ that:</p>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">_</span><span class="p">,</span> <span class="n">file_data</span> <span class="o">=</span> <span class="n">GLib</span><span class="o">.</span><span class="n">file_get_contents</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="o">.</span><span class="n">svg_path</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">GLib</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Cannot get SVG file contents: {}, cannot highlight SVG</span><span class="se">\
-</span><span class="se"></span><span class="s2">              elements&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Cannot get SVG file contents: </span><span class="si">{}</span><span class="s2">, cannot highlight SVG</span><span class="se">\
+</span><span class="se"></span><span class="s2">              elements&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
         <span class="k">return</span>
-    <span class="n">stream</span> <span class="o">=</span> <span class="n">Gio</span><span class="o">.</span><span class="n">MemoryInputStream</span><span class="o">.</span><span class="n">new_from_data</span><span class="p">(</span><span class="n">file_data</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="n">stream</span> <span class="o">=</span> <span class="n">Gio</span><span class="o">.</span><span class="n">MemoryInputStream</span><span class="o">.</span><span class="n">new_from_data</span><span class="p">(</span><span class="n">file_data</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
     <span class="n">escaped_file_data</span> <span class="o">=</span> <span class="n">GLib</span><span class="o">.</span><span class="n">markup_escape_text</span><span class="p">(</span><span class="n">file_data</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
     <span class="n">data</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; standalone=&#34;no&#34;?&gt;
@@ -514,14 +514,14 @@ that:</p>
 </span><span class="s2">                &lt;xi:include href=&#34;data:text/xml,</span><span class="si">%s</span><span class="s2">&#34;/&gt;
 </span><span class="s2">              &lt;/svg&gt;&#34;&#34;&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">svg_width</span><span class="p">,</span> <span class="n">svg_height</span><span class="p">,</span> <span class="n">widget</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">escaped_file_data</span><span class="p">)</span>
 
-    <span class="n">stream</span> <span class="o">=</span> <span class="n">Gio</span><span class="o">.</span><span class="n">MemoryInputStream</span><span class="o">.</span><span class="n">new_from_data</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">),</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="n">stream</span> <span class="o">=</span> <span class="n">Gio</span><span class="o">.</span><span class="n">MemoryInputStream</span><span class="o">.</span><span class="n">new_from_data</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">handle</span> <span class="o">=</span> <span class="n">Rsvg</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">new_from_stream_sync</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span>
+        <span class="n">handle</span> <span class="o">=</span> <span class="n">Rsvg</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">new_from_stream_sync</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span>
                                                   <span class="n">Rsvg</span><span class="o">.</span><span class="n">HandleFlags</span><span class="o">.</span><span class="n">FLAGS_NONE</span><span class="p">,</span>
-                                                  <span class="bp">None</span><span class="p">)</span>
+                                                  <span class="kc">None</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">GLib</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Cannot create new SVG handle: {}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">),</span>
-              <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Cannot create new SVG handle: </span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">),</span>
+              <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
         <span class="k">return</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">handle</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_redraw_svg_element</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
@@ -536,8 +536,8 @@ that:</p>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">handle</span> <span class="o">=</span> <span class="n">Rsvg</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">new_from_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="o">.</span><span class="n">svg_path</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">GLib</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Cannot load SVG: {}. Restoring not possible&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">),</span>
-              <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Cannot load SVG: </span><span class="si">{}</span><span class="s2">. Restoring not possible&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">),</span>
+              <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
         <span class="k">return</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">handle</span>
     <span class="n">ok</span><span class="p">,</span> <span class="n">svg_geom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_svg_sub_geometry</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
@@ -678,7 +678,7 @@ designing and making the mockups <a href="/blog/gsoc-part-3">here</a>.</p>
     
   </nav>
 
-  <a href="/license">Copyright © 2016-2021 Jente Hidskes</a>
+  <a href="/license">Copyright © 2016-2022 Jente Hidskes</a>
 </footer>
 
 <link rel="stylesheet" type="text/css" href="/css/syntax.css"/>
