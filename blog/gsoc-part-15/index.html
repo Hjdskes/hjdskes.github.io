@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="author" content="Jente Hidskes"/>
+  <meta name="description" content="GSoC blog series on rewriting Piper"/>
+  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="referrer" content="no-referrer"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta property="og:description" content="GSoC blog series on rewriting Piper"/>
+  <meta property="og:locale" content="en-us"/>
+  <meta property="og:site_name" content="Jente Hidskes&#39; website"/>
+  <meta property="og:title" content="GSoC part 15: submission"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://www.hjdskes.nl/blog/gsoc-part-15/"/>
+  <meta property="og:image" content="https://www.hjdskes.nl/img/avatar.svg"/>
+
+  <meta name="twitter:card" content="summary"/>
+  
+  <meta name="twitter:site" content="Hjdskes"/>
+  
+  <meta name="twitter:image:alt" content="Logo"/>
+
+  <title>Jente Hidskes&#39; website - GSoC part 15: submission</title>
+
+  <link rel="canonical" href="https://www.hjdskes.nl/blog/gsoc-part-15/"/>
+  
+  <link rel="shortcut icon" href="https://www.hjdskes.nl/img/favicon.ico"/>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito|Roboto+Mono"/>
+  <link rel="stylesheet" type="text/css" href="/css/stylesheet.css"/>
+</head>
+
+<body>
+  <div class="banner">
+    <a href="https://www.hjdskes.nl/"><img src="https://www.hjdskes.nl/img/avatar.svg" alt="logo" /></a>
+    <div>
+      <a id="name" href="https://www.hjdskes.nl/"><h1>Jente Hidskes&#39; website</h1></a>
+      <nav>
+        
+          <a href="https://www.hjdskes.nl/blog">Blog</a>
+        
+          <a href="https://www.hjdskes.nl/projects">Projects &amp; contributions</a>
+        
+        
+          <a href="https://www.hjdskes.nl/about/">About me</a>
+        
+      </nav>
+    </div>
+  </div>
+
+
+<h1>GSoC part 15: submission</h1>
+
+<div class="post-meta">
+  
+  
+  Posted: <time datetime="Aug 23, 2017">Aug 23, 2017</time>
+  &nbsp;• 19 minute read&nbsp;• Last modified:
+    <time datetime="Feb 18, 2019">Feb 18, 2019</time></div>
+
+<p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal"></p>
+<p>This is the last entry in the Google Summer of Code <a href="/series/google-summer-of-code/">series</a> that
+I have been writing weekly for the last three months. It is different from the
+usual updates in that I won&rsquo;t be discussing development progress: rather, this
+will be the submission report for the project as a whole. I&rsquo;ll be discussing the
+<a href="#why"><!-- raw HTML omitted -->why?<!-- raw HTML omitted --></a> behind the project, the <a href="#the-plan">plan</a> that my mentor and
+I came up with to execute the project, the work I have done over the summer
+including a video of the <a href="#result">result</a>, the things that are
+<a href="#what-s-left">left</a> to work on, what I&rsquo;ve <a href="#what-i've-learned">learned</a> during
+the project and finally, the <a href="#code-submission">links to the code</a> that I have
+written for the actual submission. Of course I finish with a
+<a href="#thanks">thank-you</a>. Enjoy!</p>
+<p>For the uninitiated, my mentor is Peter Hutterer and the project was done under
+the X.Org organization.</p>
+<h2 id="why">Why</h2>
+<p>So why did Peter and I propose this project? Well, it was Google Summer of
+Code, I wanted to gain experience in the real world and Peter wanted free
+labor so he didn&rsquo;t have to do it 😉</p>
+<p>Before the Summer of Code, Piper wasn&rsquo;t user-friendly, feature complete or even
+actively developed in the first place. When Peter and Benjamin (bentiss)
+<a href="https://who-t.blogspot.nl/2015/09/libratbag-library-for-configurable-mice_16.html">started</a>
+the libratbag project in September 2015, they had a clear idea for the library
+itself but not its integration with the desktop:</p>
+<blockquote>
+<p>Eventually we want this to be integrated into the desktop environments, either
+in the respective control panels or in a standalone application. libratbag
+already provides SVGs for some devices we support but we&rsquo;ll need some designer
+input for the actual application. Again, any help you want to provide here
+will be much appreciated.</p>
+</blockquote>
+<p>Help never arrived, and so in February 2016 Peter started himself. He threw
+something together over the course of two months and released Piper version
+0.2.1. It wasn&rsquo;t yet feature complete and the UI was&hellip; well, let&rsquo;s just call it
+not user friendly. Piper wasn&rsquo;t touched since that release, even though
+libratbag was steadily improving as was the gaming on Linux story in general.</p>
+<p>This is why Peter and I proposed this project: to rewrite Piper from the
+ground up so that it can fully expose all features offered by libratbag and
+present a unified graphical user interface to those that want to configure their
+gaming mice on their Linux desktop. <!-- raw HTML omitted -->(<em>something
+something year of the Linux desktop.</em>)<!-- raw HTML omitted --></p>
+<h2 id="the-plan">The plan</h2>
+<p>The goal thus was to rewrite Piper in order to make it more user-friendly and to
+enable support for features found in today&rsquo;s gaming mice. This support was
+already present in libratbag, the library created specifically to configure
+gaming mice. In particular, libratbag allows you to:</p>
+<ol>
+<li>configure your device&rsquo;s resolutions, through:</li>
+<li>adding and removing resolutions;</li>
+<li>switching between resolutions;</li>
+<li>setting a resolution&rsquo;s DPI and report rate;</li>
+<li>setting the active and default resolutions.</li>
+<li>configure your device&rsquo;s buttons, through:</li>
+<li>remapping a physical button to another logical button;</li>
+<li>assigning special actions such as switching resolutions to physical
+buttons;</li>
+<li>assigning macros to physical buttons.</li>
+<li>configure your device&rsquo;s LEDs through different effect modes, each with their
+own settings such as color, brightness and effect rate.</li>
+<li>do all of the above as part of a profile, through adding and removing
+profiles.</li>
+</ol>
+<p>In order to make Piper the best tool for the job, it had to be able to do all of
+this as well. With this, the requirements of my project were established.
+Initially I dedicated sprint one to requirement analysis, <!-- raw HTML omitted --> but I finished it even
+before the coding period began (what can I say, I was excited!). This tentative
+plan divided the work into mostly two week sprints, where each sprint would
+result in a deliverable. All deliberables were required for a successful
+completion of my project:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="the-work-i-did">The work I did</h2>
+<p>If you&rsquo;ve been following along with my weekly progress updates, you&rsquo;ll know that
+I didn&rsquo;t exactly follow this schedule. As I already mentioned, the first sprint
+was done even before it was supposed to start, while others took longer than
+planned. I also moved some things around, as you will read below.</p>
+<p>The biggest mistake I made in the schedule was to say that the rewrite would
+support all features supported by the old Piper at the end of week four. I mean,
+I had a whole sprint dedicated to bring support for, for example, resolutions,
+so what was I even thinking here?</p>
+<p>In any case, this is why I called it a <em>tentative</em> schedule. Luckily Peter
+wasn&rsquo;t too strict on my schedule and was open to switching things around as I
+went, which was a nice gesture that I took as a sign of trust in me getting
+things done.</p>
+<p>Let&rsquo;s run through each of the sprints, in the order of which I actually executed
+them.</p>
+<h3 id="creating-the-mockups">Creating the mockups</h3>
+<p>Creating mockups of how the new user interface should look was the basis of my
+project, together with establishing the feature set. I wasn&rsquo;t really looking
+forward to this part, partly because I&rsquo;d never made <em>real</em> mockups before but
+also because I wasn&rsquo;t familiar with Inkscape, the tool I&rsquo;d be using.</p>
+<p>All of this was misplaced, as I quickly got the hang of it and was enjoying the
+whole process! My process consisted of looking up concepts in GNOME&rsquo;s <a href="https://developer.gnome.org/hig/stable/">Human
+Interface Guidelines</a> and similar
+mockups from the GNOME design team that are published <a href="https://github.com/gnome-design-team/gnome-mockups/">on a separate GitHub
+account</a>. To save me some
+time I mostly copied &amp; pasted elements from their mockups into mine; taking the
+concept of <!-- raw HTML omitted -->standing on the shoulders of giants<!-- raw HTML omitted --> quite literally!</p>
+<p>To discuss the mockups, Peter created a <a href="https://github.com/libratbag/piper/wiki/Piper-Redesign">Redesign wiki
+page</a> where I&rsquo;d publish
+the mockups together with an explanation, on which Peter and I would
+comment. In the process I commented out some comments to keep things clear for
+myself, but if there&rsquo;s interest I can publish them again; all the data is still
+there. Data for the Wiki, including history for the mockups, can be found in the
+<a href="https://github.com/libratbag/piper/tree/wiki"><code>wiki</code> branch</a>.</p>
+<p>After a few iterations, the mockups were ready according to Peter and I, at
+which point I contacted GNOME&rsquo;s design team on <code>#gnome-design</code>.  To my surprise,
+it was <a href="http://jimmac.musichall.cz/">Jakub Steiner</a> who replied and gave his
+feedback.  I won&rsquo;t discuss that feedback in detail here, because I <a href="/blog/gsoc-part-4">discussed it
+at length in part 4</a>, but it was inspiring to talk with
+someone of his status and I learned quite a bit from the conversations we had
+(recommend reading: <!-- raw HTML omitted --><a href="https://zachholman.com/posts/shit-work/">Shit
+Work</a><!-- raw HTML omitted -->).</p>
+<p>Probably the largest change that I made due to Jakub&rsquo;s feedback was to go from
+a <!-- raw HTML omitted -->legend<!-- raw HTML omitted --> approach (i.e. having an image with labels and having to search
+for those labels in an adjacent list to configure that object) to a visual
+mapping approach, where a <!-- raw HTML omitted -->map<!-- raw HTML omitted --> of the device is displayed with lines
+stretching from an object on the mouse to its corresponding control widget. To
+visualize that, we went from</p>
+<p><img src="/img/blog/gsoc-part-15/legend.png" alt="The legend-based approach"></p>
+<p>to</p>
+<p><img src="/img/blog/gsoc-part-15/map.png" alt="The map-based approach"></p>
+<h3 id="creating-the-mousemap">Creating the MouseMap</h3>
+<p>A central element of the new mockups was thus this <!-- raw HTML omitted -->map<!-- raw HTML omitted -->: it was to be used
+in all three configuration pages. As you can guess, there is no standard Gtk
+widget to achieve this, so I had to write my own. This widget had to be able to
+do the following:</p>
+<ol>
+<li>Position child widgets on arbitrary x- and y-coordinates, relative to their
+markings in the SVG;</li>
+<li>Draw the SVG in the background of the widget;</li>
+<li>Update said SVG dynamically to highlight an element on the device when its
+corresponding control widget is hovered by the cursor.</li>
+</ol>
+<p>I go in-depth into the creation of this custom container widget in <a href="/blog/gsoc-part-4">part
+4</a> of my development series. The creation of this widget
+spanned a whole two and a half weeks, because of 1) my final university exams,
+2) <a href="/blog/gsoc-part-5">optimizing the highlighting of the SVG elements</a> and 3)
+because, based on another discussion with Jakub, I also added support for
+left-aligned widgets for devices that have too many buttons to position them all
+on the right side. This required a significant rewrite of the layout code and
+required updating all the SVGs we had as well. You can read all about that in
+<a href="/blog/gsoc-part-6/#adding-the-finishing-touches-to-the-mousemap">part 6</a>.</p>
+<h3 id="the-resolutions-page">The resolutions page</h3>
+<p>With the MouseMap finished, it was time to get started on the real work. The
+first step was to do the resolutions page, because this had the most support on
+the ratbag side. This meant that I had to focus only on the Piper side of
+things; something we didn&rsquo;t think would be the case for the buttons and the
+LEDs.</p>
+<p>This turned out to be a Good Thing™, because as I soon found out PyGObject <a href="https://bugzilla.gnome.org/show_bug.cgi?id=701843">does
+not support Gtk composite
+templates</a>. Such a template
+allows you to define composite widgets (widgets composed of other widgets, e.g.
+a window containing a few buttons) through <code>.ui</code> files, which are XML files
+generated by <a href="https://glade.gnome.org/">Glade</a>. This removes all boilerplate
+code to instantiate widgets, set their properties and connect their signals.</p>
+<p>Luckily, there is an <a href="https://github.com/virtuald/pygi-composite-templates/">unofficial
+prototype</a> that brings
+this to PyGObject. After an experiment and a short discussion with Peter, I
+got the <!-- raw HTML omitted -->all clear<!-- raw HTML omitted --> signal to try this in Piper. To this day, I haven&rsquo;t
+noticed a single issue yet and the UI code is significantly cleaner and easier
+to understand.</p>
+<p>With this out of the way I started on the resolutions page. I discuss all of
+that (and the PyGI templates) in <a href="/blog/gsoc-part-7">part 7</a>.</p>
+<h3 id="the-led-page">The LED page</h3>
+<p>Next up was the LED configuration page. I deviated from the original mockup
+shown below:</p>
+<p><img src="/img/blog/gsoc-part-15/leds.png" alt="The LED page mockup"></p>
+<p>This mockup uses multiple toggle buttons that are pressed to highlight the
+current mode. One not-obvious interaction was that you&rsquo;d have to click an
+already pressed button to change the current mode, for example when you want to
+change the solid mode&rsquo;s color. After a few iterations, I got it to what&rsquo;s there
+now:</p>
+<!-- raw HTML omitted -->
+<p>The largest issue that I ran into here was a race condition where we&rsquo;d set an
+LED&rsquo;s mode on DBus, then query that mode on the same bus directly after that
+without returning to the main loop to give our DBus proxy a chance to update.
+You can read about this and other issues with ratbagd in <a href="/blog/gsoc-part-8">part
+8</a>.</p>
+<h3 id="the-buttons-page">The buttons page</h3>
+<p>When making the planning, Peter told me that the buttons would be the most
+difficult part. He wasn&rsquo;t wrong, and I think overall I have spent most of my
+time on the buttons.</p>
+<p>The buttons page has been implemented according to the mockups, but these
+intentionally left the configuration dialog empty. Too much was unclear to me
+when I was designing the mockups, so I thought it&rsquo;d be best to experiment and
+iterate towards a final design once I got to this point.</p>
+<p>At first I tried a dialog with a stack page for each kind of mapping. Ratbag
+exposes four kinds of mappings, one of which <a href="https://github.com/libratbag/libratbag/issues/243">is to be
+removed</a>:</p>
+<ol>
+<li>Button mapping, where a physical button to another, logical button. This way
+you can for example make the right mouse button emit a left click;</li>
+<li>Key mapping, where a physical button is assigned a series of keys to press
+and release on the keyboard;</li>
+<li>Special mapping, where a physical button is assigned a special,
+device-specific function. Libratbag supports several such actions that are
+supported by most devices;</li>
+<li>Macros, where a physical button is assigned a series of key events (presses
+with or without releases) and time intervals, to make a button emit a certain
+key combo with a certain interval in between.</li>
+</ol>
+<p>The key mappings are to be removed because they are in essence a subset of
+macros. The idea is to keep supporting them on the devices, but expose them as a
+simple macro.</p>
+<p>This first iteration looked like this:</p>
+<p><img src="/img/blog/gsoc-part-9/first-iteration.png" alt="The first iteration of the button dialog"></p>
+<p>However, the different options are quite similar to the user: the general user
+won&rsquo;t think of the (technical) difference between a button mapping and a special
+mapping. Similarly, as explained, key mappings are just a subset of macros.
+Because of this, I have iterated away from separating these mappings and
+finalized on a single list with categories instead:</p>
+<!-- raw HTML omitted -->
+<p>As you can see, we&rsquo;ve also prevented users from shooting themselves in the foot
+by remapping the left mouse click. The only valid scenario we could think of for
+wanting to remap the primary mouse buttons was to switch them around for
+left-handed users; if you want to remap them for another purpose, please <a href="https://github.com/libratbag/piper/issues/new">open
+an issue</a>. If you are interested
+in the technical details behind this configuration dialog, you can read <a href="/blog/gsoc-part-9#technical-details">part
+9</a> and <a href="/blog/gsoc-part-13#preventing-the-user-from-shooting-themselves-in-the-foot">part
+13</a>.</p>
+<h3 id="profiles">Profiles</h3>
+<p>I moved the profiles to the end of the summer (as opposed to the beginning
+according to the schedule) because I wanted to have a solid architecture for the
+rest of the code that I could then thread the profiles through; if I&rsquo;d done
+profiles first I would have been working in the dark, so to speak. I&rsquo;m happy
+with this decision and think it worked out well.</p>
+<p>Supporting profiles means that all control widgets</p>
+<ol>
+<li>update their state to reflect new values in the new profile. For example, a
+resolution scale displaying the first resolution’s DPI of 50 in one profile
+should, when the profile changes to another profile, display the first
+resolution&rsquo;s DPI of 100 in that profile (if the first resolution in that
+profile has a resolution of 100 of course, but bear with me here), and</li>
+<li>apply their changes to the correct resolution object. Using the same example,
+the scale should now change the DPI of the first resolution in the <em>other</em>
+profile, and not the first resolution in the <em>original</em> profile.</li>
+</ol>
+<p>Each control widget thus needs to be aware of profile changes so that it can
+always <!-- raw HTML omitted -->talk<!-- raw HTML omitted --> with the active profile to do items one and two above. The
+different approaches to do this throughout the architecture are discussed in
+<a href="/blog/gsoc-part-11">part 11</a>. Once Peter and I settled on this,
+implementing the code wasn&rsquo;t much work (which I took as a confirmation of both
+the approach and shuffling plans around being the right choices).</p>
+<h3 id="the-welcome--and-error-screens">The welcome- and error screens</h3>
+<p>Both these features didn&rsquo;t appear in the original schedule, but were brought
+forward by Peter as feedback on my mockups. He rightly said that Piper
+should be able to deal with devices being unplugged or otherwise disconnecting,
+and having zero or more than one devices connected. For these scenarios, I
+designed the welcome- and error screens:</p>
+<p><img src="/img/blog/gsoc-part-15/welcome.png" alt="The welcome screen"></p>
+<p><img src="/img/blog/gsoc-part-15/welcome-no-devices.png" alt="The error screen"></p>
+<p>I moved these to the end of the summer as, to me, they were the least essential
+features to implement: having Piper deal with errors when it can&rsquo;t even
+configure everything on your device is useless, and owning more than one device
+(let alone using them simultaneously) is a niche case.</p>
+<p>There was, however, another reason to implement these screens. Contrary to
+initial plans, there <a href="https://github.com/libratbag/libratbag/issues/172">are ideas to support a subset of gaming
+keyboards</a> as well. This
+wasn&rsquo;t part of my work, but naturally if I could make Piper open for extension
+that was the way to go. In essence, this would then just be another such screen.</p>
+<p>That means there would be four screens, each providing a different <!-- raw HTML omitted -->view<!-- raw HTML omitted -->
+or <em>perspective</em> into the same application window. I therefore added the concept
+of a <!-- raw HTML omitted -->perspective<!-- raw HTML omitted -->, which I define as a certain view into Piper. The
+implementation details can be found in <a href="/blog/gsoc-part-11#perspectives">part
+11</a>, but in short the window has a stack of
+perspectives, one of which it activates depending on what happens. Adding
+keyboard support is now as simple as adding a keyboard perspective that contains
+all the necessary control widgets.</p>
+<h3 id="libratbag-and-ratbagd-changes">Libratbag and ratbagd changes</h3>
+<p>Over the course of the summer there have also been substantial changes to
+libratbag and ratbagd. The most visible change on the user-side is that
+libratbag now supports SVG themes. This was done after my design discussions
+with Jakub, where he suggested that Piper uses toned-down SVG&rsquo;s instead of the
+colored SVGs that libratbag shipped until then. However, since Piper is a GUI
+for libratbag intended to integrate with the GNOME Desktop Environment, it is
+entirely possible that a hypothetical KDE version would want different graphics.
+For this reason libratbag thus supports SVG themes, where currently a <code>default</code>
+and a <code>gnome</code> theme are present.</p>
+<p>A developer and packager-side change is the merging of ratbagd and libratbag
+into a single project. Anything using libratbag needs to run as root to have
+sufficient permissions to access the devices, at which point you&rsquo;ll need some
+daemon to use it from any user-facing application, whether this be graphical or
+command-line. At this point, you&rsquo;re going to need IPC between the daemon and its
+client(s) and then you might as well merge the two projects.</p>
+<p>Specifically to Piper, part of my contributions were adding missing bits to
+ratbagd (an API for LEDs comes to mind) and fixing things that were broken in
+one way or another. Peter went ahead and added support for macros specifically
+because I required those bits in Piper, which otherwise might have been done
+further down the line instead. Finally, the DBus interface was refactored
+significantly to make most properties read-write instead of read-only with a
+setter method. This was done not only to clean up the API but also to solve
+issues in the bindings where the property would have to be updated in the DBus
+proxy immediately in order to avoid race conditions.</p>
+<h2 id="result">Result</h2>
+<p>Here&rsquo;s a short summary of what Piper can currently do:</p>
+<!-- raw HTML omitted -->
+<h2 id="whats-left">What&rsquo;s left</h2>
+<p>As I mentioned in <a href="/blog/gsoc-part-11">part 11</a>, I finished all large features.
+In the weeks after that, I also fixed (the most important) issues to improve the
+user experience and Piper&rsquo;s robustness. All in all, I achieved what I set out to
+do and all my code got merged. That doesn&rsquo;t mean, however, that there&rsquo;s nothing
+left to do in both Piper and libratbag.</p>
+<p>In the mockups, I showed the ability to add and remove resolutions. The control
+widgets are there in Piper, but libratbag does not yet have this ability. This
+means we&rsquo;ll have to implement this in the coming weeks and hook the widgets up
+to the corresponding DBus calls to get this to work. Likewise, we also cannot
+yet change the default resolution through Piper. There&rsquo;s been a <a href="https://github.com/libratbag/piper/pull/36">longstanding
+PR</a> that was recently closed in
+order to start over. In short, there are issues with propagating this change
+through ratbagd (more details are in <a href="/blog/gsoc-part-8#setting-a-default-resolution">part
+8</a>). However, recently I made
+similar changes to ratbagd so I believe that this shouldn&rsquo;t be too difficult
+anymore.</p>
+<p>The report rate is currently part of the resolution, but not many devices
+support this; it <a href="https://github.com/libratbag/libratbag/issues/202">should therefore be set per profile
+instead</a>. In fact, Piper
+already makes sure to synchronize a change in one resolution&rsquo;s report rate to
+all resolutions part of the same profile.</p>
+<p>We are also in the process of <a href="https://github.com/libratbag/piper/pull/158">making commits to the device
+asynchronous</a>, so that we
+circumvent the timout that would be reached on some devices. Furthermore, <a href="https://github.com/libratbag/piper/issues/142">the
+initial window size is too big</a>,
+<a href="https://github.com/libratbag/piper/issues/99">the device SVGs in the welcome screen need to be
+aligned</a>, <a href="https://github.com/libratbag/piper/issues/87">the mousetrap picture
+in the error screen should be
+symbolic</a>, <a href="https://github.com/libratbag/piper/issues/74">the scale for the last
+resolution&rsquo;s DPI can be masked in the
+list</a>, <a href="https://github.com/libratbag/piper/issues/68">the scales need stops and
+reasonable ranges</a>, <a href="https://github.com/libratbag/piper/issues/57">the macro
+capture dialog should allow the user to capture
+timeouts</a> and finally, <a href="https://github.com/libratbag/piper/issues/45">the
+<!-- raw HTML omitted -->Off<!-- raw HTML omitted --> page in the LED dialog needs an empty
+placeholder</a>. Libratbag is also in
+the process of adding support for <a href="https://github.com/libratbag/libratbag/pull/275">named
+profiles</a>, after which <a href="https://github.com/libratbag/piper/issues/85">Piper
+will do so too</a>. Libratbag also
+<a href="https://github.com/libratbag/libratbag/issues/270">needs to report sane
+defaults</a>, and finally,
+libratbag&rsquo;s GNOME theme is still <a href="https://github.com/libratbag/libratbag/issues/213">lacking
+SVGs</a> for five currently
+supported devices. I also want to get around to write some tests for Piper,
+possibly using <a href="https://pypi.python.org/pypi/dogtail">dogtail</a>.</p>
+<p>Those are all changes for the short term. In the long term, we are rethinking
+the user experience yet again. When discussing my mockups with Jakub, he had
+the idea that we could introduce a <!-- raw HTML omitted -->capture button<!-- raw HTML omitted --> phase, where you would
+press the physical button on your device that you want to configure. This would
+then be highlighted in the device SVG, and upon button release the respective
+configuration dialog would open. Open questions for this design are:</p>
+<ol>
+<li>How to initiate the capture phase;</li>
+<li>How to present the current mappings and LED modes, and</li>
+<li>How to configure LEDs and resolutions in this new form of interaction.</li>
+</ol>
+<p>At GUADEC, Bastien Nocera <a href="https://github.com/libratbag/piper/issues/71">suggested a slightly different
+alternative</a>, where we wouldn&rsquo;t
+introduce a capture mode but rather make the different elements in the SVG
+clickable. This would solve questions 1 and 3 of the capture-based approach, but
+has the problem that it isn&rsquo;t yet clear how to make the SVG elements clickable.
+I have some ideas, but I haven&rsquo;t experimented with this yet.</p>
+<p>If you want to get involved, I have labelled some of the <a href="https://github.com/libratbag/piper/issues">open
+issues</a> with the labels <!-- raw HTML omitted -->easy<!-- raw HTML omitted -->
+and <!-- raw HTML omitted -->help wanted<!-- raw HTML omitted -->! If you have questions, you can contact us on
+<code>#libratbag</code> on Freenode, or on GitHub.</p>
+<h2 id="what-ive-learned">What I&rsquo;ve learned</h2>
+<p>I went into this project with some previous open source
+<a href="/contributions/">contributions</a> and experience with previous (university)
+<a href="/projects/">projects</a>. Yet every project is different and every time I do one I
+learn something new and improve myself as a developer. It&rsquo;s hard to compile a
+list of things I&rsquo;ve learned, as I picked up most things subconciously. Here&rsquo;s an
+attempt, but it is very likely incomplete.</p>
+<p>The most important skill I have picked up is working with people in different
+timezones (<a href="https://youtu.be/Xv_VQJI7-UY?t=45"><code>&quot;it's the middle of the night in Australia, you'll have to wait until whot wakes up&quot;</code></a>) and communicating
+over IRC; especially being explicit in what you&rsquo;re saying.</p>
+<p>Also new to me was interacting with different communities, where I have for
+example had to consult GNOME&rsquo;s design team to discuss my mockups and the Gtk+
+team when I had a Gtk-related issue. It was almost surreal to be talking with
+these giants in the open source world, and to be given advice as <!-- raw HTML omitted -->one of
+them<!-- raw HTML omitted --> was an experience in and off itself. Thanks to Jakub I have picked up
+some pitfalls in UI design, and thanks to the Gtk+ guys I have deepened my
+experience with Gtk+&rsquo;s internals.</p>
+<p>This project also exposed me to working with DBus and the
+<a href="http://mesonbuild.com">Meson</a> build system for the first time. It was also my
+first Python project, as opposed to single file scripts.</p>
+<p>Finally, I experienced debugging across multiple projects; sometimes I noticed a
+bug in Piper, tracked it to and fixed it in either the bindings, ratbagd or
+libratbag.</p>
+<h2 id="code-submission">Code submission</h2>
+<p>All of my code can be found in the master branch of <a href="https://github.com/libratbag/piper">Piper&rsquo;s GitHub
+repository</a>. The commits between version
+0.2.1 and 0.2.900 encompass my summer of code (until
+<code>d2a94f833e0aec2bd74dfe94b439afe701212b13</code>), as announced on the <a href="https://lists.freedesktop.org/archives/input-tools/2017-August/001400.html"><code>input-tools</code>
+mailing
+list</a>.
+You can also
+<a href="https://github.com/libratbag/piper/commits/master?author=Hjdskes">browse</a> the
+commits online on GitHub.</p>
+<p>I have also had to work on ratbagd and libratbag. The ratbagd project merged
+with the libratbag project, but history was preserved when the repositories were
+merged. All of my contributions to both projects are thus found in the master
+branch on <a href="https://github.com/libratbag/libratbag">libratbag&rsquo;s GitHub
+repository</a>. My commits are found in
+version 0.9.900 (until <code>6ddba76c93e51c15acf6e59b316532a4332835ac</code>), as announced
+on the <a href="https://lists.freedesktop.org/archives/input-tools/2017-August/001399.html"><code>input-tools</code> mailing
+list</a>.
+You can also
+<a href="https://github.com/libratbag/libratbag/commits/master?author=Hjdskes">browse</a>
+the commits online on GitHub.</p>
+<h2 id="thanks">Thanks</h2>
+<p>I would like to thank my mentor, Peter Hutterer, for offering me this
+opportunity. It goes without saying (I&rsquo;m doing it anyway!) that this was an
+amazing experience that would not have been possible without Peter. I also want
+to thank Benjamin for stepping in when Peter wasn&rsquo;t available, the X.Org
+organisation for having us under their umbrella and the GNOME design and Gtk+
+teams for their openness and advice. Finally, thank you Google for hosting the
+summer of code!</p>
+<p>This blog post marks the end of a
+<a href="/series/google-summer-of-code/">series</a>. You can read the previous
+part about the final changes <a href="/blog/gsoc-part-14">here</a>.</p>
+
+
+
+  <div>
+    <div class="align">
+      
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+        <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"></path>
+      </svg>
+    </div>
+    <ul class="list">
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/categories/projects/">Projects</a></li>
+      
+    </ul>
+  </div>
+
+
+
+  <div>
+    <div class="align">
+      
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+        <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"></path>
+        <line x1="7" y1="7" x2="7" y2="7"></line>
+      </svg>
+    </div>
+    <ul class="list">
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/piper/">Piper</a></li>
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/fdo/">fdo</a></li>
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/submission/">submission</a></li>
+      
+    </ul>
+  </div>
+
+
+<footer>
+  <nav>
+     
+      <a href="mailto:personal@hjdskes.nl" title="Send a mail to personal@hjdskes.nl">
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://twitter.com/Hjdskes" title="Hjdskes on Twitter" rel=me>
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://github.com/Hjdskes" title="Hjdskes on GitHub" rel=me>
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://gitlab.gnome.org/Hjdskes" title="Hjdskes on GNOME GitLab" rel=me>
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M 10.788594,21.536734 C 7.1281588,20.923645 3.4317212,17.61669 3.8926704,13.669554 5.0660949,10.030121 9.4084325,9.002481 12.797722,9.0110661 c 3.127309,-0.7108099 5.300956,3.1584089 2.079944,4.7634329 -1.481971,1.481121 -6.562787,2.039887 -4.51544,4.8592 2.462629,2.050335 2.533426,-3.290017 5.338069,-2.15334 2.796365,0.976146 -0.163921,4.247454 -1.950641,4.696159 -0.921233,0.406032 -1.969188,0.530203 -2.96106,0.360216 z m 1.794295,-0.08356 c 2.705909,0.255118 6.301544,-4.993159 1.916049,-4.963018 -1.21743,1.167328 -3.784248,4.539961 -4.6998222,1.26491 0.2709802,-2.794652 3.8307952,-2.615115 5.4170302,-4.401817 2.651498,-1.633928 0.402305,-4.7420327 -2.166648,-4.246326 -3.3777465,-0.078097 -7.6444164,0.902415 -9.0000509,4.382807 -0.7054739,4.120455 3.3766681,7.576214 7.1722609,7.993766 0.453028,0.03846 0.910413,0.03039 1.361181,-0.03032 z M 3.9341566,10.427154 C 1.0490542,10.268445 3.2537383,5.1108327 4.7476099,8.3812657 5.0657664,9.1042431 5.0182823,10.460582 3.9341566,10.427154 Z M 4.4699344,10.30542 C 6.4977819,8.6779325 1.9003316,5.8776241 2.5877993,9.0260669 2.867495,9.7751822 3.6284369,10.422289 4.4699344,10.30542 Z M 6.7053902,8.5039933 C 3.6297286,7.8857682 6.6102452,2.4753402 7.9003551,6.1902266 8.0932518,7.0711831 7.829542,8.4523085 6.7053902,8.5039933 Z M 7.2746339,8.3298088 C 9.5332904,6.6816546 5.5180564,3.0049367 5.420685,6.6249745 5.5254822,7.5087681 6.2635101,8.5559472 7.2746339,8.3298088 Z M 14.642553,8.2311668 C 12.2283,6.5368719 14.541155,2.985536 16.840519,2.5219305 20.261447,1.9328509 20.0109,6.206991 17.399643,7.2088589 16.626868,7.8315576 15.666748,8.3385955 14.642553,8.2311668 Z M 15.768655,8.050831 c 2.864892,-0.3134359 5.553252,-6.0915541 0.966528,-5.299797 -2.55054,0.123197 -4.819128,5.8325044 -0.966528,5.299797 z M 10.185719,7.5115241 c -3.3583369,-1.5986324 1.671427,-6.90260758 1.965159,-2.311667 -0.105682,1.0279546 -0.733901,2.3978164 -1.965159,2.311667 z m 0.606495,-0.09287 C 13.232178,6.592527 11.605766,1.4635609 9.4839173,4.2607729 8.9204646,5.3532178 9.2561462,7.4217666 10.792214,7.4186541 Z"/>
+        </svg>
+      </a>
+    
+
+    
+  </nav>
+
+  <a href="/license">Copyright © 2016-2022 Jente Hidskes</a>
+</footer>
+
+<link rel="stylesheet" type="text/css" href="/css/syntax.css"/>
+<link rel="stylesheet" type="text/css" href="/css/zoom.css"/>
+<script defer type="text/javascript" src="/js/zoom-vanilla.js"></script>
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    images = document.querySelectorAll("img[data-action=\"zoom\"]");
+    images.forEach(function(image) {
+      image.style.display = "block";
+    })
+  }, false);
+</script>
+
+</body>
+</html>
+

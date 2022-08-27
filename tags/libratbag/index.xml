@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>libratbag on Jente Hidskes&#39; website</title>
+    <link>https://www.hjdskes.nl/tags/libratbag/</link>
+    <description>Recent content in libratbag on Jente Hidskes&#39; website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2016-2022 Jente Hidskes</copyright>
+    <lastBuildDate>Fri, 19 May 2017 16:01:04 +0200</lastBuildDate><atom:link href="https://www.hjdskes.nl/tags/libratbag/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GSoC part 2: community bonding</title>
+      <link>https://www.hjdskes.nl/blog/gsoc-part-2/</link>
+      <pubDate>Fri, 19 May 2017 16:01:04 +0200</pubDate>
+      
+      <guid>https://www.hjdskes.nl/blog/gsoc-part-2/</guid>
+      <description>Two weeks have now passed since my introductory blog post, so as promised here is part two! The theme of this blog post is probably something along the lines of preparation, as that is what I&amp;rsquo;ve been doing mostly.
+The period between that of announcing the accepted student proposals and phase one is called the community bonding period. In this period students are supposed to get to know their mentors, their organizations, familiarize themselves with their projects (even more) and get everything ready to start off the coding period on May 30th.</description>
+    </item>
+    
+    <item>
+      <title>GSoC part 1: an introduction!</title>
+      <link>https://www.hjdskes.nl/blog/gsoc-part-1/</link>
+      <pubDate>Fri, 05 May 2017 15:44:04 +0200</pubDate>
+      
+      <guid>https://www.hjdskes.nl/blog/gsoc-part-1/</guid>
+      <description>Yesterday, after waiting for what felt like a very long time, I finally got the results of my Google Summer of Code (GSoC) application! I can happily say that one of my proposals has been accepted: I will work with Peter Hutterer to redesign and rewrite Piper. The synopsis of my proposal is as follows:
+ Piper is an application frontend to libratbag and ratbagd, a library and system daemon to configure gaming mice respectively.</description>
+    </item>
+    
+  </channel>
+</rss>

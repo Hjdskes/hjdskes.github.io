@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created using Krita: http://krita.org -->
+<svg xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:krita="http://krita.org/namespaces/svg/krita"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    width="240pt"
+    height="240pt"
+    viewBox="0 0 240 240">
+<defs>
+  <linearGradient id="gradient0" gradientUnits="objectBoundingBox" x1="0.686300365095954" y1="1.75642372326272" x2="0.938792946566395" y2="-0.501507250594875" spreadMethod="pad">
+   <stop stop-color="#cdd9df" offset="0.473913043478261" stop-opacity="1"/>
+   <stop stop-color="#4d6978" offset="1" stop-opacity="1"/>
+  </linearGradient>
+  <linearGradient id="gradient1" gradientUnits="objectBoundingBox" x1="0.920815468602249" y1="0.436846672458104" x2="-0.336703756653976" y2="0.632183346582479" spreadMethod="pad">
+   <stop stop-color="#4d6978" offset="0" stop-opacity="1"/>
+   <stop stop-color="#222f37" offset="1" stop-opacity="1"/>
+  </linearGradient>
+  <linearGradient id="gradient2" gradientUnits="objectBoundingBox" x1="1.08383912100796" y1="1.1649868324744" x2="0.317082191754923" y2="-0.255510851300739" spreadMethod="pad">
+   <stop stop-color="#667d8a" offset="0.560869565217391" stop-opacity="1"/>
+   <stop stop-color="#414649" offset="1" stop-opacity="1"/>
+  </linearGradient>
+  <radialGradient id="gradient3" gradientUnits="objectBoundingBox" cx="0.218183580302502" cy="0.777814687909346" fx="0.936414074805306" fy="-0.066368360848899" r="1.12452756971461" spreadMethod="pad">
+   <stop stop-color="#cad6dc" offset="0.230434782608696" stop-opacity="1"/>
+   <stop stop-color="#58717f" offset="0.817391304347826" stop-opacity="1"/>
+  </radialGradient>
+ </defs>
+<path id="shape0" fill="url(#gradient0)" fill-rule="evenodd" stroke="#000000" stroke-opacity="0" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" d="M25.7593 162.594L33.5956 158.877L33.6905 32.6669L24.5068 25.3193L25.7593 162.594M79.7616 206.764L87.5979 203.048L87.6928 76.837L78.5091 69.4894L79.7616 206.764M61.6914 192.062L69.5277 188.346L69.6226 62.1354L60.4389 54.7878L61.6914 192.062M43.5115 177.455L51.3477 173.738L51.4426 47.5278L42.259 40.1802L43.5115 177.455"/><path id="shape1" fill="url(#gradient1)" fill-rule="evenodd" stroke="#000000" stroke-opacity="0" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" d="M70.1619 66.1974L70.1619 196.044L63.879 190.759L63.879 62.1552L70.1619 66.1974M89.0869 78.3397L89.1457 78.3776L89.1456 78.2698L89.2258 78.3214L89.1676 53.0241L89.1266 52.9989L89.127 52.9499L89.0809 52.9218L89.0809 52.9034L87.7298 52.0756L87.7297 51.9917L10.6097 4.80383L10.6185 27.889L17.1499 32.0912L17.1499 151.453L10.6097 145.951L10.6185 169.039L83.9557 233.037L89.087 237.533L89.0869 237.448L89.1457 237.5L89.1456 237.392L89.2258 237.462L89.1676 212.151L89.1266 212.117L89.127 212.068L89.0809 212.029L89.0809 212.011L87.7298 210.873L87.7297 210.822L81.5496 205.623L81.5496 73.5459L89.087 78.4243L89.0869 78.3397M28.5377 39.4177L34.8206 43.4599L34.8206 166.317L28.5377 161.032L28.5377 39.4177M52.4912 54.8287L52.4912 181.18L46.2083 175.896L46.2083 50.7864L52.4912 54.8287"/><path id="shape2" fill="url(#gradient2)" fill-rule="evenodd" stroke="#000000" stroke-opacity="0" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" d="M202.178 164.972L192.381 158.662L192.511 32.5507L203.413 26.2139L202.178 164.972M137.363 194.836L127.566 187.88L127.696 61.777L138.599 56.1597L137.363 194.836M104.781 209.723L94.9843 202.341L95.1144 76.2442L106.017 71.1009L104.781 209.723M169.863 179.925L160.065 173.045L160.196 46.9416L171.098 41.2396L169.863 179.925"/><path id="shape3" fill="url(#gradient3)" fill-rule="evenodd" stroke="#000000" stroke-opacity="0" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" d="M153.84 55.7887L153.84 182.14L165.36 176.856L165.36 51.7464L153.84 55.7887M186.24 44.4199L186.24 167.277L197.76 161.992L197.76 40.3777L186.24 44.4199M218.64 33.0512L218.64 152.413L230.632 146.911L230.616 169.999L89.1257 237.339L89.2286 211.782L100.56 206.583L100.56 74.4839L89.1257 78.4961L89.2286 52.9517L230.632 5.76383L230.616 28.849L218.64 33.0512M121.44 197.004L132.96 191.719L132.96 63.1152L121.44 67.1574L121.44 197.004"/>
+</svg>

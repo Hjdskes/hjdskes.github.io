@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="author" content="Jente Hidskes"/>
+  <meta name="description" content="How I manage my passwords with pass on multiple devices"/>
+  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="referrer" content="no-referrer"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta property="og:description" content="How I manage my passwords with pass on multiple devices"/>
+  <meta property="og:locale" content="en-us"/>
+  <meta property="og:site_name" content="Jente Hidskes&#39; website"/>
+  <meta property="og:title" content="Managing my passwords with pass"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://www.hjdskes.nl/blog/pass/"/>
+  <meta property="og:image" content="https://www.hjdskes.nl/img/avatar.svg"/>
+
+  <meta name="twitter:card" content="summary"/>
+  
+  <meta name="twitter:site" content="Hjdskes"/>
+  
+  <meta name="twitter:image:alt" content="Logo"/>
+
+  <title>Jente Hidskes&#39; website - Managing my passwords with pass</title>
+
+  <link rel="canonical" href="https://www.hjdskes.nl/blog/pass/"/>
+  
+  <link rel="shortcut icon" href="https://www.hjdskes.nl/img/favicon.ico"/>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito|Roboto+Mono"/>
+  <link rel="stylesheet" type="text/css" href="/css/stylesheet.css"/>
+</head>
+
+<body>
+  <div class="banner">
+    <a href="https://www.hjdskes.nl/"><img src="https://www.hjdskes.nl/img/avatar.svg" alt="logo" /></a>
+    <div>
+      <a id="name" href="https://www.hjdskes.nl/"><h1>Jente Hidskes&#39; website</h1></a>
+      <nav>
+        
+          <a href="https://www.hjdskes.nl/blog">Blog</a>
+        
+          <a href="https://www.hjdskes.nl/projects">Projects &amp; contributions</a>
+        
+        
+          <a href="https://www.hjdskes.nl/about/">About me</a>
+        
+      </nav>
+    </div>
+  </div>
+
+
+<h1>Managing my passwords with pass</h1>
+
+<div class="post-meta">
+  
+  
+  Posted: <time datetime="Jul 4, 2018">Jul 4, 2018</time>
+  &nbsp;• 5 minute read&nbsp;• Last modified:
+    <time datetime="Feb 18, 2019">Feb 18, 2019</time></div>
+
+<p>Last week, I received an email from Ticketmaster that <a href="https://veiligheid.ticketmaster.nl/en-us/">my account
+details may have been
+leaked</a> through an external
+supplier. Whilst I did not get notified through Troy Hunt&rsquo;s excellent
+<a href="https://haveibeenpwned.com">Have I Been Pwned?</a>, now was a good a
+time as any to finally apply some proper password hygiene. A great
+time, even, as this has been on my to-do list for way too long. I have
+been preaching proper password hygiene to my family and friends whilst
+not yet practicing it myself! It was finally time to put my money
+where my mouth is. To walk the walk&hellip; you get it.</p>
+<h2 id="what-is-proper-password-hygiene">What is proper password hygiene?</h2>
+<p>You&rsquo;ve probably heard it a thousand times already, but let me refresh
+your memory. Proper password hygience consists of the following:</p>
+<ol>
+<li>Use unique passwords, or at the very least use unique passwords for
+important accounts.</li>
+<li>Use a password manager. A password manager can generate secure
+passwords and store these securely. The only password that you will
+need to remember, is the password needed to log in to or unlock the
+password manager.</li>
+<li>Do not write your passwords down where other people can see them. A
+paper in your safe? Fine. A sticky note on your desktop?
+Nah. Hotel? Trivago.</li>
+<li>This isn&rsquo;t stricly related to passwords, but if possible, also use
+two factor authentication.</li>
+</ol>
+<p>My threat model here is simply curious people (think snooping family
+and friends) and criminals on the internet (phishing, hacking, et
+cetera). Nation state actors or big-time criminals are out of the
+question, so that file in your safe is probably fine.</p>
+<p>Of course, you also shouldn&rsquo;t use <em>too easy</em> passwords. This is one
+place where password managers shine: they can generate random
+(<em>actually</em> random) passwords for you.</p>
+<h2 id="pass">Pass</h2>
+<p><a href="https://passwordstore.org">Pass</a> is <em>&ldquo;the standard Unix password
+manager&rdquo;</em>. Pass is simple: each password is stored in a GPG encrypted
+file, whose filename is the title of the website or account that
+requires the password. The directory structure is completely up to
+you, and can be copied to multiple devices and manipulated with your
+favorite file management tools, be it the command line or a graphical
+tool like Nautilus.</p>
+<p>It is this transparency and use-of-use that I appreciate. There is no
+new file format or paradigm to learn, no new mental model to create
+and work with. I am in control of how and where the password store is
+stored and where and how it is synced, instead of relying on some
+cloud service managed by someone else. I can inspect the code because
+it is <em>simple</em>, and I can rely on the strenght of GPG instead of a
+home-grown encryption implementation. I am not trying to discredit
+other password managers, but to me these are very important factors to
+consider: I don&rsquo;t have to rely on trust; I can verify.</p>
+<p>I won&rsquo;t explain how to set up and use pass, as both its website and
+man page are excellent resources. You do need a GPG key pair; if you
+don&rsquo;t have one yet I recommend reading <a href="https://keyring.debian.org/creating-key.html">Debian&rsquo;s
+how-to</a>.</p>
+<h2 id="syncing-your-password-store-between-multiple-devices">Syncing your password store between multiple devices</h2>
+<p>So now you have a super secure password store on your PC. Memorizing
+every password is impossible, let alone not the point of a password
+manager. How do you sync it to your phone, or your work device?
+Because you can use all your standard file management utilities, you
+can also use Git. Pass even has built-in support for this! If a Git
+repository is initialized, pass automatically creates a commit every
+time the password store is manipulated through the invocation of
+<code>pass</code>. You only need to add a remote and manually push your changes
+to it.</p>
+<p>To sync this Git repository, <a href="/blog/server/">my server</a> hosts a Git
+server accessible only within my local network. In theory this isn&rsquo;t
+required, because your files are encrypted (and I&rsquo;m sure there are
+people out there syncing to a public GitHub repository). However, I do
+like the extra assurance that my (encrypted) passwords are stored
+somewhere private and under my own control. To see how to set up a Git
+server, see the <a href="https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols">Git
+book</a>.</p>
+<p>To manage this repository on my Android phone, I use <a href="https://github.com/zeapo/Android-Password-Store">Android Password
+Store</a>. It has
+built-in Git and GPG support. It can access your Git repository either
+through SSH or HTTP. For my server, I only allow SSH connections
+through SSH key pairs, so I set up a new pair using the Android
+Password Store app and added the public key to my server.</p>
+<p>As for the GPG key, you don&rsquo;t want to use your master key pair. This
+would require you to copy that to your phone. In case your phone gets
+stolen, lost or broken into, your private key is compromised and you
+lose your complete online identity. To remedy this, GPG supports
+subkeys. A subkey is like a normal encryption key, except it is bound
+to your master key pair. It can be used for signing and encrypting
+only, but the real useful part is that it can be revoked and stored
+independently of your master key. See <a href="https://wiki.debian.org/Subkeys">Debian&rsquo;s
+subkey</a> article on how to create and
+manage subkeys. When you have created your subkeys, copy one of them
+to your Android device, load it into the
+<a href="https://github.com/open-keychain/open-keychain">OpenKeychain</a> Android
+application which is used by Android Password Store to manage GPG
+keys. Now you only have to point Android Password Store to your Git
+repository and you are <em>almost</em> good to go! Your passwords are
+encrypted with your master key, which means your phone cannot decrypt
+them using your subkey. To solve this, simply run <code>pass init $MASTERKEYID $SUBKEYID</code> to encrypt your passwords with both keys (yes,
+this is safe to do in an existing password store). Don&rsquo;t forget to
+sync this change between your devices.</p>
+<p>There you go! Now you can transparently manage your passwords and have
+full control over how and where they are stored.</p>
+
+
+
+  <div>
+    <div class="align">
+      
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+        <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"></path>
+      </svg>
+    </div>
+    <ul class="list">
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/categories/administration/">Administration</a></li>
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/categories/server/">Server</a></li>
+      
+    </ul>
+  </div>
+
+
+
+  <div>
+    <div class="align">
+      
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+        <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"></path>
+        <line x1="7" y1="7" x2="7" y2="7"></line>
+      </svg>
+    </div>
+    <ul class="list">
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/pass/">pass</a></li>
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/gpg/">gpg</a></li>
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/git/">git</a></li>
+      
+    </ul>
+  </div>
+
+
+<footer>
+  <nav>
+     
+      <a href="mailto:personal@hjdskes.nl" title="Send a mail to personal@hjdskes.nl">
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://twitter.com/Hjdskes" title="Hjdskes on Twitter" rel=me>
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://github.com/Hjdskes" title="Hjdskes on GitHub" rel=me>
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://gitlab.gnome.org/Hjdskes" title="Hjdskes on GNOME GitLab" rel=me>
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M 10.788594,21.536734 C 7.1281588,20.923645 3.4317212,17.61669 3.8926704,13.669554 5.0660949,10.030121 9.4084325,9.002481 12.797722,9.0110661 c 3.127309,-0.7108099 5.300956,3.1584089 2.079944,4.7634329 -1.481971,1.481121 -6.562787,2.039887 -4.51544,4.8592 2.462629,2.050335 2.533426,-3.290017 5.338069,-2.15334 2.796365,0.976146 -0.163921,4.247454 -1.950641,4.696159 -0.921233,0.406032 -1.969188,0.530203 -2.96106,0.360216 z m 1.794295,-0.08356 c 2.705909,0.255118 6.301544,-4.993159 1.916049,-4.963018 -1.21743,1.167328 -3.784248,4.539961 -4.6998222,1.26491 0.2709802,-2.794652 3.8307952,-2.615115 5.4170302,-4.401817 2.651498,-1.633928 0.402305,-4.7420327 -2.166648,-4.246326 -3.3777465,-0.078097 -7.6444164,0.902415 -9.0000509,4.382807 -0.7054739,4.120455 3.3766681,7.576214 7.1722609,7.993766 0.453028,0.03846 0.910413,0.03039 1.361181,-0.03032 z M 3.9341566,10.427154 C 1.0490542,10.268445 3.2537383,5.1108327 4.7476099,8.3812657 5.0657664,9.1042431 5.0182823,10.460582 3.9341566,10.427154 Z M 4.4699344,10.30542 C 6.4977819,8.6779325 1.9003316,5.8776241 2.5877993,9.0260669 2.867495,9.7751822 3.6284369,10.422289 4.4699344,10.30542 Z M 6.7053902,8.5039933 C 3.6297286,7.8857682 6.6102452,2.4753402 7.9003551,6.1902266 8.0932518,7.0711831 7.829542,8.4523085 6.7053902,8.5039933 Z M 7.2746339,8.3298088 C 9.5332904,6.6816546 5.5180564,3.0049367 5.420685,6.6249745 5.5254822,7.5087681 6.2635101,8.5559472 7.2746339,8.3298088 Z M 14.642553,8.2311668 C 12.2283,6.5368719 14.541155,2.985536 16.840519,2.5219305 20.261447,1.9328509 20.0109,6.206991 17.399643,7.2088589 16.626868,7.8315576 15.666748,8.3385955 14.642553,8.2311668 Z M 15.768655,8.050831 c 2.864892,-0.3134359 5.553252,-6.0915541 0.966528,-5.299797 -2.55054,0.123197 -4.819128,5.8325044 -0.966528,5.299797 z M 10.185719,7.5115241 c -3.3583369,-1.5986324 1.671427,-6.90260758 1.965159,-2.311667 -0.105682,1.0279546 -0.733901,2.3978164 -1.965159,2.311667 z m 0.606495,-0.09287 C 13.232178,6.592527 11.605766,1.4635609 9.4839173,4.2607729 8.9204646,5.3532178 9.2561462,7.4217666 10.792214,7.4186541 Z"/>
+        </svg>
+      </a>
+    
+
+    
+  </nav>
+
+  <a href="/license">Copyright © 2016-2022 Jente Hidskes</a>
+</footer>
+
+<link rel="stylesheet" type="text/css" href="/css/syntax.css"/>
+<link rel="stylesheet" type="text/css" href="/css/zoom.css"/>
+<script defer type="text/javascript" src="/js/zoom-vanilla.js"></script>
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    images = document.querySelectorAll("img[data-action=\"zoom\"]");
+    images.forEach(function(image) {
+      image.style.display = "block";
+    })
+  }, false);
+</script>
+
+</body>
+</html>
+

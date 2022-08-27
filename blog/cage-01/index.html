@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="author" content="Jente Hidskes"/>
+  <meta name="description" content="The first release towards a stable Wayland kiosk"/>
+  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="referrer" content="no-referrer"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta property="og:description" content="The first release towards a stable Wayland kiosk"/>
+  <meta property="og:locale" content="en-us"/>
+  <meta property="og:site_name" content="Jente Hidskes&#39; website"/>
+  <meta property="og:title" content="The first pre-release of Cage"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://www.hjdskes.nl/blog/cage-01/"/>
+  <meta property="og:image" content="https://www.hjdskes.nl/img/avatar.svg"/>
+
+  <meta name="twitter:card" content="summary"/>
+  
+  <meta name="twitter:site" content="Hjdskes"/>
+  
+  <meta name="twitter:image:alt" content="Logo"/>
+
+  <title>Jente Hidskes&#39; website - The first pre-release of Cage</title>
+
+  <link rel="canonical" href="https://www.hjdskes.nl/blog/cage-01/"/>
+  
+  <link rel="shortcut icon" href="https://www.hjdskes.nl/img/favicon.ico"/>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito|Roboto+Mono"/>
+  <link rel="stylesheet" type="text/css" href="/css/stylesheet.css"/>
+</head>
+
+<body>
+  <div class="banner">
+    <a href="https://www.hjdskes.nl/"><img src="https://www.hjdskes.nl/img/avatar.svg" alt="logo" /></a>
+    <div>
+      <a id="name" href="https://www.hjdskes.nl/"><h1>Jente Hidskes&#39; website</h1></a>
+      <nav>
+        
+          <a href="https://www.hjdskes.nl/blog">Blog</a>
+        
+          <a href="https://www.hjdskes.nl/projects">Projects &amp; contributions</a>
+        
+        
+          <a href="https://www.hjdskes.nl/about/">About me</a>
+        
+      </nav>
+    </div>
+  </div>
+
+
+<h1>The first pre-release of Cage</h1>
+
+<div class="post-meta">
+  
+  
+  Posted: <time datetime="Apr 23, 2019">Apr 23, 2019</time>
+  &nbsp;• 5 minute read&nbsp;• Last modified:
+    <time datetime="Jul 9, 2019">Jul 9, 2019</time></div>
+
+<!-- raw HTML omitted -->
+<p>Almost exactly four months ago I announced Cage, my Wayland compositor for a
+kiosk-like environment. To the uninitiated: a kiosk is designed for running a
+single, maximized application and preventing the user from interacting with any
+other part of the system. You&rsquo;ve probably seen many in your life in malls,
+stores or even the dentist (<em><!-- raw HTML omitted -->how satisfied are you with your service?<!-- raw HTML omitted --></em>).
+Kiosks can also be used for much cooler things, though, <a href="/blog/home-automation/">such as running home
+automation systems</a>.</p>
+<p>Since Cage&rsquo;s announcement, the project was noticed by
+<a href="https://www.phoronix.com/scan.php?page=news_item&amp;px=Cage-Wayland-Compositor">Phoronix</a>
+and other websites. Users found their way and Cage quite quickly picked up some
+momentum.  It has grown from just a hobby project for myself into a Wayland
+compositor with actual users. A small deviation but fun fact is that developing
+Cage has lead me to find bugs in several layers of the stack and applications,
+such as <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1523889">Firefox</a> and
+<a href="https://bugs.freedesktop.org/show_bug.cgi?id=110479">Mesa</a>.</p>
+<p>As a result of this interest, the project has grown in scope significantly.
+Some of the new features are suggested by users and are clever use-cases that I
+had never anticipated or even imagined. For example, <a href="https://drewdevault.com/">Drew
+DeVault</a>, known for starting the
+<a href="https://swaywm.org">sway</a> and <a href="https://github.com/swaywm/wlroots">wlroots</a>
+projects and other ambitious endeavors, is working on mimicking a Plan9 rio
+experience with Cage (see it running <a href="https://yukari.sr.ht/wio-2.webm">here</a>)
+or using it as a &ldquo;portal&rdquo; to a <a href="https://drewdevault.com/2019/04/23/Using-cage-for-a-seamless-RDP-Wayland-desktop.html">remote sway
+session</a>.
+Other features, such as XWayland, are accommodating Cage to the larger audience
+by providing a better and more smooth experience.</p>
+<p>In this pre-release, Cage comes with support for:</p>
+<ul>
+<li>
+<p>XDG Shell. This protocol describes behavior you&rsquo;d typically expect in a
+graphical desktop session. For example, it describes how to manipulate
+(minimize, maximize, fullscreen) windows. Naturally, Cage ignores some of these
+events and only implements this protocol to the extent necessary for a kiosk.</p>
+</li>
+<li>
+<p>XWayland. This allows you to run X clients under Wayland. Obviously,
+applications are encouraged to upgrade and users are encouraged to use
+xdg-shell where possible, but in the case where migration is in-progress (e.g.
+Google Chrome), XWayland can help out.  This is a compile-time feature: Cage
+can run without presence of any X11 libraries.</p>
+</li>
+<li>
+<p>Mouse-, keyboard- and touch input. These should speak for themselves. A nice
+touch (pun not intended 😉) is that the cursor is hidden in case there is a
+touchscreen without a mouse.</p>
+</li>
+<li>
+<p>Idle inhibit. This allows Cage to keep track of so-called inhibitors, which
+prevent idle behavior such as screen blanking or locking while for example a
+video is playing. Note that this requires a third party idle management daemon,
+such as <a href="https://github.com/swaywm/swayidle">swayidle</a>.</p>
+</li>
+<li>
+<p>Server side decorations. With GTK+ on Wayland, client side decorations are
+the norm. KDE (and sway), however, prefer server side decorations. With the
+implementation of the (new) xdg-server-decoration and (obsolete)
+server-decoration protocols, Cage supports both client side- and server side
+decorations. You can tell Cage to prefer (and communicate to supporting clients
+the use of) server side decorations by using the <code>-f</code> flag. Note that
+decorations do not make sense for Cage (as user interaction isn&rsquo;t supported per
+definition) and hence, Cage won&rsquo;t draw any decorations when server side
+decorations are preferred.</p>
+</li>
+<li>
+<p>Copy and paste (also into and out of XWayland). This should also speak for
+itself. Primary selection is also included!</p>
+</li>
+<li>
+<p>Damage tracking. With damage tracking, Cage only redraws the parts of the
+screen that changed.  This makes Cage very resource- and power efficient.</p>
+</li>
+<li>
+<p>Multiple, maximized applications in contrast to a single maximized
+application. When I first announced Cage, I planned on supporting only a
+single application window.  However, due to feature requests, I changed my
+mind and Cage now supports multiple maximized and overlapping windows. That
+is, if Cage is launched with a terminal emulator and an application is launched
+from this terminal emulator, that application is placed “on top” of the
+terminal emulator and takes all input until it is closed. When this application
+is closed, the terminal emulator becomes visible again. Note that cycling
+between multiple windows is not possible.</p>
+</li>
+<li>
+<p>Output rotation. Thanks to <a href="https://github.com/tdaniel22">Tristan Daniel</a>,
+Cage now supports the rotation of outputs. Because of Cage&rsquo;s nature, this is
+&ldquo;static&rdquo;, i.e., output rotation is set on startup with the <code>-r</code> flag.
+Specifying this flag multiple times results in multiple rotations of 90
+degrees.</p>
+</li>
+<li>
+<p>Last but not least, Cage now also has a logo! It is displayed in all its
+glory in the top right corner of this post.</p>
+</li>
+</ul>
+<p>In this release, there are 155 commits from 3 different authors. Issues have
+been reported by 9 users and Cage has been starred on GitHub 85 times. The
+signed release
+(<a href="http://keys.gnupg.net/pks/lookup?op=vindex&amp;fingerprint=on&amp;search=0x37C445296EBC43B1">6EBC43B1</a>)
+is available on <a href="https://github.com/Hjdskes/cage/releases/tag/v0.1">GitHub</a>.
+Compile this version of Cage against wlroots 0.5.0.</p>
+<p>The path to 1.0 is clear: I have tagged some issues on GitHub that I&rsquo;d like to
+make it in 1.0. You can browse them in the
+<a href="https://github.com/Hjdskes/cage/milestone/2">milestone</a> I created to track the
+progress. I think all of these features are critical for a stable release. It
+would be nice if we could get virtual keyboard support in as well, but I don&rsquo;t
+want to block 1.0 on this as there is still work going on regarding this in
+Wayland. The only other issues are those regarding animations and effects.
+Likewise, this kind of eye candy isn&rsquo;t critical and I don&rsquo;t want to delay a
+stable release on it, as I expect it to be quite a lot of work.</p>
+<p>As always, if you think you can help out with any of these issues (whether
+they&rsquo;re tagged for 1.0 or not), please feel free to reach out! I can assist
+(and/or mentor) anyone willing to contribute.</p>
+<p>For questions, comments or feedback you can reach me on
+<a href="https://twitter.com/Hjdskes">Twitter</a>, <a href="https://github.com/Hjdskes">GitHub</a> or
+<a href="mailto:dev@hjdskes.nl">email</a>.</p>
+
+
+
+  <div>
+    <div class="align">
+      
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+        <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"></path>
+      </svg>
+    </div>
+    <ul class="list">
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/categories/projects/">Projects</a></li>
+      
+    </ul>
+  </div>
+
+
+
+  <div>
+    <div class="align">
+      
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+        <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"></path>
+        <line x1="7" y1="7" x2="7" y2="7"></line>
+      </svg>
+    </div>
+    <ul class="list">
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/wayland/">wayland</a></li>
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/compositor/">compositor</a></li>
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/cage/">cage</a></li>
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/kiosk/">kiosk</a></li>
+      
+    </ul>
+  </div>
+
+
+<footer>
+  <nav>
+     
+      <a href="mailto:personal@hjdskes.nl" title="Send a mail to personal@hjdskes.nl">
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://twitter.com/Hjdskes" title="Hjdskes on Twitter" rel=me>
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://github.com/Hjdskes" title="Hjdskes on GitHub" rel=me>
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://gitlab.gnome.org/Hjdskes" title="Hjdskes on GNOME GitLab" rel=me>
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M 10.788594,21.536734 C 7.1281588,20.923645 3.4317212,17.61669 3.8926704,13.669554 5.0660949,10.030121 9.4084325,9.002481 12.797722,9.0110661 c 3.127309,-0.7108099 5.300956,3.1584089 2.079944,4.7634329 -1.481971,1.481121 -6.562787,2.039887 -4.51544,4.8592 2.462629,2.050335 2.533426,-3.290017 5.338069,-2.15334 2.796365,0.976146 -0.163921,4.247454 -1.950641,4.696159 -0.921233,0.406032 -1.969188,0.530203 -2.96106,0.360216 z m 1.794295,-0.08356 c 2.705909,0.255118 6.301544,-4.993159 1.916049,-4.963018 -1.21743,1.167328 -3.784248,4.539961 -4.6998222,1.26491 0.2709802,-2.794652 3.8307952,-2.615115 5.4170302,-4.401817 2.651498,-1.633928 0.402305,-4.7420327 -2.166648,-4.246326 -3.3777465,-0.078097 -7.6444164,0.902415 -9.0000509,4.382807 -0.7054739,4.120455 3.3766681,7.576214 7.1722609,7.993766 0.453028,0.03846 0.910413,0.03039 1.361181,-0.03032 z M 3.9341566,10.427154 C 1.0490542,10.268445 3.2537383,5.1108327 4.7476099,8.3812657 5.0657664,9.1042431 5.0182823,10.460582 3.9341566,10.427154 Z M 4.4699344,10.30542 C 6.4977819,8.6779325 1.9003316,5.8776241 2.5877993,9.0260669 2.867495,9.7751822 3.6284369,10.422289 4.4699344,10.30542 Z M 6.7053902,8.5039933 C 3.6297286,7.8857682 6.6102452,2.4753402 7.9003551,6.1902266 8.0932518,7.0711831 7.829542,8.4523085 6.7053902,8.5039933 Z M 7.2746339,8.3298088 C 9.5332904,6.6816546 5.5180564,3.0049367 5.420685,6.6249745 5.5254822,7.5087681 6.2635101,8.5559472 7.2746339,8.3298088 Z M 14.642553,8.2311668 C 12.2283,6.5368719 14.541155,2.985536 16.840519,2.5219305 20.261447,1.9328509 20.0109,6.206991 17.399643,7.2088589 16.626868,7.8315576 15.666748,8.3385955 14.642553,8.2311668 Z M 15.768655,8.050831 c 2.864892,-0.3134359 5.553252,-6.0915541 0.966528,-5.299797 -2.55054,0.123197 -4.819128,5.8325044 -0.966528,5.299797 z M 10.185719,7.5115241 c -3.3583369,-1.5986324 1.671427,-6.90260758 1.965159,-2.311667 -0.105682,1.0279546 -0.733901,2.3978164 -1.965159,2.311667 z m 0.606495,-0.09287 C 13.232178,6.592527 11.605766,1.4635609 9.4839173,4.2607729 8.9204646,5.3532178 9.2561462,7.4217666 10.792214,7.4186541 Z"/>
+        </svg>
+      </a>
+    
+
+    
+  </nav>
+
+  <a href="/license">Copyright © 2016-2022 Jente Hidskes</a>
+</footer>
+
+<link rel="stylesheet" type="text/css" href="/css/syntax.css"/>
+<link rel="stylesheet" type="text/css" href="/css/zoom.css"/>
+<script defer type="text/javascript" src="/js/zoom-vanilla.js"></script>
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    images = document.querySelectorAll("img[data-action=\"zoom\"]");
+    images.forEach(function(image) {
+      image.style.display = "block";
+    })
+  }, false);
+</script>
+
+</body>
+</html>
+

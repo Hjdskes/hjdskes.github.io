@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitLab on Jente Hidskes&#39; website</title>
+    <link>https://www.hjdskes.nl/tags/gitlab/</link>
+    <description>Recent content in GitLab on Jente Hidskes&#39; website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2016-2022 Jente Hidskes</copyright>
+    <lastBuildDate>Wed, 02 Jan 2019 11:47:43 +0100</lastBuildDate><atom:link href="https://www.hjdskes.nl/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>An update from GitHub on PGP subkeys</title>
+      <link>https://www.hjdskes.nl/blog/github-pgp-response/</link>
+      <pubDate>Wed, 02 Jan 2019 11:47:43 +0100</pubDate>
+      
+      <guid>https://www.hjdskes.nl/blog/github-pgp-response/</guid>
+      <description>A few weeks ago I wrote about adding a new PGP subkey to your GitHub account. I reported this issue to GitHub when I discovered it. Today, I have gotten a response from GitHub:
+ When a new subkey is added to an existing PGP key on an account, it currently has to be removed and added back to the account to update it on our side.
+This is expected behaviour for now but I agree it isn&amp;rsquo;t the most elegant solution!</description>
+    </item>
+    
+    <item>
+      <title>PSA: want to use a new subkey to sign your commits?</title>
+      <link>https://www.hjdskes.nl/blog/psa-github-gpg/</link>
+      <pubDate>Thu, 13 Dec 2018 15:23:39 +0100</pubDate>
+      
+      <guid>https://www.hjdskes.nl/blog/psa-github-gpg/</guid>
+      <description>I not so recently started using subkeys to do my normal PGP work. I made a new subkey specifically for signing things, and naturally wanted to use this new key to sign my commits with git&amp;rsquo;s builtin GPG support. I picked up my subkey&amp;rsquo;s ID with gpg --list-keys --keyid-format LONG and set it with git config --global user.signingKey &amp;lt;id&amp;gt;. That&amp;rsquo;d be it, right?
+Since you&amp;rsquo;re reading this, you&amp;rsquo;ve found out the answer is &amp;ldquo;no&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Gcolor3 has moved to GNOME&#39;s GitLab!</title>
+      <link>https://www.hjdskes.nl/blog/gcolor3-gitlab/</link>
+      <pubDate>Sun, 02 Sep 2018 00:00:21 +0200</pubDate>
+      
+      <guid>https://www.hjdskes.nl/blog/gcolor3-gitlab/</guid>
+      <description>Gcolor3 has moved from GitHub to GNOME&amp;rsquo;s GitLab instance! You can now find the repository at https://gitlab.gnome.org/World/gcolor3. This was suggested by GNOME developer Jeremy Bicha and finalized very quickly by Carlos Soriano, thanks both!
+Being on GNOME&amp;rsquo;s GitLab is awesome, because Gcolor3 is now surrounded by other GNOME projects. This should make it easier to find for many people, but there are other benefits too. Since the move yesterday, I have already received nine merge requests!</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="author" content="Jente Hidskes"/>
+  <meta name="description" content="GSoC blog series on rewriting Piper"/>
+  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="referrer" content="no-referrer"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta property="og:description" content="GSoC blog series on rewriting Piper"/>
+  <meta property="og:locale" content="en-us"/>
+  <meta property="og:site_name" content="Jente Hidskes&#39; website"/>
+  <meta property="og:title" content="GSoC part 8: the LED stack page"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://www.hjdskes.nl/blog/gsoc-part-8/"/>
+  <meta property="og:image" content="https://www.hjdskes.nl/img/avatar.svg"/>
+
+  <meta name="twitter:card" content="summary"/>
+  
+  <meta name="twitter:site" content="Hjdskes"/>
+  
+  <meta name="twitter:image:alt" content="Logo"/>
+
+  <title>Jente Hidskes&#39; website - GSoC part 8: the LED stack page</title>
+
+  <link rel="canonical" href="https://www.hjdskes.nl/blog/gsoc-part-8/"/>
+  
+  <link rel="shortcut icon" href="https://www.hjdskes.nl/img/favicon.ico"/>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito|Roboto+Mono"/>
+  <link rel="stylesheet" type="text/css" href="/css/stylesheet.css"/>
+</head>
+
+<body>
+  <div class="banner">
+    <a href="https://www.hjdskes.nl/"><img src="https://www.hjdskes.nl/img/avatar.svg" alt="logo" /></a>
+    <div>
+      <a id="name" href="https://www.hjdskes.nl/"><h1>Jente Hidskes&#39; website</h1></a>
+      <nav>
+        
+          <a href="https://www.hjdskes.nl/blog">Blog</a>
+        
+          <a href="https://www.hjdskes.nl/projects">Projects &amp; contributions</a>
+        
+        
+          <a href="https://www.hjdskes.nl/about/">About me</a>
+        
+      </nav>
+    </div>
+  </div>
+
+
+<h1>GSoC part 8: the LED stack page</h1>
+
+<div class="post-meta">
+  
+  
+  Posted: <time datetime="Jul 14, 2017">Jul 14, 2017</time>
+  &nbsp;• 10 minute read&nbsp;• Last modified:
+    <time datetime="Feb 18, 2019">Feb 18, 2019</time></div>
+
+<p><img src="/img/blog/gsoc-part-1/GSoC-logo-horizontal.svg" alt="GSoC logo horizontal"></p>
+<p>Originally the plan for this week was to start working on the button mappings,
+however together with my mentor I decided that it&rsquo;s better to do the LEDs first.
+This is because I was sure I could finish this in a few days, and button
+mappings is definitely going to take much longer than that. So, this week I&rsquo;ll
+run you through the implementation of the LED stack page, and the coming weeks
+I&rsquo;ll be working on button mappings, profile support and a proper welcome screen,
+in that order.</p>
+<h2 id="the-led-stack-page">The LED stack page</h2>
+<p>A picture is worth more than a thousand words. A video, however, is priceless:</p>
+<!-- raw HTML omitted -->
+<p>As you can see, I deviated from the <a href="https://github.com/libratbag/piper/raw/wiki/redesign/leds.png">mockup</a>. The mockup uses
+multiple <a href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/ToggleButton.html"><code>Gtk.ToggleButton</code></a>s that are pressed (<!-- raw HTML omitted -->active<!-- raw HTML omitted -->) to
+highlight the current mode. One thing that wasn&rsquo;t nice here is that to change a
+current mode (e.g. to change the solid mode&rsquo;s color), you&rsquo;d have to click an
+already active button. This isn&rsquo;t obvious and so we iterated for a bit to find a
+better approach, until we landed on what you see in the video. Note: the <a href="https://github.com/libratbag/piper/issues/45">off
+page still needs an image</a> to indicate its empty state. If this is
+something you can help out with, please get in touch!</p>
+<p>The <a href="https://github.com/libratbag/piper/pull/35">pull request</a> notes the issues I stumbled upon while implementing
+the LED stack page and its dialog, and the iterative design bit.</p>
+<p>Firstly, changed values (even committed to the device) would not be remembered
+in between dialog invocations. At first, I thought this was due to the fact that
+the bindings only checked their DBus object&rsquo;s properties upon instantiation, and
+not whenever they are retrieved (so a new setting would simply remain
+invisible).  However, even after making sure that the latest value is always
+queried directly, things still didn&rsquo;t work. We then found that ratbagd exposed
+the <a href="https://github.com/libratbag/libratbag/pull/215">properties as constants</a>, but this still didn&rsquo;t fix the
+issue. As it turned out, <a href="https://lazka.github.io/pgi-docs/Gio-2.0/classes/DBusProxy.html"><code>Gio.DBusProxy</code></a> wasn&rsquo;t updating its cached
+properties because ratbagd wasn&rsquo;t emitting property changed signals for all of
+its properties. My mentor <a href="https://github.com/libratbag/libratbag/pull/219">fixed</a> this overnight (for
+me at least; globally distributed software engineering at its finest!), only for
+us to run into the next issue&hellip; 😅</p>
+<p>As you can see in the video, the button label should change to reflect the new
+LED mode after the user accepts the changes in the dialog. For some reason this
+wasn&rsquo;t happening and the old label would be set, even though the dialog returned
+the correct mode and the method that converts a mode to its string
+representation was correct. Indeed, the correct mode was also being applied
+to the device. At first I thought this was a pass by reference versus a pass by
+value bug, but Python should support passing an object around and changing its
+properties just fine. A quick test confirmed my thinking (<em><!-- raw HTML omitted -->yay, I&rsquo;m not going
+crazy just yet!<!-- raw HTML omitted --></em>); this does exactly what you&rsquo;d expect it to:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">x</span>
+
+  <span class="nd">@property</span>
+  <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+
+  <span class="nd">@x</span><span class="o">.</span><span class="n">setter</span>
+  <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xx</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">xx</span>
+
+<span class="k">def</span> <span class="nf">modify</span><span class="p">(</span><span class="n">foo</span><span class="p">):</span>
+  <span class="n">foo</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">foo</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">foo</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<span class="n">modify</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">foo</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div><p>With some more thinking, even a pass by value versus a pass by reference would
+be weird, since the changes <em>are</em> being applied correctly and the callback that
+is called when an LED&rsquo;s mode changes was being called on the correct LED object.
+I approached my mentor with this issue, who, with his years of experience
+(😉), was quick to smell a race condition in DBus.</p>
+<ol>
+<li>We set the LED mode on DBus though the <code>SetMode(mode)</code> method on the LED
+object;</li>
+<li>We query the DBus LED mode, which returns the old mode because that&rsquo;s what
+the <a href="https://lazka.github.io/pgi-docs/Gio-2.0/classes/DBusProxy.html"><code>Gio.DBusProxy</code></a> has;</li>
+<li>Time passes, and we return to GLib&rsquo;s main loop which monitors DBus;</li>
+<li>DBus' property changed signal arrives;</li>
+<li>If we query the DBus LED mode now, it has the correct value.</li>
+</ol>
+<p>Because there is no time between steps 1 and 2, the signal hasn&rsquo;t yet arrived
+and the cached property isn&rsquo;t updated. The solution thus is to <a href="https://github.com/libratbag/piper/pull/41">explicitly and
+immediately</a> update the cached DBus properties when a setter method is
+called. However, you only ever want to update a cached property if its setter
+method actually applied the changes, so we needed to refactor
+<code>_RatbagdDBus._dbus_call</code>. There were a bunch of options here (e.g. catching any
+DBus exceptions and simply returning different error codes), but in the end I
+went for raising different kinds of exceptions signaling different ratbag error
+codes returned from the DBus method. I went this way because it 1) automatically
+prevents the cached property from being updated when an exception is raised, 2)
+is automatically propagated up the call chain to the UI (or any other user) that
+can then decide what to do, and 3) it is the most Pythonic.</p>
+<p>Finally, Piper now checks if the device supports resolutions and LEDs before it
+shows those pages. Ratbag exposes device capabilities for precisely this reason,
+but up until now I had simply forgotten about them. To make these capabilities
+easier to work with (my device would support <code>CAP_SWITCHABLE_RESOLUTION</code> but not
+<code>CAP_RESOLUTION</code>), my mentor <a href="https://github.com/libratbag/libratbag/pull/223">made sure</a> that &ldquo;parent capabilities&rdquo; such
+as <code>CAP_RESOLUTION</code> are set before any child capabilities such as
+<code>CAP_SWITCHABLE_RESOLUTION</code> are.</p>
+<h2 id="setting-a-default-resolution">Setting a default resolution</h2>
+<p>A leftover from last week&rsquo;s resolution stack page is that there is <a href="https://github.com/libratbag/piper/issues/31">no
+way</a> to set the default resolution yet. This week I attempted
+to fix that, through <a href="https://github.com/libratbag/piper/pull/36">this PR</a>. There may at any given time be
+only exactly one default resolution, and hence a
+<a href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/RadioButton.html"><code>Gtk.RadioButton</code></a> initially seems like the best widget to use
+here given that it itself enforces this behaviour so we don&rsquo;t have to do that
+manually. However, it didn&rsquo;t look very nice and its intention also isn&rsquo;t clear
+from a usability point of view.</p>
+<p>To make it look prettier and to improve the usability, my mentor suggested I
+move the widget into the revealer that appears when a resolution is clicked from
+the list.  This also gives us more space so we can add a label describing what
+the widget does. Initially I went with a <a href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Switch.html"><code>Gtk.Switch</code></a> but later
+changed this to a <a href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CheckButton.html"><code>Gtk.CheckButton</code></a>.</p>
+<p>This does mean that we now need to manually enforce that there is only exactly
+one default resolution at any given time, but fortunately this isn&rsquo;t that
+difficult:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@GtkTemplate</span><span class="o">.</span><span class="n">Callback</span>
+<span class="k">def</span> <span class="nf">_on_default_toggled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">check</span><span class="p">):</span>
+    <span class="c1"># The user toggled us; set ourselves as the default.</span>
+    <span class="k">if</span> <span class="n">check</span><span class="o">.</span><span class="n">get_active</span><span class="p">():</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_resolution</span><span class="o">.</span><span class="n">set_default</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">_on_default_resolution_changed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resolution</span><span class="p">,</span> <span class="n">default_index</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">default_index</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resolution</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+        <span class="c1"># It&#39;s us; set ourselves insensitive so that the user cannot have</span>
+        <span class="c1"># zero default resolutions.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">default_check</span><span class="o">.</span><span class="n">set_sensitive</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">check</span><span class="o">.</span><span class="n">get_active</span><span class="p">():</span>
+        <span class="c1"># We were the old default; unset ourselves and make ourselves</span>
+        <span class="c1"># sensitive again.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">default_check</span><span class="o">.</span><span class="n">set_sensitive</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">default_check</span><span class="o">.</span><span class="n">set_active</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div><p>All of this would work nicely, if only the <code>DefaultResolutionChanged</code> signal
+would be received by the <code>RatbagdResolution</code> objects. As it turns out, this
+isn&rsquo;t happening because there is one such object for each resolution, with
+object paths <code>/org/freedesktop/ratbag1/resolution/event13/p0/r0</code> (where <code>p0</code> and
+<code>r0</code> encode the profile and resolution to encode for different profiles and
+resolutions, and <code>event13</code> is the mouse under configuration) with interface
+<code>org.freedesktop.ratbag1.Resolution</code>, while the <code>DefaultResolutionChanged</code>
+signal is emitted by ratbagd on <code>/org/freedesktop/ratbag1</code> with the same
+interface. <a href="https://lazka.github.io/pgi-docs/Gio-2.0/classes/DBusProxy.html"><code>Gio.DBusProxy</code></a> says the following for its <code>g-signal</code>
+signal: <em><!-- raw HTML omitted -->Emitted when a signal from the remote object and interface that
+proxy is for, has been received<!-- raw HTML omitted --></em>. So because the signal it receives isn&rsquo;t
+for its object path (<code>.../resolution/event13/p0/r0</code>) it doesn&rsquo;t emit its
+<code>g-signal</code>.</p>
+<p>The fix initially appears simple: just emit the signal on the resolution
+object&rsquo;s path, so that it will receive it. That&rsquo;s exactly <a href="https://github.com/libratbag/libratbag/pull/226">what I
+did</a>, but as you can read there the next issue is that the signal is
+now only emitted on the resolution that has just become the default. At the very
+least it should also be emitted on the signal that <em>was</em> the default, so that it
+knows it isn&rsquo;t anymore.</p>
+<p>There are two ways to fix this issue:</p>
+<ol>
+<li>Move the <code>DefaultResolutionChanged</code> (and <code>ActiveResolutionChanged</code>) signal up
+into the profile, or</li>
+<li>Have a boolean property of <code>IsDefault</code> in the resolution objects.  This way
+we get to use DBus' <code>PropertyChanged</code> signals as they happen anyway, without
+the need for extra signals on our behalf.</li>
+</ol>
+<p>The latter would mean that each class in Piper that has a <code>Ratbagd*</code> instance
+(let&rsquo;s say a <code>RatbagdResolution</code> in this example) needs to connect to that
+instance&rsquo;s <code>notify::is-default</code> signal that is emitted whenever this property
+changes (automatically, by GObject). This is straightforward, but I&rsquo;m not sure
+how well it will work with profile switches.</p>
+<p>The former would mean that each class in Piper that has a <code>Ratbagd*</code> instance
+needs a reference to a profile, so that it can connect to the profile&rsquo;s
+<code>default-resolution-changed</code> signal (again, just taking the <code>RatbagdResolution</code>
+example here) and do the work from that callback. This will likely work better
+with profile switches, albeit being a little less straightforward.</p>
+<p>I&rsquo;m not yet sure which of these will work best once I will implement profile
+switching: there won&rsquo;t be just one profile to work with but all of them, and the
+active one can change at any given time. In this case, it is likely that every
+class in Piper needs a reference to a profile anyway, which will change
+depending on the <code>active-profile-changed</code> signal emitted from <code>RatbagdDevice</code>
+(currently <code>RatbagdProfile</code>, but this will have to be changed to prevent the
+same issue we&rsquo;re having now with <code>RatbagdResolution</code>) to grab, for example, the
+new profile&rsquo;s resolution to update.</p>
+<p>My suggestion is thus to postpone this issue until I get around to implementing
+profile support in a few weeks, so that we only have to change things once.</p>
+<h2 id="smaller-changes">Smaller changes</h2>
+<p>Last week I asked the question <a href="/blog/gsoc-part-7#obstacle-4-does-every-resolution-have-its-own-report-rate"><!-- raw HTML omitted -->does every resolution have its own report
+rate?<!-- raw HTML omitted --></a>. The concensus then was to implement report rates per
+profile, even though <a href="https://github.com/libratbag/libratbag/issues/202">this issue</a> was opened not much later.
+It is now definitive that supporting per-resolution report rates isn&rsquo;t required,
+so I <a href="https://github.com/libratbag/piper/pull/44">made the change</a> to make it per-profile. It is however not
+much work at all to make it work per-resolution, so for devices that support
+this we might just want to do it after all:</p>
+<div class="highlight"><pre class="chroma"><code class="language-diff" data-lang="diff"><span class="gh">diff --git a/piper/resolutionspage.py b/piper/resolutionspage.py
+</span><span class="gh">index 9c7faa6..c0b580f 100644
+</span><span class="gh"></span><span class="gd">--- a/piper/resolutionspage.py
+</span><span class="gd"></span><span class="gi">+++ b/piper/resolutionspage.py
+</span><span class="gi"></span><span class="gu">@@ -75,11 +75,11 @@ class ResolutionsPage(Gtk.Box):
+</span><span class="gu"></span>
+     def _on_report_rate_toggled(self, button, rate):
+         profile = self._device.active_profile
+<span class="gd">-        # TODO: currently no devices expose CAP_INDIVIDUAL_REPORT_RATE, but if
+</span><span class="gd">-        # so then we should check for this here and set it only on the relevant
+</span><span class="gd">-        # resolution.
+</span><span class="gd">-        for resolution in profile.resolutions:
+</span><span class="gd">-            resolution.report_rate = rate
+</span><span class="gd"></span><span class="gi">+        if RatbagdResolution.CAP_INDIVIDUAL_REPORT_RATE in profile.active_resolution:
+</span><span class="gi">+            profile.active_resolution.report_rate = rate
+</span><span class="gi">+        else:
+</span><span class="gi">+            for resolution in profile.resolutions:
+</span><span class="gi">+                resolution.report_rate = rate
+</span><span class="gi"></span>
+     @GtkTemplate.Callback
+     def _on_row_activated(self, listbox, row):
+</code></pre></div><p>In Python methods can return more than one value. In some cases, you are only
+interested in some of them, in which case it is common to use an <!-- raw HTML omitted -->anonymous
+variable<!-- raw HTML omitted --> which is often named <code>_</code>. Piper did this as well, but Piper is also
+(planning on being) internationalized. In internationalized applications, it is
+common to alias the <code>gettext()</code> function to <code>_</code>, so that strings can be marked
+for translation using the <code>_(&lt;some string&gt;)</code> syntax. Using an underscore for
+both <code>gettext()</code> and anonymous variables can be confusing and lead to
+interference, so Piper <a href="https://github.com/libratbag/piper/pull/43">now uses a double underscore for anonymous
+variables</a>.</p>
+<p>Last week&rsquo;s resolutions page contained a small bug that would mess up the
+toggling of rows in the list: if toggling the same row twice and then toggling
+another row, both the first and the second row would be toggled. The
+<a href="https://github.com/libratbag/piper/pull/32">fix</a> was rather straightforward and required resetting
+<code>last_activated_row</code> to <code>None</code> in case the same row is toggled.</p>
+<p>A widget&rsquo;s purpose might not always be immediately clear. In such cases, a
+tooltip helps to understand what a widget does. As such, I <a href="https://github.com/libratbag/piper/pull/46">have
+added</a> a tooltip to each control widget currently found in Piper.</p>
+<p>Finally, we now have toned down device SVGs for the <a href="https://github.com/libratbag/libratbag/pull/214">Logitech G500 and
+G500s</a> and soon for the <a href="https://github.com/libratbag/libratbag/pull/228">Logitech G303</a>. Thanks!</p>
+<p>This blog post is part of a <a href="/series/google-summer-of-code/">series</a>. You can read the next part about the button
+stack page <a href="/blog/gsoc-part-9">here</a> or the previous part about the
+resolutions stack page <a href="/blog/gsoc-part-7">here</a>.</p>
+
+
+
+  <div>
+    <div class="align">
+      
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+        <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"></path>
+      </svg>
+    </div>
+    <ul class="list">
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/categories/projects/">Projects</a></li>
+      
+    </ul>
+  </div>
+
+
+
+  <div>
+    <div class="align">
+      
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+        <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"></path>
+        <line x1="7" y1="7" x2="7" y2="7"></line>
+      </svg>
+    </div>
+    <ul class="list">
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/piper/">Piper</a></li>
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/fdo/">fdo</a></li>
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/led/">LED</a></li>
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/dbus/">DBus</a></li>
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/resolutions/">resolutions</a></li>
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/race-condition/">race condition</a></li>
+      
+    </ul>
+  </div>
+
+
+<footer>
+  <nav>
+     
+      <a href="mailto:personal@hjdskes.nl" title="Send a mail to personal@hjdskes.nl">
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://twitter.com/Hjdskes" title="Hjdskes on Twitter" rel=me>
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://github.com/Hjdskes" title="Hjdskes on GitHub" rel=me>
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://gitlab.gnome.org/Hjdskes" title="Hjdskes on GNOME GitLab" rel=me>
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M 10.788594,21.536734 C 7.1281588,20.923645 3.4317212,17.61669 3.8926704,13.669554 5.0660949,10.030121 9.4084325,9.002481 12.797722,9.0110661 c 3.127309,-0.7108099 5.300956,3.1584089 2.079944,4.7634329 -1.481971,1.481121 -6.562787,2.039887 -4.51544,4.8592 2.462629,2.050335 2.533426,-3.290017 5.338069,-2.15334 2.796365,0.976146 -0.163921,4.247454 -1.950641,4.696159 -0.921233,0.406032 -1.969188,0.530203 -2.96106,0.360216 z m 1.794295,-0.08356 c 2.705909,0.255118 6.301544,-4.993159 1.916049,-4.963018 -1.21743,1.167328 -3.784248,4.539961 -4.6998222,1.26491 0.2709802,-2.794652 3.8307952,-2.615115 5.4170302,-4.401817 2.651498,-1.633928 0.402305,-4.7420327 -2.166648,-4.246326 -3.3777465,-0.078097 -7.6444164,0.902415 -9.0000509,4.382807 -0.7054739,4.120455 3.3766681,7.576214 7.1722609,7.993766 0.453028,0.03846 0.910413,0.03039 1.361181,-0.03032 z M 3.9341566,10.427154 C 1.0490542,10.268445 3.2537383,5.1108327 4.7476099,8.3812657 5.0657664,9.1042431 5.0182823,10.460582 3.9341566,10.427154 Z M 4.4699344,10.30542 C 6.4977819,8.6779325 1.9003316,5.8776241 2.5877993,9.0260669 2.867495,9.7751822 3.6284369,10.422289 4.4699344,10.30542 Z M 6.7053902,8.5039933 C 3.6297286,7.8857682 6.6102452,2.4753402 7.9003551,6.1902266 8.0932518,7.0711831 7.829542,8.4523085 6.7053902,8.5039933 Z M 7.2746339,8.3298088 C 9.5332904,6.6816546 5.5180564,3.0049367 5.420685,6.6249745 5.5254822,7.5087681 6.2635101,8.5559472 7.2746339,8.3298088 Z M 14.642553,8.2311668 C 12.2283,6.5368719 14.541155,2.985536 16.840519,2.5219305 20.261447,1.9328509 20.0109,6.206991 17.399643,7.2088589 16.626868,7.8315576 15.666748,8.3385955 14.642553,8.2311668 Z M 15.768655,8.050831 c 2.864892,-0.3134359 5.553252,-6.0915541 0.966528,-5.299797 -2.55054,0.123197 -4.819128,5.8325044 -0.966528,5.299797 z M 10.185719,7.5115241 c -3.3583369,-1.5986324 1.671427,-6.90260758 1.965159,-2.311667 -0.105682,1.0279546 -0.733901,2.3978164 -1.965159,2.311667 z m 0.606495,-0.09287 C 13.232178,6.592527 11.605766,1.4635609 9.4839173,4.2607729 8.9204646,5.3532178 9.2561462,7.4217666 10.792214,7.4186541 Z"/>
+        </svg>
+      </a>
+    
+
+    
+  </nav>
+
+  <a href="/license">Copyright © 2016-2022 Jente Hidskes</a>
+</footer>
+
+<link rel="stylesheet" type="text/css" href="/css/syntax.css"/>
+<link rel="stylesheet" type="text/css" href="/css/zoom.css"/>
+<script defer type="text/javascript" src="/js/zoom-vanilla.js"></script>
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    images = document.querySelectorAll("img[data-action=\"zoom\"]");
+    images.forEach(function(image) {
+      image.style.display = "block";
+    })
+  }, false);
+</script>
+
+</body>
+</html>
+

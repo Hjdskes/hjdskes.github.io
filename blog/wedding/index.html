@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="author" content="Jente Hidskes"/>
+  <meta name="description" content="How I automated my wedding invites"/>
+  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="referrer" content="no-referrer"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta property="og:description" content="How I automated my wedding invites"/>
+  <meta property="og:locale" content="en-us"/>
+  <meta property="og:site_name" content="Jente Hidskes&#39; website"/>
+  <meta property="og:title" content="Automating wedding invitations &amp; RSVPs"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://www.hjdskes.nl/blog/wedding/"/>
+  <meta property="og:image" content="https://www.hjdskes.nl/img/avatar.svg"/>
+
+  <meta name="twitter:card" content="summary"/>
+  
+  <meta name="twitter:site" content="Hjdskes"/>
+  
+  <meta name="twitter:image:alt" content="Logo"/>
+
+  <title>Jente Hidskes&#39; website - Automating wedding invitations &amp; RSVPs</title>
+
+  <link rel="canonical" href="https://www.hjdskes.nl/blog/wedding/"/>
+  
+  <link rel="shortcut icon" href="https://www.hjdskes.nl/img/favicon.ico"/>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito|Roboto+Mono"/>
+  <link rel="stylesheet" type="text/css" href="/css/stylesheet.css"/>
+</head>
+
+<body>
+  <div class="banner">
+    <a href="https://www.hjdskes.nl/"><img src="https://www.hjdskes.nl/img/avatar.svg" alt="logo" /></a>
+    <div>
+      <a id="name" href="https://www.hjdskes.nl/"><h1>Jente Hidskes&#39; website</h1></a>
+      <nav>
+        
+          <a href="https://www.hjdskes.nl/blog">Blog</a>
+        
+          <a href="https://www.hjdskes.nl/projects">Projects &amp; contributions</a>
+        
+        
+          <a href="https://www.hjdskes.nl/about/">About me</a>
+        
+      </nav>
+    </div>
+  </div>
+
+
+<h1>Automating wedding invitations &amp; RSVPs</h1>
+
+<div class="post-meta">
+  
+  
+  Posted: <time datetime="Apr 2, 2021">Apr 2, 2021</time>
+  &nbsp;• 11 minute read</div>
+
+<p>It&rsquo;s been a while since I sat down and wrote an article for this blog. I had always thought that working from home would be the dream, but now that I am forced to live that dream it it isn&rsquo;t all that I thought it would be. Probably it&rsquo;d be different if I wasn&rsquo;t required to and could live my private life as I normally would, but that&rsquo;s besides the point. My point is that now that I find myself working from home full time (and spend a larger part of my time indoors), I no longer think it&rsquo;s healthy to spend my spare time at the same desk that I already spend 40 hours per week. Instead, I sought other outlets to support my mental and physical well-being in these strange times &ndash; many of which are spent offline on purpose. I&rsquo;ve let my side projects fall by the wayside, but not out of disinterest (and I do intend to pick them up again!).</p>
+<p>That isn&rsquo;t to say that the last year has been bad in its entirety. On the contrary! I got promoted, we bought an apartment and, to the topic of this post, we got engaged! As any self-respecting <em>automaker</em> (get it? automatic + maker) of course I wasn&rsquo;t going to go analog and send wedding invitations by snail mail (well, we did, but hold on) and manage the RSVPs manually. Instead, we built a sweet website with a backend that automates all the administrative tasks. Before we dive in, let me show you the finished product:</p>
+
+<div style="column-count: 2; column-gap: 20px;">
+  
+  <img src="/img/blog/wedding/landing.png" style="width: 100%; height: auto; display: none" data-action="zoom">
+  <noscript>
+    <a href="/img/blog/wedding/landing.png">
+      <img src="/img/blog/wedding/landing.png" style="width: 100%; height: auto;">
+    </a>
+  </noscript>
+  
+  <img src="/img/blog/wedding/schedule.png" style="width: 100%; height: auto; display: none" data-action="zoom">
+  <noscript>
+    <a href="/img/blog/wedding/schedule.png">
+      <img src="/img/blog/wedding/schedule.png" style="width: 100%; height: auto;">
+    </a>
+  </noscript>
+  
+</div>
+
+<p>Those are just two static screenshots, but they convey the idea quite well: a personal website with a touch of humor that is bright, crisp and informational. We want our guests to have all the information they need upfront (especially those that will travel from The Netherlands) and show off our personal style. The site has multiple sections like the ones shown in the screenshot; each section comes with its own photo. So if the guests have all the information and can save the date, how did we get them to navigate to the website? Here&rsquo;s where we went analog! We didn&rsquo;t just want to e-mail everyone or send them a text message, so we actually printed our own invitations with a QR code that opens the website. If you want to browse it yourself, there&rsquo;s a link at the end of this post.</p>
+<h2 id="the-frontend">The frontend</h2>
+<p>Here I can be quite brief. I am not a frontend developer and have <em>zero</em> experience with anything other than static website generators and plain old HTML. I did not want to learn a frontend framework for this purpose nor did I want to wrestle with a static site generator that all come with their own opinions and required maintenance. I wanted to keep it simple for such a small one-off project, so I went with plain HTML with handwritten CSS! There&rsquo;s a sprinkle of Javascript as well, but only where necessary: out of principle I always try to keep Javascript to a minimum (that&rsquo;s why this site, for example, only uses Javascript for its gallery). It&rsquo;s mind boggling how much can be done with just HTML and CSS nowadays!</p>
+<p>All in all, I am happy with the decisions I made and proud of the end result! The site is lightweight, coming in at half a megabyte including fonts, yet it supports all (most?) modern best practices. It&rsquo;s mobile first, adaptive and accessible (if you find an issue that I missed, please let me know!) and scores a solid 83/92/100/100 on Lighthouse. The largest punishment in the performance score are the large photos, but that&rsquo;s something we&rsquo;re doing on purpose. We do want you to know it&rsquo;s about us, after all 😉</p>
+<h2 id="the-backend">The backend</h2>
+<p>This is where things get a little meatier, but also more fun! While I enjoyed discovering HTML and CSS again (I seem to always forget things between the little frontend I do) and making a design come to life, backend is where it&rsquo;s at for me. The requirements are simple: our guests need to be able to save the date. In doing so, they need to tell us who they are and how we can contact them (their e-mail address) and in return they get a calendar invite sent to their e-mail. We&rsquo;ve approached it like this for two reasons:</p>
+<ol>
+<li>There is no standard way to share a calendar event. All popular productivity suites come with their own non-standard ways of sharing invitations. I found that attaching an <a href="https://en.wikipedia.org/wiki/ICalendar">ICS file</a> to an e-mail works with all of them, though, so this is how we work around the proprietary mechanisms. I prefer to use open standards where reasonably possible, so this felt like a good solution.</li>
+<li>DigitalOcean&rsquo;s database offerings are rather expensive (<a href="https://www.digitalocean.com/pricing#managed-databases">starting at $30 per month</a>) for our use case, and this way we wouldn&rsquo;t need a database: we BCC ourselves to every e-mail sent so we now have a record of everyone that signed up. All of the e-mail addresses get added to an addressable group and voilà, we can reach out to everyone with the click of a button! I used our DNS provider&rsquo;s e-mail offering to get an inbox on our wedding&rsquo;s domain. I can use this to both send out the invitations and to receive the BCCs.</li>
+</ol>
+<p>So all in all we have one endpoint (well, two if you count the <a href="https://www.digitalocean.com/docs/app-platform/concepts/health-check/">healthcheck</a>) that needs to be implemented. We opted for no authentication, on the grounds that this is a very niche website and in the worst case we&rsquo;ll receive some additional signups. If we were to require authentication we&rsquo;d either need to pre-approve e-mail addresses or assign passwords to our guests. The former defeats the purpose of sending out invitations and the second is much too complex for what we&rsquo;re setting out to achieve. To date we haven&rsquo;t received any rogue signups, so I&rsquo;m calling this a good decision (let&rsquo;s see if this changes after publishing this article 😉).</p>
+<p>To implement this simple backend I opted for Go. At work we use a mix of (Typelevel) Scala and Haskell to develop our backend services, but neither of those languages are natively supported by DigitalOcean&rsquo;s app platform (see below). I could make it work by providing a Docker image, but again the entire point of this was to have fun and keep it simple. Go is natively supported, it&rsquo;s a language I used to use and like, and we actually happen to be exploring Go for a small part of our stack at work.</p>
+<p>I&rsquo;m fairly happy with this choice: Go has an excellent ecosystem for network programming, so finding out how to do SMTP was a breeze. It&rsquo;s also very easy to write tests and all in all just an easy language to get a project off the ground quickly. For example, Go&rsquo;s modules make it easy to manage dependencies and it&rsquo;s super easy to set up with Github actions (more on that below). Coming from a statically typed world, however, its handling of HTTP requests felt very alien to me. I have to manually check if the request is using the right HTTP method, for example. In the statically typed world that I am familiar with (and prefer), this information would be encoded in the routing logic (typically in the type system) and I wouldn&rsquo;t have to do anything myself. For a small project such as this one that&rsquo;s fine, but for anything larger it results in quite a bit of boilerplate.</p>
+<h2 id="provisioning--deployment">Provisioning &amp; deployment</h2>
+<p>I&rsquo;ve mentioned it above: the website and its backend are hosted by DigitalOcean. Specifically, I am using their <a href="https://try.digitalocean.com/app-platform/">App Platform</a>. This lets me focus on just the site and the code, and not have to worry about infrastructure at all. I could have used any other cloud provider, but DigitalOcean looked simple (and thus less chances of doing something wrong!) and I wanted to learn something new.</p>
+<p>Nowadays, I set up all my infrastructure in code. DigitalOcean provides an excellent <a href="https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs">Terraform provider</a>, so it fits right in to how I like to manage my infrastructure. I use Terraform to register my app with its static site and service components in the App Platform and then configure that to redeploy on every push to the master branch. I set up a quick CI with Github Actions for the backend code that runs my tests and checks my formatting. I use the same branch-based workflow I always use with PRs to the main branch, even if I am the sole developer. I always review my own code, even at work. I typically find one or two things to improve, before other reviewers get around to having a look 🙂 Deploying on a merge to master is a feature I wasn&rsquo;t expecting but ended up enjoying a lot. Combined with Github&rsquo;s Actions, this makes for a very quick and easy CI/CD pipeline. I was expecting to have to deploy things manually when ready, but this is just so much better!</p>
+<p>Another feature that I enjoy is that DigitalOcean makes it super easy to control everything in one place. While all my infrastructure is managed by them, they are not (yet?) a domain registrar. Thus by necessity that bit of the infra lives elsewhere. Thankfully DigitalOcean allows us to configure <a href="https://www.digitalocean.com/docs/networking/dns/">the DNS records on their end</a> (provided you update your domain’s NS records to point to DigitalOcean’s name servers). Thanks to this feature all my infrastructure is managed in the same location: Terraform! Just how I like it.</p>
+<p>Finally, to ensure deterministic builds and to make managing this project independent of the machine I&rsquo;m working on, I added a quick <a href="https://nixos.org/guides/nix-pills/developing-with-nix-shell.html">Nix shell</a> environment. For those unfamiliar with Nix, this basically gives me a deterministic, virtual environment within which all the tools required to build and deploy the website are present. This environment is entirely separate from the host OS, so that stays clean. It means I can work on the site independent of the machine (so long as it has Nix installed) and am guaranteed to have the same versions of e.g. Terraform and Go at my disposal. This is something we&rsquo;re heavily invested in at work and something I&rsquo;ve come to appreciate. I am now working on setting up similar environments for all my side projects!</p>
+<h2 id="the-future-rsvp">The future: RSVP</h2>
+<p>With the current version of the website, our guests can save the date according to the process described above: they &ldquo;sign up&rdquo; with their e-mail address and name and the backend sends them an e-mail (with a BCC to itself) with the calendar invite. Soon we will add another feature, which is for our guests to RSVP. We&rsquo;ll of course need to let them know that this is now ready, which we will do by sending an e-mail to the addressable group we have from everyone that signed up. At this point we might opt for a database (since we&rsquo;ll be closer to the wedding, the costs might be reasonable), but more likely we&rsquo;ll try something cheaper (I&rsquo;m Dutch, after all!) such as the Google Sheets API to manage a spreadsheet instead. This should be easier for my partner to manage.</p>
+<h2 id="easter-egg">Easter egg</h2>
+<p>Finally, with many of my close friends being software engineers or otherwise in IT, I of course had to hide an easter egg <em>somewhere</em>. Placing it in the HTML would be <em>too easy</em> (and indeed, this was immediately perused). Since the infrastructure wasn&rsquo;t under my control, I had limited possibilities. <em>What I did next will shock you!</em></p>
+<p>The e-mail that I send contains both the HTML body and the base64-encoded ICS file. This means that it&rsquo;s has a &ldquo;multipart media&rdquo; mimetype (mimetype <code>multipart/mixed</code>). According to <a href="https://tools.ietf.org/html/rfc2046#section-5.1">RFC 2046</a> the body of the e-mail must then contain each body (the HTML and the base64-encoded ICS file), preceded and followed by a &ldquo;boundary delimeter line&rdquo;. The <em>value</em> of the boundary delimeter is specified in the <code>Content-Type</code> header and we are free to choose it. Hence, here is where I added my little easter egg: my boundary delimiter value is set to <code>drinksonmeforwhofindsthis</code>. I am pleased to say that so far, I need to buy drinks for two people! 🎉</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>All in all, I am stoked about the end result. It&rsquo;s truly built with (and because of) love, and I spent time working on a side project that I enjoyed again! The frontend looks amazing (not <em>just</em> according to us!) and I am proud of how light it is yet how good it scores on all the best practices. The backend was a fun experiment back into Go, and I learned how to do SMTP. I&rsquo;m also particularly pleased with DigitalOcean&rsquo;s App Platform and how simple it is to provision with Terraform &amp; just pushing to the repo. We&rsquo;ve received compliments from almost all our guests, some of which even thought we used a commercial project to build this for us. That&rsquo;s a feather I can <a href="https://en.wiktionary.org/wiki/een_veer_in_de_reet_steken">stick up my ass</a>, if any! If all this made you curious and you want to see the website for yourself, it&rsquo;s over at <a href="https://www.aggiandjente.wedding">www.aggiandjente.wedding</a>.</p>
+
+
+
+  <div>
+    <div class="align">
+      
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+        <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"></path>
+      </svg>
+    </div>
+    <ul class="list">
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/categories/projects/">Projects</a></li>
+      
+    </ul>
+  </div>
+
+
+
+  <div>
+    <div class="align">
+      
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+        <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"></path>
+        <line x1="7" y1="7" x2="7" y2="7"></line>
+      </svg>
+    </div>
+    <ul class="list">
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/wedding/">wedding</a></li>
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/digitalocean/">digitalocean</a></li>
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/go/">go</a></li>
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/terraform/">terraform</a></li>
+      
+    </ul>
+  </div>
+
+
+<footer>
+  <nav>
+     
+      <a href="mailto:personal@hjdskes.nl" title="Send a mail to personal@hjdskes.nl">
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://twitter.com/Hjdskes" title="Hjdskes on Twitter" rel=me>
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://github.com/Hjdskes" title="Hjdskes on GitHub" rel=me>
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://gitlab.gnome.org/Hjdskes" title="Hjdskes on GNOME GitLab" rel=me>
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M 10.788594,21.536734 C 7.1281588,20.923645 3.4317212,17.61669 3.8926704,13.669554 5.0660949,10.030121 9.4084325,9.002481 12.797722,9.0110661 c 3.127309,-0.7108099 5.300956,3.1584089 2.079944,4.7634329 -1.481971,1.481121 -6.562787,2.039887 -4.51544,4.8592 2.462629,2.050335 2.533426,-3.290017 5.338069,-2.15334 2.796365,0.976146 -0.163921,4.247454 -1.950641,4.696159 -0.921233,0.406032 -1.969188,0.530203 -2.96106,0.360216 z m 1.794295,-0.08356 c 2.705909,0.255118 6.301544,-4.993159 1.916049,-4.963018 -1.21743,1.167328 -3.784248,4.539961 -4.6998222,1.26491 0.2709802,-2.794652 3.8307952,-2.615115 5.4170302,-4.401817 2.651498,-1.633928 0.402305,-4.7420327 -2.166648,-4.246326 -3.3777465,-0.078097 -7.6444164,0.902415 -9.0000509,4.382807 -0.7054739,4.120455 3.3766681,7.576214 7.1722609,7.993766 0.453028,0.03846 0.910413,0.03039 1.361181,-0.03032 z M 3.9341566,10.427154 C 1.0490542,10.268445 3.2537383,5.1108327 4.7476099,8.3812657 5.0657664,9.1042431 5.0182823,10.460582 3.9341566,10.427154 Z M 4.4699344,10.30542 C 6.4977819,8.6779325 1.9003316,5.8776241 2.5877993,9.0260669 2.867495,9.7751822 3.6284369,10.422289 4.4699344,10.30542 Z M 6.7053902,8.5039933 C 3.6297286,7.8857682 6.6102452,2.4753402 7.9003551,6.1902266 8.0932518,7.0711831 7.829542,8.4523085 6.7053902,8.5039933 Z M 7.2746339,8.3298088 C 9.5332904,6.6816546 5.5180564,3.0049367 5.420685,6.6249745 5.5254822,7.5087681 6.2635101,8.5559472 7.2746339,8.3298088 Z M 14.642553,8.2311668 C 12.2283,6.5368719 14.541155,2.985536 16.840519,2.5219305 20.261447,1.9328509 20.0109,6.206991 17.399643,7.2088589 16.626868,7.8315576 15.666748,8.3385955 14.642553,8.2311668 Z M 15.768655,8.050831 c 2.864892,-0.3134359 5.553252,-6.0915541 0.966528,-5.299797 -2.55054,0.123197 -4.819128,5.8325044 -0.966528,5.299797 z M 10.185719,7.5115241 c -3.3583369,-1.5986324 1.671427,-6.90260758 1.965159,-2.311667 -0.105682,1.0279546 -0.733901,2.3978164 -1.965159,2.311667 z m 0.606495,-0.09287 C 13.232178,6.592527 11.605766,1.4635609 9.4839173,4.2607729 8.9204646,5.3532178 9.2561462,7.4217666 10.792214,7.4186541 Z"/>
+        </svg>
+      </a>
+    
+
+    
+  </nav>
+
+  <a href="/license">Copyright © 2016-2022 Jente Hidskes</a>
+</footer>
+
+<link rel="stylesheet" type="text/css" href="/css/syntax.css"/>
+<link rel="stylesheet" type="text/css" href="/css/zoom.css"/>
+<script defer type="text/javascript" src="/js/zoom-vanilla.js"></script>
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    images = document.querySelectorAll("img[data-action=\"zoom\"]");
+    images.forEach(function(image) {
+      image.style.display = "block";
+    })
+  }, false);
+</script>
+
+</body>
+</html>
+
