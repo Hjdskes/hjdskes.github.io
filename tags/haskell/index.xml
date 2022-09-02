@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2016-2022 Jente Hidskes</copyright>
-    <lastBuildDate>Sat, 27 Aug 2022 20:32:18 +0200</lastBuildDate><atom:link href="https://www.hjdskes.nl/tags/haskell/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 02 Sep 2022 17:12:18 +0200</lastBuildDate><atom:link href="https://www.hjdskes.nl/tags/haskell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Streaming a file from S3 to SFTP on AWS Lambda using Haskell</title>
+      <link>https://www.hjdskes.nl/blog/haskell-streaming-s3-to-sftp/</link>
+      <pubDate>Fri, 02 Sep 2022 17:12:18 +0200</pubDate>
+      
+      <guid>https://www.hjdskes.nl/blog/haskell-streaming-s3-to-sftp/</guid>
+      <description>At work we embrace the serverless computing model and (typed) functional programming. My team&amp;rsquo;s Haskell service is therefore built upon, amongst others, AWS S3 and AWS Lambda. Earlier I wrote about how we deploy our Haskell binaries on AWS Lambda. Today I will write about something at a somewhat higher level. Let&amp;rsquo;s dig in!
+The functional programming style encourages you to break down your problem into smaller problems. Smaller problems are easier to comprehend and reason about, and by decomposing your problem this way you often end up with a more general solution.</description>
+    </item>
+    
     <item>
       <title>The Shiba project 🐕</title>
       <link>https://www.hjdskes.nl/blog/shiba/</link>

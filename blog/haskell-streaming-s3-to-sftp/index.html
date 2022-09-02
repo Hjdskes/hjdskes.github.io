@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="author" content="Jente Hidskes"/>
+  <meta name="description" content="A case study of composition"/>
+  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="referrer" content="no-referrer"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta property="og:description" content="A case study of composition"/>
+  <meta property="og:locale" content="en-us"/>
+  <meta property="og:site_name" content="Jente Hidskes&#39; website"/>
+  <meta property="og:title" content="Streaming a file from S3 to SFTP on AWS Lambda using Haskell"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://www.hjdskes.nl/blog/haskell-streaming-s3-to-sftp/"/>
+  <meta property="og:image" content="https://www.hjdskes.nl/img/avatar.svg"/>
+
+  <meta name="twitter:card" content="summary"/>
+  
+  <meta name="twitter:site" content="Hjdskes"/>
+  
+  <meta name="twitter:image:alt" content="Logo"/>
+
+  <title>Jente Hidskes&#39; website - Streaming a file from S3 to SFTP on AWS Lambda using Haskell</title>
+
+  <link rel="canonical" href="https://www.hjdskes.nl/blog/haskell-streaming-s3-to-sftp/"/>
+  
+  <link rel="shortcut icon" href="https://www.hjdskes.nl/img/favicon.ico"/>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito|Roboto+Mono"/>
+  <link rel="stylesheet" type="text/css" href="/css/stylesheet.css"/>
+</head>
+
+<body>
+  <div class="banner">
+    <a href="https://www.hjdskes.nl/"><img src="https://www.hjdskes.nl/img/avatar.svg" alt="logo" /></a>
+    <div>
+      <a id="name" href="https://www.hjdskes.nl/"><h1>Jente Hidskes&#39; website</h1></a>
+      <nav>
+        
+          <a href="https://www.hjdskes.nl/blog">Blog</a>
+        
+          <a href="https://www.hjdskes.nl/projects">Projects &amp; contributions</a>
+        
+        
+          <a href="https://www.hjdskes.nl/about/">About me</a>
+        
+      </nav>
+    </div>
+  </div>
+
+
+<h1>Streaming a file from S3 to SFTP on AWS Lambda using Haskell</h1>
+
+<div class="post-meta">
+  
+  
+  Posted: <time datetime="Sep 2, 2022">Sep 2, 2022</time>
+  &nbsp;• 9 minute read</div>
+
+<p>At work we embrace the serverless computing model and (typed) functional programming. My team&rsquo;s Haskell service is therefore built upon, amongst others, AWS S3 and AWS Lambda. Earlier I wrote about <a href="https://www.hjdskes.nl/blog/haskell-nix-aws-lambda/">how we deploy our Haskell binaries on AWS Lambda</a>. Today I will write about something at a somewhat higher level. Let&rsquo;s dig in!</p>
+<p>The functional programming style encourages you to break down your problem into smaller problems. Smaller problems are easier to comprehend and reason about, and by decomposing your problem this way you often end up with a more general solution. These more general solutions to smaller problems allow themselves to be composed into solutions to bigger problems that come with certain business needs. Just this week at work I was tasked with something where this compositionality showed itself so nicely that I felt inspired to write about it!</p>
+<p>Without going into too many details, my team was faced with the task to upload a file to a third party SFTP server. These files can be in the hundreds of megabytes; while not large, they are not exactly small either. Simply downloading the files to the Lambda&rsquo;s ephemeral filesystem and then uploading them to the SFTP server is not only inelegant and inefficient, it is also impractical. For one, we risk hitting the Lambda&rsquo;s execution time limit: <a href="https://aws.amazon.com/lambda/faqs/#:~:text=Q%3A%20How%20long%20can%20an,1%20second%20and%2015%20minutes.">AWS Lambda functions can only be configured to run up to 15 minutes per execution</a>. Secondly, downloading a file first only to start uploading it after you are done downloading it is slow.</p>
+<p>Let&rsquo;s see if we can apply a high level decomposition to our problem: first we need to download a file from S3, and then we need to upload it to an SFTP server. Downloading from S3 is easy: we just use the great <a href="https://hackage.haskell.org/package/amazonka">Amazonka</a> library to perform an <code>s3:GetObject</code> call. But now what? Fortunately we have Ilya V. Portnov&rsquo;s <a href="https://hackage.haskell.org/package/libssh2">libssh2-hs</a> Haskell wrapper around <a href="http://libssh2.org/">libssh2</a>, one of the de facto standard SSH libraries. libssh2-hs provides a function to write a local file to a remote SFTP server, but we don&rsquo;t want to have to download the file to the Lambda&rsquo;s filesystem first. Can we perhaps stream the file from S3 to SFTP?</p>
+<p>If you&rsquo;ve read the title of this post, you already know the answer. Bear with me. First, we need to see if we can stream the file from S3. The response we get from sending a <a href="https://hackage.haskell.org/package/amazonka-s3-1.6.1/docs/Network-AWS-S3-GetObject.html#t:GetObject"><code>GetObject</code></a> value with Amazonka, is a <a href="https://hackage.haskell.org/package/amazonka-s3-1.6.1/docs/Network-AWS-S3-GetObject.html#t:GetObjectResponse"><code>GetObjectResponse</code></a>. This response contains many fields (just look at the <a href="https://hackage.haskell.org/package/amazonka-s3-1.6.1/docs/src/Network.AWS.S3.GetObject.html#GetObjectResponse">source</a>), but the one we are interested in is the body: the file contents! We can extract it using the <a href="https://hackage.haskell.org/package/amazonka-s3-1.6.1/docs/Network-AWS-S3-GetObject.html#v:gorsBody"><code>gorsBody</code></a> lens. Doing so gives us a value of type <a href="https://hackage.haskell.org/package/amazonka-core-1.6.1/docs/Network-AWS-Data-Body.html#t:RsBody"><code>RsBody</code></a>. Reading its documentation, we see that an <code>RsBody</code> is &ldquo;a streaming, exception safe response body.&rdquo; Indeed, we see that it is really just a wrapper around a (<a href="https://hackage.haskell.org/package/conduit">Conduit</a>) stream producing Haskell <code>ByteString</code>s! Putting this all together, we get a stream producing the file contents like so:</p>
+<div class="highlight"><pre class="chroma"><code class="language-haskell" data-lang="haskell"><span class="nf">getStreamFromS3</span> <span class="ow">::</span> <span class="n">forall</span> <span class="n">m</span> <span class="n">n</span>
+  <span class="o">.</span>  <span class="kt">MonadAWS</span> <span class="n">m</span>
+  <span class="ow">=&gt;</span> <span class="kt">MonadIO</span> <span class="n">n</span>
+  <span class="ow">=&gt;</span> <span class="kt">BucketName</span> <span class="ow">-&gt;</span> <span class="kt">ObjectKey</span> <span class="ow">-&gt;</span> <span class="n">m</span> <span class="p">(</span><span class="kt">ConduitT</span> <span class="nb">()</span> <span class="kt">ByteString</span> <span class="p">(</span><span class="kt">ResourceT</span> <span class="n">n</span><span class="p">)</span> <span class="nb">()</span><span class="p">)</span>
+<span class="nf">getStreamFromS3</span> <span class="n">bucketName</span> <span class="n">objectKey</span> <span class="ow">=</span> <span class="n">send</span> <span class="n">request</span> <span class="o">&gt;&gt;=</span> <span class="n">processResponse</span>
+  <span class="kr">where</span>
+    <span class="n">request</span> <span class="ow">=</span> <span class="n">getObject</span> <span class="n">bucketName</span> <span class="n">objectKey</span>
+    <span class="n">processResponse</span> <span class="n">response</span> <span class="ow">=</span> <span class="n">response</span> <span class="o">^.</span> <span class="n">gorsBody</span> <span class="o">.</span> <span class="n">to</span> <span class="p">(</span><span class="n">pure</span> <span class="o">.</span> <span class="n">_streamBody</span><span class="p">)</span>
+</code></pre></div><p>Neat! We can stream the file&rsquo;s bytes from S3. How do we stream those bytes to the SFTP server? Circling back to the topic of compositionality, if we can create another stream that <em>consumes</em> <code>ByteString</code>s and writes those to the SFTP server, we can <em>compose</em> the two streams; et voilà, we are done! How would a function creating such a stream look like? Well, it would be the composition of some pure function to write bytes to an SFTP server and some functions to apply that function in a stream:</p>
+<div class="highlight"><pre class="chroma"><code class="language-haskell" data-lang="haskell"><span class="nf">streamToSftp</span> <span class="ow">::</span> <span class="n">forall</span> <span class="n">a</span> <span class="n">m</span>
+  <span class="o">.</span>  <span class="kt">Monoid</span> <span class="n">a</span>
+  <span class="ow">=&gt;</span> <span class="kt">MonadIO</span> <span class="n">m</span>
+  <span class="ow">=&gt;</span> <span class="kt">SftpHandle</span> <span class="ow">-&gt;</span> <span class="kt">ConduitT</span> <span class="kt">ByteString</span> <span class="kt">Void</span> <span class="p">(</span><span class="kt">ResourceT</span> <span class="n">m</span><span class="p">)</span> <span class="n">a</span>
+<span class="nf">streamToSftp</span> <span class="n">sftpHandle</span> <span class="ow">=</span> <span class="n">loop</span>
+  <span class="kr">where</span>
+    <span class="n">loop</span> <span class="ow">=</span> <span class="n">await</span> <span class="o">&gt;&gt;=</span> <span class="nf">\</span><span class="kr">case</span>
+      <span class="kt">Nothing</span> <span class="ow">-&gt;</span> <span class="n">pure</span> <span class="n">mempty</span>
+      <span class="kt">Just</span> <span class="n">bytes</span> <span class="ow">-&gt;</span> <span class="n">liftIO</span> <span class="p">(</span><span class="n">sftpWriteFileFromBytes</span> <span class="n">sftpHandle</span> <span class="n">bytes</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">loop</span>
+</code></pre></div><p>That is, we create a loop that blocks until it can consume a new <code>ByteString</code>. If there is such a value (<code>await</code> returns <code>Just ByteString</code>) we apply it to <code>sftpWriteFileFromBytes</code> and loop. If there is no new <code>ByteString</code> (<code>await</code> returns <code>Nothing</code>), we break the loop and return a default value. (Notice how I said in the beginning of this post how decomposing problems makes your solutions more general? Using <code>Monoid a</code> and <code>mempty</code> is an example of that!).</p>
+<p>Now, this would work&hellip; if only there was an <code>sftpWriteFileFromBytes</code> function! As I said, libssh2-hs only had functionality to write files. I rolled up my sleeves and got to work on a function that writes an arbitrary <code>ByteString</code> to a remote file on an SFTP server. This was a fun exercise due to the FFI and the low abstraction level of the code: we are dealing with the underlying bytes of a Haskell <code>ByteString</code> and have the potential to break the pure world we love to imagine. If we look at the basi.. I mean, if we decompose (😉) the problem, the smallest unit we have to work with is libssh2&rsquo;s <a href="https://www.libssh2.org/libssh2_sftp_write.html"><code>libssh2_sftp_write</code></a> function. This function takes a pointer to an array of characters and a counter of how many elements to write to the remote file handle. Hence, we need to get access to the <code>ByteString</code>&rsquo;s underlying buffer and its length. A <code>ByteString</code> is a Haskell wrapper around a pointer to an array of bytes and a length. But how do we get access to this pointer and this length? <code>ByteString</code> is an opaque type!</p>
+<p>Thankfully, there are escape hatches for situations like these. We can use <a href="https://hackage.haskell.org/package/bytestring-0.11.2.0/docs/Data-ByteString.html#v:useAsCStringLen"><code>useAsCStringLen</code></a> to get a copy of the original byte array and its length. That is good, because operating on a copy means we cannot accidentally change the <code>ByteString</code> behind Haskell&rsquo;s back and break referential transparency. Now that we have access to the raw bytes, all we need to do is invoke <code>libssh2_sftp_write</code> and do some bookkeeping! I&rsquo;ll let the code below speak for itself.</p>
+<div class="highlight"><pre class="chroma"><code class="language-haskell" data-lang="haskell"><span class="nf">sftpWriteFileFromBytes</span> <span class="ow">::</span> <span class="kt">SftpHandle</span> <span class="ow">-&gt;</span> <span class="kt">ByteString</span> <span class="ow">-&gt;</span> <span class="kt">IO</span> <span class="kt">Integer</span>
+<span class="nf">sftpWriteFileFromBytes</span> <span class="n">sftpHandle</span> <span class="n">bytes</span> <span class="ow">=</span> <span class="n">useAsCStringLen</span> <span class="n">bytes</span> <span class="p">(</span><span class="n">uncurry</span> <span class="p">(</span><span class="n">send</span> <span class="mi">0</span><span class="p">))</span>
+  <span class="kr">where</span>
+    <span class="n">send</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Ptr</span> <span class="kt">CChar</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Integer</span>
+    <span class="n">send</span> <span class="n">written</span> <span class="kr">_</span> <span class="mi">0</span> <span class="ow">=</span> <span class="n">pure</span> <span class="p">(</span><span class="n">toInteger</span> <span class="n">written</span><span class="p">)</span>
+    <span class="n">send</span> <span class="n">written</span> <span class="n">src</span> <span class="n">len</span> <span class="ow">=</span> <span class="kr">do</span>
+      <span class="c1">-- Since we are recursively incrementing `src`, we need to be careful that we can still read `bufferSize` bytes from</span>
+      <span class="c1">-- our original bytestring. We track this by recursively subtracting the number of bytes sent from `len`. At some</span>
+      <span class="c1">-- point the number of bytes left will be smaller than `bufferSize`. This check here captures that edge case.</span>
+      <span class="kr">let</span> <span class="n">nBytes</span> <span class="ow">=</span> <span class="n">min</span> <span class="n">len</span> <span class="n">bufferSize</span>
+      <span class="c1">-- Write the data to the SFTP server. We can just pass `src` because we increment its pointer in every recursive call.</span>
+      <span class="c1">-- Note that `libssh2_sftp_write` does not guarantee to send exactly the number of bytes we tell it to; hence we keep</span>
+      <span class="c1">-- track of the number of bytes it did actually send in `sent`.</span>
+      <span class="n">sent</span> <span class="ow">&lt;-</span> <span class="n">fmap</span> <span class="n">fromIntegral</span> <span class="o">.</span> <span class="n">handleInt</span> <span class="p">(</span><span class="kt">Just</span> <span class="n">sftpHandle</span><span class="p">)</span> <span class="o">$</span>
+        <span class="p">{</span><span class="o">#</span> <span class="n">call</span> <span class="n">libssh2_sftp_write</span> <span class="o">#</span><span class="p">}</span> <span class="p">(</span><span class="n">toPointer</span> <span class="n">sftpHandle</span><span class="p">)</span> <span class="n">src</span> <span class="p">(</span><span class="n">fromIntegral</span> <span class="n">nBytes</span><span class="p">)</span>
+      <span class="c1">-- Finally, we make the recursive call where we make sure to do the incrementing and decrementing described above.</span>
+      <span class="n">send</span> <span class="p">(</span><span class="n">written</span> <span class="o">+</span> <span class="n">sent</span><span class="p">)</span> <span class="p">(</span><span class="n">src</span> <span class="p">`</span><span class="n">plusPtr</span><span class="p">`</span> <span class="n">sent</span><span class="p">)</span> <span class="p">(</span><span class="n">len</span> <span class="o">-</span> <span class="n">sent</span><span class="p">)</span>
+</code></pre></div><p>This is merged into libssh2-hs (<a href="https://github.com/portnov/libssh2-hs/pull/64">PR #1</a> with correction <a href="https://github.com/portnov/libssh2-hs/pull/65">PR #2</a>, and <a href="https://github.com/portnov/libssh2-hs/pull/63">one other fix</a>).</p>
+<p>Now we almost have all the pieces in place to stream a file from S3 to an SFTP server. We just need to compose and run the two streams:</p>
+<div class="highlight"><pre class="chroma"><code class="language-haskell" data-lang="haskell"><span class="nf">streamFromS3ToSftp</span> <span class="ow">::</span> <span class="n">forall</span> <span class="n">m</span>
+  <span class="o">.</span>  <span class="kt">MonadAWS</span> <span class="n">m</span>
+  <span class="ow">=&gt;</span> <span class="kt">MonadUnliftIO</span> <span class="n">m</span>
+  <span class="ow">=&gt;</span> <span class="kt">MonadReader</span> <span class="kt">Sftp</span> <span class="n">m</span>
+  <span class="ow">=&gt;</span> <span class="kt">BucketName</span> <span class="ow">-&gt;</span> <span class="kt">ObjectKey</span> <span class="ow">-&gt;</span> <span class="n">m</span> <span class="nb">()</span>
+<span class="nf">streamFromS3ToSftp</span> <span class="n">bucketName</span> <span class="n">objectKey</span> <span class="ow">=</span> <span class="kr">do</span>
+  <span class="n">streamFromS3</span> <span class="ow">&lt;-</span> <span class="n">getStreamFromS3</span> <span class="n">bucketName</span> <span class="n">objectKey</span>
+  <span class="n">sftp</span> <span class="ow">&lt;-</span> <span class="n">ask</span>
+  <span class="n">withSftpHandle</span> <span class="n">sftp</span> <span class="n">fileName</span> <span class="o">$</span> <span class="nf">\</span><span class="n">sftpHandle</span> <span class="ow">-&gt;</span>
+    <span class="n">runConduitRes</span> <span class="p">(</span><span class="n">streamFromS3</span> <span class="o">.|</span> <span class="n">streamToSftp</span> <span class="n">sftpHandle</span><span class="p">)</span>
+  <span class="kr">where</span>
+    <span class="n">fileName</span> <span class="ow">=</span> <span class="n">objectKey</span> <span class="o">^.</span> <span class="n">keyName</span> <span class="sc">&#39;/&#39;</span> <span class="o">.</span> <span class="n">to</span> <span class="n">unpack</span>
+</code></pre></div><p>Remember how I said the only thing we&rsquo;re missing was an <code>sftpWriteFileFromBytes</code> function? I lied, a little bit. Trying to compile this code will get you a compilation error:</p>
+<pre><code>src/Streaming.hs:36:3: error:
+    • Couldn't match type ‘m’ with ‘IO’
+      ‘m’ is a rigid type variable bound by
+        the type signature for:
+          streamFromS3ToSftp :: forall (m :: * -&gt; *).
+                                (MonadAWS m, MonadReader Sftp m, MonadIO m) =&gt;
+                                BucketName -&gt; ObjectKey -&gt; m ()
+        at src/Streaming.hs:32:1-112
+      Expected type: m ()
+        Actual type: IO ()
+</code></pre><p>We have a mismatch in our types: <code>RsBody</code> contains a <code>ConduitM () ByteString (ResourceT IO) ()</code>, but <code>streamToSftp</code> returns a <code>ConduitT ByteString Void (ResourceT m) a</code>. Note the <code>ResourceT IO</code> versus <code>ResourceT m</code> part. Thankfully, Conduit allows us to <a href="https://hackage.haskell.org/package/conduit-1.3.4.2/docs/Data-Conduit.html#v:transPipe">transform the monad that a stream lives in</a>, and <code>ResourceT</code> comes with a function to <a href="https://hackage.haskell.org/package/resourcet-1.2.4.3/docs/Control-Monad-Trans-Resource.html#v:transResourceT">transform the monad that the <code>ResourceT</code> lives in</a>! Two compositions later, and we end up
+with something that can transform the monad in the <code>ResourceT</code> in the <code>ConduitT</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-haskell" data-lang="haskell"><span class="nf">_streamBodyM</span> <span class="ow">::</span> <span class="kt">MonadIO</span> <span class="n">m</span> <span class="ow">=&gt;</span> <span class="kt">RsBody</span> <span class="ow">-&gt;</span> <span class="kt">ConduitT</span> <span class="nb">()</span> <span class="kt">ByteString</span> <span class="p">(</span><span class="kt">ResourceT</span> <span class="n">m</span><span class="p">)</span> <span class="nb">()</span>
+<span class="nf">_streamBodyM</span> <span class="p">(</span><span class="kt">RsBody</span> <span class="n">body</span><span class="p">)</span> <span class="ow">=</span> <span class="n">transPipe</span> <span class="p">(</span><span class="n">transResourceT</span> <span class="n">liftIO</span><span class="p">)</span> <span class="n">body</span>
+</code></pre></div><p>I named it <code>_streamBodyM</code> because it lifts <code>RsBody</code>&rsquo;s <code>_streamBody</code>. There are some <a href="https://github.com/snoyberg/conduit/wiki/Dealing-with-monad-transformers">intricate implementation details</a> of <code>transPipe</code> that I will leave as an exercise to the reader. Now we replace our usage of <code>_streamBody</code> with <code>_streamBodyM</code> in <code>getStreamFromS3</code> and we are good to go!</p>
+<p>Don&rsquo;t fret if you don&rsquo;t understand all the details. What I hope to convey to you is the fact that functional programing can be like playing with Lego! In my case, all the Lego blocks I needed are there, some bigger ones and some smaller ones. Due to the compositionality of (purely) functional code, all we have to do is identify the Lego blocks, find them, and compose them! I went from zero to a functioning serverless, streaming SFTP client in less than a week. How cool is that?!</p>
+<p>Full code:
+<!-- raw HTML omitted --></p>
+<div class="highlight"><pre class="chroma"><code class="language-haskell" data-lang="haskell"><span class="kr">module</span> <span class="nn">Streaming</span> <span class="kr">where</span>
+
+<span class="kr">import</span> <span class="nn">Conduit</span> <span class="p">(</span><span class="kt">ConduitT</span><span class="p">,</span> <span class="kt">ResourceT</span><span class="p">,</span> <span class="nf">await</span><span class="p">,</span> <span class="nf">runConduitRes</span><span class="p">,</span> <span class="nf">transPipe</span><span class="p">,</span> <span class="p">(</span><span class="o">.|</span><span class="p">))</span>
+<span class="kr">import</span> <span class="nn">Control.Monad.IO.Class</span> <span class="p">(</span><span class="kt">MonadIO</span> <span class="p">(</span><span class="o">..</span><span class="p">))</span>
+<span class="kr">import</span> <span class="nn">Control.Monad.Reader</span> <span class="p">(</span><span class="kt">MonadReader</span> <span class="p">(</span><span class="o">..</span><span class="p">))</span>
+<span class="kr">import</span> <span class="nn">Control.Monad.Trans.Resource</span> <span class="p">(</span><span class="kt">MonadUnliftIO</span><span class="p">,</span> <span class="nf">transResourceT</span><span class="p">)</span>
+<span class="kr">import</span> <span class="nn">Data.ByteString</span> <span class="p">(</span><span class="kt">ByteString</span><span class="p">)</span>
+<span class="kr">import</span> <span class="nn">Data.Text</span> <span class="p">(</span><span class="nf">unpack</span><span class="p">)</span>
+<span class="kr">import</span> <span class="nn">Data.Void</span> <span class="p">(</span><span class="kt">Void</span><span class="p">)</span>
+<span class="kr">import</span> <span class="nn">Network.AWS</span> <span class="p">(</span><span class="kt">MonadAWS</span><span class="p">,</span> <span class="nf">send</span><span class="p">)</span>
+<span class="kr">import</span> <span class="nn">Network.AWS.Data.Body</span> <span class="p">(</span><span class="kt">RsBody</span> <span class="p">(</span><span class="o">..</span><span class="p">))</span>
+<span class="kr">import</span> <span class="nn">Network.AWS.Lens</span> <span class="p">((</span><span class="o">^.</span><span class="p">),</span> <span class="nf">to</span><span class="p">)</span>
+<span class="kr">import</span> <span class="nn">Network.AWS.S3</span> <span class="p">(</span><span class="kt">BucketName</span><span class="p">,</span> <span class="kt">ObjectKey</span><span class="p">,</span> <span class="nf">keyName</span><span class="p">)</span>
+<span class="kr">import</span> <span class="nn">Network.AWS.S3.GetObject</span> <span class="p">(</span><span class="nf">getObject</span><span class="p">,</span> <span class="nf">gorsBody</span><span class="p">)</span>
+<span class="kr">import</span> <span class="nn">Network.SSH.Client.LibSSH2</span> <span class="p">(</span><span class="kt">Sftp</span><span class="p">,</span> <span class="kt">SftpHandle</span><span class="p">)</span>
+<span class="kr">import</span> <span class="nn">Network.SSH.Client.LibSSH2.Foreign</span> <span class="p">(</span><span class="kt">SftpFileTransferFlags</span> <span class="p">(</span><span class="o">..</span><span class="p">),</span> <span class="nf">sftpCloseHandle</span><span class="p">,</span> <span class="nf">sftpOpenFile</span><span class="p">)</span>
+<span class="kr">import</span> <span class="nn">Network.SSH.Client.LibSSH2.Foreign</span> <span class="p">(</span><span class="nf">sftpWriteFileFromBytes</span><span class="p">)</span>
+<span class="kr">import</span> <span class="nn">UnliftIO</span> <span class="p">(</span><span class="nf">bracket</span><span class="p">)</span>
+
+<span class="nf">getStreamFromS3</span> <span class="ow">::</span> <span class="n">forall</span> <span class="n">m</span> <span class="n">n</span>
+  <span class="o">.</span>  <span class="kt">MonadAWS</span> <span class="n">m</span>
+  <span class="ow">=&gt;</span> <span class="kt">MonadIO</span> <span class="n">n</span>
+  <span class="ow">=&gt;</span> <span class="kt">BucketName</span> <span class="ow">-&gt;</span> <span class="kt">ObjectKey</span> <span class="ow">-&gt;</span> <span class="n">m</span> <span class="p">(</span><span class="kt">ConduitT</span> <span class="nb">()</span> <span class="kt">ByteString</span> <span class="p">(</span><span class="kt">ResourceT</span> <span class="n">n</span><span class="p">)</span> <span class="nb">()</span><span class="p">)</span>
+<span class="nf">getStreamFromS3</span> <span class="n">bucketName</span> <span class="n">objectKey</span> <span class="ow">=</span> <span class="n">send</span> <span class="n">request</span> <span class="o">&gt;&gt;=</span> <span class="n">processResponse</span>
+  <span class="kr">where</span>
+    <span class="n">request</span> <span class="ow">=</span> <span class="n">getObject</span> <span class="n">bucketName</span> <span class="n">objectKey</span>
+    <span class="n">processResponse</span> <span class="n">response</span> <span class="ow">=</span> <span class="n">response</span> <span class="o">^.</span> <span class="n">gorsBody</span> <span class="o">.</span> <span class="n">to</span> <span class="p">(</span><span class="n">pure</span> <span class="o">.</span> <span class="n">_streamBodyM</span><span class="p">)</span>
+
+<span class="nf">streamToSftp</span> <span class="ow">::</span> <span class="n">forall</span> <span class="n">a</span> <span class="n">m</span>
+  <span class="o">.</span>  <span class="kt">Monoid</span> <span class="n">a</span>
+  <span class="ow">=&gt;</span> <span class="kt">MonadIO</span> <span class="n">m</span>
+  <span class="ow">=&gt;</span> <span class="kt">SftpHandle</span> <span class="ow">-&gt;</span> <span class="kt">ConduitT</span> <span class="kt">ByteString</span> <span class="kt">Void</span> <span class="p">(</span><span class="kt">ResourceT</span> <span class="n">m</span><span class="p">)</span> <span class="n">a</span>
+<span class="nf">streamToSftp</span> <span class="n">sftpHandle</span> <span class="ow">=</span> <span class="n">loop</span>
+  <span class="kr">where</span>
+    <span class="n">loop</span> <span class="ow">=</span> <span class="n">await</span> <span class="o">&gt;&gt;=</span> <span class="nf">\</span><span class="kr">case</span>
+      <span class="kt">Nothing</span> <span class="ow">-&gt;</span> <span class="n">pure</span> <span class="n">mempty</span>
+      <span class="kt">Just</span> <span class="n">bytes</span> <span class="ow">-&gt;</span> <span class="n">liftIO</span> <span class="p">(</span><span class="n">sftpWriteFileFromBytes</span> <span class="n">sftpHandle</span> <span class="n">bytes</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">loop</span>
+
+<span class="nf">streamFromS3ToSftp</span> <span class="ow">::</span> <span class="n">forall</span> <span class="n">m</span>
+  <span class="o">.</span>  <span class="kt">MonadAWS</span> <span class="n">m</span>
+  <span class="ow">=&gt;</span> <span class="kt">MonadUnliftIO</span> <span class="n">m</span>
+  <span class="ow">=&gt;</span> <span class="kt">MonadReader</span> <span class="kt">Sftp</span> <span class="n">m</span>
+  <span class="ow">=&gt;</span> <span class="kt">BucketName</span> <span class="ow">-&gt;</span> <span class="kt">ObjectKey</span> <span class="ow">-&gt;</span> <span class="n">m</span> <span class="nb">()</span>
+<span class="nf">streamFromS3ToSftp</span> <span class="n">bucketName</span> <span class="n">objectKey</span> <span class="ow">=</span> <span class="kr">do</span>
+  <span class="n">streamFromS3</span> <span class="ow">&lt;-</span> <span class="n">getStreamFromS3</span> <span class="n">bucketName</span> <span class="n">objectKey</span>
+  <span class="n">sftp</span> <span class="ow">&lt;-</span> <span class="n">ask</span>
+  <span class="n">withSftpHandle</span> <span class="n">sftp</span> <span class="n">fileName</span> <span class="o">$</span> <span class="nf">\</span><span class="n">sftpHandle</span> <span class="ow">-&gt;</span>
+    <span class="n">runConduitRes</span> <span class="p">(</span><span class="n">streamFromS3</span> <span class="o">.|</span> <span class="n">streamToSftp</span> <span class="n">sftpHandle</span><span class="p">)</span>
+  <span class="kr">where</span>
+    <span class="n">fileName</span> <span class="ow">=</span> <span class="n">objectKey</span> <span class="o">^.</span> <span class="n">keyName</span> <span class="sc">&#39;/&#39;</span> <span class="o">.</span> <span class="n">to</span> <span class="n">unpack</span>
+
+<span class="nf">withSftpHandle</span> <span class="ow">::</span> <span class="kt">MonadUnliftIO</span> <span class="n">m</span> <span class="ow">=&gt;</span> <span class="kt">Sftp</span> <span class="ow">-&gt;</span> <span class="kt">FilePath</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">SftpHandle</span> <span class="ow">-&gt;</span> <span class="n">m</span> <span class="n">a</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">m</span> <span class="n">a</span>
+<span class="nf">withSftpHandle</span> <span class="n">sftp</span> <span class="n">remote</span> <span class="ow">=</span> <span class="n">bracket</span>
+  <span class="p">(</span><span class="n">liftIO</span> <span class="o">$</span> <span class="n">sftpOpenFile</span> <span class="n">sftp</span> <span class="n">remote</span> <span class="mo">0o644</span> <span class="p">[</span><span class="kt">FXF_WRITE</span><span class="p">,</span> <span class="kt">FXF_CREAT</span><span class="p">])</span>
+  <span class="p">(</span><span class="n">liftIO</span> <span class="o">.</span> <span class="n">sftpCloseHandle</span><span class="p">)</span>
+
+<span class="nf">_streamBodyM</span> <span class="ow">::</span> <span class="kt">MonadIO</span> <span class="n">m</span> <span class="ow">=&gt;</span> <span class="kt">RsBody</span> <span class="ow">-&gt;</span> <span class="kt">ConduitT</span> <span class="nb">()</span> <span class="kt">ByteString</span> <span class="p">(</span><span class="kt">ResourceT</span> <span class="n">m</span><span class="p">)</span> <span class="nb">()</span>
+<span class="nf">_streamBodyM</span> <span class="p">(</span><span class="kt">RsBody</span> <span class="n">body</span><span class="p">)</span> <span class="ow">=</span> <span class="n">transPipe</span> <span class="p">(</span><span class="n">transResourceT</span> <span class="n">liftIO</span><span class="p">)</span> <span class="n">body</span>
+</code></pre></div><!-- raw HTML omitted -->
+
+
+
+  <div>
+    <div class="align">
+      
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+        <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"></path>
+      </svg>
+    </div>
+    <ul class="list">
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/categories/projects/">Projects</a></li>
+      
+    </ul>
+  </div>
+
+
+
+  <div>
+    <div class="align">
+      
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+        <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"></path>
+        <line x1="7" y1="7" x2="7" y2="7"></line>
+      </svg>
+    </div>
+    <ul class="list">
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/aws/">aws</a></li>
+      
+        <li>
+          
+            <a href="https://www.hjdskes.nl/tags/haskell/">haskell</a></li>
+      
+    </ul>
+  </div>
+
+
+<footer>
+  <nav>
+     
+      <a href="mailto:personal@hjdskes.nl" title="Send a mail to personal@hjdskes.nl">
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://twitter.com/Hjdskes" title="Hjdskes on Twitter" rel=me>
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://github.com/Hjdskes" title="Hjdskes on GitHub" rel=me>
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+      </a>
+    
+
+     
+      <a href="https://gitlab.gnome.org/Hjdskes" title="Hjdskes on GNOME GitLab" rel=me>
+        <svg viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+          <path d="M 10.788594,21.536734 C 7.1281588,20.923645 3.4317212,17.61669 3.8926704,13.669554 5.0660949,10.030121 9.4084325,9.002481 12.797722,9.0110661 c 3.127309,-0.7108099 5.300956,3.1584089 2.079944,4.7634329 -1.481971,1.481121 -6.562787,2.039887 -4.51544,4.8592 2.462629,2.050335 2.533426,-3.290017 5.338069,-2.15334 2.796365,0.976146 -0.163921,4.247454 -1.950641,4.696159 -0.921233,0.406032 -1.969188,0.530203 -2.96106,0.360216 z m 1.794295,-0.08356 c 2.705909,0.255118 6.301544,-4.993159 1.916049,-4.963018 -1.21743,1.167328 -3.784248,4.539961 -4.6998222,1.26491 0.2709802,-2.794652 3.8307952,-2.615115 5.4170302,-4.401817 2.651498,-1.633928 0.402305,-4.7420327 -2.166648,-4.246326 -3.3777465,-0.078097 -7.6444164,0.902415 -9.0000509,4.382807 -0.7054739,4.120455 3.3766681,7.576214 7.1722609,7.993766 0.453028,0.03846 0.910413,0.03039 1.361181,-0.03032 z M 3.9341566,10.427154 C 1.0490542,10.268445 3.2537383,5.1108327 4.7476099,8.3812657 5.0657664,9.1042431 5.0182823,10.460582 3.9341566,10.427154 Z M 4.4699344,10.30542 C 6.4977819,8.6779325 1.9003316,5.8776241 2.5877993,9.0260669 2.867495,9.7751822 3.6284369,10.422289 4.4699344,10.30542 Z M 6.7053902,8.5039933 C 3.6297286,7.8857682 6.6102452,2.4753402 7.9003551,6.1902266 8.0932518,7.0711831 7.829542,8.4523085 6.7053902,8.5039933 Z M 7.2746339,8.3298088 C 9.5332904,6.6816546 5.5180564,3.0049367 5.420685,6.6249745 5.5254822,7.5087681 6.2635101,8.5559472 7.2746339,8.3298088 Z M 14.642553,8.2311668 C 12.2283,6.5368719 14.541155,2.985536 16.840519,2.5219305 20.261447,1.9328509 20.0109,6.206991 17.399643,7.2088589 16.626868,7.8315576 15.666748,8.3385955 14.642553,8.2311668 Z M 15.768655,8.050831 c 2.864892,-0.3134359 5.553252,-6.0915541 0.966528,-5.299797 -2.55054,0.123197 -4.819128,5.8325044 -0.966528,5.299797 z M 10.185719,7.5115241 c -3.3583369,-1.5986324 1.671427,-6.90260758 1.965159,-2.311667 -0.105682,1.0279546 -0.733901,2.3978164 -1.965159,2.311667 z m 0.606495,-0.09287 C 13.232178,6.592527 11.605766,1.4635609 9.4839173,4.2607729 8.9204646,5.3532178 9.2561462,7.4217666 10.792214,7.4186541 Z"/>
+        </svg>
+      </a>
+    
+
+    
+  </nav>
+
+  <a href="/license">Copyright © 2016-2022 Jente Hidskes</a>
+</footer>
+
+<link rel="stylesheet" type="text/css" href="/css/syntax.css"/>
+<link rel="stylesheet" type="text/css" href="/css/zoom.css"/>
+<script defer type="text/javascript" src="/js/zoom-vanilla.js"></script>
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    images = document.querySelectorAll("img[data-action=\"zoom\"]");
+    images.forEach(function(image) {
+      image.style.display = "block";
+    })
+  }, false);
+</script>
+
+</body>
+</html>
+
